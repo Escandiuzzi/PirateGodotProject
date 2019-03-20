@@ -70,7 +70,7 @@ func _connect_traversable_tiles(traversable_tiles):
 					continue
 
 				# Connect points
-				astar.connect_points(id, target_id, true)
+				astar.connect_points(id, target_id, false)
 
 
 # Determines a unique ID for a given point on the map
@@ -104,7 +104,6 @@ func get_path(start, end):
 		return null
 
 	# Otherwise, find the map
-	print(astar.get_point_path(start_id, end_id))
 	var path_map = astar.get_point_path(start_id, end_id)
 
 	# Convert Vector3 array (remember, AStar is 3D) to real world points
