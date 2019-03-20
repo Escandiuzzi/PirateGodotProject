@@ -3,7 +3,7 @@ extends Node
 # Internal node references
 onready var navigation_map = $NavigationMap
 onready var player = $Player
-
+onready var node2D = $Node2D
 
 func _unhandled_input(event):
 	if Input.is_action_pressed("right_click"):
@@ -13,7 +13,7 @@ func _unhandled_input(event):
 # Calculates a new path and gives to sidekick
 func _calculate_new_path():
 	# Finds path
-	var path = navigation_map.get_path(player.position, get_viewport().get_mouse_position())
+	var path = navigation_map.get_path(player.position, node2D.get_global_mouse_position())
 
 	# If we got a path...
 	if path:
