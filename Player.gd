@@ -31,6 +31,7 @@ func _recruitPirate():
 	var newPos = Vector2(position.x - 33, position.y + (crewCount * 54));
 	newPirate.position = newPos;
 	crew[crewCount] = newPirate;
+	newPirate._setId(crewCount);
 	crewCount += 1;
 	add_child(newPirate);
 	pass;

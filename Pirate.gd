@@ -26,8 +26,11 @@ func _initializePirate():
 			var s = randi() % 4;
 			print(s);
 			special[i] = s;	
-	
 	pass
+	
+func _setId(_id):
+	id = _id;
+	pass;
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
