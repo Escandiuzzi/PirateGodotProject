@@ -89,7 +89,7 @@ func _get_id_for_point(point):
 
 # Returns a path from start to end
 # These are real positions, not cell coordinates
-func get_path(start, end):
+func get_caminho(start, end):
 
 	# Convert positions to cell coordinates
 	var start_tile = world_to_map(start);

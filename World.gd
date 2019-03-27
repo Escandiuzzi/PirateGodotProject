@@ -13,7 +13,7 @@ func _unhandled_input(event):
 # Calculates a new path and gives to sidekick
 func _calculate_new_path():
 	# Finds path
-	var path = navigation_map.get_path(player.position, node2D.get_global_mouse_position())
+	var path = navigation_map.get_caminho(player.position, node2D.get_global_mouse_position())
 
 	# If we got a path...
 	if path:

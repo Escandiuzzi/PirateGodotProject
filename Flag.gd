@@ -5,10 +5,12 @@ extends Node2D
 # var b = "textvar"
 onready var window = get_node("Button/Window");
 onready var menuButton = $Button;
+var MenuIlha
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	MenuIlha = get_node("MenuIlha")
 	pass
 
 #func _process(delta):
@@ -17,6 +19,12 @@ func _ready():
 #	pass
 
 func _on_Button_pressed():
-	window.popup();
-	window._change_position(position)
+	#window.popup();
+	MenuIlha.show()
+	print("criei popup")
+	#MenuIlha._change_position(position)
+	#window._change_position(position)
 	pass # replace with function body
+func _on_Fechar_pressed():
+	MenuIlha.hide()
+	pass
