@@ -8,11 +8,15 @@ var id;
 # var b = "textvar"
 
 func _ready():
-	for i in range(3):
-		special.append(null);
 	pass
 
+func _initializeArray():
+	for i in range(3):
+		special.append(null);
+	pass;
+
 func _initializePirate():
+	_initializeArray();
 	print("New Pirate created with: ")
 	for i in range(3):
 		var r = randi() & 100; 
@@ -41,8 +45,7 @@ func _savePirate():
 
 func _setData(_id, mining, battle, cooking):	
 	id = _id;
-	for i in range(3):
-		special.append(null);
+	_initializeArray();
 	special[0] = mining;
 	special[1] = battle;
 	special[2] = cooking;

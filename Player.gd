@@ -75,6 +75,7 @@ func _process(delta):
 	#pass;
 
 func _saveData():
+	print("saving...");
 	var save_game = File.new();
 	save_game.open("res://savegame.save", File.WRITE);
 	var ship_dict = {
@@ -89,9 +90,11 @@ func _saveData():
 		save_game.store_line(to_json(crew_dict));
 		
 	save_game.close();
+	print("saved");
 	pass;
 
 func _readData():
+	
 	var save_game = File.new();
 	if not save_game.file_exists("res://savegame.save") and crewCount == 0:
 		print("file does not exists");
@@ -99,7 +102,7 @@ func _readData():
 		
 	save_game.open("res://savegame.save", File.READ)
 	
-	#var first_line =  parse_json(save_game.get_line());
+	var first_line =  parse_json(save_game.get_line());
 	var current_line = parse_json(save_game.get_line())
 	while not save_game.eof_reached():
 		var newPirate = pirateObj.instance();
@@ -115,7 +118,7 @@ func _readData():
 		add_child(newPirate);
 		current_line = parse_json(save_game.get_line())
 	save_game.close();
-
+	pass;
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -125,9 +128,9 @@ func _readData():
 
 func _on_SaveButton_pressed():
 	_saveData();
-	pass # replace with function body
+	pass
 
 
 func _on_LoadButton_pressed():
 	_readData();
-	pass # replace with function body
+	pass
