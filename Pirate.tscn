@@ -3,7 +3,7 @@
 [ext_resource path="res://Pirate.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=2]
 
-[node name="Pirate" type="Node2D" index="0"]
+[node name="Pirate" type="Node2D"]
 
 script = ExtResource( 1 )
 

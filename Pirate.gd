@@ -10,13 +10,11 @@ var id;
 func _ready():
 	for i in range(3):
 		special.append(null);
-	_initializePirate();
 	pass
 
 func _initializePirate():
 	print("New Pirate created with: ")
 	for i in range(3):
-		
 		var r = randi() & 100; 
 		if r  > 87: #rare pirate
 			var s = randi() % 9 + 1;
@@ -31,6 +29,28 @@ func _initializePirate():
 func _setId(_id):
 	id = _id;
 	pass;
+
+func _savePirate():
+	var save_dict = {
+		"id" : id,
+		"mining" : special[0],
+		"battle" : special[1],
+		"cooking" : special[2]
+		}
+	return save_dict;
+
+func _setData(_id, mining, battle, cooking):	
+	id = _id;
+	for i in range(3):
+		special.append(null);
+	special[0] = mining;
+	special[1] = battle;
+	special[2] = cooking;
+	print("updating data")
+	print(special[0]);
+	print(special[1]);
+	print(special[2]);
+	pass; 
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
