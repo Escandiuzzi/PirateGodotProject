@@ -13,6 +13,19 @@ var path;
 var crewCount = 0;
 var crew = [];
 
+var slot_positions = [
+Vector2(-450, 0), 
+Vector2(-350, 0),
+Vector2(-250, 0),
+Vector2(-150, 0), 
+Vector2(-50, 0),
+Vector2(50, 0),
+Vector2(150, 0),
+Vector2(250, 0),
+Vector2(350, 0),
+Vector2(450, 0)];
+
+onready var hudObj = get_node("HUD");
 
 onready var pirateObj = preload("res://Pirate.tscn");
 
@@ -21,24 +34,24 @@ func _ready():
 		crew.append(null);
 	pass
 
-func _input(ev):
-	if ev is InputEventKey and ev.scancode == KEY_K and not ev.echo and crewCount < 10:
+func _input(event):
+	if event.is_action_pressed("key_k") and crewCount < 10:
 		_recruitPirate();
-	if ev is InputEventKey and ev.scancode == KEY_S and not ev.echo:
-		_saveData();
-	if ev is InputEventKey and ev.scancode == KEY_R and not ev.echo:
-		_readData();
+	if event.is_action_pressed("key_v"):
+		if hudObj.visible == true:
+			hudObj.visible = false;
+		else:
+			hudObj.visible = true;
 	pass;
 
 func _recruitPirate():
 	var newPirate = pirateObj.instance();
-	var newPos = Vector2(position.x - 33, position.y + (crewCount * 54));
-	newPirate.position = newPos;
 	crew[crewCount] = newPirate;
 	newPirate._initializePirate();
 	newPirate._setId(crewCount);
+	hudObj.add_child(newPirate);
+	newPirate.position = slot_positions[crewCount];
 	crewCount += 1;
-	add_child(newPirate);
 	pass;
 
 # Performed on each step
@@ -106,16 +119,15 @@ func _readData():
 	var current_line = parse_json(save_game.get_line())
 	while not save_game.eof_reached():
 		var newPirate = pirateObj.instance();
-		var newPos = Vector2(position.x - 33, position.y + (crewCount * 54));
-		newPirate.position = newPos;
 		crew[crewCount] = newPirate;
 		print("---------");
 		print(crewCount);
 		print("---------");
 		newPirate._setId(crewCount);
 		newPirate._setData(crewCount, current_line["mining"], current_line["battle"], current_line["cooking"]);
+		hudObj.add_child(newPirate);
+		newPirate.position = slot_positions[crewCount];
 		crewCount += 1;
-		add_child(newPirate);
 		current_line = parse_json(save_game.get_line())
 	save_game.close();
 	pass;

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Flag.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprite/placeholder.png" type="Texture" id=4]
+[ext_resource path="res://Flag.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node" index="0"]
 
@@ -17,20 +18,28 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 position = Vector2( 34.0093, 34.0093 )
 MOVEMENT_SPEED = 150
 
-[node name="SaveButton" type="Button" parent="Player" index="1"]
+[node name="HUD" type="Sprite" parent="Player" index="1"]
+
+editor/display_folded = true
+position = Vector2( 6.10558, 102.102 )
+scale = Vector2( 0.486804, 0.5 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="SaveButton" type="Button" parent="Player/HUD" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -213.0
-margin_top = -118.0
-margin_right = -135.0
-margin_bottom = -98.0
+margin_left = -452.144
+margin_top = -442.204
+margin_right = -374.144
+margin_bottom = -422.204
+rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -46,17 +55,19 @@ text = "Save"
 flat = false
 clip_text = true
 align = 1
+_sections_unfolded = [ "Hint", "Rect" ]
 
-[node name="LoadButton" type="Button" parent="Player" index="2"]
+[node name="LoadButton" type="Button" parent="Player/HUD" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -213.0
-margin_top = -92.0
-margin_right = -135.0
-margin_bottom = -72.0
+margin_left = -453.0
+margin_top = -364.0
+margin_right = -375.0
+margin_bottom = -344.0
+rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -72,29 +83,30 @@ text = "Load"
 flat = false
 clip_text = true
 align = 1
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="Flags" type="Node" parent="." index="3"]
 
 editor/display_folded = true
 
-[node name="Flag" parent="Flags" index="0" instance=ExtResource( 4 )]
+[node name="Flag" parent="Flags" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -342.047, 196.745 )
 
-[node name="Flag2" parent="Flags" index="1" instance=ExtResource( 4 )]
+[node name="Flag2" parent="Flags" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 319.674, -61.0101 )
 
-[node name="Flag3" parent="Flags" index="2" instance=ExtResource( 4 )]
+[node name="Flag3" parent="Flags" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -880.167, 356.523 )
 
-[node name="Flag4" parent="Flags" index="3" instance=ExtResource( 4 )]
+[node name="Flag4" parent="Flags" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( -430.98, -172.553 )
 
-[connection signal="pressed" from="Player/SaveButton" to="Player" method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="Player/HUD/SaveButton" to="Player" method="_on_SaveButton_pressed"]
 
-[connection signal="pressed" from="Player/LoadButton" to="Player" method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="Player/HUD/LoadButton" to="Player" method="_on_LoadButton_pressed"]
 
 
