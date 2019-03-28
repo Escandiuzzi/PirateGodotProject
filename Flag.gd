@@ -21,6 +21,8 @@ func _ready():
 func _on_Button_pressed():
 	#window.popup();
 	MenuIlha.show()
+	var a = Vector2(0,0)
+	MenuIlha.rect_position = position
 	print("criei popup")
 	#MenuIlha._change_position(position)
 	#window._change_position(position)

@@ -80,7 +80,6 @@ margin_bottom = 87.6717
 text = "Fechar"
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 5 )]
-editor/display_folded = true
 position = Vector2( 319.674, -61.0101 )
 
 [node name="MenuIlha" type="PopupMenu" parent="Flags/Flag2"]
