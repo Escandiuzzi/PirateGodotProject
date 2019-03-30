@@ -46,11 +46,14 @@ text = "Load"
 clip_text = true
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( -342.047, 196.745 )
 
 [node name="IslandMenu" type="PopupMenu" parent="Flags/Flag"]
+editor/display_folded = true
 margin_right = 20.0
 margin_bottom = 20.0
 
@@ -74,15 +77,18 @@ margin_bottom = 87.6717
 text = "Close"
 
 [node name="Island" parent="Flags/Flag/IslandMenu" instance=ExtResource( 7 )]
+editor/display_folded = true
 position = Vector2( -37.2311, 0 )
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag"
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 319.674, -61.0101 )
 
 [node name="IslandMenu" type="PopupMenu" parent="Flags/Flag2"]
+editor/display_folded = true
 margin_right = 20.0
 margin_bottom = 20.0
 
@@ -106,15 +112,18 @@ margin_bottom = 79.4429
 text = "Close"
 
 [node name="Island" parent="Flags/Flag2/IslandMenu" instance=ExtResource( 7 )]
+editor/display_folded = true
 position = Vector2( -24.3766, 0 )
 
 [node name="PopupMenu" parent="Flags/Flag2/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag2"
 
 [node name="Flag3" parent="Flags" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( -880.167, 356.523 )
 
 [node name="IslandMenu" type="PopupMenu" parent="Flags/Flag3"]
+editor/display_folded = true
 margin_right = 20.0
 margin_bottom = 20.0
 
@@ -138,15 +147,18 @@ margin_bottom = 87.335
 text = "Close"
 
 [node name="Island" parent="Flags/Flag3/IslandMenu" instance=ExtResource( 7 )]
+editor/display_folded = true
 position = Vector2( -33.2408, 8.8642 )
 
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag3"
 
 [node name="Flag4" parent="Flags" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( -430.98, -172.553 )
 
 [node name="IslandMenu" type="PopupMenu" parent="Flags/Flag4"]
+editor/display_folded = true
 margin_right = 20.0
 margin_bottom = 20.0
 

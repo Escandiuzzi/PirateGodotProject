@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 islandSize = 3
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Button" type="Button" parent="."]
 margin_right = 45.0
@@ -16,7 +17,6 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_right = 348.0
 margin_bottom = 206.0
 script = ExtResource( 2 )

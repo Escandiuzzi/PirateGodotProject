@@ -140,6 +140,9 @@ func _readData():
 func _get_crew():
 	return crew;
 	pass;
+func _get_pirate(index):
+	return crew[index];
+	pass;
 
 func _on_SaveButton_pressed():
 	_saveData();

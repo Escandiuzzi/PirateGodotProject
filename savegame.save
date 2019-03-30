@@ -1,3 +1,4 @@
-{"crewCount":2,"ship":"starterShip"}
+{"crewCount":3,"ship":"starterShip"}
 {"battle":3,"cooking":8,"id":0,"mining":6}
 {"battle":0,"cooking":3,"id":1,"mining":1}
+{"battle":0,"cooking":2,"id":2,"mining":5}
