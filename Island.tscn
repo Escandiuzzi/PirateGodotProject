@@ -1,0 +1,181 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Island.gd" type="Script" id=1]
+[ext_resource path="res://PopupMenu.gd" type="Script" id=2]
+[ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=3]
+
+[node name="Island" type="Node2D"]
+script = ExtResource( 1 )
+islandSize = 3
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+margin_right = 45.0
+margin_bottom = 20.0
+text = "Open"
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
+margin_right = 348.0
+margin_bottom = 206.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextEdit" type="TextEdit" parent="PopupMenu"]
+margin_top = -37.0
+margin_right = 345.0
+margin_bottom = 3.0
+rect_pivot_offset = Vector2( 300, 17 )
+text = "                                 Pirates Slots
+					   Island Capacity : 3 Pirates"
+
+[node name="CheckBox" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 40.0
+margin_top = 60.0
+margin_right = 64.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox2" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 124.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox2"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox3" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 160.0
+margin_top = 60.0
+margin_right = 184.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox3"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox4" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 220.0
+margin_top = 60.0
+margin_right = 244.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox4"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox5" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 280.0
+margin_top = 60.0
+margin_right = 304.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox5"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox6" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 220.0
+margin_top = 149.0
+margin_right = 244.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox6"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 40.0
+margin_top = 149.0
+margin_right = 64.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox8" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 160.0
+margin_top = 149.0
+margin_right = 184.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox8"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 280.0
+margin_top = 149.0
+margin_right = 304.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="CheckBox10" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+margin_left = 100.0
+margin_top = 149.0
+margin_right = 124.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox10"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="StartButton" type="Button" parent="PopupMenu"]
+margin_left = 135.744
+margin_top = 177.903
+margin_right = 208.744
+margin_bottom = 197.903
+text = "Start"
+
+[node name="CloseButton2" type="Button" parent="PopupMenu"]
+margin_left = 288.734
+margin_top = -29.3899
+margin_right = 335.734
+margin_bottom = -9.38987
+text = "Close"
+
+[connection signal="pressed" from="Button" to="PopupMenu" method="_on_Button_pressed"]
+[connection signal="toggled" from="PopupMenu/CheckBox" to="." method="_on_CheckBox_toggled" binds= [ 0 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox2" to="." method="_on_CheckBox_toggled" binds= [ 1 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox3" to="." method="_on_CheckBox_toggled" binds= [ 2 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox4" to="." method="_on_CheckBox_toggled" binds= [ 3 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox5" to="." method="_on_CheckBox_toggled" binds= [ 4 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox6" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 6 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox8" to="." method="_on_CheckBox_toggled" binds= [ 7 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
+[connection signal="pressed" from="PopupMenu/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="PopupMenu/CloseButton2" to="PopupMenu" method="_on_CloseButton2_pressed"]

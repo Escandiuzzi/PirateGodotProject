@@ -55,6 +55,10 @@ func _setData(_id, mining, battle, cooking):
 	print(special[2]);
 	pass; 
 
+func _get_special(index):
+	return special[index];
+	pass;
+
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

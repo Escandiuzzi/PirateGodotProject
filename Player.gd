@@ -2,7 +2,7 @@ extends Sprite
 
 # Speed at which the sidekick will move
 
-export(int) var MOVEMENT_SPEED;
+export(int) var movement_speed;
 
 # How close the sidekick must be to a point in the
 # path before moving on to the next one
@@ -67,7 +67,7 @@ func _process(delta):
 		var direction = (target - position).normalized();
 
 		# Move sidekick
-		position += direction * MOVEMENT_SPEED * delta;
+		position += direction * movement_speed * delta;
 
 		# If we have reached the point...
 		if position.distance_to(target) < POINT_RADIUS:
@@ -137,12 +137,15 @@ func _readData():
 #	# Update game logic here.
 #	pass
 
+func _get_crew():
+	return crew;
+	pass;
 
 func _on_SaveButton_pressed():
 	_saveData();
-	pass
+	pass;
 
 
 func _on_LoadButton_pressed():
 	_readData();
-	pass
+	pass;
