@@ -17,6 +17,7 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
 margin_right = 348.0
 margin_bottom = 206.0
 script = ExtResource( 2 )
@@ -92,26 +93,26 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
-[node name="CheckBox6" type="CheckBox" parent="PopupMenu"]
+[node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
 margin_left = 220.0
 margin_top = 149.0
 margin_right = 244.0
 margin_bottom = 173.0
 
-[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox6"]
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
-[node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
+[node name="CheckBox6" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
 margin_left = 40.0
 margin_top = 149.0
 margin_right = 64.0
 margin_bottom = 173.0
 
-[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox6"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
@@ -128,26 +129,26 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
-[node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
+[node name="CheckBox10" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
 margin_left = 280.0
 margin_top = 149.0
 margin_right = 304.0
 margin_bottom = 173.0
 
-[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox10"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
-[node name="CheckBox10" type="CheckBox" parent="PopupMenu"]
+[node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
 margin_left = 100.0
 margin_top = 149.0
 margin_right = 124.0
 margin_bottom = 173.0
 
-[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox10"]
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
@@ -172,10 +173,10 @@ text = "Close"
 [connection signal="toggled" from="PopupMenu/CheckBox3" to="." method="_on_CheckBox_toggled" binds= [ 2 ]]
 [connection signal="toggled" from="PopupMenu/CheckBox4" to="." method="_on_CheckBox_toggled" binds= [ 3 ]]
 [connection signal="toggled" from="PopupMenu/CheckBox5" to="." method="_on_CheckBox_toggled" binds= [ 4 ]]
-[connection signal="toggled" from="PopupMenu/CheckBox6" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
-[connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 6 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox6" to="." method="_on_CheckBox_toggled" binds= [ 6 ]]
 [connection signal="toggled" from="PopupMenu/CheckBox8" to="." method="_on_CheckBox_toggled" binds= [ 7 ]]
-[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
-[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
 [connection signal="pressed" from="PopupMenu/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="PopupMenu/CloseButton2" to="PopupMenu" method="_on_CloseButton2_pressed"]
