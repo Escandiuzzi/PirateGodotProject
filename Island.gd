@@ -1,19 +1,21 @@
 extends Node2D
 
+signal on_timer_change(time_left);
+
 export(int) var miningTime;
 export(int) var islandSize;
 export(int) var indexType;
 
 var selectedPirates = 0;
-
 var pirates = [];
 var pirateId = [];
 var started = false;
-
 var player;
+
 
 onready var timer = $Timer;
 onready var canvasSlots = [
+
 get_node("PopupMenu/CheckBox"),
 get_node("PopupMenu/CheckBox2"),
 get_node("PopupMenu/CheckBox3"),
@@ -42,7 +44,7 @@ func _startMining():
 	for i in range(selectedPirates):
 		miningPoints += pirates[i]._get_special(indexType);
 	if miningPoints > miningTime:
-		miningPoints = 1
+		miningPoints = 1;
 	else:
 		miningPoints = miningTime - miningPoints;
 	
@@ -51,13 +53,17 @@ func _startMining():
 	print("Started mining");
 	print("expected to end in ");
 	print(miningPoints);
+	miningTime = miningPoints;
 	
-	timer.start(miningPoints);
+	timer.start(miningPoints); 
 	started = true;
 	pass;
 
 func _process(delta):
 	if started:
+		var _percentage = miningTime - timer.get_time_left();
+		_percentage = (_percentage * 100) / miningTime;
+		emit_signal("on_timer_change", _percentage);
 		if timer.is_stopped():
 			print("Pirates ended mining");
 			timer.stop();

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Flag.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/flag.png" type="Texture" id=2]
-[ext_resource path="res://Window.gd" type="Script" id=3]
 
 [node name="Flag" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,12 +13,5 @@ margin_right = 125.0
 margin_bottom = 120.0
 rect_scale = Vector2( 0.3, 0.3 )
 icon = ExtResource( 2 )
-
-[node name="Window" type="WindowDialog" parent="Button"]
-margin_left = -44.0
-margin_top = 8.0
-margin_right = 167.0
-margin_bottom = 100.0
-script = ExtResource( 3 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
