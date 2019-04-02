@@ -12,7 +12,12 @@ var pirateId = [];
 var started = false;
 var player;
 
+var rewards = [];
 
+onready var popupMenu = $PopupMenu;
+onready var button2 = $Button2;
+onready var rewardMenu = $RewardMenu;
+onready var rewardText = $RewardMenu/TextEdit;
 onready var timer = $Timer;
 onready var canvasSlots = [
 
@@ -34,7 +39,7 @@ func _ready():
 		pirates.append(null);
 		pirateId.append(null);
 	pass 
-	
+
 func _clearIsland():
 	pirates.clear();
 	pass;
@@ -53,8 +58,8 @@ func _startMining():
 	print("Started mining");
 	print("expected to end in ");
 	print(miningPoints);
+
 	miningTime = miningPoints;
-	
 	timer.start(miningPoints); 
 	started = true;
 	pass;
@@ -68,6 +73,8 @@ func _process(delta):
 			print("Pirates ended mining");
 			timer.stop();
 			started = false;
+			button2.show();
+			_getRewards();
 	pass
 
 func _on_CheckBox_toggled(button_pressed, extra_arg_0):
@@ -93,7 +100,38 @@ func _insertPirates():
 	pass
 
 func _on_StartButton_pressed():
+	popupMenu.hide();
 	if selectedPirates > 0:
 			_insertPirates();
 	pass;
 
+func _on_CollectButton_pressed():
+	rewardMenu.hide();
+	pass # Replace with function body.
+
+func _getRewards():
+	
+	var rewardN = randi() % 9 + 1;
+	for i in range(rewardN):
+		rewards.append(null);
+	
+	var itens_file = File.new();
+
+	if not itens_file.file_exists("res://itens.save"):
+		print("file does not exists");
+		return;
+		
+	itens_file.open("res://itens.save", File.READ)
+	while not itens_file.eof_reached():
+		var current_line = parse_json(itens_file.get_line());
+		for i in range(rewardN):
+			var randReward = randi() % 9 + 1;
+			rewards[i] = current_line[str(randReward)];
+			print(rewards[i]);
+		current_line = parse_json(itens_file.get_line());
+	itens_file.close();
+	
+	for i in range(rewardN):
+		rewardText.text += rewards[i];
+		rewardText.text += "\n";
+	pass;

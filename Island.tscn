@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Island.gd" type="Script" id=1]
 [ext_resource path="res://PopupMenu.gd" type="Script" id=2]
 [ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=3]
+[ext_resource path="res://Button2.gd" type="Script" id=4]
+[ext_resource path="res://RewardMenu.gd" type="Script" id=5]
 
 [node name="Island" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,7 +19,6 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_right = 348.0
 margin_bottom = 206.0
 script = ExtResource( 2 )
@@ -167,6 +168,33 @@ margin_right = 335.734
 margin_bottom = -9.38987
 text = "Close"
 
+[node name="Button2" type="Button" parent="."]
+visible = false
+margin_left = 68.0
+margin_right = 124.0
+margin_bottom = 20.0
+text = "Collect"
+script = ExtResource( 4 )
+
+[node name="RewardMenu" type="PopupMenu" parent="."]
+margin_left = 68.0
+margin_right = 306.0
+margin_bottom = 133.0
+script = ExtResource( 5 )
+
+[node name="TextEdit" type="TextEdit" parent="RewardMenu"]
+margin_left = 16.6415
+margin_top = 13.6419
+margin_right = 221.642
+margin_bottom = 99.6419
+
+[node name="CollectButton" type="Button" parent="RewardMenu"]
+margin_left = 88.0
+margin_top = 103.472
+margin_right = 144.0
+margin_bottom = 123.472
+text = "Collect"
+
 [connection signal="pressed" from="Button" to="PopupMenu" method="_on_Button_pressed"]
 [connection signal="toggled" from="PopupMenu/CheckBox" to="." method="_on_CheckBox_toggled" binds= [ 0 ]]
 [connection signal="toggled" from="PopupMenu/CheckBox2" to="." method="_on_CheckBox_toggled" binds= [ 1 ]]
@@ -180,3 +208,5 @@ text = "Close"
 [connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
 [connection signal="pressed" from="PopupMenu/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="PopupMenu/CloseButton2" to="PopupMenu" method="_on_CloseButton2_pressed"]
+[connection signal="pressed" from="Button2" to="RewardMenu" method="_on_Button2_pressed"]
+[connection signal="pressed" from="RewardMenu/CollectButton" to="." method="_on_CollectButton_pressed"]
