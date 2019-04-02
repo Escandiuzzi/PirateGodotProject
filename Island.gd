@@ -1,6 +1,7 @@
 extends Node2D
 
 signal on_timer_change(time_left);
+signal send_player_reward(player_reward);
 
 export(int) var miningTime;
 export(int) var islandSize;
@@ -107,10 +108,10 @@ func _on_StartButton_pressed():
 
 func _on_CollectButton_pressed():
 	rewardMenu.hide();
+	
 	pass # Replace with function body.
 
-func _getRewards():
-	
+func _getRewards():	
 	var rewardN = randi() % 9 + 1;
 	for i in range(rewardN):
 		rewards.append(null);
@@ -134,4 +135,5 @@ func _getRewards():
 	for i in range(rewardN):
 		rewardText.text += rewards[i];
 		rewardText.text += "\n";
+	emit_signal("send_player_reward", rewards);
 	pass;

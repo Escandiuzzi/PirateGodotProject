@@ -12,6 +12,7 @@ const POINT_RADIUS = 5;
 var path;
 var crewCount = 0;
 var crew = [];
+var inventory = [];
 
 var slot_positions = [
 Vector2(-450, 0), 
@@ -147,8 +148,12 @@ func _get_pirate(index):
 func _on_SaveButton_pressed():
 	_saveData();
 	pass;
-
-
 func _on_LoadButton_pressed():
 	_readData();
+	pass;
+func _on_Island_send_player_reward(player_reward):
+	inventory = player_reward;
+	pass ;
+func _get_inventory():
+	return inventory;
 	pass;
