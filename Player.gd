@@ -157,3 +157,4 @@ func _on_Island_send_player_reward(player_reward):
 func _get_inventory():
 	return inventory;
 	pass;
+

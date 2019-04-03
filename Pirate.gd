@@ -2,6 +2,7 @@ extends Node2D
 
 var special = [];
 var id;
+var busy;
 
 # class member variables go here, for example:
 # var a = 2
@@ -58,6 +59,12 @@ func _setData(_id, mining, battle, cooking):
 func _get_special(index):
 	return special[index];
 	pass;
+
+func _set_busy(status):
+	busy = status;
+	pass;
+func _get_busy():
+	return busy;
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

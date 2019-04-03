@@ -112,6 +112,10 @@ position = Vector2( -40.9065, 4.41052 )
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag"
 
+[node name="TextEdit" parent="Flags/Flag/IslandMenu/Island/PopupMenu" index="1"]
+text = "                                 Pirates Slots
+					   Island Capacity : 3 Pirates"
+
 [node name="MineProgress" type="TextureProgress" parent="Flags/Flag/IslandMenu"]
 margin_left = -117.763
 margin_top = -36.6468
@@ -169,6 +173,10 @@ position = Vector2( -24.3766, 0 )
 [node name="PopupMenu" parent="Flags/Flag2/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag2"
 
+[node name="TextEdit" parent="Flags/Flag2/IslandMenu/Island/PopupMenu" index="1"]
+text = "                                 Pirates Slots
+					   Island Capacity : 3 Pirates"
+
 [node name="Flag3" parent="Flags" instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( -880.167, 356.523 )
@@ -221,6 +229,10 @@ margin_bottom = 20.7738
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag3"
 
+[node name="TextEdit" parent="Flags/Flag3/IslandMenu/Island/PopupMenu" index="1"]
+text = "                                 Pirates Slots
+					   Island Capacity : 3 Pirates"
+
 [node name="Flag4" parent="Flags" instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( -430.98, -172.553 )
@@ -272,6 +284,10 @@ margin_bottom = 21.5475
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag4"
+
+[node name="TextEdit" parent="Flags/Flag4/IslandMenu/Island/PopupMenu" index="1"]
+text = "                                 Pirates Slots
+					   Island Capacity : 3 Pirates"
 
 [connection signal="pressed" from="Player/HUD/SaveButton" to="Player" method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="Player/HUD/LoadButton" to="Player" method="_on_LoadButton_pressed"]

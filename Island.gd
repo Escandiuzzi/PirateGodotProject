@@ -16,6 +16,7 @@ var player;
 var rewards = [];
 
 onready var popupMenu = $PopupMenu;
+onready var button = $Button;
 onready var button2 = $Button2;
 onready var rewardMenu = $RewardMenu;
 onready var rewardText = $RewardMenu/TextEdit;
@@ -97,6 +98,7 @@ func _insertPirates():
 		if pirateId[i] == null:
 			break;
 		pirates[i] = player._get_pirate(pirateId[i]);
+		pirates[i]._set_busy(true);
 	_startMining();
 	pass
 
@@ -104,11 +106,12 @@ func _on_StartButton_pressed():
 	popupMenu.hide();
 	if selectedPirates > 0:
 			_insertPirates();
+	button.hide();
 	pass;
 
 func _on_CollectButton_pressed():
 	rewardMenu.hide();
-	
+	button2.hide();
 	pass # Replace with function body.
 
 func _getRewards():	
@@ -136,4 +139,12 @@ func _getRewards():
 		rewardText.text += rewards[i];
 		rewardText.text += "\n";
 	emit_signal("send_player_reward", rewards);
+	
+	for i in range(selectedPirates):
+		if pirateId[i] == null:
+			break;
+		pirates[i]._set_busy(false);
+	
+	pirates.clear();
+	
 	pass;

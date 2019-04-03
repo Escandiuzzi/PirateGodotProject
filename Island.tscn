@@ -178,7 +178,6 @@ text = "Collect"
 script = ExtResource( 4 )
 
 [node name="RewardMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_left = 68.0
 margin_right = 306.0
 margin_bottom = 133.0

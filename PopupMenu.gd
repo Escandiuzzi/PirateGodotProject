@@ -44,7 +44,7 @@ func _on_Button_pressed():
 func _check_player_crew():
 	var crew = player._get_crew();
 	for i in range(10):
-		if crew[i] == null:
+		if crew[i] == null || crew[i]._get_busy() == true:
 			canvasSlots[i].visible = false;
 
 	pass;
