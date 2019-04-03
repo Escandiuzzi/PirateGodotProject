@@ -106,7 +106,7 @@ func _on_StartButton_pressed():
 	popupMenu.hide();
 	if selectedPirates > 0:
 			_insertPirates();
-	button.hide();
+			button.hide();
 	pass;
 
 func _on_CollectButton_pressed():

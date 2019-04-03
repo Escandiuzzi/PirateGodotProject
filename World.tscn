@@ -71,35 +71,58 @@ margin_bottom = 235.853
 text = "Close"
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( -342.047, 196.745 )
 
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 7 )]
+
+[node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
+editor/display_folded = true
+
+[node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag"
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( 319.674, -61.0101 )
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 7 )]
+editor/display_folded = true
+
+[node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
+editor/display_folded = true
 
 [node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag2"
 
 [node name="Flag3" parent="Flags" instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( -880.167, 356.523 )
 
 [node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 7 )]
+editor/display_folded = true
+
+[node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
+editor/display_folded = true
 
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag3"
 
 [node name="Flag4" parent="Flags" instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( -430.98, -172.553 )
 
 [node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 7 )]
+editor/display_folded = true
+
+[node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
+editor/display_folded = true
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag4"
