@@ -150,5 +150,3 @@ func _getRewards():
 	
 	pass;
 
-func _on_Area2D_mouse_entered(extra_arg_0):
-	pass # Replace with function body.
