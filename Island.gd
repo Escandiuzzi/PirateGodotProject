@@ -115,6 +115,7 @@ func _on_CollectButton_pressed():
 	pass # Replace with function body.
 
 func _getRewards():	
+	randomize();
 	var rewardN = randi() % 9 + 1;
 	for i in range(rewardN):
 		rewards.append(null);
@@ -148,3 +149,6 @@ func _getRewards():
 	pirates.clear();
 	
 	pass;
+
+func _on_Area2D_mouse_entered(extra_arg_0):
+	pass # Replace with function body.

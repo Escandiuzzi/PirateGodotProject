@@ -20,6 +20,7 @@ func _initializePirate():
 	_initializeArray();
 	print("New Pirate created with: ")
 	for i in range(3):
+		randomize();
 		var r = randi() & 100; 
 		if r  > 87: #rare pirate
 			var s = randi() % 9 + 1;

@@ -7,15 +7,14 @@
 [ext_resource path="res://Island.tscn" type="PackedScene" id=5]
 
 [node name="IslandMenu" type="Node2D"]
-editor/display_folded = true
 
 [node name="IslandMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_left = -110.0
 margin_top = -90.0
 margin_right = 110.0
 margin_bottom = 90.0
 rect_pivot_offset = Vector2( 110, 90 )
+mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -31,6 +30,7 @@ margin_top = -73.0
 margin_right = 39.0
 margin_bottom = -45.0
 text = "     Island"
+readonly = true
 
 [node name="Close" type="Button" parent="IslandMenu"]
 margin_left = 79.0
@@ -51,7 +51,6 @@ texture_progress = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="Island" parent="IslandMenu" instance=ExtResource( 5 )]
-editor/display_folded = true
 position = Vector2( 89.093, 0 )
 
 [node name="Button" parent="IslandMenu/Island" index="1"]
@@ -62,6 +61,7 @@ margin_bottom = 119.642
 [node name="PopupMenu" parent="IslandMenu/Island" index="2"]
 margin_left = -149.093
 margin_right = 198.907
+mouse_filter = 2
 
 [node name="RewardMenu" parent="IslandMenu/Island" index="4"]
 editor/display_folded = true

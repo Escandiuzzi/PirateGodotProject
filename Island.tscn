@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Island.gd" type="Script" id=1]
 [ext_resource path="res://PopupMenu.gd" type="Script" id=2]
 [ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=3]
 [ext_resource path="res://Button2.gd" type="Script" id=4]
 [ext_resource path="res://RewardMenu.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 40.9284
 
 [node name="Island" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,24 +22,22 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
-margin_right = 348.0
+margin_left = -0.451874
+margin_right = 347.548
 margin_bottom = 206.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="TextEdit" type="TextEdit" parent="PopupMenu"]
-margin_top = -37.0
-margin_right = 345.0
-margin_bottom = 3.0
+margin_left = 1.9412
+margin_top = -37.9706
+margin_right = 346.941
+margin_bottom = 2.0294
 rect_pivot_offset = Vector2( 300, 17 )
 text = "                                 Pirates Slots
 					   Island Capacity : 3 Pirates"
+readonly = true
 
 [node name="CheckBox" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 40.0
 margin_top = 60.0
 margin_right = 64.0
@@ -47,8 +48,12 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
+[node name="Area2D" type="Area2D" parent="PopupMenu/CheckBox/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox/Sprite/Area2D"]
+shape = SubResource( 1 )
+
 [node name="CheckBox2" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 100.0
 margin_top = 60.0
 margin_right = 124.0
@@ -59,8 +64,16 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
+[node name="Area2D2" type="Area2D" parent="PopupMenu/CheckBox2/Sprite"]
+position = Vector2( -0.122238, 0.681122 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox2/Sprite/Area2D2"]
+shape = SubResource( 1 )
+
 [node name="CheckBox3" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 160.0
 margin_top = 60.0
 margin_right = 184.0
@@ -71,8 +84,16 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
+[node name="Area2D3" type="Area2D" parent="PopupMenu/CheckBox3/Sprite"]
+position = Vector2( -0.244446, -0.681122 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox3/Sprite/Area2D3"]
+shape = SubResource( 1 )
+
 [node name="CheckBox4" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 220.0
 margin_top = 60.0
 margin_right = 244.0
@@ -83,8 +104,16 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
+[node name="Area2D4" type="Area2D" parent="PopupMenu/CheckBox4/Sprite"]
+position = Vector2( -1.04785, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox4/Sprite/Area2D4"]
+shape = SubResource( 1 )
+
 [node name="CheckBox5" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 280.0
 margin_top = 60.0
 margin_right = 304.0
@@ -95,20 +124,16 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
-[node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
-margin_left = 220.0
-margin_top = 149.0
-margin_right = 244.0
-margin_bottom = 173.0
+[node name="Area2D5" type="Area2D" parent="PopupMenu/CheckBox5/Sprite"]
+position = Vector2( 0.87323, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
-position = Vector2( 12.4383, -21.8937 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox5/Sprite/Area2D5"]
+shape = SubResource( 1 )
 
 [node name="CheckBox6" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 40.0
 margin_top = 149.0
 margin_right = 64.0
@@ -119,8 +144,36 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
+[node name="Area2D6" type="Area2D" parent="PopupMenu/CheckBox6/Sprite"]
+position = Vector2( -0.306519, -0.839722 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox6/Sprite/Area2D6"]
+shape = SubResource( 1 )
+
+[node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
+margin_left = 100.0
+margin_top = 149.0
+margin_right = 124.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Area2D7" type="Area2D" parent="PopupMenu/CheckBox7/Sprite"]
+position = Vector2( -0.292557, -0.0564575 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox7/Sprite/Area2D7"]
+shape = SubResource( 1 )
+
 [node name="CheckBox8" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 160.0
 margin_top = 149.0
 margin_right = 184.0
@@ -131,8 +184,39 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
+[node name="Area2D8" type="Area2D" parent="PopupMenu/CheckBox8/Sprite"]
+position = Vector2( 0.734283, -0.755478 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox8/Sprite/Area2D8"]
+shape = SubResource( 1 )
+
+[node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
+margin_left = 220.0
+margin_top = 149.0
+margin_right = 244.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Area2D9" type="Area2D" parent="PopupMenu/CheckBox9/Sprite"]
+position = Vector2( -1.55872, -0.226746 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox9/Sprite/Area2D9"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="CheckBox10" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 280.0
 margin_top = 149.0
 margin_right = 304.0
@@ -143,17 +227,14 @@ position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
-[node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
-margin_left = 100.0
-margin_top = 149.0
-margin_right = 124.0
-margin_bottom = 173.0
+[node name="Area2D10" type="Area2D" parent="PopupMenu/CheckBox10/Sprite"]
+position = Vector2( -0.489014, -0.0564575 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
-position = Vector2( 12.4383, -21.8937 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox10/Sprite/Area2D10"]
+shape = SubResource( 1 )
 
 [node name="StartButton" type="Button" parent="PopupMenu"]
 margin_left = 135.744
@@ -168,6 +249,15 @@ margin_top = -29.3899
 margin_right = 335.734
 margin_bottom = -9.38987
 text = "Close"
+
+[node name="PirateStat" type="TextEdit" parent="PopupMenu"]
+visible = false
+margin_left = 54.0
+margin_top = 39.0
+margin_right = 168.0
+margin_bottom = 116.0
+mouse_filter = 2
+readonly = true
 
 [node name="Button2" type="Button" parent="."]
 visible = false
@@ -188,6 +278,7 @@ margin_left = 16.6415
 margin_top = 13.6419
 margin_right = 221.642
 margin_bottom = 99.6419
+readonly = true
 
 [node name="CollectButton" type="Button" parent="RewardMenu"]
 margin_left = 88.0
@@ -198,15 +289,35 @@ text = "Collect"
 
 [connection signal="pressed" from="Button" to="PopupMenu" method="_on_Button_pressed"]
 [connection signal="toggled" from="PopupMenu/CheckBox" to="." method="_on_CheckBox_toggled" binds= [ 0 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox/Sprite/Area2D" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 0 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox/Sprite/Area2D" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="toggled" from="PopupMenu/CheckBox2" to="." method="_on_CheckBox_toggled" binds= [ 1 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox2/Sprite/Area2D2" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 1 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox2/Sprite/Area2D2" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="toggled" from="PopupMenu/CheckBox3" to="." method="_on_CheckBox_toggled" binds= [ 2 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox3/Sprite/Area2D3" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 2 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox3/Sprite/Area2D3" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="toggled" from="PopupMenu/CheckBox4" to="." method="_on_CheckBox_toggled" binds= [ 3 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox4/Sprite/Area2D4" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 3 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox4/Sprite/Area2D4" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="toggled" from="PopupMenu/CheckBox5" to="." method="_on_CheckBox_toggled" binds= [ 4 ]]
-[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox5/Sprite/Area2D5" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 4 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox5/Sprite/Area2D5" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="toggled" from="PopupMenu/CheckBox6" to="." method="_on_CheckBox_toggled" binds= [ 6 ]]
-[connection signal="toggled" from="PopupMenu/CheckBox8" to="." method="_on_CheckBox_toggled" binds= [ 7 ]]
-[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox6/Sprite/Area2D6" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 5 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox6/Sprite/Area2D6" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox7/Sprite/Area2D7" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 6 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox7/Sprite/Area2D7" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox8" to="." method="_on_CheckBox_toggled" binds= [ 7 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox8/Sprite/Area2D8" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 7 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox8/Sprite/Area2D8" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox9/Sprite/Area2D9" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 8 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox9/Sprite/Area2D9" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox10/Sprite/Area2D10" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 9 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox10/Sprite/Area2D10" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="pressed" from="PopupMenu/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="PopupMenu/CloseButton2" to="PopupMenu" method="_on_CloseButton2_pressed"]
 [connection signal="pressed" from="Button2" to="RewardMenu" method="_on_Button2_pressed"]

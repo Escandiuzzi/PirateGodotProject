@@ -17,6 +17,7 @@ export(String) var path;
 
 var player;
 var parent;
+onready var pirateStat = $PirateStat;
 
 
 func _ready():
@@ -49,3 +50,20 @@ func _check_player_crew():
 			canvasSlots[i].visible = false;
 
 	pass;
+
+
+func _on_Area2D_mouse_entered(extra_arg_0):	
+	var pirate = player._get_pirate(extra_arg_0);
+	pirateStat.text = "";
+	pirateStat.text += "Mining: " + str(pirate._get_special(0)) + "\n";
+	pirateStat.text += "Battle: " + str(pirate._get_special(1)) + "\n";	
+	pirateStat.text += "Cooking: " + str(pirate._get_special(2)) +"\n";
+	pirateStat.rect_position = canvasSlots[extra_arg_0].rect_position;
+	pirateStat.show();	
+	pass # Replace with function body.
+	
+
+
+func _on_Area2D_mouse_exited():
+	pirateStat.hide();	
+	pass # Replace with function body.
