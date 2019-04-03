@@ -22,22 +22,29 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
+visible = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
 script = ExtResource( 2 )
 
 [node name="TextEdit" type="TextEdit" parent="PopupMenu"]
-margin_left = 1.9412
-margin_top = -37.9706
-margin_right = 346.941
-margin_bottom = 2.0294
+margin_left = 3.0
+margin_top = -35.6926
+margin_right = 346.0
+margin_bottom = 4.30736
 rect_pivot_offset = Vector2( 300, 17 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 100, 100, 100, 0.02 )
 text = "                                 Pirates Slots
 					   Island Capacity : 3 Pirates"
 readonly = true
+v_scroll_speed = 0.0
 
 [node name="CheckBox" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 40.0
 margin_top = 60.0
 margin_right = 64.0
@@ -54,6 +61,7 @@ texture = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="CheckBox2" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 100.0
 margin_top = 60.0
 margin_right = 124.0
@@ -74,6 +82,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="CheckBox3" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 160.0
 margin_top = 60.0
 margin_right = 184.0
@@ -94,6 +103,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="CheckBox4" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 220.0
 margin_top = 60.0
 margin_right = 244.0
@@ -114,6 +124,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="CheckBox5" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 280.0
 margin_top = 60.0
 margin_right = 304.0
@@ -134,6 +145,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="CheckBox6" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 40.0
 margin_top = 149.0
 margin_right = 64.0
@@ -154,6 +166,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 100.0
 margin_top = 149.0
 margin_right = 124.0
@@ -174,6 +187,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="CheckBox8" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 160.0
 margin_top = 149.0
 margin_right = 184.0
@@ -194,6 +208,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 220.0
 margin_top = 149.0
 margin_right = 244.0
@@ -217,6 +232,7 @@ __meta__ = {
 }
 
 [node name="CheckBox10" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 280.0
 margin_top = 149.0
 margin_right = 304.0
@@ -245,9 +261,9 @@ text = "Start"
 
 [node name="CloseButton2" type="Button" parent="PopupMenu"]
 margin_left = 288.734
-margin_top = -29.3899
+margin_top = -27.5031
 margin_right = 335.734
-margin_bottom = -9.38987
+margin_bottom = -7.50311
 text = "Close"
 
 [node name="PirateStat" type="TextEdit" parent="PopupMenu"]
@@ -278,6 +294,7 @@ margin_left = 16.6415
 margin_top = 13.6419
 margin_right = 221.642
 margin_bottom = 99.6419
+custom_colors/font_color = Color( 100, 100, 100, 0.02 )
 readonly = true
 
 [node name="CollectButton" type="Button" parent="RewardMenu"]
