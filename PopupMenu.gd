@@ -22,6 +22,8 @@ var parent;
 func _ready():
 	player = get_tree().get_root().get_node("World/Player");
 	parent = get_tree().get_root().get_node(path);
+	rect_position.x = parent.position.x - (rect_size.x/2);
+	rect_position.y = parent.position.y - (rect_size.y/2);
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,7 +39,6 @@ func _on_CloseButton2_pressed():
 
 func _on_Button_pressed():
 	self.show();
-	rect_position = parent.position;
 	_check_player_crew();
 	pass # Replace with function body.
 

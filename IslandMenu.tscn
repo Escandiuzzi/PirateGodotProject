@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://IslandMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/mine_bar/layer_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/mine_bar/layer_2.png" type="Texture" id=3]
+[ext_resource path="res://MineProgress.gd" type="Script" id=4]
+[ext_resource path="res://Island.tscn" type="PackedScene" id=5]
+
+[node name="IslandMenu" type="Node2D"]
+
+[node name="IslandMenu" type="PopupMenu" parent="."]
+margin_left = -110.0
+margin_top = -90.0
+margin_right = 110.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 110, 90 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextEdit" type="TextEdit" parent="IslandMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -73.0
+margin_right = 39.0
+margin_bottom = -45.0
+text = "     Island"
+
+[node name="Close" type="Button" parent="IslandMenu"]
+margin_left = 79.0
+margin_top = 150.0
+margin_right = 140.0
+margin_bottom = 170.0
+rect_pivot_offset = Vector2( 30.5, 10 )
+text = "Close"
+
+[node name="MineProgress" type="TextureProgress" parent="IslandMenu"]
+margin_left = 9.99999
+margin_top = 53.3532
+margin_right = 1010.0
+margin_bottom = 153.353
+rect_scale = Vector2( 0.2, 0.2 )
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Island" parent="IslandMenu" instance=ExtResource( 5 )]
+position = Vector2( 89.093, 0 )
+
+[node name="Button" parent="IslandMenu/Island" index="1"]
+margin_left = -2.0
+margin_top = 99.6419
+margin_bottom = 119.642
+
+[node name="PopupMenu" parent="IslandMenu/Island" index="2"]
+margin_left = -149.093
+margin_right = 198.907
+
+[connection signal="pressed" from="IslandMenu/Close" to="IslandMenu" method="_on_Close_pressed"]
+[connection signal="on_timer_change" from="IslandMenu/Island" to="IslandMenu/MineProgress" method="_on_Island_on_timer_change"]
+
+[editable path="IslandMenu/Island"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=2]
@@ -6,12 +6,7 @@
 [ext_resource path="res://Sprite/placeholder.png" type="Texture" id=4]
 [ext_resource path="res://TextEdit.gd" type="Script" id=5]
 [ext_resource path="res://Flag.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprite/back.png" type="Texture" id=7]
-[ext_resource path="res://Island.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprite/mine_bar/layer_1.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/mine_bar/layer_3.png" type="Texture" id=10]
-[ext_resource path="res://Sprite/mine_bar/layer_2.png" type="Texture" id=11]
-[ext_resource path="res://MineProgress.gd" type="Script" id=12]
+[ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node"]
 script = ExtResource( 1 )
@@ -76,242 +71,64 @@ margin_bottom = 235.853
 text = "Close"
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( -342.047, 196.745 )
 
-[node name="IslandMenu" type="PopupMenu" parent="Flags/Flag"]
-margin_right = 20.0
-margin_bottom = 20.0
+[node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 7 )]
 
-[node name="Sprite" type="Sprite" parent="Flags/Flag/IslandMenu"]
-position = Vector2( -15.6838, 10.7454 )
-scale = Vector2( 0.306874, 0.298523 )
-texture = ExtResource( 7 )
-
-[node name="TextEdit" type="TextEdit" parent="Flags/Flag/IslandMenu"]
-margin_left = -61.0
-margin_top = -73.0
-margin_right = 14.0
-margin_bottom = -49.0
-text = "Island1"
-
-[node name="Close" type="Button" parent="Flags/Flag/IslandMenu"]
-margin_left = -48.0308
-margin_top = 67.6717
-margin_right = 12.9692
-margin_bottom = 87.6717
-text = "Close"
-
-[node name="Island" parent="Flags/Flag/IslandMenu" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( -40.9065, 4.41052 )
-
-[node name="PopupMenu" parent="Flags/Flag/IslandMenu/Island" index="2"]
+[node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag"
 
-[node name="TextEdit" parent="Flags/Flag/IslandMenu/Island/PopupMenu" index="1"]
-text = "                                 Pirates Slots
-					   Island Capacity : 3 Pirates"
-
-[node name="MineProgress" type="TextureProgress" parent="Flags/Flag/IslandMenu"]
-margin_left = -117.763
-margin_top = -36.6468
-margin_right = 882.237
-margin_bottom = 63.3532
-rect_scale = Vector2( 0.2, 0.2 )
-texture_under = ExtResource( 9 )
-texture_over = ExtResource( 10 )
-texture_progress = ExtResource( 11 )
-script = ExtResource( 12 )
-
 [node name="Flag2" parent="Flags" instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( 319.674, -61.0101 )
 
-[node name="IslandMenu" type="PopupMenu" parent="Flags/Flag2"]
-editor/display_folded = true
-margin_right = 20.0
-margin_bottom = 20.0
+[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 7 )]
 
-[node name="Sprite" type="Sprite" parent="Flags/Flag2/IslandMenu"]
-position = Vector2( -0.25061, -3.29333 )
-scale = Vector2( 0.306874, 0.298523 )
-texture = ExtResource( 7 )
-
-[node name="TextEdit" type="TextEdit" parent="Flags/Flag2/IslandMenu"]
-margin_left = -35.0
-margin_top = -81.0
-margin_right = 36.0
-margin_bottom = -60.0
-text = "Island 2"
-
-[node name="Close" type="Button" parent="Flags/Flag2/IslandMenu"]
-margin_left = -30.6234
-margin_top = 59.443
-margin_right = 30.3766
-margin_bottom = 79.4429
-text = "Close"
-
-[node name="MineProgress" type="TextureProgress" parent="Flags/Flag2/IslandMenu"]
-margin_left = -96.7218
-margin_top = -46.4265
-margin_right = 903.278
-margin_bottom = 53.5735
-rect_scale = Vector2( 0.2, 0.2 )
-texture_under = ExtResource( 9 )
-texture_over = ExtResource( 10 )
-texture_progress = ExtResource( 11 )
-script = ExtResource( 12 )
-
-[node name="Island" parent="Flags/Flag2/IslandMenu" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( -24.3766, 0 )
-
-[node name="PopupMenu" parent="Flags/Flag2/IslandMenu/Island" index="2"]
+[node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag2"
 
-[node name="TextEdit" parent="Flags/Flag2/IslandMenu/Island/PopupMenu" index="1"]
-text = "                                 Pirates Slots
-					   Island Capacity : 3 Pirates"
-
 [node name="Flag3" parent="Flags" instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( -880.167, 356.523 )
 
-[node name="IslandMenu" type="PopupMenu" parent="Flags/Flag3"]
-editor/display_folded = true
-margin_right = 20.0
-margin_bottom = 20.0
+[node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 7 )]
 
-[node name="Sprite" type="Sprite" parent="Flags/Flag3/IslandMenu"]
-position = Vector2( -10.233, 3.04413 )
-scale = Vector2( 0.306874, 0.298523 )
-texture = ExtResource( 7 )
-
-[node name="TextEdit" type="TextEdit" parent="Flags/Flag3/IslandMenu"]
-margin_left = -40.0
-margin_top = -80.0
-margin_right = 29.0
-margin_bottom = -56.0
-text = "Island 3"
-
-[node name="Close" type="Button" parent="Flags/Flag3/IslandMenu"]
-margin_left = -41.6011
-margin_top = 67.335
-margin_right = 19.3989
-margin_bottom = 87.335
-text = "Close"
-
-[node name="MineProgress" type="TextureProgress" parent="Flags/Flag3/IslandMenu"]
-margin_left = -110.65
-margin_top = -37.1411
-margin_right = 889.35
-margin_bottom = 62.8589
-rect_scale = Vector2( 0.2, 0.2 )
-texture_under = ExtResource( 9 )
-texture_over = ExtResource( 10 )
-texture_progress = ExtResource( 11 )
-script = ExtResource( 12 )
-
-[node name="Island" parent="Flags/Flag3/IslandMenu" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( -33.2408, 8.8642 )
-
-[node name="Button" parent="Flags/Flag3/IslandMenu/Island" index="1"]
-margin_left = -2.64264
-margin_top = 0.773804
-margin_right = 44.3574
-margin_bottom = 20.7738
-
-[node name="PopupMenu" parent="Flags/Flag3/IslandMenu/Island" index="2"]
+[node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag3"
 
-[node name="TextEdit" parent="Flags/Flag3/IslandMenu/Island/PopupMenu" index="1"]
-text = "                                 Pirates Slots
-					   Island Capacity : 3 Pirates"
-
 [node name="Flag4" parent="Flags" instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( -430.98, -172.553 )
 
-[node name="IslandMenu" type="PopupMenu" parent="Flags/Flag4"]
-editor/display_folded = true
-margin_right = 20.0
-margin_bottom = 20.0
+[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 7 )]
 
-[node name="Sprite" type="Sprite" parent="Flags/Flag4/IslandMenu"]
-position = Vector2( -6.68683, -7.73511 )
-scale = Vector2( 0.306874, 0.298523 )
-texture = ExtResource( 7 )
-
-[node name="TextEdit" type="TextEdit" parent="Flags/Flag4/IslandMenu"]
-margin_left = -40.0
-margin_top = -90.0
-margin_right = 28.0
-margin_bottom = -66.0
-text = "Island 4"
-
-[node name="MineProgress" type="TextureProgress" parent="Flags/Flag4/IslandMenu"]
-margin_left = -102.365
-margin_top = -49.2953
-margin_right = 897.635
-margin_bottom = 50.7047
-rect_scale = Vector2( 0.2, 0.2 )
-texture_under = ExtResource( 9 )
-texture_over = ExtResource( 10 )
-texture_progress = ExtResource( 11 )
-script = ExtResource( 12 )
-
-[node name="Close" type="Button" parent="Flags/Flag4/IslandMenu"]
-margin_left = -38.2845
-margin_top = 56.5633
-margin_right = 22.7155
-margin_bottom = 76.5633
-text = "Close"
-
-[node name="Island" parent="Flags/Flag4/IslandMenu" instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( -27.5033, -3.09511 )
-
-[node name="Button" parent="Flags/Flag4/IslandMenu/Island" index="1"]
-margin_left = -3.8689
-margin_top = 1.54755
-margin_right = 43.1311
-margin_bottom = 21.5475
-
-[node name="PopupMenu" parent="Flags/Flag4/IslandMenu/Island" index="2"]
+[node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag4"
-
-[node name="TextEdit" parent="Flags/Flag4/IslandMenu/Island/PopupMenu" index="1"]
-text = "                                 Pirates Slots
-					   Island Capacity : 3 Pirates"
 
 [connection signal="pressed" from="Player/HUD/SaveButton" to="Player" method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="Player/HUD/LoadButton" to="Player" method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="Player/HUD/InventoryButton" to="Player/HUD/TextEdit" method="_on_InventoryButton_pressed"]
 [connection signal="pressed" from="Player/HUD/TextEdit/Button" to="Player/HUD/TextEdit" method="_on_Button_pressed"]
-[connection signal="pressed" from="Flags/Flag/IslandMenu/Close" to="Flags/Flag" method="_on_Fechar_pressed"]
-[connection signal="on_timer_change" from="Flags/Flag/IslandMenu/Island" to="Flags/Flag/IslandMenu/MineProgress" method="_on_Island_on_timer_change"]
-[connection signal="send_player_reward" from="Flags/Flag/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
-[connection signal="pressed" from="Flags/Flag2/IslandMenu/Close" to="Flags/Flag2" method="_on_Fechar_pressed"]
-[connection signal="on_timer_change" from="Flags/Flag2/IslandMenu/Island" to="Flags/Flag2/IslandMenu/MineProgress" method="_on_Island_on_timer_change"]
-[connection signal="send_player_reward" from="Flags/Flag2/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
-[connection signal="pressed" from="Flags/Flag3/IslandMenu/Close" to="Flags/Flag3" method="_on_Fechar_pressed"]
-[connection signal="on_timer_change" from="Flags/Flag3/IslandMenu/Island" to="Flags/Flag3/IslandMenu/MineProgress" method="_on_Island_on_timer_change"]
-[connection signal="send_player_reward" from="Flags/Flag3/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
-[connection signal="pressed" from="Flags/Flag4/IslandMenu/Close" to="Flags/Flag4" method="_on_Fechar_pressed"]
-[connection signal="on_timer_change" from="Flags/Flag4/IslandMenu/Island" to="Flags/Flag4/IslandMenu/MineProgress" method="_on_Island_on_timer_change"]
-[connection signal="send_player_reward" from="Flags/Flag4/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
 
 [editable path="Flags/Flag"]
 
-[editable path="Flags/Flag/IslandMenu/Island"]
+[editable path="Flags/Flag/IslandMenu"]
 
-[editable path="Flags/Flag2/IslandMenu/Island"]
+[editable path="Flags/Flag/IslandMenu/IslandMenu/Island"]
 
-[editable path="Flags/Flag3/IslandMenu/Island"]
+[editable path="Flags/Flag2"]
 
-[editable path="Flags/Flag4/IslandMenu/Island"]
+[editable path="Flags/Flag2/IslandMenu"]
+
+[editable path="Flags/Flag2/IslandMenu/IslandMenu/Island"]
+
+[editable path="Flags/Flag3"]
+
+[editable path="Flags/Flag3/IslandMenu"]
+
+[editable path="Flags/Flag3/IslandMenu/IslandMenu/Island"]
+
+[editable path="Flags/Flag4"]
+
+[editable path="Flags/Flag4/IslandMenu"]
+
+[editable path="Flags/Flag4/IslandMenu/IslandMenu/Island"]

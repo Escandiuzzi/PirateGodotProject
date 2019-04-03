@@ -9,7 +9,7 @@ var islandMenu;
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	islandMenu = get_node("IslandMenu");
+	islandMenu = get_node("IslandMenu/IslandMenu");
 	pass
 
 #func _process(delta):
@@ -19,8 +19,9 @@ func _ready():
 
 func _on_Button_pressed():
 	#window.popup();
+	islandMenu.rect_position.x = position.x - (islandMenu.rect_size.x/2);
+	islandMenu.rect_position.y = position.y - (islandMenu.rect_size.y/2);
 	islandMenu.show()
-	islandMenu.rect_position = position;
 	pass 
 func _on_Fechar_pressed():
 	islandMenu.hide()
