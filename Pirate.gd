@@ -4,6 +4,13 @@ var special = [];
 var id;
 var busy;
 onready var pirateStat = get_node("pirateStat");
+onready var sprite = $Sprite;
+var miningtexture = load("res://Sprite/entities/player/mining.png");
+var idle = load("res://Sprite/entities/player/pirate.png");
+
+
+
+
 
 
 # class member variables go here, for example:
@@ -20,6 +27,7 @@ func _initializeArray():
 
 func _initializePirate():
 	_initializeArray();
+
 	print("New Pirate created with: ")
 	for i in range(3):
 		randomize();
@@ -65,6 +73,10 @@ func _get_special(index):
 
 func _set_busy(status):
 	busy = status;
+	if busy == true:
+		sprite.texture = miningtexture;
+	else: 
+		sprite.texture = idle;
 	pass;
 func _get_busy():
 	return busy;
@@ -82,9 +94,14 @@ func _on_Area2D_mouse_entered():
 	pirateStat.text += "Battle: " + str(_get_special(1)) + "\n";	
 	pirateStat.text += "Cooking: " + str(_get_special(2)) +"\n";
 	pirateStat.show();
+	
 	pass # Replace with function body.
 
 
 func _on_Area2D_mouse_exited():
 	pirateStat.hide();
 	pass # Replace with function body.
+
+
+
+	
