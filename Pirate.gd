@@ -3,6 +3,8 @@ extends Node2D
 var special = [];
 var id;
 var busy;
+onready var pirateStat = get_node("pirateStat");
+
 
 # class member variables go here, for example:
 # var a = 2
@@ -71,3 +73,18 @@ func _get_busy():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+
+
+
+func _on_Area2D_mouse_entered():
+	pirateStat.text = "";
+	pirateStat.text += "Mining: " + str(_get_special(0)) + "\n";
+	pirateStat.text += "Battle: " + str(_get_special(1)) + "\n";	
+	pirateStat.text += "Cooking: " + str(_get_special(2)) +"\n";
+	pirateStat.show();
+	pass # Replace with function body.
+
+
+func _on_Area2D_mouse_exited():
+	pirateStat.hide();
+	pass # Replace with function body.

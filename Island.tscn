@@ -44,7 +44,6 @@ readonly = true
 v_scroll_speed = 0.0
 
 [node name="CheckBox" type="CheckBox" parent="PopupMenu"]
-editor/display_folded = true
 margin_left = 40.0
 margin_top = 60.0
 margin_right = 64.0
