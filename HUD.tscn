@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprite/placeholder.png" type="Texture" id=1]
-[ext_resource path="res://TextEdit.gd" type="Script" id=2]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=2]
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=3]
 
 [node name="HUD" type="Sprite"]
+editor/display_folded = true
 visible = false
 position = Vector2( 6.10558, 102.102 )
 scale = Vector2( 0.486804, 0.5 )
@@ -35,22 +37,29 @@ margin_bottom = -261.44
 rect_scale = Vector2( 3, 3 )
 text = "Inventory"
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Background" type="Sprite" parent="."]
 visible = false
-margin_left = -243.0
-margin_top = -523.0
-margin_right = 30.0
-margin_bottom = -287.0
-rect_scale = Vector2( 2, 2 )
-readonly = true
-script = ExtResource( 2 )
+position = Vector2( -9.30146, -294.948 )
+scale = Vector2( 17.5365, 15.0563 )
+texture = ExtResource( 2 )
 
-[node name="Button" type="Button" parent="TextEdit"]
-margin_left = 225.07
-margin_top = 215.853
-margin_right = 272.07
-margin_bottom = 235.853
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+editor/display_folded = true
+visible = false
+margin_left = -276.0
+margin_top = -523.0
+margin_right = -59.0
+margin_bottom = -334.0
+rect_scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 3 )
+bgd_path = NodePath("../Background")
+
+[node name="Button" type="Button" parent="RichTextLabel"]
+margin_left = 168.877
+margin_top = 163.974
+margin_right = 215.877
+margin_bottom = 183.974
 text = "Close"
 
-[connection signal="pressed" from="InventoryButton" to="TextEdit" method="_on_InventoryButton_pressed"]
-[connection signal="pressed" from="TextEdit/Button" to="TextEdit" method="_on_Button_pressed"]
+[connection signal="pressed" from="InventoryButton" to="RichTextLabel" method="_on_InventoryButton_pressed"]
+[connection signal="pressed" from="RichTextLabel/Button" to="RichTextLabel" method="_on_Button_pressed"]

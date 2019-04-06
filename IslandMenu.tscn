@@ -7,7 +7,6 @@
 [ext_resource path="res://Island.tscn" type="PackedScene" id=5]
 
 [node name="IslandMenu" type="Node2D"]
-editor/display_folded = true
 
 [node name="IslandMenu" type="PopupMenu" parent="."]
 editor/display_folded = true
@@ -22,18 +21,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="TextEdit" type="TextEdit" parent="IslandMenu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -40.0
-margin_top = -73.0
-margin_right = 39.0
-margin_bottom = -45.0
-custom_colors/font_color = Color( 100, 100, 100, 0.02 )
-text = "     Island"
-readonly = true
+[node name="RichTextLabel" type="RichTextLabel" parent="IslandMenu"]
+margin_left = 91.0
+margin_top = 18.0
+margin_right = 131.0
+margin_bottom = 33.0
+text = "Island"
 
 [node name="Close" type="Button" parent="IslandMenu"]
 margin_left = 79.0
@@ -54,7 +47,7 @@ texture_progress = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="Island" parent="IslandMenu" instance=ExtResource( 5 )]
-editor/display_folded = true
+editor/display_folded = false
 position = Vector2( 89.093, 0 )
 
 [node name="Button" parent="IslandMenu/Island" index="1"]
@@ -63,14 +56,9 @@ margin_top = 99.6419
 margin_bottom = 119.642
 
 [node name="PopupMenu" parent="IslandMenu/Island" index="2"]
-editor/display_folded = true
-visible = false
 margin_left = -149.093
 margin_right = 198.907
 mouse_filter = 2
-
-[node name="CheckBox" parent="IslandMenu/Island/PopupMenu" index="2"]
-editor/display_folded = true
 
 [node name="Sprite" parent="IslandMenu/Island/PopupMenu/CheckBox" index="0"]
 editor/display_folded = true
@@ -79,7 +67,6 @@ editor/display_folded = true
 editor/display_folded = true
 
 [node name="RewardMenu" parent="IslandMenu/Island" index="4"]
-editor/display_folded = true
 mouse_filter = 2
 
 [connection signal="pressed" from="IslandMenu/Close" to="IslandMenu" method="_on_Close_pressed"]

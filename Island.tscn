@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Island.gd" type="Script" id=1]
 [ext_resource path="res://PopupMenu.gd" type="Script" id=2]
-[ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=3]
-[ext_resource path="res://Button2.gd" type="Script" id=4]
-[ext_resource path="res://RewardMenu.gd" type="Script" id=5]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=4]
+[ext_resource path="res://Button2.gd" type="Script" id=5]
+[ext_resource path="res://RewardMenu.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.9284
@@ -22,28 +23,28 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-visible = true
+editor/display_folded = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
 script = ExtResource( 2 )
 
-[node name="TextEdit" type="TextEdit" parent="PopupMenu"]
-margin_left = 3.0
-margin_top = -35.6926
-margin_right = 346.0
-margin_bottom = 4.30736
-rect_pivot_offset = Vector2( 300, 17 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-custom_colors/font_color = Color( 100, 100, 100, 0.02 )
-text = "                                 Pirates Slots
-					   Island Capacity : 3 Pirates"
-readonly = true
-v_scroll_speed = 0.0
+[node name="Background" type="Sprite" parent="PopupMenu"]
+position = Vector2( 0, -44.3525 )
+scale = Vector2( 10.8997, 1.50925 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PopupMenu"]
+margin_left = 111.073
+margin_top = -38.0
+margin_right = 236.073
+margin_bottom = 6.0
+text = "      Pirates Slots
+Island Capacity : 3"
 
 [node name="CheckBox" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 margin_left = 40.0
 margin_top = 60.0
 margin_right = 64.0
@@ -52,7 +53,7 @@ margin_bottom = 84.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="PopupMenu/CheckBox/Sprite"]
 
@@ -69,7 +70,7 @@ margin_bottom = 84.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox2"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D2" type="Area2D" parent="PopupMenu/CheckBox2/Sprite"]
 position = Vector2( -0.122238, 0.681122 )
@@ -90,7 +91,7 @@ margin_bottom = 84.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox3"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D3" type="Area2D" parent="PopupMenu/CheckBox3/Sprite"]
 position = Vector2( -0.244446, -0.681122 )
@@ -111,7 +112,7 @@ margin_bottom = 84.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox4"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D4" type="Area2D" parent="PopupMenu/CheckBox4/Sprite"]
 position = Vector2( -1.04785, 0 )
@@ -132,7 +133,7 @@ margin_bottom = 84.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox5"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D5" type="Area2D" parent="PopupMenu/CheckBox5/Sprite"]
 position = Vector2( 0.87323, 0 )
@@ -153,7 +154,7 @@ margin_bottom = 173.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox6"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D6" type="Area2D" parent="PopupMenu/CheckBox6/Sprite"]
 position = Vector2( -0.306519, -0.839722 )
@@ -174,7 +175,7 @@ margin_bottom = 173.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D7" type="Area2D" parent="PopupMenu/CheckBox7/Sprite"]
 position = Vector2( -0.292557, -0.0564575 )
@@ -195,7 +196,7 @@ margin_bottom = 173.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox8"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D8" type="Area2D" parent="PopupMenu/CheckBox8/Sprite"]
 position = Vector2( 0.734283, -0.755478 )
@@ -216,7 +217,7 @@ margin_bottom = 173.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D9" type="Area2D" parent="PopupMenu/CheckBox9/Sprite"]
 position = Vector2( -1.55872, -0.226746 )
@@ -240,7 +241,7 @@ margin_bottom = 173.0
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox10"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D10" type="Area2D" parent="PopupMenu/CheckBox10/Sprite"]
 position = Vector2( -0.489014, -0.0564575 )
@@ -260,9 +261,9 @@ text = "Start"
 
 [node name="CloseButton2" type="Button" parent="PopupMenu"]
 margin_left = 288.734
-margin_top = -27.5031
+margin_top = -22.5031
 margin_right = 335.734
-margin_bottom = -7.50311
+margin_bottom = -2.5031
 text = "Close"
 
 [node name="PirateStat" type="TextEdit" parent="PopupMenu"]
@@ -276,25 +277,25 @@ readonly = true
 
 [node name="Button2" type="Button" parent="."]
 visible = false
-margin_left = 68.0
-margin_right = 124.0
-margin_bottom = 20.0
+margin_left = 65.0
+margin_top = 11.0
+margin_right = 121.0
+margin_bottom = 31.0
 text = "Collect"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="RewardMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
 margin_left = 68.0
 margin_right = 306.0
 margin_bottom = 133.0
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
-[node name="TextEdit" type="TextEdit" parent="RewardMenu"]
-margin_left = 16.6415
-margin_top = 13.6419
-margin_right = 221.642
-margin_bottom = 99.6419
-custom_colors/font_color = Color( 100, 100, 100, 0.02 )
-readonly = true
+[node name="RichTextLabel" type="RichTextLabel" parent="RewardMenu"]
+margin_left = 11.7913
+margin_top = 12.8848
+margin_right = 226.791
+margin_bottom = 98.8848
 
 [node name="CollectButton" type="Button" parent="RewardMenu"]
 margin_left = 88.0

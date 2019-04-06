@@ -19,7 +19,7 @@ onready var popupMenu = $PopupMenu;
 onready var button = $Button;
 onready var button2 = $Button2;
 onready var rewardMenu = $RewardMenu;
-onready var rewardText = $RewardMenu/TextEdit;
+onready var rewardText = $RewardMenu/RichTextLabel;
 onready var timer = $Timer;
 
 onready var item = preload("res://Item.tscn");
