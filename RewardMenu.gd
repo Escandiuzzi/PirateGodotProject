@@ -1,17 +1,14 @@
 extends PopupMenu
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(String) var path;
 
-# Called when the node enters the scene tree for the first time.
+var parent;
+
 func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	parent = get_tree().get_root().get_node(path);
+	rect_position.x = parent.position.x - (rect_size.x/2);
+	rect_position.y = parent.position.y - (rect_size.y/2);
+	pass 
 
 func _on_Button2_pressed():
 	self.show();

@@ -21,8 +21,10 @@ onready var button2 = $Button2;
 onready var rewardMenu = $RewardMenu;
 onready var rewardText = $RewardMenu/TextEdit;
 onready var timer = $Timer;
-onready var canvasSlots = [
 
+onready var item = preload("res://Item.tscn");
+
+onready var canvasSlots = [
 get_node("PopupMenu/CheckBox"),
 get_node("PopupMenu/CheckBox2"),
 get_node("PopupMenu/CheckBox3"),
@@ -117,36 +119,40 @@ func _on_CollectButton_pressed():
 func _getRewards():	
 	randomize();
 	var rewardN = randi() % 9 + 1;
+	var rewards = {};
 	for i in range(rewardN):
-		rewards.append(null);
-	
-	var itens_file = File.new();
-
-	if not itens_file.file_exists("res://itens.save"):
-		print("file does not exists");
-		return;
+		var randReward = randi() % 9 + 1;
 		
-	itens_file.open("res://itens.save", File.READ)
-	while not itens_file.eof_reached():
-		var current_line = parse_json(itens_file.get_line());
-		for i in range(rewardN):
-			var randReward = randi() % 9 + 1;
-			rewards[i] = current_line[str(randReward)];
-			print(rewards[i]);
-		current_line = parse_json(itens_file.get_line());
-	itens_file.close();
-	
-	for i in range(rewardN):
-		rewardText.text += rewards[i];
+		#/////////////////////////////////////////
+		
+		var _item = item.instance();
+		_item._read_json_data(randReward);
+		_item._print_data();
+		
+		if rewards.has(_item._get_name()):
+			var item_count = rewards[_item._get_name()];
+			item_count += 1;
+			rewards[_item._get_name()] = item_count;
+		else:
+			rewards[_item._get_name()] = 1;
+		
+		#rewardText.text += _item._get_name();
+		#rewardText.text += "\n";
+		
+		emit_signal("send_player_reward", _item);
+		#/////////////////////////////////////////
+		
+	var keys = rewards.keys();
+	for i in range(rewards.size()):
+		rewardText.text += str(rewards[keys[i]]);
+		rewardText.text += "x ";
+		rewardText.text += keys[i];
 		rewardText.text += "\n";
-	emit_signal("send_player_reward", rewards);
+
 	
 	for i in range(selectedPirates):
 		if pirateId[i] == null:
 			break;
 		pirates[i]._set_busy(false);
-	
 	pirates.clear();
-	
 	pass;
-

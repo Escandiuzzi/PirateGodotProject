@@ -9,10 +9,6 @@ var miningtexture = load("res://Sprite/entities/player/mining.png");
 var idle = load("res://Sprite/entities/player/pirate.png");
 
 
-
-
-
-
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -37,7 +33,7 @@ func _initializePirate():
 			print(s);
 			special[i] = s;	
 		else: #common pirate
-			var s = randi() % 4;
+			var s = randi() % 3 + 1;
 			print(s);
 			special[i] = s;	
 	pass
