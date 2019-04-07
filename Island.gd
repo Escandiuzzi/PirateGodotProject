@@ -121,13 +121,18 @@ func _getRewards():
 	var rewardN = randi() % 9 + 1;
 	var rewards = {};
 	for i in range(rewardN):
-		var randReward = randi() % 9 + 1;
-		
 		#/////////////////////////////////////////
-		
+		var rarity = randi() % 85;
 		var _item = item.instance();
-		_item._read_json_data(randReward);
-		_item._print_data();
+		if rarity > 85:
+			var randReward = randi() % 6;
+			_item._read_json_data(randReward, "Region1", "Rare");
+			_item._print_data();
+		
+		else:
+			var randReward = randi() % 4;
+			_item._read_json_data(randReward, "Region1", "Common");
+			_item._print_data();
 		
 		if rewards.has(_item._get_name()):
 			var item_count = rewards[_item._get_name()];
@@ -138,7 +143,6 @@ func _getRewards():
 		
 		#rewardText.text += _item._get_name();
 		#rewardText.text += "\n";
-		
 		emit_signal("send_player_reward", _item);
 		#/////////////////////////////////////////
 		

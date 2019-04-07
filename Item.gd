@@ -8,7 +8,7 @@ var damage;
 var durability;
 var combinations;
 
-func _read_json_data(index):
+func _read_json_data(index, region, rarity):
 	var items_file = File.new();
 	
 	if not items_file.file_exists("res://items.save"):
@@ -21,12 +21,12 @@ func _read_json_data(index):
 	
 	data = parse_json(items_file.get_as_text());
 	id = index;
-	item_name = data[str(index)]["name"];
-	type = data[str(index)]["type"];
-	heal = data[str(index)]["heal"];
-	damage = data[str(index)]["damage"];
-	durability = data[str(index)]["durability"];
-	combinations = data[str(index)]["combinations"];
+	item_name = data[region][rarity][str(index)]["name"];
+	type = data[region][rarity][str(index)]["type"];
+	heal = data[region][rarity][str(index)]["heal"];
+	damage = data[region][rarity][str(index)]["damage"];
+	durability = data[region][rarity][str(index)]["durability"];
+	combinations = data[region][rarity][str(index)]["combinations"];
 	
 	items_file.close();
 	pass;
