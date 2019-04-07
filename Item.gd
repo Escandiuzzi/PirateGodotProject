@@ -16,16 +16,17 @@ func _read_json_data(index):
 		return;
 		
 	items_file.open("res://items.save", File.READ)
-	var current_line = parse_json(items_file.get_line());
-	var item = current_line[str(index)];
 	
+	var data = {};
+	
+	data = parse_json(items_file.get_as_text());
 	id = index;
-	item_name = item["name"];
-	type = item["type"];
-	heal = item["heal"];
-	damage = item["damage"];
-	durability = item["durability"];
-	combinations = item["combinations"];
+	item_name = data[str(index)]["name"];
+	type = data[str(index)]["type"];
+	heal = data[str(index)]["heal"];
+	damage = data[str(index)]["damage"];
+	durability = data[str(index)]["durability"];
+	combinations = data[str(index)]["combinations"];
 	
 	items_file.close();
 	pass;
