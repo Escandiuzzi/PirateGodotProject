@@ -47,7 +47,6 @@ texture_progress = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="Island" parent="IslandMenu" instance=ExtResource( 5 )]
-editor/display_folded = false
 position = Vector2( 89.093, 0 )
 
 [node name="Button" parent="IslandMenu/Island" index="1"]
@@ -68,6 +67,10 @@ editor/display_folded = true
 
 [node name="RewardMenu" parent="IslandMenu/Island" index="4"]
 mouse_filter = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [connection signal="pressed" from="IslandMenu/Close" to="IslandMenu" method="_on_Close_pressed"]
 [connection signal="on_timer_change" from="IslandMenu/Island" to="IslandMenu/MineProgress" method="_on_Island_on_timer_change"]
