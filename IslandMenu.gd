@@ -14,5 +14,7 @@ func _ready():
 
 
 func _on_Close_pressed():
+	get_node("../../../..")._on_Flag_On_Menu(false);
 	self.hide();
+	#emit_signal(, false);
 	pass # Replace with function body.

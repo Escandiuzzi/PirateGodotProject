@@ -22,10 +22,12 @@ func _on_Button_pressed():
 		islandMenu.rect_position.x = position.x - (islandMenu.rect_size.x/2);
 		islandMenu.rect_position.y = position.y - (islandMenu.rect_size.y/2);
 		islandMenu.show()
+		get_node("../..")._on_Flag_On_Menu(true);
 	pass 
 
 func _on_Fechar_pressed():
 	islandMenu.hide()
+
 	pass
 
 func _on_Area2D_area_entered(area):
