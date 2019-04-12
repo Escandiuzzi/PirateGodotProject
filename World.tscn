@@ -44,25 +44,34 @@ editor/display_folded = true
 shape = SubResource( 1 )
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 5 )]
 editor/display_folded = true
 position = Vector2( -342.047, 196.745 )
 
+[node name="Button" parent="Flags/Flag" index="0" groups=[
+"my_buttons",
+]]
+
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 6 )]
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
-editor/display_folded = false
+editor/display_folded = true
+
+[node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
+commonSize = 4
+rareSize = 6
+maxRewards = 9
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag"
 
 [node name="RewardMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="4"]
+editor/display_folded = false
 path = "World/Flags/Flag"
-
-[node name="Area2D" parent="Flags/Flag/IslandMenu" index="1"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" parent="Flags/Flag/IslandMenu/Area2D" index="0"]
 position = Vector2( 20.7564, -2.79333 )
@@ -72,14 +81,23 @@ shape = SubResource( 2 )
 editor/display_folded = true
 position = Vector2( 319.674, -61.0101 )
 
+[node name="Button" parent="Flags/Flag2" index="0" groups=[
+"my_buttons",
+]]
+
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 6 )]
 editor/display_folded = true
+
+[node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
+commonSize = 4
+rareSize = 6
+maxRewards = 9
 
 [node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag2"
 
 [node name="RewardMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="4"]
-editor/display_folded = false
 path = "World/Flags/Flag2"
 
 [node name="Area2D" parent="Flags/Flag2/IslandMenu" index="1"]
@@ -93,11 +111,18 @@ shape = SubResource( 3 )
 editor/display_folded = true
 position = Vector2( -880.167, 356.523 )
 
+[node name="Button" parent="Flags/Flag3" index="0" groups=[
+"my_buttons",
+]]
+
 [node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 6 )]
 editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
 editor/display_folded = true
+commonSize = 4
+rareSize = 6
+maxRewards = 9
 
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag3"
@@ -113,12 +138,21 @@ position = Vector2( -12.6349, -66.7846 )
 shape = SubResource( 4 )
 
 [node name="Flag4" parent="Flags" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( -430.98, -172.553 )
 
-[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 6 )]
+[node name="Button" parent="Flags/Flag4" index="0" groups=[
+"my_buttons",
+]]
 
-[node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
-editor/display_folded = false
+[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 6 )]
+editor/display_folded = true
+
+[node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
+commonSize = 4
+rareSize = 6
+maxRewards = 9
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="2"]
 path = "World/Flags/Flag4"
@@ -126,20 +160,27 @@ path = "World/Flags/Flag4"
 [node name="RewardMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="4"]
 path = "World/Flags/Flag4"
 
+[node name="Area2D" parent="Flags/Flag4/IslandMenu" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Flags/Flag4/IslandMenu/Area2D" index="0"]
 position = Vector2( -17.1475, 11.7324 )
 shape = SubResource( 5 )
 
 [connection signal="pressed" from="Player/HUD/LoadButton" to="Player" method="_on_LoadButton_pressed"]
+[connection signal="current_menu_opened" from="Flags/Flag" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="send_player_reward" from="Flags/Flag/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
 [connection signal="area_entered" from="Flags/Flag/IslandMenu/Area2D" to="Flags/Flag" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Flags/Flag/IslandMenu/Area2D" to="Flags/Flag" method="_on_Area2D_area_exited"]
+[connection signal="current_menu_opened" from="Flags/Flag2" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="send_player_reward" from="Flags/Flag2/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
 [connection signal="area_entered" from="Flags/Flag2/IslandMenu/Area2D" to="Flags/Flag2" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Flags/Flag2/IslandMenu/Area2D" to="Flags/Flag2" method="_on_Area2D_area_exited"]
+[connection signal="current_menu_opened" from="Flags/Flag3" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="send_player_reward" from="Flags/Flag3/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
 [connection signal="area_entered" from="Flags/Flag3/IslandMenu/Area2D" to="Flags/Flag3" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Flags/Flag3/IslandMenu/Area2D" to="Flags/Flag3" method="_on_Area2D_area_exited"]
+[connection signal="current_menu_opened" from="Flags/Flag4" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="send_player_reward" from="Flags/Flag4/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
 [connection signal="area_entered" from="Flags/Flag4/IslandMenu/Area2D" to="Flags/Flag4" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Flags/Flag4/IslandMenu/Area2D" to="Flags/Flag4" method="_on_Area2D_area_exited"]

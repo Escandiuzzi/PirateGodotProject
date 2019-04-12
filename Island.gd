@@ -3,9 +3,15 @@ extends Node2D
 signal on_timer_change(time_left);
 signal send_player_reward(player_reward);
 
+export(String) var itemType;
+
 export(int) var miningTime;
 export(int) var islandSize;
 export(int) var indexType;
+export(int) var commonSize;
+export(int) var uncommonSize;
+export(int) var rareSize;
+export(int) var maxRewards;
 
 var selectedPirates = 0;
 var pirates = [];
@@ -118,19 +124,19 @@ func _on_CollectButton_pressed():
 
 func _getRewards():	
 	randomize();
-	var rewardN = randi() % 9 + 1;
+	var rewardN = randi() % maxRewards + 1;
 	var rewards = {};
 	for i in range(rewardN):
 		#/////////////////////////////////////////
 		var rarity = randi() % 85;
 		var _item = item.instance();
 		if rarity > 85:
-			var randReward = randi() % 6;
+			var randReward = randi() % rareSize;
 			_item._read_json_data(randReward, "Region1", "Rare");
 			_item._print_data();
 		
 		else:
-			var randReward = randi() % 4;
+			var randReward = randi() % commonSize;
 			_item._read_json_data(randReward, "Region1", "Common");
 			_item._print_data();
 		

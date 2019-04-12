@@ -1,20 +1,17 @@
 extends PopupMenu
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var pirate_menu = get_node("Island/PopupMenu");
+onready var reward_menu = get_node("Island/RewardMenu");
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _player_moved_hide():
+	pirate_menu.hide();
+	reward_menu.hide();
+	self.hide();
+	pass;
 
 
 func _on_Close_pressed():
-	get_node("../../../..")._on_Flag_On_Menu(false);
 	self.hide();
-	#emit_signal(, false);
-	pass # Replace with function body.
+	pass 
+
+

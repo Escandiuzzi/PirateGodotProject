@@ -11,11 +11,11 @@ var combinations;
 func _read_json_data(index, region, rarity):
 	var items_file = File.new();
 	
-	if not items_file.file_exists("res://items.save"):
+	if not items_file.file_exists("res://items.json"):
 		print("file does not exists");
 		return;
 		
-	items_file.open("res://items.save", File.READ)
+	items_file.open("res://items.json", File.READ)
 	
 	var data = {};
 	

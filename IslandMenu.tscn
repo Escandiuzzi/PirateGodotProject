@@ -9,7 +9,6 @@
 [node name="IslandMenu" type="Node2D"]
 
 [node name="IslandMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_left = -110.0
 margin_top = -90.0
 margin_right = 110.0
