@@ -81,12 +81,6 @@ func _process(delta):
 
 	pass;
 
-#func _saveData():
-	#var save_nodes = get_tree().get_nodes_in_group("Persist");
-	#for i in save_nodes:
-	#	var a;
-	#pass;
-
 func _saveData():
 	print("saving...");
 	var save_game = File.new();

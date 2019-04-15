@@ -1,6 +1,5 @@
 extends Node
 
-
 # Internal node references
 onready var navigation_map = $NavigationMap
 onready var player = $Player
@@ -33,7 +32,6 @@ func _calculate_new_path():
 		# Sets the sidekick's path
 		player.path = path
 	pass
-
 
 func _on_Flag_current_menu_opened(menu):
 	current_menu = menu;

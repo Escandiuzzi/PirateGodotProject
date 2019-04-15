@@ -3,7 +3,8 @@ extends Node2D
 signal on_timer_change(time_left);
 signal send_player_reward(player_reward);
 
-export(String) var itemType;
+export(String) var islandType;
+export(String) var regionName;
 
 export(int) var miningTime;
 export(int) var islandSize;
@@ -132,12 +133,12 @@ func _getRewards():
 		var _item = item.instance();
 		if rarity > 85:
 			var randReward = randi() % rareSize;
-			_item._read_json_data(randReward, "Region1", "Rare");
+			_item._read_json_data(randReward, regionName, "Rare");
 			_item._print_data();
 		
 		else:
 			var randReward = randi() % commonSize;
-			_item._read_json_data(randReward, "Region1", "Common");
+			_item._read_json_data(randReward, regionName, "Common");
 			_item._print_data();
 		
 		if rewards.has(_item._get_name()):
