@@ -44,7 +44,6 @@ editor/display_folded = true
 shape = SubResource( 1 )
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 5 )]
 editor/display_folded = true
@@ -67,10 +66,10 @@ commonSize = 4
 rareSize = 6
 maxRewards = 9
 
-[node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="2"]
+[node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag"
 
-[node name="RewardMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="4"]
+[node name="RewardMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="5"]
 editor/display_folded = false
 path = "World/Flags/Flag"
 
@@ -79,7 +78,6 @@ position = Vector2( 20.7564, -2.79333 )
 shape = SubResource( 2 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 5 )]
-editor/display_folded = true
 position = Vector2( 319.674, -61.0101 )
 
 [node name="Button" parent="Flags/Flag2" index="0" groups=[
@@ -87,22 +85,22 @@ position = Vector2( 319.674, -61.0101 )
 ]]
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 6 )]
-editor/display_folded = true
-
-[node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
-editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="4"]
-editor/display_folded = true
+renewable = true
 regionName = "Region1"
 commonSize = 4
 rareSize = 6
 maxRewards = 9
+cooldown_time = 60
 
-[node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="2"]
+[node name="CooldownTimer" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="1"]
+one_shot = true
+
+[node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag2"
 
-[node name="RewardMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="4"]
+[node name="RewardMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="5"]
 path = "World/Flags/Flag2"
 
 [node name="Area2D" parent="Flags/Flag2/IslandMenu" index="1"]
@@ -121,7 +119,6 @@ position = Vector2( -880.167, 356.523 )
 ]]
 
 [node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 6 )]
-editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
 editor/display_folded = true
@@ -130,10 +127,10 @@ commonSize = 4
 rareSize = 6
 maxRewards = 9
 
-[node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="2"]
+[node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag3"
 
-[node name="RewardMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="4"]
+[node name="RewardMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="5"]
 path = "World/Flags/Flag3"
 
 [node name="Area2D" parent="Flags/Flag3/IslandMenu" index="1"]
@@ -164,10 +161,10 @@ commonSize = 4
 rareSize = 6
 maxRewards = 9
 
-[node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="2"]
+[node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag4"
 
-[node name="RewardMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="4"]
+[node name="RewardMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="5"]
 path = "World/Flags/Flag4"
 
 [node name="Area2D" parent="Flags/Flag4/IslandMenu" index="1"]

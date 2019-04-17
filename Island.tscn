@@ -17,6 +17,8 @@ islandSize = 3
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="CooldownTimer" type="Timer" parent="."]
+
 [node name="Button" type="Button" parent="."]
 margin_right = 45.0
 margin_bottom = 20.0

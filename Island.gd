@@ -3,6 +3,8 @@ extends Node2D
 signal on_timer_change(time_left);
 signal send_player_reward(player_reward);
 
+export(bool) var renewable;
+
 export(String) var islandType;
 export(String) var regionName;
 
@@ -13,12 +15,15 @@ export(int) var commonSize;
 export(int) var uncommonSize;
 export(int) var rareSize;
 export(int) var maxRewards;
+export(int) var cooldown_time;
 
-var selectedPirates = 0;
+
+var selectedPirates = -1;
 var pirates = [];
 var pirateId = [];
 var started = false;
 var player;
+var cooldown = false;
 
 var rewards = [];
 
@@ -28,6 +33,7 @@ onready var button2 = $Button2;
 onready var rewardMenu = $RewardMenu;
 onready var rewardText = $RewardMenu/RichTextLabel;
 onready var timer = $Timer;
+onready var cooldown_timer = $CooldownTimer;
 
 onready var item = preload("res://Item.tscn");
 
@@ -57,8 +63,10 @@ func _clearIsland():
 
 func _startMining():
 	var miningPoints = 0;
-	for i in range(selectedPirates):
-		miningPoints += pirates[i]._get_special(indexType);
+	miningPoints = 0;
+	for i in range(islandSize):
+		if pirates[i] != null:
+			miningPoints += pirates[i]._get_special(indexType);
 	if miningPoints > miningTime:
 		miningPoints = 1;
 	else:
@@ -71,7 +79,7 @@ func _startMining():
 	print(miningPoints);
 
 	miningTime = miningPoints;
-	timer.start(miningPoints); 
+	timer.start(miningTime); 
 	started = true;
 	pass;
 
@@ -85,14 +93,25 @@ func _process(delta):
 			timer.stop();
 			started = false;
 			button2.show();
-			_getRewards();
+			_getRewards()
+	
+	if cooldown:
+		var time_left = (100 * cooldown_timer.get_time_left()) / cooldown_time;
+		emit_signal("on_timer_change", time_left);
+		if cooldown_timer.is_stopped():
+			cooldown_timer.stop();
+			button.show();
+			cooldown = false;
+			emit_signal("on_timer_change", 0);
+			for i in canvasSlots:
+				i.pressed = false;
 	pass
 
 func _on_CheckBox_toggled(button_pressed, extra_arg_0):
 	if button_pressed == true:
 		if selectedPirates < islandSize:
 			selectedPirates += 1;
-			pirateId.push_front(extra_arg_0);
+			pirateId[selectedPirates] = extra_arg_0;
 		else:
 			canvasSlots[extra_arg_0].pressed = false
 	
@@ -103,7 +122,7 @@ func _on_CheckBox_toggled(button_pressed, extra_arg_0):
 
 func _insertPirates():
 	pirateId.sort();
-	for i in range(selectedPirates):
+	for i in range(islandSize):
 		if pirateId[i] == null:
 			break;
 		pirates[i] = player._get_pirate(pirateId[i]);
@@ -113,7 +132,7 @@ func _insertPirates():
 
 func _on_StartButton_pressed():
 	popupMenu.hide();
-	if selectedPirates > 0:
+	if selectedPirates > -1:
 			_insertPirates();
 			button.hide();
 	pass;
@@ -121,7 +140,10 @@ func _on_StartButton_pressed():
 func _on_CollectButton_pressed():
 	rewardMenu.hide();
 	button2.hide();
-	pass # Replace with function body.
+	if renewable:
+		_renewable_state();
+		cooldown = true;
+	pass 
 
 func _getRewards():	
 	randomize();
@@ -160,10 +182,21 @@ func _getRewards():
 		rewardText.text += keys[i];
 		rewardText.text += "\n";
 
-	
-	for i in range(selectedPirates):
+	for i in range(islandSize):
 		if pirateId[i] == null:
 			break;
 		pirates[i]._set_busy(false);
 	pirates.clear();
+	
+	pass;
+
+func _renewable_state():
+	cooldown_timer.start(cooldown_time);
+	started = false;
+	selectedPirates = 0;
+	for i in range(islandSize):
+		pirates.append(null);
+		pirateId.append(null);
+	miningTime = 0;
+	selectedPirates = -1;
 	pass;
