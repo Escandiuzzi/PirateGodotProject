@@ -25,7 +25,7 @@ func _calculate_new_path():
 
 	# If we got a path...
 	if path:
-		
+	
 		# Remove the first point (it's where the sidekick is)
 		path.remove(0)
 		

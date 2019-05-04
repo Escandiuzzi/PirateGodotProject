@@ -29,6 +29,7 @@ onready var hudObj = get_node("HUD");
 onready var inventory = $Inventory;
 onready var pirateObj = preload("res://Pirate.tscn");
 
+
 func _ready():
 	for i in range(10):
 		crew.append(null);
@@ -42,10 +43,12 @@ func _input(event):
 			hudObj.visible = false;
 		else:
 			hudObj.visible = true;
+			
 	pass;
 
 func _recruitPirate():
 	var newPirate = pirateObj.instance();
+	newPirate._set_tag(0);
 	crew[crewCount] = newPirate;
 	newPirate._initializePirate();
 	newPirate._setId(crewCount);
@@ -117,8 +120,8 @@ func _readData():
 		print("---------");
 		print(crewCount);
 		print("---------");
-		newPirate._setId(crewCount);
-		newPirate._setData(crewCount, current_line["mining"], current_line["battle"], current_line["cooking"]);
+		
+		newPirate._setData(crewCount, current_line["tag"], current_line["hp"], current_line["attack"], current_line["defense"], current_line["speed"], current_line["mining"], current_line["cooking"]);
 		hudObj.add_child(newPirate);
 		newPirate.position = slot_positions[crewCount];
 		crewCount += 1;
@@ -150,4 +153,6 @@ func _on_Island_send_player_reward(player_reward):
 func _get_inventory():
 	return inventory;
 	pass;
+
+
 
