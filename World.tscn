@@ -30,7 +30,6 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 movement_speed = 200
 
 [node name="HUD" parent="Player" index="0"]
-editor/display_folded = false
 visible = false
 
 [node name="Flags" type="Node" parent="."]

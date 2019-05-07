@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var battleManager = get_tree().get_root().get_node("BattleManager");
+onready var playerData = get_tree().get_root().get_node("/root/PlayerData");
 
 export(Array) var player_pos;
 export(Array) var ia_pos;
@@ -12,7 +13,7 @@ var enemy_texture = load("res://Sprite/characters/idle_mimic.png");
 
 
 func _ready():
-	#_draw_characters();
+	playerData._test();
 	pass;
 
 func _draw_characters():

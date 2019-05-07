@@ -16,10 +16,12 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("key_b"):
-		
-		#battleManager._initializeBattle(3, 3, test);
-		_set_parent();
-		get_tree().change_scene("res://Main.tscn")
+		get_tree().change_scene("res://BattleScene.tscn")
+	pass;
+
+func _test():
+	var ids = [0,2];
+	battleManager._instanciate_player_pirates(ids);
 	pass;
 
 func _recruitPirate():
@@ -31,6 +33,7 @@ func _recruitPirate():
 		newPirate._setId(crewCount);
 		player._position_pirate(newPirate);
 		crewCount += 1;
+		_saveData();
 	pass;
 
 func _saveData():
@@ -56,7 +59,6 @@ func _saveData():
 	pass;
 
 func _readData():
-	
 	var save_game = File.new();
 	if not save_game.file_exists("res://savegame.json") and crewCount == 0:
 		print("file does not exists");
@@ -97,9 +99,4 @@ func _receive_player_reward(player_reward):
 	pass ;
 func _get_inventory():
 	return inventory;
-	pass;
-
-func _set_parent():
-	for i in range(crewCount):
-		self.add_child(crew[i]);
 	pass;

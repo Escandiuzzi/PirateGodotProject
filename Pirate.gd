@@ -141,4 +141,7 @@ func _set_tag(id):
 func _get_tag():
 	return tag;
 	pass;
-	
+
+func _change_sprite(spr):
+	sprite.texture = spr;
+	pass;

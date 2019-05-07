@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Manager.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=2]
 [ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/HUD/buttons/defend_icon.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=6]
 
 [node name="BattleScene" type="Node2D"]
+editor/display_folded = true
 
 [node name="Manager" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -14,6 +18,7 @@ ia_pos = [ Vector2( 830, 177 ), Vector2( 830, 306 ), Vector2( 830, 437 ) ]
 [node name="UIButtonHandler" type="Node2D" parent="."]
 
 [node name="UI" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Background" type="Sprite" parent="UI"]
 scale = Vector2( 7.474, 6.742 )
@@ -24,4 +29,31 @@ centered = false
 scale = Vector2( 1.6, 1.25 )
 texture = ExtResource( 3 )
 centered = false
+
+[node name="AttackButton" type="Button" parent="UI"]
+margin_left = 97.9724
+margin_top = 480.531
+margin_right = 149.972
+margin_bottom = 526.531
+rect_scale = Vector2( 2, 2 )
+icon = ExtResource( 4 )
+flat = true
+
+[node name="DefendButton" type="Button" parent="UI"]
+margin_left = 473.972
+margin_top = 480.531
+margin_right = 525.972
+margin_bottom = 526.531
+rect_scale = Vector2( 2, 2 )
+icon = ExtResource( 5 )
+flat = true
+
+[node name="InventoryButton" type="Button" parent="UI"]
+margin_left = 821.972
+margin_top = 480.531
+margin_right = 873.972
+margin_bottom = 526.531
+rect_scale = Vector2( 2, 2 )
+icon = ExtResource( 6 )
+flat = true
 
