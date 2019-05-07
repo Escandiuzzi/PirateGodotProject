@@ -96,5 +96,10 @@ func _get_inventory():
 	return data._get_inventory();
 	pass;
 
+func _position_pirate(pirate_obj):
+	hudObj.add_child(pirate_obj);
+	pirate_obj.position = slot_positions[crewCount];
+	crewCount +=1;
+	pass;
 
 

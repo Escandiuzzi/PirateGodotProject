@@ -49,6 +49,10 @@ func _setId(_id):
 	id = _id;
 	pass;
 
+func _get_id():
+	return id;
+	pass;
+
 func _savePirate():
 	var save_dict = {
 		"id" : id,
@@ -137,3 +141,4 @@ func _set_tag(id):
 func _get_tag():
 	return tag;
 	pass;
+	

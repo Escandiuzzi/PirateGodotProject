@@ -12,7 +12,7 @@ var enemy_texture = load("res://Sprite/characters/idle_mimic.png");
 
 
 func _ready():
-	_draw_characters();
+	#_draw_characters();
 	pass;
 
 func _draw_characters():

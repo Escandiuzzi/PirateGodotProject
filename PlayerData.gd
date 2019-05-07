@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 var crewCount = 0;
 var crew = [];
@@ -16,13 +16,10 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("key_b"):
-		var test = [
-			crew[0],
-			crew[1],
-			crew[2]
-		];
-		battleManager._initializeBattle(3, 3, test);
-		get_tree().change_scene("res://BattleScene.tscn")
+		
+		#battleManager._initializeBattle(3, 3, test);
+		_set_parent();
+		get_tree().change_scene("res://Main.tscn")
 	pass;
 
 func _recruitPirate():
@@ -32,26 +29,27 @@ func _recruitPirate():
 		crew[crewCount] = newPirate;
 		newPirate._initializePirate();
 		newPirate._setId(crewCount);
-		self.add_child(newPirate);
-		#newPirate.position = slot_positions[crewCount];
+		player._position_pirate(newPirate);
 		crewCount += 1;
 	pass;
-
 
 func _saveData():
 	print("saving...");
 	var save_game = File.new();
-	save_game.open("res://savegame.save", File.WRITE);
+	
+	save_game.open("res://savegame.json", File.WRITE);
+	
 	var ship_dict = {
-		"ship" : "starterShip",
+		"shipType" : "starterShip",
 		"crewCount" : crewCount
 	}
 	
-	save_game.store_line(to_json(ship_dict));
+	var json_data = {"ship": ship_dict}
 	
 	for i in crewCount:
-		var crew_dict = crew[i]._savePirate();
-		save_game.store_line(to_json(crew_dict));
+		json_data[i] = crew[i]._savePirate();
+	
+	save_game.store_line(to_json(json_data));
 		
 	save_game.close();
 	print("saved");
@@ -60,26 +58,24 @@ func _saveData():
 func _readData():
 	
 	var save_game = File.new();
-	if not save_game.file_exists("res://savegame.save") and crewCount == 0:
+	if not save_game.file_exists("res://savegame.json") and crewCount == 0:
 		print("file does not exists");
 		return;
 		
-	save_game.open("res://savegame.save", File.READ)
+	save_game.open("res://savegame.json", File.READ)
 	
-	var first_line =  parse_json(save_game.get_line());
-	var current_line = parse_json(save_game.get_line())
-	while not save_game.eof_reached():
+	var current_line =  parse_json(save_game.get_line());
+	
+	crewCount = current_line["ship"]["crewCount"];
+	
+	for i in range(crewCount):
 		var newPirate = pirateObj.instance();
-		crew[crewCount] = newPirate;
+		crew[i] = newPirate;
+		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["attack"], current_line[str(i)]["defense"], current_line[str(i)]["speed"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"]);
+		player._position_pirate(newPirate);
 		print("---------");
-		print(crewCount);
+		print(i);
 		print("---------");
-		
-		newPirate._setData(crewCount, current_line["tag"], current_line["hp"], current_line["attack"], current_line["defense"], current_line["speed"], current_line["mining"], current_line["cooking"]);
-		hudObj.add_child(newPirate);
-		#newPirate.position = slot_positions[crewCount];
-		crewCount += 1;
-		current_line = parse_json(save_game.get_line())
 	save_game.close();
 	pass;
 
@@ -103,4 +99,7 @@ func _get_inventory():
 	return inventory;
 	pass;
 
-
+func _set_parent():
+	for i in range(crewCount):
+		self.add_child(crew[i]);
+	pass;
