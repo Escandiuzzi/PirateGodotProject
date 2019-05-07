@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprite/entities/player/player.png" type="Texture" id=1]
+[ext_resource path="res://PlayerData.gd" type="Script" id=2]
+[ext_resource path="res://Inventory.gd" type="Script" id=3]
+
+[node name="PlayerData" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 3 )
+

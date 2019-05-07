@@ -48,9 +48,7 @@ func _check_player_crew():
 	for i in range(10):
 		if crew[i] == null || crew[i]._get_busy() == true:
 			canvasSlots[i].visible = false;
-
 	pass;
-
 
 func _on_Area2D_mouse_entered(extra_arg_0):	
 	var pirate = player._get_pirate(extra_arg_0);

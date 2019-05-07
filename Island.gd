@@ -66,7 +66,7 @@ func _startMining():
 	miningPoints = 0;
 	for i in range(islandSize):
 		if pirates[i] != null:
-			miningPoints += pirates[i]._get_special(indexType);
+			miningPoints += pirates[i]._get_stat("mining");
 	if miningPoints > miningTime:
 		miningPoints = 1;
 	else:

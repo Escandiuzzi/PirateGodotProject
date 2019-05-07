@@ -25,16 +25,15 @@ func _initializeBattle(var player_n, var enemies_n, var pirates):
 	var count = player_n + enemies_n;
 	for i in range(count):
 		characters.append(null);
-	
-	for i in range(playerCount):
 		playerPirates.append(null);
+		enemies.append(null);
+	for i in range(playerCount):
 		characters[pos] = pirates[i];
 		playerPirates[i] = pirates[i];
 		self.add_child(playerPirates[i]);
 		pos += 1;
 	
 	for i in range(enemiesCount):
-		enemies.append(null);
 		var newEnemy = pirateObj.instance();
 		newEnemy._initializePirate();
 		newEnemy._set_tag(1);
@@ -43,7 +42,7 @@ func _initializeBattle(var player_n, var enemies_n, var pirates):
 		characters[pos] = newEnemy;
 		pos += 1;
 		#newEnemy.position = slot_positions[crewCount];
-		_battle();
+		#_battle();
 		battle = true;
 	pass;
 
@@ -69,6 +68,10 @@ func _player_action():
 	pass;
 
 func _ia_action():
+	pass;
+
+func _get_characters():
+	return characters;
 	pass;
 
 

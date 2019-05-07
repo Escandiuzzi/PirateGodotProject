@@ -1,16 +1,82 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprite/entities/player/player.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://Inventory.gd" type="Script" id=3]
+[ext_resource path="res://Sprite/placeholder.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=4]
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.7326
 
 [node name="Player" type="Sprite"]
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="HUD" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 6.10558, 102.102 )
+scale = Vector2( 0.486804, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="SaveButton" type="Button" parent="HUD"]
+margin_left = -452.144
+margin_top = -442.204
+margin_right = -374.144
+margin_bottom = -422.204
+rect_scale = Vector2( 3, 3 )
+text = "Save"
+clip_text = true
+
+[node name="LoadButton" type="Button" parent="HUD"]
+margin_left = -453.0
+margin_top = -364.0
+margin_right = -375.0
+margin_bottom = -344.0
+rect_scale = Vector2( 3, 3 )
+text = "Load"
+clip_text = true
+
+[node name="InventoryButton" type="Button" parent="HUD"]
+margin_left = -446.872
+margin_top = -281.44
+margin_right = -373.872
+margin_bottom = -261.44
+rect_scale = Vector2( 3, 3 )
+text = "Inventory"
+
+[node name="Background" type="Sprite" parent="HUD"]
+visible = false
+position = Vector2( -9.30146, -294.948 )
+scale = Vector2( 17.5365, 15.0563 )
+texture = ExtResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
+editor/display_folded = true
+visible = false
+margin_left = -276.0
+margin_top = -523.0
+margin_right = -59.0
+margin_bottom = -334.0
+rect_scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 5 )
+bgd_path = NodePath("../../Background")
+
+[node name="Button" type="Button" parent="HUD/RichTextLabel"]
+margin_left = 168.877
+margin_top = 163.974
+margin_right = 215.877
+margin_bottom = 183.974
+text = "Close"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource( 3 )
+[node name="PlayerArea2D" type="Area2D" parent="."]
+editor/display_folded = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
+shape = SubResource( 1 )
+
+[connection signal="pressed" from="HUD/InventoryButton" to="HUD/RichTextLabel" method="_on_InventoryButton_pressed"]
+[connection signal="pressed" from="HUD/RichTextLabel/Button" to="HUD/RichTextLabel" method="_on_Button_pressed"]

@@ -1,12 +1,11 @@
 extends RichTextLabel
 
 
-var player;
+onready var data = get_tree().get_root().get_node("/root/PlayerData");
 var background;
 export(NodePath) var bgd_path;
 
 func _ready():
-	player = get_tree().get_root().get_node("World/Player");
 	background = get_parent().get_node("Background");
 	pass # Replace with function body.
 
@@ -21,7 +20,7 @@ func _on_InventoryButton_pressed():
 	self.show();
 	background.visible = true;
 	text = "";
-	var inventory = player._get_inventory();
+	var inventory = data._get_inventory();
 	var keys = inventory._get_keys();
 	
 	for i in range(keys.size()):

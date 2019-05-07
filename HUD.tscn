@@ -5,8 +5,6 @@
 [ext_resource path="res://RichTextLabel.gd" type="Script" id=3]
 
 [node name="HUD" type="Sprite"]
-editor/display_folded = true
-visible = false
 position = Vector2( 6.10558, 102.102 )
 scale = Vector2( 0.486804, 0.5 )
 texture = ExtResource( 1 )
