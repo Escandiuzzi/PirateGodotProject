@@ -35,7 +35,6 @@ visible = false
 [node name="Flags" type="Node" parent="."]
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = true
 position = Vector2( -342.047, 196.745 )
 
 [node name="Button" parent="Flags/Flag" index="0" groups=[
@@ -43,7 +42,6 @@ position = Vector2( -342.047, 196.745 )
 ]]
 
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 5 )]
-editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
 editor/display_folded = true

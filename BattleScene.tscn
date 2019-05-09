@@ -1,59 +1,157 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Manager.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=2]
 [ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=3]
-[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=4]
-[ext_resource path="res://Sprite/HUD/buttons/defend_icon.png" type="Texture" id=5]
-[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=5]
+[ext_resource path="res://UIButtonHandler.gd" type="Script" id=6]
+[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=7]
+[ext_resource path="res://Sprite/HUD/buttons/defend_icon.png" type="Texture" id=8]
+[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=12]
 
 [node name="BattleScene" type="Node2D"]
 editor/display_folded = true
 
 [node name="Manager" type="Node2D" parent="."]
+editor/display_folded = true
 script = ExtResource( 1 )
-player_pos = [ Vector2( 150, 140 ), Vector2( 150, 269 ), Vector2( 150, 400 ) ]
-ia_pos = [ Vector2( 830, 177 ), Vector2( 830, 306 ), Vector2( 830, 437 ) ]
 
-[node name="UIButtonHandler" type="Node2D" parent="."]
-
-[node name="UI" type="Node2D" parent="."]
+[node name="UI" type="Node2D" parent="Manager"]
 editor/display_folded = true
 
-[node name="Background" type="Sprite" parent="UI"]
+[node name="Background" type="Sprite" parent="Manager/UI"]
 scale = Vector2( 7.474, 6.742 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="HUD" type="Sprite" parent="UI"]
+[node name="HUD" type="Sprite" parent="Manager/UI"]
 scale = Vector2( 1.6, 1.25 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="AttackButton" type="Button" parent="UI"]
-margin_left = 97.9724
-margin_top = 480.531
-margin_right = 149.972
-margin_bottom = 526.531
+[node name="HealthBars" type="Node2D" parent="Manager/UI"]
+editor/display_folded = true
+
+[node name="character1_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
+margin_left = 87.0
+margin_top = 80.0
+margin_right = 197.0
+margin_bottom = 120.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="character2_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
+margin_left = 87.0
+margin_top = 211.0
+margin_right = 197.0
+margin_bottom = 251.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="character3_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
+margin_left = 87.0
+margin_top = 339.0
+margin_right = 197.0
+margin_bottom = 379.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="enemy1_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
+margin_left = 829.0
+margin_top = 70.0
+margin_right = 939.0
+margin_bottom = 110.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="enemy2_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
+margin_left = 829.0
+margin_top = 200.0
+margin_right = 939.0
+margin_bottom = 240.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="enemy3_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
+margin_left = 829.0
+margin_top = 335.0
+margin_right = 939.0
+margin_bottom = 375.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+
+[node name="UIButtonHandler" type="Node2D" parent="Manager/UI"]
+editor/display_folded = true
+script = ExtResource( 6 )
+
+[node name="1 Layer" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+editor/display_folded = true
+
+[node name="AttackButton" type="Button" parent="Manager/UI/UIButtonHandler/1 Layer"]
+margin_left = 98.0
+margin_top = 480.0
+margin_right = 150.0
+margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 4 )
+icon = ExtResource( 7 )
 flat = true
 
-[node name="DefendButton" type="Button" parent="UI"]
-margin_left = 473.972
-margin_top = 480.531
-margin_right = 525.972
-margin_bottom = 526.531
+[node name="DefendButton" type="Button" parent="Manager/UI/UIButtonHandler/1 Layer"]
+margin_left = 474.0
+margin_top = 480.0
+margin_right = 526.0
+margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 5 )
+icon = ExtResource( 8 )
 flat = true
 
-[node name="InventoryButton" type="Button" parent="UI"]
-margin_left = 821.972
-margin_top = 480.531
-margin_right = 873.972
-margin_bottom = 526.531
+[node name="InventoryButton" type="Button" parent="Manager/UI/UIButtonHandler/1 Layer"]
+margin_left = 822.0
+margin_top = 480.0
+margin_right = 874.0
+margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 6 )
+icon = ExtResource( 9 )
 flat = true
 
+[node name="2 Layer" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+editor/display_folded = true
+visible = false
+
+[node name="FirstEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/2 Layer"]
+margin_left = 98.0
+margin_top = 480.0
+margin_right = 150.0
+margin_bottom = 526.0
+rect_scale = Vector2( 2, 2 )
+icon = ExtResource( 10 )
+flat = true
+
+[node name="SecondEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/2 Layer"]
+margin_left = 474.0
+margin_top = 480.0
+margin_right = 526.0
+margin_bottom = 526.0
+rect_scale = Vector2( 2, 2 )
+icon = ExtResource( 11 )
+flat = true
+
+[node name="ThirdEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/2 Layer"]
+margin_left = 822.0
+margin_top = 480.0
+margin_right = 874.0
+margin_bottom = 526.0
+rect_scale = Vector2( 2, 2 )
+icon = ExtResource( 12 )
+flat = true
+
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/1 Layer/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/1 Layer/DefendButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Defend" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/1 Layer/InventoryButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Inventory" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/2 Layer/FirstEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/2 Layer/SecondEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/2 Layer/ThirdEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 2 ]]

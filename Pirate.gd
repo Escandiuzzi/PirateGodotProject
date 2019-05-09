@@ -3,6 +3,7 @@ extends Node2D
 var id;
 var tag;
 var hp;
+var max_hp;
 var defBonus;
 var busy;
 
@@ -22,6 +23,7 @@ var keys = [
 ]
 
 onready var pirateStat = get_node("pirateStat");
+onready var statBGD = get_node("textBGD");
 onready var sprite = $Sprite;
 
 var miningtexture = load("res://Sprite/entities/player/mining.png");
@@ -31,6 +33,8 @@ func _ready():
 	pass
 
 func _initializePirate():
+	hp = 10; #for test purposes
+	max_hp = hp;
 	print("New Pirate created with: ")
 	for i in range(5):
 		randomize();
@@ -58,6 +62,7 @@ func _savePirate():
 		"id" : id,
 		"tag" : tag,
 		"hp" : hp,
+		"maxHp" : max_hp,
 		"attack" : stats["atk"],
 		"defense" : stats["def"],
 		"speed" : stats["speed"],
@@ -66,10 +71,11 @@ func _savePirate():
 		}
 	return save_dict;
 
-func _setData(_id, _tag, _hp, _atk, _def, _speed, _mining, _cooking):	
+func _setData(_id, _tag, _hp, _max, _atk, _def, _speed, _mining, _cooking):	
 	id = _id;
 	tag = _tag;
 	hp = _hp;
+	max_hp = hp;
 	stats["atk"] = _atk;
 	stats["def"] = _def;
 	stats["speed"] = _speed;
@@ -80,6 +86,7 @@ func _setData(_id, _tag, _hp, _atk, _def, _speed, _mining, _cooking):
 	print(id);
 	print(tag);
 	print(hp);
+	print(max_hp);
 	print(stats["atk"]);
 	print(stats["def"]);
 	print(stats["speed"]);
@@ -111,6 +118,14 @@ func _get_hp():
 	return hp;
 	pass;
 
+func _set_max_hp(_hp):
+	max_hp = _hp;
+	pass;
+
+func _get_max_hp():
+	return hp;
+	pass;
+
 func _set_def_bonus(bonus):
 	defBonus = bonus;
 	pass;
@@ -120,14 +135,31 @@ func _get_def_bonus():
 	pass;
 
 func _on_Area2D_mouse_entered():
-	pirateStat.text = "";
-	pirateStat.text += "Mining: " + str(_get_stat("mining")) + "\n";
-	pirateStat.text += "Battle: " + str(_get_stat("atk")) + "\n";	
-	pirateStat.text += "Cooking: " + str(_get_stat("cooking")) +"\n";
+	
+	if get_tree().get_current_scene().get_name() == "BattleScene":
+		pirateStat.text = "";
+		pirateStat.text += "HP: " + str(_get_hp()) + "\n";	
+		pirateStat.text += "Attack: " + str(_get_stat("atk")) + "\n";	
+		pirateStat.text += "Defense: " + str(_get_stat("def")) + "\n";	
+		pirateStat.text += "Speed: " + str(_get_stat("speed")) +"\n";
+		pirateStat.text += "Def Bonus: " + str(defBonus) +"\n";
+		
+	
+	else:
+		pirateStat.text = "";
+		pirateStat.text += "Mining: " + str(_get_stat("mining")) + "\n";
+		pirateStat.text += "Battle: " + str(_get_stat("atk")) + "\n";	
+		pirateStat.text += "Cooking: " + str(_get_stat("cooking")) +"\n";
+		pirateStat.set_scale(Vector2(1.8, 1.8));
+		
+	
+	statBGD.show();
 	pirateStat.show();
+	
 	pass; 
 
 func _on_Area2D_mouse_exited():
+	statBGD.hide();
 	pirateStat.hide();
 	pass;
 

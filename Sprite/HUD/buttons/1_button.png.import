@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-813f14a0f22db1611f3cdf80f84e36ba.stex"
+path="res://.import/1_button.png-7f359c0cf60a44f1576e9fdc1347fd98.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/HUD/bar/background.png"
-dest_files=[ "res://.import/background.png-813f14a0f22db1611f3cdf80f84e36ba.stex" ]
+source_file="res://Sprite/HUD/buttons/1_button.png"
+dest_files=[ "res://.import/1_button.png-7f359c0cf60a44f1576e9fdc1347fd98.stex" ]
 
 [params]
 

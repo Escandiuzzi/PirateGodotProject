@@ -20,7 +20,7 @@ func _input(event):
 	pass;
 
 func _test():
-	var ids = [0,2];
+	var ids = [0,1,2];
 	battleManager._instanciate_player_pirates(ids);
 	pass;
 
@@ -73,7 +73,7 @@ func _readData():
 	for i in range(crewCount):
 		var newPirate = pirateObj.instance();
 		crew[i] = newPirate;
-		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["attack"], current_line[str(i)]["defense"], current_line[str(i)]["speed"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"]);
+		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["attack"], current_line[str(i)]["defense"], current_line[str(i)]["speed"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"]);
 		player._position_pirate(newPirate);
 		print("---------");
 		print(i);
