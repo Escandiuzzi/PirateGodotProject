@@ -1,10 +1,18 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Flag.tscn" type="PackedScene" id=4]
 [ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 156.85, 214.32 )
@@ -29,8 +37,23 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 movement_speed = 200
 
-[node name="HUD" parent="Player" index="0"]
+[node name="Button" type="Button" parent="Player"]
+show_behind_parent = true
+margin_left = -26.0
+margin_top = -25.0
+margin_right = 25.0
+margin_bottom = 25.0
+custom_styles/normal = SubResource( 5 )
+
+[node name="HUD" parent="Player" index="1"]
+editor/display_folded = false
 visible = false
+
+[node name="RichTextLabel" parent="Player/HUD" index="4"]
+editor/display_folded = false
+
+[node name="PlayerArea2D" parent="Player" index="3"]
+editor/display_folded = false
 
 [node name="Flags" type="Node" parent="."]
 
@@ -161,6 +184,7 @@ editor/display_folded = true
 position = Vector2( -17.1475, 11.7324 )
 shape = SubResource( 4 )
 
+[connection signal="pressed" from="Player/Button" to="Player" method="hudShow"]
 [connection signal="pressed" from="Player/HUD/SaveButton" to="Player" method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="Player/HUD/LoadButton" to="Player" method="_on_LoadButton_pressed"]
 [connection signal="current_menu_opened" from="Flags/Flag" to="." method="_on_Flag_current_menu_opened"]

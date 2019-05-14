@@ -101,5 +101,10 @@ func _position_pirate(pirate_obj):
 	pirate_obj.position = slot_positions[crewCount];
 	crewCount +=1;
 	pass;
-
+func hudShow():
+	if hudObj.visible == true:
+		hudObj.visible = false;
+	else:
+		hudObj.visible = true;
+	pass;
 
