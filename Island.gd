@@ -37,6 +37,8 @@ onready var cooldown_timer = $CooldownTimer;
 
 onready var item = preload("res://Item.tscn");
 
+onready var island_menu = get_parent();
+
 onready var canvasSlots = [
 get_node("PopupMenu/CheckBox"),
 get_node("PopupMenu/CheckBox2"),
@@ -77,17 +79,18 @@ func _startMining():
 	print("Started mining");
 	print("expected to end in ");
 	print(miningPoints);
-
-	miningTime = miningPoints;
-	timer.start(miningTime); 
+	timer.start(miningPoints); 
 	started = true;
+	
 	pass;
 
 func _process(delta):
 	if started:
-		var _percentage = miningTime - timer.get_time_left();
-		_percentage = (_percentage * 100) / miningTime;
+		#change 60 for miningTime
+		var _percentage = 60 - timer.get_time_left();
+		_percentage = (_percentage * 100) / 60;
 		emit_signal("on_timer_change", _percentage);
+		island_menu._on_timer_change(_percentage);
 		if timer.is_stopped():
 			print("Pirates ended mining");
 			timer.stop();
@@ -98,6 +101,7 @@ func _process(delta):
 	if cooldown:
 		var time_left = (100 * cooldown_timer.get_time_left()) / cooldown_time;
 		emit_signal("on_timer_change", time_left);
+		island_menu._on_timer_change(time_left);
 		if cooldown_timer.is_stopped():
 			cooldown_timer.stop();
 			button.show();
@@ -197,6 +201,5 @@ func _renewable_state():
 	for i in range(islandSize):
 		pirates.append(null);
 		pirateId.append(null);
-	miningTime = 0;
 	selectedPirates = -1;
 	pass;

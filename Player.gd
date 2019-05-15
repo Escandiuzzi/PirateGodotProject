@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 # Speed at which the sidekick will move
 
@@ -106,5 +106,9 @@ func hudShow():
 		hudObj.visible = false;
 	else:
 		hudObj.visible = true;
+	pass;
+
+func _clear_path():
+	path = null;
 	pass;
 
