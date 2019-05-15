@@ -27,7 +27,7 @@ Vector2(450, 0)];
 
 onready var hudObj = get_node("HUD");
 onready var data = get_tree().get_root().get_node("/root/PlayerData");
-
+onready var sprite = $"Player Sprite";
 
 func _input(event):
 	if event.is_action_pressed("key_k") and crewCount < 10:
@@ -51,7 +51,9 @@ func _process(delta):
 
 		# Determine direction in which sidekick must move
 		var direction = (target - position).normalized();
-
+		
+		sprite.look_at(target);
+		
 		# Move sidekick
 		position += direction * movement_speed * delta;
 
@@ -64,7 +66,6 @@ func _process(delta):
 			# If we have no points left, remove path
 			if path.size() == 0:
 				path = null;
-
 	pass;
 
 func _saveData():
@@ -78,6 +79,7 @@ func _readData():
 func _get_crew():
 	return data._get_crew();
 	pass;
+
 func _get_pirate(index):
 	return  data._get_pirate(index);
 	pass;
@@ -85,13 +87,16 @@ func _get_pirate(index):
 func _on_SaveButton_pressed():
 	_saveData();
 	pass;
+
 func _on_LoadButton_pressed():
 	_readData();
 	pass;
 	
+
 func _on_Island_send_player_reward(player_reward):
 	data._receive_player_reward(player_reward);
 	pass;
+
 func _get_inventory():
 	return data._get_inventory();
 	pass;
@@ -101,14 +106,7 @@ func _position_pirate(pirate_obj):
 	pirate_obj.position = slot_positions[crewCount];
 	crewCount +=1;
 	pass;
-func hudShow():
-	if hudObj.visible == true:
-		hudObj.visible = false;
-	else:
-		hudObj.visible = true;
-	pass;
 
 func _clear_path():
 	path = null;
 	pass;
-

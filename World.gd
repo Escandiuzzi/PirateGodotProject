@@ -3,7 +3,7 @@ extends Node
 # Internal node references
 onready var navigation_map = $NavigationMap;
 onready var player = $Player;
-onready var node2D = $Node2D;
+onready var node2D = $Center;
 onready var flag = $Flags;
 
 var current_menu;
