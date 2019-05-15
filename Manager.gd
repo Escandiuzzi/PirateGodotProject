@@ -19,7 +19,7 @@ onready var ia_healthbars = [
 ];
 
 func _ready():
-	playerData._test();
+	playerData._request_player_pirates();
 	pass;
 
 func _process(delta):
@@ -37,8 +37,8 @@ func _set_characters():
 
 func _update_healthbar():
 	
-	for i in range(p_characters.size()):
-		if p_characters[i] == null or p_characters[i]._get_hp() <= 0:
+	for i in range(3):
+		if p_characters.size() - 1  < i or p_characters[i]._get_hp() <= 0:
 			p_healthbars[i].visible = false;
 		else:
 			
@@ -47,8 +47,8 @@ func _update_healthbar():
 			var percentage = (100 * hp) / max_hp;	
 			p_healthbars[i].set_value(percentage);
 	
-	for i in range(ia_characters.size()):
-		if ia_characters[i] == null or ia_characters[i]._get_hp() <= 0:
+	for i in range(3):
+		if ia_characters.size() - 1 < i or ia_characters[i]._get_hp() <= 0:
 			ia_healthbars[i].visible = false;
 		else:
 			var hp = ia_characters[i]._get_hp();

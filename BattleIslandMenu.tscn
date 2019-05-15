@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BattleIslandMenu.gd" type="Script" id=1]
+[ext_resource path="res://BattleIsland.tscn" type="PackedScene" id=2]
+
+[node name="IslandMenu" type="Node2D"]
+
+[node name="IslandMenu" type="PopupMenu" parent="."]
+margin_left = -110.0
+margin_top = -90.0
+margin_right = 110.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 110, 90 )
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="IslandMenu"]
+margin_left = 17.0
+margin_top = 18.0
+margin_right = 203.0
+margin_bottom = 111.0
+
+[node name="Close" type="Button" parent="IslandMenu"]
+margin_left = 79.0
+margin_top = 150.0
+margin_right = 140.0
+margin_bottom = 170.0
+rect_pivot_offset = Vector2( 30.5, 10 )
+text = "Close"
+
+[node name="Island" parent="IslandMenu" instance=ExtResource( 2 )]
+
+[node name="Button" parent="IslandMenu/Island" index="0"]
+margin_left = 86.0
+margin_top = 115.0
+margin_right = 133.0
+margin_bottom = 135.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[connection signal="pressed" from="IslandMenu/Close" to="IslandMenu" method="_on_Close_pressed"]
+
+[editable path="IslandMenu/Island"]

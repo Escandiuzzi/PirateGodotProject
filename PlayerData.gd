@@ -2,6 +2,7 @@ extends Node2D
 
 var crewCount = 0;
 var crew = [];
+var ids = [];
 
 onready var hudObj = get_node("HUD");
 onready var inventory = $Inventory;
@@ -14,13 +15,15 @@ func _ready():
 		crew.append(null);
 	pass
 
-func _input(event):
-	if event.is_action_pressed("key_b"):
-		get_tree().change_scene("res://BattleScene.tscn")
+func _selected_pirates(_ids):
+
+	for i in range(_ids.size()):
+		if _ids[i] != null:
+			ids.append(null);
+			ids[i] = _ids[i];
 	pass;
 
-func _test():
-	var ids = [0,1,2];
+func _request_player_pirates():
 	battleManager._instanciate_player_pirates(ids);
 	pass;
 

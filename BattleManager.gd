@@ -11,8 +11,9 @@ var battle;
 var played;
 var pos;
 var target_enemy;
-
 var player_action;
+var nEnemies;
+var difficulty;
 
 onready var pirateObj = preload("res://Pirate.tscn");
 onready var battleScene = get_tree().get_root();
@@ -106,12 +107,17 @@ func _instanciate_player_pirates(ids):
 
 	save_game.close();
 	playerCount = ids.size();
-	_initializeEnemies(3);
+	_initializeEnemies(nEnemies);
 	pass;
 
 func _player_button_action(action, target):
 	played = true;
 	player_action = action;
 	target_enemy = target;
+	pass;
+
+func _island_data(_difficulty, _nEnemies):
+	difficulty = _difficulty;
+	nEnemies = _nEnemies;
 	pass;
 

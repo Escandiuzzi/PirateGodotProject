@@ -11,6 +11,7 @@
 radius = 24.7326
 
 [node name="Player" type="Node2D"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Player Sprite" type="Sprite" parent="."]
@@ -76,7 +77,6 @@ text = "Close"
 current = true
 
 [node name="PlayerArea2D" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
 shape = SubResource( 1 )

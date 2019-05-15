@@ -27,9 +27,6 @@ func _ready():
 	rect_position.y = parent.position.y - (rect_size.y/2);
 	pass 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_CloseButton2_pressed():

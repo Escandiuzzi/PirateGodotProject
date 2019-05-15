@@ -1,28 +1,24 @@
 extends Node2D
 
-signal on_timer_change(time_left);
 signal send_player_reward(player_reward);
-
-export(bool) var renewable;
 
 export(String) var islandType;
 export(String) var regionName;
 
-export(int) var miningTime;
+export(int) var difficulty;
+export(int) var enemies;
 export(int) var islandSize;
 export(int) var indexType;
 export(int) var commonSize;
 export(int) var uncommonSize;
 export(int) var rareSize;
 export(int) var maxRewards;
-export(int) var cooldown_time;
+
 
 var selectedPirates = -1;
 var pirates = [];
 var pirateId = [];
-var started = false;
 var player;
-var cooldown = false;
 
 var rewards = [];
 
@@ -31,12 +27,13 @@ onready var button = $Button;
 onready var button2 = $Button2;
 onready var rewardMenu = $RewardMenu;
 onready var rewardText = $RewardMenu/RichTextLabel;
-onready var timer = $Timer;
-onready var cooldown_timer = $CooldownTimer;
 
 onready var item = preload("res://Item.tscn");
 
 onready var island_menu = get_parent();
+onready var text = get_parent().get_node("RichTextLabel");
+onready var player_data = get_tree().get_root().get_node("/root/PlayerData");
+onready var battle_manager = get_tree().get_root().get_node("/root/BattleManager");
 
 onready var canvasSlots = [
 get_node("PopupMenu/CheckBox"),
@@ -56,59 +53,15 @@ func _ready():
 	for i in range(islandSize):
 		pirates.append(null);
 		pirateId.append(null);
+
+	text.text += "              " + islandType + "    \n";
+	text.text += "\n Difficulty: " + str(difficulty) + "\n";
+	text.text += "\n Number of enemies: " + str(enemies) + "\n";
 	pass 
 
 func _clearIsland():
 	pirates.clear();
 	pass;
-
-func _startMining():
-	var miningPoints = 0;
-	miningPoints = 0;
-	for i in range(islandSize):
-		if pirates[i] != null:
-			miningPoints += pirates[i]._get_stat("mining");
-	if miningPoints > miningTime:
-		miningPoints = 1;
-	else:
-		miningPoints = miningTime - miningPoints;
-	
-	miningPoints = miningPoints * 60;
-	
-	print("Started mining");
-	print("expected to end in ");
-	print(miningPoints);
-	timer.start(miningPoints); 
-	started = true;
-	
-	pass;
-
-func _process(delta):
-	if started:
-		#change 60 for miningTime
-		var _percentage = 60 - timer.get_time_left();
-		_percentage = (_percentage * 100) / 60;
-		emit_signal("on_timer_change", _percentage);
-		island_menu._on_timer_change(_percentage);
-		if timer.is_stopped():
-			print("Pirates ended mining");
-			timer.stop();
-			started = false;
-			button2.show();
-			_getRewards()
-	
-	if cooldown:
-		var time_left = (100 * cooldown_timer.get_time_left()) / cooldown_time;
-		emit_signal("on_timer_change", time_left);
-		island_menu._on_timer_change(time_left);
-		if cooldown_timer.is_stopped():
-			cooldown_timer.stop();
-			button.show();
-			cooldown = false;
-			emit_signal("on_timer_change", 0);
-			for i in canvasSlots:
-				i.pressed = false;
-	pass
 
 func _on_CheckBox_toggled(button_pressed, extra_arg_0):
 	if button_pressed == true:
@@ -130,22 +83,20 @@ func _insertPirates():
 			break;
 		pirates[i] = player._get_pirate(pirateId[i]);
 		pirates[i]._set_busy(true);
-	_startMining();
 	pass
 
 func _on_StartButton_pressed():
 	popupMenu.hide();
 	if selectedPirates > -1:
-			_insertPirates();
+			get_tree().change_scene("res://BattleScene.tscn")
+			player_data._selected_pirates(pirateId);
+			battle_manager._island_data(difficulty, enemies);
 			button.hide();
 	pass;
 
 func _on_CollectButton_pressed():
 	rewardMenu.hide();
 	button2.hide();
-	if renewable:
-		_renewable_state();
-		cooldown = true;
 	pass 
 
 func _getRewards():	
@@ -191,14 +142,4 @@ func _getRewards():
 		pirates[i]._set_busy(false);
 	pirates.clear();
 	
-	pass;
-
-func _renewable_state():
-	cooldown_timer.start(cooldown_time);
-	started = false;
-	selectedPirates = 0;
-	for i in range(islandSize):
-		pirates.append(null);
-		pirateId.append(null);
-	selectedPirates = -1;
 	pass;
