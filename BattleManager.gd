@@ -14,6 +14,8 @@ var target_enemy;
 var player_action;
 var nEnemies;
 var difficulty;
+var current_character;
+var special_id;
 
 onready var pirateObj = preload("res://Pirate.tscn");
 onready var battleScene = get_tree().get_root();
@@ -54,7 +56,7 @@ func _initializeEnemies(var enemies_n):
 func _process(delta):
 	if battle:
 		if playerPirates.size() > 0 and enemies.size() > 0:
-			var current_character = characters[pos];
+			current_character = characters[pos];
 			
 			if current_character._get_tag() == "Player":
 				if played:
@@ -103,9 +105,7 @@ func _instanciate_player_pirates(ids):
 		playerPirates[i] = newPirate;
 		battleScene.add_child(newPirate);
 		newPirate._setData(i, current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(i)]["energy"], current_line[str(i)]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"] );
-		print("AAAAAAAAAAAAAAAAAAAAAAAA");
 		print(current_line[str(i)]["maxEnergy"]);
-		print("AAAAAAAAAAAAAAAAAAAAAAAA");
 		newPirate.position = player_pos[i];
 		newPirate._change_sprite(player_texture);
 		newPirate._instantiate_special();
@@ -115,10 +115,11 @@ func _instanciate_player_pirates(ids):
 	_initializeEnemies(nEnemies);
 	pass;
 
-func _player_button_action(action, target):
+func _player_button_action(action, target, id):
 	played = true;
 	player_action = action;
 	target_enemy = target;
+	special_id = id;
 	pass;
 
 func _island_data(_difficulty, _nEnemies):
@@ -126,3 +127,6 @@ func _island_data(_difficulty, _nEnemies):
 	nEnemies = _nEnemies;
 	pass;
 
+func _get_current_character():
+	return current_character;
+	pass;

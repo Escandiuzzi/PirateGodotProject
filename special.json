@@ -9,24 +9,24 @@
     },
     "1": {
       "name": "Attack2",
-      "damage": "5",
-      "heal": "0",
+      "damage": "8",
+      "heal": "2",
       "range": "1",
-      "energy": "5"
+      "energy": "8"
     },
     "2": {
       "name": "Attack3",
-      "damage": "5",
-      "heal": "0",
+      "damage": "2",
+      "heal": "8",
       "range": "1",
-      "energy": "5"
+      "energy": "6"
     },
     "3": {
       "name": "Attack4",
-      "damage": "5",
+      "damage": "10",
       "heal": "0",
-      "range": "1",
-      "energy": "5"
+      "range": "3",
+      "energy": "12"
     }
   },
   "1": {
@@ -39,24 +39,24 @@
     },
     "1": {
       "name": "Attack2",
-      "damage": "5",
-      "heal": "0",
+      "damage": "8",
+      "heal": "2",
       "range": "1",
-      "energy": "5"
+      "energy": "8"
     },
     "2": {
       "name": "Attack3",
-      "damage": "5",
-      "heal": "0",
+      "damage": "2",
+      "heal": "8",
       "range": "1",
-      "energy": "5"
+      "energy": "6"
     },
     "3": {
       "name": "Attack4",
-      "damage": "5",
+      "damage": "10",
       "heal": "0",
-      "range": "1",
-      "energy": "5"
+      "range": "3",
+      "energy": "12"
     }
   },
   "2": {
@@ -69,24 +69,24 @@
     },
     "1": {
       "name": "Attack2",
-      "damage": "5",
-      "heal": "0",
+      "damage": "8",
+      "heal": "2",
       "range": "1",
-      "energy": "5"
+      "energy": "8"
     },
     "2": {
       "name": "Attack3",
-      "damage": "5",
-      "heal": "0",
+      "damage": "2",
+      "heal": "8",
       "range": "1",
-      "energy": "5"
+      "energy": "6"
     },
     "3": {
       "name": "Attack4",
-      "damage": "5",
+      "damage": "10",
       "heal": "0",
-      "range": "1",
-      "energy": "5"
+      "range": "3",
+      "energy": "12"
     }
   },
   "3": {
@@ -99,24 +99,24 @@
     },
     "1": {
       "name": "Attack2",
-      "damage": "5",
-      "heal": "0",
+      "damage": "8",
+      "heal": "2",
       "range": "1",
-      "energy": "5"
+      "energy": "8"
     },
     "2": {
       "name": "Attack3",
-      "damage": "5",
-      "heal": "0",
+      "damage": "2",
+      "heal": "8",
       "range": "1",
-      "energy": "5"
+      "energy": "6"
     },
     "3": {
       "name": "Attack4",
-      "damage": "5",
+      "damage": "10",
       "heal": "0",
-      "range": "1",
-      "energy": "5"
+      "range": "3",
+      "energy": "12"
     }
   }
 }

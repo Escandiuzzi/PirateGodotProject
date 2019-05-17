@@ -140,7 +140,6 @@ position = Vector2( -40, 530 )
 movement_speed = 200
 
 [node name="HUD" parent="Player" index="1"]
-editor/display_folded = false
 visible = false
 
 [node name="RichTextLabel" parent="Player/HUD" index="4"]

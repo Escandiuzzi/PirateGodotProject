@@ -12,7 +12,7 @@
 [ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=10]
 [ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=11]
 [ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=12]
-[ext_resource path="res://Sprite/HUD/frame.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=13]
 
 [node name="BattleScene" type="Node2D"]
 
@@ -88,7 +88,6 @@ script = ExtResource( 6 )
 
 [node name="Layer 1" type="Node2D" parent="Manager/UI/UIButtonHandler"]
 editor/display_folded = true
-visible = false
 
 [node name="AttackButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 1"]
 margin_left = 98.0
@@ -149,6 +148,7 @@ icon = ExtResource( 12 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+visible = false
 
 [node name="SpecialButton1" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 15.0
@@ -156,7 +156,6 @@ margin_top = 499.36
 margin_right = 345.0
 margin_bottom = 583.36
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 13 )
 
 [node name="SpecialButton2" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 271.25
@@ -164,7 +163,6 @@ margin_top = 498.0
 margin_right = 601.25
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 13 )
 
 [node name="SpecialButton3" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 529.159
@@ -172,7 +170,6 @@ margin_top = 498.0
 margin_right = 859.159
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 13 )
 
 [node name="SpecialButton4" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 778.508
@@ -180,11 +177,35 @@ margin_top = 498.0
 margin_right = 1108.51
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 13 )
+
+[node name="Background" type="Sprite" parent="Manager/UI/UIButtonHandler/Layer 3"]
+visible = false
+position = Vector2( 500, 380.525 )
+scale = Vector2( 7.59369, 2.74834 )
+texture = ExtResource( 13 )
+
+[node name="Text" type="RichTextLabel" parent="Manager/UI/UIButtonHandler/Layer 3"]
+visible = false
+margin_left = 387.0
+margin_top = 342.0
+margin_right = 614.0
+margin_bottom = 419.0
 
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
-[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Defend" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Special" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/InventoryButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Inventory" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/FirstEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/SecondEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/ThirdEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 2 ]]
+[connection signal="mouse_entered" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton1" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_entered" binds= [ 0 ]]
+[connection signal="mouse_exited" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton1" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_exited"]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton1" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 0 ]]
+[connection signal="mouse_entered" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton2" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_entered" binds= [ 1 ]]
+[connection signal="mouse_exited" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton2" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_exited"]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton2" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 1 ]]
+[connection signal="mouse_entered" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton3" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_entered" binds= [ 2 ]]
+[connection signal="mouse_exited" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton3" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_exited"]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton3" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 2 ]]
+[connection signal="mouse_entered" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton4" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_entered" binds= [ 3 ]]
+[connection signal="mouse_exited" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton4" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_exited"]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton4" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 3 ]]
