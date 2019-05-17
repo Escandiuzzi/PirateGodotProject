@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Manager.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=5]
 [ext_resource path="res://UIButtonHandler.gd" type="Script" id=6]
 [ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=7]
-[ext_resource path="res://Sprite/HUD/buttons/defend_icon.png" type="Texture" id=8]
+[ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=8]
 [ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=9]
 [ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=10]
 [ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=11]
 [ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/HUD/frame.png" type="Texture" id=13]
 
 [node name="BattleScene" type="Node2D"]
 
@@ -26,6 +27,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="HUD" type="Sprite" parent="Manager/UI"]
+position = Vector2( -1.29236, -1.29236 )
 scale = Vector2( 1.6, 1.25 )
 texture = ExtResource( 3 )
 centered = false
@@ -82,13 +84,13 @@ texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 
 [node name="UIButtonHandler" type="Node2D" parent="Manager/UI"]
-editor/display_folded = true
 script = ExtResource( 6 )
 
-[node name="1 Layer" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+[node name="Layer 1" type="Node2D" parent="Manager/UI/UIButtonHandler"]
 editor/display_folded = true
+visible = false
 
-[node name="AttackButton" type="Button" parent="Manager/UI/UIButtonHandler/1 Layer"]
+[node name="AttackButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 1"]
 margin_left = 98.0
 margin_top = 480.0
 margin_right = 150.0
@@ -97,7 +99,7 @@ rect_scale = Vector2( 2, 2 )
 icon = ExtResource( 7 )
 flat = true
 
-[node name="DefendButton" type="Button" parent="Manager/UI/UIButtonHandler/1 Layer"]
+[node name="SpecialButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 1"]
 margin_left = 474.0
 margin_top = 480.0
 margin_right = 526.0
@@ -106,7 +108,7 @@ rect_scale = Vector2( 2, 2 )
 icon = ExtResource( 8 )
 flat = true
 
-[node name="InventoryButton" type="Button" parent="Manager/UI/UIButtonHandler/1 Layer"]
+[node name="InventoryButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 1"]
 margin_left = 822.0
 margin_top = 480.0
 margin_right = 874.0
@@ -115,11 +117,11 @@ rect_scale = Vector2( 2, 2 )
 icon = ExtResource( 9 )
 flat = true
 
-[node name="2 Layer" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+[node name="Layer 2" type="Node2D" parent="Manager/UI/UIButtonHandler"]
 editor/display_folded = true
 visible = false
 
-[node name="FirstEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/2 Layer"]
+[node name="FirstEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
 margin_left = 98.0
 margin_top = 480.0
 margin_right = 150.0
@@ -128,7 +130,7 @@ rect_scale = Vector2( 2, 2 )
 icon = ExtResource( 10 )
 flat = true
 
-[node name="SecondEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/2 Layer"]
+[node name="SecondEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
 margin_left = 474.0
 margin_top = 480.0
 margin_right = 526.0
@@ -137,7 +139,7 @@ rect_scale = Vector2( 2, 2 )
 icon = ExtResource( 11 )
 flat = true
 
-[node name="ThirdEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/2 Layer"]
+[node name="ThirdEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
 margin_left = 822.0
 margin_top = 480.0
 margin_right = 874.0
@@ -146,9 +148,43 @@ rect_scale = Vector2( 2, 2 )
 icon = ExtResource( 12 )
 flat = true
 
-[connection signal="pressed" from="Manager/UI/UIButtonHandler/1 Layer/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
-[connection signal="pressed" from="Manager/UI/UIButtonHandler/1 Layer/DefendButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Defend" ]]
-[connection signal="pressed" from="Manager/UI/UIButtonHandler/1 Layer/InventoryButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Inventory" ]]
-[connection signal="pressed" from="Manager/UI/UIButtonHandler/2 Layer/FirstEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 0 ]]
-[connection signal="pressed" from="Manager/UI/UIButtonHandler/2 Layer/SecondEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="Manager/UI/UIButtonHandler/2 Layer/ThirdEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 2 ]]
+[node name="Layer 3" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+
+[node name="SpecialButton1" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
+margin_left = 15.0
+margin_top = 499.36
+margin_right = 345.0
+margin_bottom = 583.36
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 13 )
+
+[node name="SpecialButton2" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
+margin_left = 271.25
+margin_top = 498.0
+margin_right = 601.25
+margin_bottom = 582.0
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 13 )
+
+[node name="SpecialButton3" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
+margin_left = 529.159
+margin_top = 498.0
+margin_right = 859.159
+margin_bottom = 582.0
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 13 )
+
+[node name="SpecialButton4" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
+margin_left = 778.508
+margin_top = 498.0
+margin_right = 1108.51
+margin_bottom = 582.0
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 13 )
+
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Defend" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/InventoryButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Inventory" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/FirstEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/SecondEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/ThirdEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 2 ]]

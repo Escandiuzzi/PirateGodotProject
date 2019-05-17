@@ -4,22 +4,23 @@ var id;
 var tag;
 var hp;
 var max_hp;
-var defBonus;
+var energy;
+var max_energy;
 var busy;
+
+var special_attacks = [];
 
 var stats = {
 	"atk": 0,
-	"def": 0,
-	"speed": 0,
 	"mining": 0,
-	"cooking": 0
+	"cooking": 0,
+	"special": []
 };
 var keys = [
 	"atk",
-	"def",
-	"speed",
 	"mining",
-	"cooking"
+	"cooking",
+	"special"
 ]
 
 onready var pirateStat = get_node("pirateStat");
@@ -29,25 +30,94 @@ onready var sprite = $Sprite;
 var miningtexture = load("res://Sprite/entities/player/mining.png");
 var idle = load("res://Sprite/entities/player/pirate.png");
 
+onready var special_obj = preload("res://Special.tscn");
+
+
 func _ready():
 	pass
 
 func _initializePirate():
-	hp = 10; #for test purposes
-	max_hp = hp;
+	
 	print("New Pirate created with: ")
-	for i in range(5):
+	hp = 15; #for test purposes
+	max_hp = hp;
+	
+	randomize();
+	var rand = randi() & 100;
+	var _hp;
+	if rand >= 95: #ultra rare pirate
+			_hp = randi() % 18 + 8;
+			print(_hp);
+	elif rand  > 87 and rand < 95: #rare pirate
+			_hp = randi() % 11 + 6;
+			print(_hp);
+	else: #common pirate
+			_hp = randi() % 9 + 8;
+			print(_hp);
+	
+	hp = _hp;
+	max_hp = hp;
+	
+	randomize();
+	var rand2 = randi() & 100;
+	var _energy;
+	
+	if rand2 >= 97: #ultra rare pirate
+			_energy = randi() % 18 + 8;
+			print(_energy);
+	elif rand2  > 90 and rand2 < 97: #rare pirate
+			_energy = randi() % 11 + 6;
+			print(_energy);
+	else: #common pirate
+			_energy = randi() % 9 + 6;
+			print(_energy);
+	
+	energy = _energy;
+	max_energy = energy;
+	
+	for i in range(3):
 		randomize();
-		var r = randi() & 100; 
-		if r  > 87: #rare pirate
-			var s = randi() % 9 + 1;
-			print(s);
-			stats[keys[i]] = s;	
-		else: #common pirate
-			var s = randi() % 3 + 1;
-			print(s);
-			stats[keys[i]] = s;	
+		var r = randi() & 100;
+		
+		if i == 0: #attack stat
+			if r >= 95: #ultra rare pirate
+					var s = randi() % 7 + 3;
+					print(s);
+					stats[keys[i]] = s;	
+			elif r  > 87 and r < 95: #rare pirate
+					var s = randi() % 5 + 2;
+					print(s);
+					stats[keys[i]] = s;	
+			else: #common pirate
+					var s = randi() % 4 + 1;
+					print(s);
+					stats[keys[i]] = s;	
+
+		else:
+			if r >= 95: #ultra rare pirate
+				var s = randi() % 6 + 5;
+				print(s);
+				stats[keys[i]] = s;	
+			elif r  > 87 and r < 95: #rare pirate
+				var s = randi() % 5 + 3;
+				print(s);
+				stats[keys[i]] = s;	
+			else: #common pirate
+				var s = randi() % 3 + 1;
+				print(s);
+				stats[keys[i]] = s;	
+	
+	var special_ids = [];
+	
+	for i in range(4):
+		randomize();
+		var index = int(rand_range(0,4));
+		special_ids.append(null);
+		special_ids[i] = index;
+	
 	pass
+	
+	stats["special"] = special_ids;
 	
 func _setId(_id):
 	id = _id;
@@ -63,36 +133,38 @@ func _savePirate():
 		"tag" : tag,
 		"hp" : hp,
 		"maxHp" : max_hp,
+		"energy" : energy,
+		"maxEnergy": max_energy,
 		"attack" : stats["atk"],
-		"defense" : stats["def"],
-		"speed" : stats["speed"],
 		"mining" : stats["mining"],
-		"cooking" : stats["cooking"]
+		"cooking" : stats["cooking"],
+		"special" : stats["special"]
 		}
+	
 	return save_dict;
 
-func _setData(_id, _tag, _hp, _max, _atk, _def, _speed, _mining, _cooking):	
+func _setData(_id, _tag, _hp, _max, _ener, _max_e, _atk, _mining, _cooking, _special):	
 	id = _id;
 	tag = _tag;
 	hp = _hp;
-	max_hp = hp;
+	max_hp = _max;
+	energy = _ener;
+	max_energy = _max_e;
 	stats["atk"] = _atk;
-	stats["def"] = _def;
-	stats["speed"] = _speed;
 	stats["mining"] = _mining;
 	stats["cooking"] = _cooking;
+	stats["special"] = _special;
 	
 	print("updating data")
 	print(id);
 	print(tag);
 	print(hp);
 	print(max_hp);
+	print(energy);
+	print(max_energy);
 	print(stats["atk"]);
-	print(stats["def"]);
-	print(stats["speed"]);
 	print(stats["mining"]);
 	print(stats["cooking"]);
-	
 	pass; 
 
 func _get_stat(index):
@@ -123,27 +195,32 @@ func _set_max_hp(_hp):
 	pass;
 
 func _get_max_hp():
-	return hp;
+	return max_hp;
 	pass;
 
-func _set_def_bonus(bonus):
-	defBonus = bonus;
+func _set_energy(_energy):
+	energy = _energy;
 	pass;
 
-func _get_def_bonus():
-	return defBonus;
+func _get_energy():
+	return energy;
+	pass;
+
+func _set_max_energy(_max_e):
+	max_energy = _max_e;
+	pass;
+
+func _get_max_energy():
+	return max_energy;
 	pass;
 
 func _on_Area2D_mouse_entered():
 	
 	if get_tree().get_current_scene().get_name() == "BattleScene":
 		pirateStat.text = "";
-		pirateStat.text += "HP: " + str(_get_hp()) + "\n";	
-		pirateStat.text += "Attack: " + str(_get_stat("atk")) + "\n";	
-		pirateStat.text += "Defense: " + str(_get_stat("def")) + "\n";	
-		pirateStat.text += "Speed: " + str(_get_stat("speed")) +"\n";
-		pirateStat.text += "Def Bonus: " + str(defBonus) +"\n";
-		
+		pirateStat.text += "HP: " + str(_get_hp()) +  " / " + str(max_hp) + "\n";	
+		pirateStat.text += "Attack: " + str(_get_stat("atk")) +  " - " + str(_get_stat("atk") + 2) + "\n";	
+		pirateStat.text += "Energy: " + str(energy) +  " / " + str(max_energy) + "\n";	
 	
 	else:
 		pirateStat.text = "";
@@ -176,4 +253,18 @@ func _get_tag():
 
 func _change_sprite(spr):
 	sprite.texture = spr;
+	pass;
+	
+func _instantiate_special():
+	
+	for i in range(4):
+		special_attacks.append(null);
+		var s = special_obj.instance();
+		s._get_data(str(i), stats["special"][i]);
+		self.add_child(s);
+		special_attacks[i] = s;
+	pass;
+
+func _get_special_attack(index):
+	return special_attacks[index];
 	pass;

@@ -19,7 +19,6 @@ z_index = 1
 texture = ExtResource( 2 )
 
 [node name="HUD" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 6.10558, 102.102 )
 scale = Vector2( 0.486804, 0.5 )
 z_index = 2

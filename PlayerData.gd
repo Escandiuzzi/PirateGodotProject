@@ -16,7 +16,6 @@ func _ready():
 	pass
 
 func _selected_pirates(_ids):
-
 	for i in range(_ids.size()):
 		if _ids[i] != null:
 			ids.append(null);
@@ -76,11 +75,9 @@ func _readData():
 	for i in range(crewCount):
 		var newPirate = pirateObj.instance();
 		crew[i] = newPirate;
-		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["attack"], current_line[str(i)]["defense"], current_line[str(i)]["speed"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"]);
+		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"]);
 		player._position_pirate(newPirate);
-		print("---------");
-		print(i);
-		print("---------");
+		
 	save_game.close();
 	pass;
 

@@ -48,6 +48,7 @@ func _initializeEnemies(var enemies_n):
 		newEnemy.position = ia_pos[i];
 		newEnemy._change_sprite(enemy_texture);
 	battle = true
+	
 	pass;
 
 func _process(delta):
@@ -101,9 +102,13 @@ func _instanciate_player_pirates(ids):
 		characters[i] = newPirate;
 		playerPirates[i] = newPirate;
 		battleScene.add_child(newPirate);
-		newPirate._setData(i, current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["defense"], current_line[str(ids[i])]["speed"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"]);
+		newPirate._setData(i, current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(i)]["energy"], current_line[str(i)]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"] );
+		print("AAAAAAAAAAAAAAAAAAAAAAAA");
+		print(current_line[str(i)]["maxEnergy"]);
+		print("AAAAAAAAAAAAAAAAAAAAAAAA");
 		newPirate.position = player_pos[i];
 		newPirate._change_sprite(player_texture);
+		newPirate._instantiate_special();
 
 	save_game.close();
 	playerCount = ids.size();
