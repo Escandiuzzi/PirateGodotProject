@@ -58,6 +58,7 @@ func _initializeEnemies(var enemies_n):
 		pos += 1;
 		newEnemy.position = ia_pos[i];
 		newEnemy._change_sprite(enemy_texture);
+		newEnemy._instantiate_special();
 	battle = true
 	pass;
 
@@ -107,19 +108,19 @@ func _player_action():
 		
 		
 		if int(attack_range) == 1:
-			_attack_one_character(damage, enemies, target_enemy);
+			_attack_one_character(damage, enemies, target_enemy, enemiesCount);
 		elif int(attack_range) == 2:
 			if enemies.size() > 1:
-				_attack_two_characters(damage, enemies, target_enemy);
+				_attack_two_characters(damage, enemies, target_enemy, enemiesCount);
 			else:
-				_attack_one_character(damage, enemies, target_enemy);
+				_attack_one_character(damage, enemies, target_enemy, enemiesCount);
 		elif int(attack_range) == 3:
 			if enemies.size() == 3:
-				_attack_three_characters(damage, enemies, target_enemy);
+				_attack_three_characters(damage, enemies, target_enemy, enemiesCount);
 			elif enemies.size() == 2:
-				_attack_two_characters(damage, enemies, target_enemy);
+				_attack_two_characters(damage, enemies, target_enemy, enemiesCount);
 			else:
-				_attack_one_character(damage, enemies, target_enemy);
+				_attack_one_character(damage, enemies, target_enemy, enemiesCount);
 	
 	#elif player_action == "Invetory":
 	
@@ -134,21 +135,61 @@ func _player_action():
 func _ia_action():
 	
 	randomize();
-	var ia_action = randi() % 1;
+	var ia_action = randi() % 2;
 	
 	if ia_action == 0:
-		var target_p = randi() % playerPirates.size();
+		_ia_attack_player();
+	
+	elif ia_action == 1:
 		
-		var damage = current_character._get_stat("atk");
+		#check energy available--------------------
+		var special_ids = [];
+		var pos = 0;
+		for i in range(4):
+			var energy = int(current_character._get_special_attack(i)._get_stat("energy"));
+			if current_character._get_energy() > energy:
+						special_ids.append(null);
+						special_ids[pos] = i;
+						pos+=1;
 		
-		randomize();
-		var additional = randi() % 3;
+		#special attack 
+		if special_ids.size() > 0:
+			var special_attack = current_character._get_special_attack(special_id);
+			var damage = int(special_attack._get_stat("damage"));
+			var heal =  special_attack._get_stat("heal");
+			var energy = special_attack._get_stat("energy");
+			var attack_range = special_attack._get_stat("range");
+			
+			var energy_loss = current_character._get_energy() - int(energy);
+			current_character._set_energy(energy_loss);
+			
+			print("enemy special attack")
+			
+			if int(heal) > 0:
+				current_character._set_hp(int(heal) + current_character._get_hp());
+			
+			randomize();
+			var target_player = randi() % playerPirates.size(); 
+			
+			if int(attack_range) == 1:
+				_attack_one_character(damage, playerPirates, target_player, playerCount);
+			elif int(attack_range) == 2:
+				if enemies.size() > 1:
+					_attack_two_characters(damage, playerPirates, target_player, playerCount);
+				else:
+					_attack_one_character(damage, playerPirates, target_player, playerCount);
+			elif int(attack_range) == 3:
+				if enemies.size() == 3:
+					_attack_three_characters(damage, playerPirates, target_player, playerCount);
+				elif enemies.size() == 2:
+					_attack_two_characters(damage, playerPirates, target_player, playerCount);
+				else:
+					_attack_one_character(damage, playerPirates, target_player, playerCount);
+		else:
+			_ia_attack_player();
 		
-		damage += additional;
 		
-		playerPirates[target_p]._set_hp(playerPirates[target_p]._get_hp() - damage);
-		
-		_check_enemy_life(playerPirates[target_p], playerCount, playerPirates, target_p);
+	
 	
 	_next_turn();
 	
@@ -223,16 +264,16 @@ func _next_turn():
 		
 	pass;
 	
-func _attack_one_character(damage, array, target):
+func _attack_one_character(damage, array, target, count):
 	var enemy = array[target];
 	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	_check_enemy_life(enemy, count, array, target);
 	pass;
 
-func _attack_two_characters(damage, array, target):
+func _attack_two_characters(damage, array, target, count):
 	var enemy = array[target];
 	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	_check_enemy_life(enemy, count, array, target);
 
 	var second_enemy = target + 1
 	if second_enemy >= array.size():
@@ -241,13 +282,13 @@ func _attack_two_characters(damage, array, target):
 		target += 1;
 	enemy = array[target];
 	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	_check_enemy_life(enemy, count, array, target);
 	pass;
 
-func _attack_three_characters(damage, array, target):
+func _attack_three_characters(damage, array, target, count):
 	var enemy = array[target];
 	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	_check_enemy_life(enemy, count, array, target);
 
 	var second_enemy = target + 1
 	if second_enemy >= array.size():
@@ -256,7 +297,7 @@ func _attack_three_characters(damage, array, target):
 		target += 1;
 	enemy = array[target];
 	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	_check_enemy_life(enemy, count, array, target);
 	
 	var third_enemy = target + 1
 	if third_enemy  >= array.size():
@@ -265,9 +306,24 @@ func _attack_three_characters(damage, array, target):
 		target += 1;
 	enemy = array[target];
 	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, enemiesCount, enemies, target);
-	
+	_check_enemy_life(enemy, count, array, target);
 	pass;
+
+func _ia_attack_player():
+	
+	var target_p = randi() % playerPirates.size();
+	var damage = current_character._get_stat("atk");
+	
+	randomize();
+	var additional = randi() % 3;
+	
+	damage += additional;
+	playerPirates[target_p]._set_hp(playerPirates[target_p]._get_hp() - damage);
+	
+	_check_enemy_life(playerPirates[target_p], playerCount, playerPirates, target_p);
+	
+	pass
+
 
 
 func _check_enemy_life(enemy, count, array, target):
