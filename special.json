@@ -1,122 +1,123 @@
 {
-  "0": {
     "0": {
-      "name": "Attack1",
-      "damage": "5",
-      "heal": "0",
-      "range": "1",
-      "energy" : "5"
+      "0": {
+        "name": "Corte Metal",
+        "damage": "8",
+        "heal": "0",
+        "range": "1",
+        "energy": "4"
+      },
+      "1": {
+        "name": "Corte Cruz",
+        "damage": "9",
+        "heal": "0",
+        "range": "1",
+        "energy": "6"
+      },
+      "2": {
+        "name": "Trombada Forte",
+        "damage": "8",
+        "heal": "0",
+        "range": "1",
+        "energy": "5"
+      },
+      "3": {
+        "name": "Esmagador de Coracao",
+        "damage": "12",
+        "heal": "0",
+        "range": "1",
+        "energy": "10"
+      }
     },
     "1": {
-      "name": "Attack2",
-      "damage": "8",
-      "heal": "2",
-      "range": "1",
-      "energy": "8"
-    },
+        "0": {
+          "name": "Onda de Vida",
+          "damage": "0",
+          "heal": "10",
+          "range": "3",
+          "energy": "8"
+        },
+        "1": {
+          "name": "Arvore dos Sonhos",
+          "damage": "0",
+          "heal": "13",
+          "range": "1",
+          "energy": "10"
+        },
+        "2": {
+          "name": "Bandagem",
+          "damage": "0",
+          "heal": "8",
+          "range": "1",
+          "energy": "6"
+        },
+        "3": {
+          "name": "Cura de Adrenalina",
+          "damage": "0",
+          "heal": "9",
+          "range": "1",
+          "energy": "7"
+        }
+      },
     "2": {
-      "name": "Attack3",
-      "damage": "2",
-      "heal": "8",
-      "range": "1",
-      "energy": "6"
+        "0": {
+          "name": "Bomba",
+          "damage": "10",
+          "heal": "0",
+          "range": "3",
+          "energy": "12"
+        },
+        "1": {
+          "name": "Armadilha Terrestre",
+          "damage": "9",
+          "heal": "0",
+          "range": "2",
+          "energy": "10"
+        },
+        "2": {
+          "name": "Super Grito",
+          "damage": "8",
+          "heal": "0",
+          "range": "3",
+          "energy": "9"
+        },
+        "3": {
+          "name": "Jogar Rocha",
+          "damage": "10",
+          "heal": "0",
+          "range": "2",
+          "energy": "11"
+        }
     },
     "3": {
-      "name": "Attack4",
-      "damage": "10",
-      "heal": "0",
-      "range": "3",
-      "energy": "12"
+         "0": {
+           "name": "Cortar Cabeca",
+           "damage": "15",
+           "heal": "0",
+           "range": "1",
+           "energy": "20"
+         },
+         "1": {
+           "name": "Fonte da Vida",
+           "damage": "0",
+           "heal": "15",
+           "range": "1",
+           "energy": "20"
+         },
+         "2": {
+           "name": "Faca na Bota",
+           "damage": "12",
+           "heal": "0",
+           "range": "1",
+           "energy": "10"
+         },
+         "3": {
+           "name": "Espada Boomerang",
+           "damage": "12",
+           "heal": "0",
+           "range": "3",
+           "energy": "15"
+         }
+      
     }
-  },
-  "1": {
-    "0": {
-      "name": "Attack1",
-      "damage": "5",
-      "heal": "0",
-      "range": "1",
-      "energy": "5"
-    },
-    "1": {
-      "name": "Attack2",
-      "damage": "8",
-      "heal": "2",
-      "range": "1",
-      "energy": "8"
-    },
-    "2": {
-      "name": "Attack3",
-      "damage": "2",
-      "heal": "8",
-      "range": "1",
-      "energy": "6"
-    },
-    "3": {
-      "name": "Attack4",
-      "damage": "10",
-      "heal": "0",
-      "range": "3",
-      "energy": "12"
-    }
-  },
-  "2": {
-    "0": {
-      "name": "Attack1",
-      "damage": "5",
-      "heal": "0",
-      "range": "1",
-      "energy": "5"
-    },
-    "1": {
-      "name": "Attack2",
-      "damage": "8",
-      "heal": "2",
-      "range": "1",
-      "energy": "8"
-    },
-    "2": {
-      "name": "Attack3",
-      "damage": "2",
-      "heal": "8",
-      "range": "1",
-      "energy": "6"
-    },
-    "3": {
-      "name": "Attack4",
-      "damage": "10",
-      "heal": "0",
-      "range": "3",
-      "energy": "12"
-    }
-  },
-  "3": {
-    "0": {
-      "name": "Attack1",
-      "damage": "5",
-      "heal": "0",
-      "range": "1",
-      "energy": "5"
-    },
-    "1": {
-      "name": "Attack2",
-      "damage": "8",
-      "heal": "2",
-      "range": "1",
-      "energy": "8"
-    },
-    "2": {
-      "name": "Attack3",
-      "damage": "2",
-      "heal": "8",
-      "range": "1",
-      "energy": "6"
-    },
-    "3": {
-      "name": "Attack4",
-      "damage": "10",
-      "heal": "0",
-      "range": "3",
-      "energy": "12"
-    }
-  }
 }

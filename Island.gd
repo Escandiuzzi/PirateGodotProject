@@ -112,7 +112,7 @@ func _process(delta):
 
 func _on_CheckBox_toggled(button_pressed, extra_arg_0):
 	if button_pressed == true:
-		if selectedPirates < islandSize:
+		if selectedPirates < islandSize - 1:
 			selectedPirates += 1;
 			pirateId[selectedPirates] = extra_arg_0;
 		else:

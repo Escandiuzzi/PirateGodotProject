@@ -13,7 +13,6 @@ func _player_moved_hide():
 	self.hide();
 	pass;
 
-
 func _on_Close_pressed():
 	self.hide();
 	pass 

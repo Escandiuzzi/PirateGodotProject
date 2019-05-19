@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Manager.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=2]
@@ -9,10 +9,11 @@
 [ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=7]
 [ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=8]
 [ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=10]
-[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=11]
-[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=12]
-[ext_resource path="res://Sprite/text_background.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/HUD/buttons/return_icon.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=14]
 
 [node name="BattleScene" type="Node2D"]
 
@@ -33,7 +34,6 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="HealthBars" type="Node2D" parent="Manager/UI"]
-editor/display_folded = true
 
 [node name="character1_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
 margin_left = 87.0
@@ -120,13 +120,21 @@ flat = true
 editor/display_folded = true
 visible = false
 
+[node name="ReturnButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
+margin_left = 15.0
+margin_top = 459.0
+margin_right = 67.0
+margin_bottom = 505.0
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 10 )
+
 [node name="FirstEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
 margin_left = 98.0
 margin_top = 480.0
 margin_right = 150.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 10 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="SecondEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
@@ -135,7 +143,7 @@ margin_top = 480.0
 margin_right = 526.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 11 )
+icon = ExtResource( 12 )
 flat = true
 
 [node name="ThirdEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
@@ -144,11 +152,20 @@ margin_top = 480.0
 margin_right = 874.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+editor/display_folded = true
 visible = false
+
+[node name="ReturnButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
+margin_left = 15.0
+margin_top = 459.0
+margin_right = 67.0
+margin_bottom = 505.0
+rect_scale = Vector2( 0.7, 0.7 )
+icon = ExtResource( 10 )
 
 [node name="SpecialButton1" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 15.0
@@ -182,7 +199,7 @@ rect_scale = Vector2( 0.7, 0.7 )
 visible = false
 position = Vector2( 500, 380.525 )
 scale = Vector2( 7.59369, 2.74834 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [node name="Text" type="RichTextLabel" parent="Manager/UI/UIButtonHandler/Layer 3"]
 visible = false
@@ -194,9 +211,11 @@ margin_bottom = 419.0
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Special" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/InventoryButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Inventory" ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/ReturnButton" to="Manager/UI/UIButtonHandler" method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/FirstEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 0 ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/SecondEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 2/ThirdEnemyButton" to="Manager/UI/UIButtonHandler" method="_on_EnemyButton_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 3/ReturnButton" to="Manager/UI/UIButtonHandler" method="_on_ReturnButton_pressed"]
 [connection signal="mouse_entered" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton1" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_entered" binds= [ 0 ]]
 [connection signal="mouse_exited" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton1" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_exited"]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton1" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 0 ]]

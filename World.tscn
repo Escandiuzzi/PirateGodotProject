@@ -148,14 +148,10 @@ editor/display_folded = false
 [node name="PlayerArea2D" parent="Player" index="3"]
 editor/display_folded = true
 
-[node name="ParallaxBackground" parent="Player" index="4"]
-editor/display_folded = true
-
 [node name="ParallaxLayer" parent="Player/ParallaxBackground" index="0"]
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 5 )]
 position = Vector2( 713.879, 423.456 )
@@ -197,6 +193,7 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 7 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 5 )]
+editor/display_folded = false
 
 [node name="Button" parent="Flags/Flag2" index="0" groups=[
 "my_buttons",
@@ -208,10 +205,8 @@ margin_bottom = 1421.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 10 )]
-editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
-editor/display_folded = true
 islandType = "Boss Island"
 difficulty = 2
 enemies = 3

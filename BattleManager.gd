@@ -17,6 +17,11 @@ var difficulty;
 var current_character;
 var special_id;
 
+var turn = 0;
+
+var ui_handler;
+var manager;
+
 onready var pirateObj = preload("res://Pirate.tscn");
 onready var battleScene = get_tree().get_root();
 
@@ -26,11 +31,15 @@ export(Array) var ia_pos;
 var player_texture = load("res://Sprite/characters/idle_warrior.png");
 var enemy_texture = load("res://Sprite/characters/idle_mimic.png");
 
+
 func _ready():
 	 pos = 0;
 
-
 func _initializeEnemies(var enemies_n):
+	
+	ui_handler = get_tree().get_root().get_node("BattleScene/Manager/UI/UIButtonHandler");
+	manager = get_tree().get_root().get_node("BattleScene/Manager");
+	
 	enemiesCount = enemies_n;
 	
 	var pos = playerCount;
@@ -50,19 +59,18 @@ func _initializeEnemies(var enemies_n):
 		newEnemy.position = ia_pos[i];
 		newEnemy._change_sprite(enemy_texture);
 	battle = true
-	
 	pass;
 
 func _process(delta):
 	if battle:
 		if playerPirates.size() > 0 and enemies.size() > 0:
-			current_character = characters[pos];
+			current_character = characters[turn];
 			
-			if current_character._get_tag() == "Player":
+			if current_character._get_tag() == "Player" and current_character._get_hp() > 0:
 				if played:
 					_player_action();
 			
-			elif current_character._get_tag() == "IA":
+			elif current_character._get_tag() == "IA" and current_character._get_hp() > 0:
 				_ia_action();
 			
 		else:
@@ -70,9 +78,80 @@ func _process(delta):
 	pass;
 
 func _player_action():
+	
+	if player_action == "Attack":
+		var damage = int(current_character._get_stat("atk"));
+		
+		randomize();
+		var additional = randi() % 3;
+		
+		damage += additional;
+		
+		var enemy = enemies[target_enemy];
+		
+		enemy._set_hp(enemy._get_hp() - damage);
+		_check_enemy_life(enemy, enemiesCount, enemies, target_enemy);
+	
+	elif player_action == "Special":
+		var special_attack = current_character._get_special_attack(special_id);
+		var damage = int(special_attack._get_stat("damage"));
+		var heal =  special_attack._get_stat("heal");
+		var energy = special_attack._get_stat("energy");
+		var attack_range = special_attack._get_stat("range");
+		
+		var energy_loss = current_character._get_energy() - int(energy);
+		current_character._set_energy(energy_loss);
+		
+		if int(heal) > 0:
+			current_character._set_hp(int(heal) + current_character._get_hp());
+		
+		
+		if int(attack_range) == 1:
+			_attack_one_character(damage, enemies, target_enemy);
+		elif int(attack_range) == 2:
+			if enemies.size() > 1:
+				_attack_two_characters(damage, enemies, target_enemy);
+			else:
+				_attack_one_character(damage, enemies, target_enemy);
+		elif int(attack_range) == 3:
+			if enemies.size() == 3:
+				_attack_three_characters(damage, enemies, target_enemy);
+			elif enemies.size() == 2:
+				_attack_two_characters(damage, enemies, target_enemy);
+			else:
+				_attack_one_character(damage, enemies, target_enemy);
+	
+	#elif player_action == "Invetory":
+	
+	target_enemy = null;
+	player_action = null;
+	played = false;
+	
+	_next_turn();
+	
 	pass;
 
 func _ia_action():
+	
+	randomize();
+	var ia_action = randi() % 1;
+	
+	if ia_action == 0:
+		var target_p = randi() % playerPirates.size();
+		
+		var damage = current_character._get_stat("atk");
+		
+		randomize();
+		var additional = randi() % 3;
+		
+		damage += additional;
+		
+		playerPirates[target_p]._set_hp(playerPirates[target_p]._get_hp() - damage);
+		
+		_check_enemy_life(playerPirates[target_p], playerCount, playerPirates, target_p);
+	
+	_next_turn();
+	
 	pass;
 
 func _get_characters():
@@ -88,6 +167,7 @@ func _get_ia_characters():
 	pass;
 
 func _instanciate_player_pirates(ids):
+	
 	var save_game = File.new();
 	if not save_game.file_exists("res://savegame.json"):
 		print("file does not exists");
@@ -109,7 +189,6 @@ func _instanciate_player_pirates(ids):
 		newPirate.position = player_pos[i];
 		newPirate._change_sprite(player_texture);
 		newPirate._instantiate_special();
-
 	save_game.close();
 	playerCount = ids.size();
 	_initializeEnemies(nEnemies);
@@ -130,3 +209,78 @@ func _island_data(_difficulty, _nEnemies):
 func _get_current_character():
 	return current_character;
 	pass;
+
+func _next_turn():
+	turn += 1;
+	
+	if turn >= characters.size():
+		turn = 0;
+	
+	if characters[turn]._get_tag() == "IA":
+		ui_handler._layers_visible(false);
+	else:
+		ui_handler._layers_visible(true);
+		
+	pass;
+	
+func _attack_one_character(damage, array, target):
+	var enemy = array[target];
+	enemy._set_hp(enemy._get_hp() - damage);
+	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	pass;
+
+func _attack_two_characters(damage, array, target):
+	var enemy = array[target];
+	enemy._set_hp(enemy._get_hp() - damage);
+	_check_enemy_life(enemy, enemiesCount, enemies, target);
+
+	var second_enemy = target + 1
+	if second_enemy >= array.size():
+		target = 0;
+	else:
+		target += 1;
+	enemy = array[target];
+	enemy._set_hp(enemy._get_hp() - damage);
+	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	pass;
+
+func _attack_three_characters(damage, array, target):
+	var enemy = array[target];
+	enemy._set_hp(enemy._get_hp() - damage);
+	_check_enemy_life(enemy, enemiesCount, enemies, target);
+
+	var second_enemy = target + 1
+	if second_enemy >= array.size():
+		target = 0;
+	else:
+		target += 1;
+	enemy = array[target];
+	enemy._set_hp(enemy._get_hp() - damage);
+	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	
+	var third_enemy = target + 1
+	if third_enemy  >= array.size():
+		target = 0;
+	else:
+		target += 1;
+	enemy = array[target];
+	enemy._set_hp(enemy._get_hp() - damage);
+	_check_enemy_life(enemy, enemiesCount, enemies, target);
+	
+	pass;
+
+
+func _check_enemy_life(enemy, count, array, target):
+	if enemy._get_hp() <= 0:
+		if enemy._get_tag() == "IA":
+			ui_handler._ia_defeated();
+			manager._remove_healthbar(1, target);
+		else:
+			manager._remove_healthbar(0, target);
+			
+		count -= 1;
+		characters.erase(enemy);
+		array.erase(enemy);
+		enemy.queue_free();
+	pass;
+	

@@ -3,6 +3,8 @@ extends Node2D
 
 onready var battleManager = get_tree().get_root().get_node("BattleManager");
 
+var ia_slots = 2;
+
 var action;
 var special_id;
 var current_character;
@@ -39,6 +41,7 @@ func _on_UIButton_pressed(extra_arg_0):
 		layer_1.visible = false;
 		layer_3.visible = true;
 		_special_buttons();
+		_check_player_energy();
 	else:
 		battleManager._player_button_action(action, null, special_id);
 	pass;
@@ -48,27 +51,33 @@ func _on_EnemyButton_pressed(extra_arg_0):
 	layer_1.visible = true;
 	layer_2.visible = false;
 	special_id = -1;
+	
+	current_character = battleManager._get_current_character();
 	pass;
 
-func _enemy_defeated(id):
-	enemy_buttons[id].visible = false;
+func _ia_defeated():
+	enemy_buttons[ia_slots].visible = false;
+	ia_slots -= 1;
 	pass;
 
 func _layers_visible(status):
+	
 	if status == true:
 		layer_1.visible = true;
 		layer_2.visible = false;
+		layer_3.visible = false;
 	else:
 		layer_1.visible = false;
 		layer_2.visible = false;
+		layer_3.visible = false;
 	pass;
+	
 
 func _special_buttons():
 	current_character = battleManager._get_current_character();
 	
 	for i in range(special_buttons.size()):
 		special_buttons[i].text = current_character._get_special_attack(i)._get_stat("name");
-	
 	
 	pass;
 
@@ -90,8 +99,26 @@ func _on_SpecialButton_mouse_entered(extra_arg_0):
 	text.text += "Energy: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("energy")) + "\n";
 	pass;
 
-
 func _on_SpecialButton_mouse_exited():
 	background.visible = false;
 	text.visible = false;
 	pass;
+	
+func _on_ReturnButton_pressed():
+	layer_1.visible = true;
+	layer_2.visible = false;
+	layer_3.visible = false;
+	pass;
+
+func _check_player_energy():
+	
+	var player_energy = current_character._get_energy();
+	
+	for i in range(4):
+		if int(current_character._get_special_attack(i)._get_stat("energy")) > player_energy:
+			special_buttons[i].disabled = true;
+		else:
+			special_buttons[i].disabled = false;
+	
+	pass;
+
