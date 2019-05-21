@@ -54,4 +54,5 @@ key_b={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.2, 0.360784, 0.603922, 1 )
 environment/default_environment="res://default_env.tres"
