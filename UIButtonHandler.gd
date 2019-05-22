@@ -84,8 +84,19 @@ func _special_buttons():
 
 func _on_SpecialButton_pressed(extra_arg_0):
 	special_id = extra_arg_0;
-	layer_2.visible = true;
-	layer_3.visible = false;
+	
+	if (special_id == 1 and int(current_character._get_special_attack(extra_arg_0)._get_stat("damage")) == 0):
+		
+		battleManager._player_button_action(action, 0, special_id);
+		special_id = -1;
+		layer_1.visible = true;
+		layer_2.visible = false;
+		layer_3.visible = false;
+		current_character = battleManager._get_current_character();
+	
+	else:
+		layer_2.visible = true;
+		layer_3.visible = false;
 	pass;
 
 

@@ -156,7 +156,6 @@ icon = ExtResource( 13 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="Manager/UI/UIButtonHandler"]
-editor/display_folded = true
 visible = false
 
 [node name="ReturnButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]

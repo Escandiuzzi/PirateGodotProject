@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=2]
@@ -13,7 +13,8 @@
 [ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=11]
 [ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites MagicaVoxel/Island/island1state3.png" type="Texture" id=13]
-[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=14]
+[ext_resource path="res://Cloud.tscn" type="PackedScene" id=14]
+[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 216.121, 209.456 )
@@ -37,7 +38,6 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 [node name="Center" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( -40, 530 )
 movement_speed = 200
 
@@ -48,13 +48,11 @@ visible = false
 [node name="RichTextLabel" parent="Player/HUD" index="4"]
 editor/display_folded = false
 
-[node name="PlayerArea2D" parent="Player" index="3"]
-editor/display_folded = true
-
 [node name="ParallaxLayer" parent="Player/ParallaxBackground" index="0"]
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
 position = Vector2( 713.879, 423.456 )
@@ -212,8 +210,123 @@ position = Vector2( -2.36401, -4.41884 )
 scale = Vector2( 0.3125, 0.318463 )
 texture = ExtResource( 6 )
 
+[node name="Node" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Cloud" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -2000, 500 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud2" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -1720, 240 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud3" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -2030, -110 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud4" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -1430, -312.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud5" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -1240, 762.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud6" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -960, 502.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud7" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -670, -50 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud8" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -1270, 152.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud9" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -60, 462.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud10" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( 220, 202.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud11" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( 510, -350 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud12" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( -90, -147.472 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud13" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( 1074.32, 622.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud14" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( 1364.32, 70 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud15" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( 764.317, 272.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud16" parent="Node" instance=ExtResource( 14 )]
+position = Vector2( 794.317, 882.528 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 5
+final_pos = 2000
+speed = 0.5
+
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 14 )
+tile_set = ExtResource( 15 )
 format = 1
 tile_data = PoolIntArray( -458769, 0, 6, -458768, 0, 196609, -458767, 0, 196609, -458766, 0, 196609, -458765, 0, 196609, -458764, 0, 196609, -458763, 0, 196609, -458762, 0, 196609, -458761, 0, 196609, -458760, 0, 196609, -458759, 0, 196609, -458758, 0, 196609, -458757, 0, 196609, -458756, 0, 196609, -458755, 0, 196609, -458754, 0, 196609, -458753, 0, 196609, -524288, 0, 196609, -524287, 0, 196609, -524286, 0, 196609, -524285, 0, 196609, -524284, 0, 196609, -524283, 0, 196609, -524282, 0, 196609, -524281, 0, 196609, -524280, 0, 196609, -524279, 0, 196609, -524278, 0, 196609, -524277, 0, 196609, -524276, 0, 196609, -524275, 0, 196609, -524274, 0, 196609, -524273, 0, 196609, -524272, 0, 196609, -524271, 0, 196609, -524270, 0, 7, -393233, 0, 65541, -458734, 0, 65541, -327697, 0, 65541, -327689, 0, 1, -327688, 0, 65536, -327687, 0, 2, -393215, 0, 196608, -393214, 0, 196609, -393213, 0, 196609, -393212, 0, 196610, -393208, 0, 6, -393207, 0, 196609, -393206, 0, 196609, -393205, 0, 131076, -393204, 0, 196609, -393203, 0, 196609, -393202, 0, 7, -393198, 0, 65541, -262161, 0, 65541, -262153, 0, 131073, -262152, 0, 196619, -262151, 0, 131074, -327672, 0, 65541, -327669, 0, 65541, -327666, 0, 65541, -327662, 0, 65541, -196625, 0, 65541, -196617, 0, 65537, -196616, 0, 131072, -196615, 0, 65538, -262136, 0, 65541, -262133, 0, 65541, -262130, 0, 65541, -262126, 0, 65541, -131089, 0, 65541, -196600, 0, 8, -196599, 0, 9, -196598, 0, 196609, -196597, 0, 131083, -196596, 0, 196609, -196595, 0, 10, -196594, 0, 11, -196590, 0, 65541, -65553, 0, 65541, -131064, 0, 65537, -131063, 0, 65545, -131061, 0, 65541, -131059, 0, 65546, -131058, 0, 65538, -131054, 0, 65541, -17, 0, 65541, -65527, 0, 131077, -65525, 0, 131077, -65523, 0, 131077, -65518, 0, 65541, 65519, 0, 65541, 65523, 0, 1, 65524, 0, 2, 18, 0, 65541, 131055, 0, 65541, 131059, 0, 131073, 131060, 0, 131074, 65547, 0, 196608, 65548, 0, 196609, 65549, 0, 196609, 65550, 0, 7, 65554, 0, 65541, 196591, 0, 65541, 196595, 0, 65537, 196596, 0, 65538, 131078, 0, 5, 131086, 0, 65542, 131087, 0, 196609, 131088, 0, 196609, 131089, 0, 196609, 131090, 0, 196612, 262127, 0, 65541, 196614, 0, 131077, 196626, 0, 65541, 327663, 0, 65541, 262162, 0, 65541, 393199, 0, 65541, 393211, 0, 5, 327698, 0, 65541, 458735, 0, 65541, 458747, 0, 65541, 393218, 0, 1, 393219, 0, 65536, 393220, 0, 2, 393234, 0, 65541, 524271, 0, 65541, 524283, 0, 65541, 458754, 0, 65537, 458755, 0, 131072, 458756, 0, 65538, 458770, 0, 65541, 589807, 0, 65541, 589819, 0, 131077, 524306, 0, 65541, 655343, 0, 65541, 589842, 0, 65541, 720879, 0, 65541, 720888, 0, 196608, 720889, 0, 7, 655363, 0, 196608, 655364, 0, 196610, 655378, 0, 65541, 786415, 0, 65541, 786425, 0, 65542, 786426, 0, 196610, 720902, 0, 196608, 720903, 0, 196609, 720904, 0, 196610, 720914, 0, 65541, 851951, 0, 65541, 786450, 0, 65541, 917487, 0, 65542, 917488, 0, 196609, 917489, 0, 196609, 917490, 0, 196609, 917491, 0, 196609, 917492, 0, 196609, 917493, 0, 196609, 917494, 0, 196609, 917495, 0, 196609, 917496, 0, 196609, 917497, 0, 196609, 917498, 0, 196609, 917499, 0, 196609, 917500, 0, 196609, 917501, 0, 196609, 917502, 0, 196609, 917503, 0, 196609, 851968, 0, 196609, 851969, 0, 196609, 851970, 0, 196609, 851971, 0, 196609, 851972, 0, 196609, 851973, 0, 196609, 851974, 0, 196609, 851975, 0, 196609, 851976, 0, 196609, 851977, 0, 196609, 851978, 0, 196609, 851979, 0, 196609, 851980, 0, 196609, 851981, 0, 196609, 851982, 0, 196609, 851983, 0, 196609, 851984, 0, 196609, 851985, 0, 196609, 851986, 0, 65543 )
 

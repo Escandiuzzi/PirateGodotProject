@@ -103,26 +103,28 @@ func _player_action():
 		var energy_loss = current_character._get_energy() - int(energy);
 		current_character._set_energy(energy_loss);
 		
-		if int(heal) > 0:
+		if int(heal) > 0 and int (attack_range) == 1:
 			current_character._set_hp(int(heal) + current_character._get_hp());
-		
-		
-		if int(attack_range) == 1:
-			_attack_one_character(damage, enemies, target_enemy, enemiesCount);
-		elif int(attack_range) == 2:
-			if enemies.size() > 1:
-				_attack_two_characters(damage, enemies, target_enemy, enemiesCount);
-			else:
+		elif int(heal) > 0 and int(attack_range) > 1:
+			_heal_partners(playerPirates, int(attack_range), heal);
+			
+		if damage > 0:
+			if int(attack_range) == 1:
 				_attack_one_character(damage, enemies, target_enemy, enemiesCount);
-		elif int(attack_range) == 3:
-			if enemies.size() == 3:
-				_attack_three_characters(damage, enemies, target_enemy, enemiesCount);
-			elif enemies.size() == 2:
-				_attack_two_characters(damage, enemies, target_enemy, enemiesCount);
-			else:
-				_attack_one_character(damage, enemies, target_enemy, enemiesCount);
+			elif int(attack_range) == 2:
+				if enemies.size() > 1:
+					_attack_two_characters(damage, enemies, target_enemy, enemiesCount);
+				else:
+					_attack_one_character(damage, enemies, target_enemy, enemiesCount);
+			elif int(attack_range) == 3:
+				if enemies.size() == 3:
+					_attack_three_characters(damage, enemies, target_enemy, enemiesCount);
+				elif enemies.size() == 2:
+					_attack_two_characters(damage, enemies, target_enemy, enemiesCount);
+				else:
+					_attack_one_character(damage, enemies, target_enemy, enemiesCount);
 	
-	#elif player_action == "Invetory":
+	#elif player_action == "Inventory":
 	
 	target_enemy = null;
 	player_action = null;
@@ -165,32 +167,32 @@ func _ia_action():
 			
 			print("enemy special attack")
 			
-			if int(heal) > 0:
+			if int(heal) > 0 and int(attack_range) == 1:
 				current_character._set_hp(int(heal) + current_character._get_hp());
 			
-			randomize();
-			var target_player = randi() % playerPirates.size(); 
+			elif int(heal) > 0 and int(attack_range) > 1:
+				_heal_partners(enemies, int(attack_range), heal);
 			
-			if int(attack_range) == 1:
-				_attack_one_character(damage, playerPirates, target_player, playerCount);
-			elif int(attack_range) == 2:
-				if enemies.size() > 1:
-					_attack_two_characters(damage, playerPirates, target_player, playerCount);
-				else:
+			if damage > 0:
+				randomize();
+				var target_player = randi() % playerPirates.size(); 
+				
+				if int(attack_range) == 1:
 					_attack_one_character(damage, playerPirates, target_player, playerCount);
-			elif int(attack_range) == 3:
-				if enemies.size() == 3:
-					_attack_three_characters(damage, playerPirates, target_player, playerCount);
-				elif enemies.size() == 2:
-					_attack_two_characters(damage, playerPirates, target_player, playerCount);
+				elif int(attack_range) == 2:
+					if playerPirates.size() > 1:
+						_attack_two_characters(damage, playerPirates, target_player, playerCount);
+					else:
+						_attack_one_character(damage, playerPirates, target_player, playerCount);
+				elif int(attack_range) == 3:
+					if playerPirates.size() == 3:
+						_attack_three_characters(damage, playerPirates, target_player, playerCount);
+					elif playerPirates.size() == 2:
+						_attack_two_characters(damage, playerPirates, target_player, playerCount);
+					else:
+						_attack_one_character(damage, playerPirates, target_player, playerCount);
 				else:
-					_attack_one_character(damage, playerPirates, target_player, playerCount);
-		else:
-			_ia_attack_player();
-		
-		
-	
-	
+					_ia_attack_player();
 	_next_turn();
 	
 	pass;
@@ -321,10 +323,45 @@ func _ia_attack_player():
 	playerPirates[target_p]._set_hp(playerPirates[target_p]._get_hp() - damage);
 	
 	_check_enemy_life(playerPirates[target_p], playerCount, playerPirates, target_p);
+	pass;
 	
-	pass
+
+func _heal_partners(array, heal_range, heal):
+	
+	if heal_range == 3:
+		_heal_crew(array, heal_range, heal);
+	elif heal_range == 2 and array.size() > 2:
+		_heal_two_characters(array, heal_range, heal);
+	else:
+		_heal_crew(array, heal_range, heal);
+	pass;
 
 
+func _heal_crew(array, heal_range, heal):
+	for i in range(array.size()):
+		if array[i] == current_character:
+			current_character._set_hp(int(heal) + current_character._get_hp());
+		else:
+			array[i]._set_hp(int(heal)/2 + current_character._get_hp());
+	pass;
+
+func _heal_two_characters(array, heal_range, heal):
+	
+	var count = 0;
+	var c_character = false;
+	
+	for i in range(array.size()):
+		if array[i] == current_character:
+			current_character._set_hp(int(heal) + current_character._get_hp());
+			count += 1;
+			c_character = true;
+		elif count <= 1:
+			array[i]._set_hp(int(heal)/2 + current_character._get_hp());
+		
+		if count == 2:
+			break;
+		
+	pass;
 
 func _check_enemy_life(enemy, count, array, target):
 	if enemy._get_hp() <= 0:

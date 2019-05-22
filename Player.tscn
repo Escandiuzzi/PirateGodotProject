@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites MagicaVoxel/Player/zeppelin.png" type="Texture" id=2]
 [ext_resource path="res://Sprite/placeholder.png" type="Texture" id=3]
 [ext_resource path="res://Sprite/text_background.png" type="Texture" id=4]
 [ext_resource path="res://RichTextLabel.gd" type="Script" id=5]
-[ext_resource path="res://Sprites MagicaVoxel/Background/cloudTile.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 54.0877
@@ -81,17 +80,6 @@ current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
 shape = SubResource( 1 )
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-visible = false
-motion_scale = Vector2( 2.5, 2.5 )
-motion_mirroring = Vector2( 1024, 1024 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 6 )
-centered = false
 
 [connection signal="pressed" from="HUD/InventoryButton" to="HUD/RichTextLabel" method="_on_InventoryButton_pressed"]
 [connection signal="pressed" from="HUD/RichTextLabel/Button" to="HUD/RichTextLabel" method="_on_Button_pressed"]
