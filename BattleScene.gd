@@ -27,6 +27,8 @@ onready var pirateObj = preload("res://Pirate.tscn");
 onready var player_data = get_tree().get_root().get_node("/root/PlayerData");
 onready var battle_manager = get_tree().get_root().get_node("/root/BattleManager");
 
+onready var turnText = $TurnText;
+
 export(Array) var player_pos;
 export(Array) var ia_pos;
 
@@ -75,6 +77,7 @@ func _process(delta):
 			
 			if current_character._get_tag() == "Player":
 				if played:
+					print("PLAYER TURN ");
 					_player_action();
 			
 			elif current_character._get_tag() == "IA":
@@ -83,12 +86,23 @@ func _process(delta):
 				aaaa += 1;
 			
 		else:
+			
 			battle = false;
+			
+			ui_handler._layers_visible(false);
 			
 			if playerPirates.size() > 0:
 				print("YOU WIN");
+				
+				player_data._readData(1);
+				for i in range(playerPirates.size()):
+					playerPirates[i]._set_post_battle_bonus(12);
+					player_data._update_crew(playerPirates[i]);
+				
+				
 			else:
-				print("YOU LOSE");
+				print("YOU LOSE")
+			
 			
 	pass;
 
@@ -150,6 +164,8 @@ func _player_action():
 
 func _ia_action():
 	
+	OS.delay_msec(3000);
+	
 	randomize();
 	var ia_action = randi() % 2;
 	
@@ -157,7 +173,6 @@ func _ia_action():
 		_ia_attack_player();
 	
 	elif ia_action == 1:
-		
 		#check energy available--------------------
 		var special_ids = [];
 		var pos = 0;
@@ -239,7 +254,7 @@ func _instanciate_player_pirates(ids):
 		characters[i] = newPirate;
 		playerPirates[i] = newPirate;
 		self.add_child(newPirate);
-		newPirate._setData(i, current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(i)]["energy"], current_line[str(i)]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"] );
+		newPirate._setData(ids[i], current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(i)]["energy"], current_line[str(i)]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"] );
 		newPirate.position = player_pos[i];
 		newPirate._change_sprite(player_texture);
 		newPirate._instantiate_special();
@@ -281,7 +296,9 @@ func _next_turn():
 		ui_handler._layers_visible(false);
 	else:
 		ui_handler._layers_visible(true);
-		
+	
+	turnText.text = "Turn: " + str(turn);
+	
 	pass;
 	
 func _attack_one_character(damage, array, target, count):

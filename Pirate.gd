@@ -226,6 +226,30 @@ func _get_tag():
 	return tag;
 	pass;
 
+func _set_post_mining_bonus(bonus):
+	print("stat upgraded ")
+	print(stats["mining"]); print("--->"); print(stats["mining"] + bonus)
+	stats["mining"] += bonus;
+	
+	pass;
+	
+func _set_post_battle_bonus(bonus):
+	
+	randomize();
+	var b_bonus = randi() % bonus;
+	bonus -= b_bonus;
+	stats["atk"] +=  b_bonus;
+	
+	b_bonus = randi() % bonus;
+	bonus -= b_bonus;
+	_set_max_hp(_get_max_hp() + b_bonus);
+	_set_hp(_get_hp() + b_bonus);
+	
+	_set_max_energy(_get_max_energy() + bonus);
+	_set_energy(_get_energy() + b_bonus);
+	
+	pass;
+
 func _change_sprite(spr):
 	sprite.texture = spr;
 	pass;

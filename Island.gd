@@ -16,6 +16,7 @@ export(int) var uncommonSize;
 export(int) var rareSize;
 export(int) var maxRewards;
 export(int) var cooldown_time;
+export(int) var bonus;
 
 var selectedPirates = -1;
 var pirates = [];
@@ -189,6 +190,7 @@ func _getRewards():
 		if pirateId[i] == null:
 			break;
 		pirates[i]._set_busy(false);
+		pirates[i]._set_post_mining_bonus(bonus);
 	pirates.clear();
 	
 	pass;

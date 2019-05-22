@@ -25,7 +25,7 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
+visible = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
@@ -322,19 +322,19 @@ text = "Collect"
 [connection signal="toggled" from="PopupMenu/CheckBox5" to="." method="_on_CheckBox_toggled" binds= [ 4 ]]
 [connection signal="mouse_entered" from="PopupMenu/CheckBox5/Sprite/Area2D5" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 4 ]]
 [connection signal="mouse_exited" from="PopupMenu/CheckBox5/Sprite/Area2D5" to="PopupMenu" method="_on_Area2D_mouse_exited"]
-[connection signal="toggled" from="PopupMenu/CheckBox6" to="." method="_on_CheckBox_toggled" binds= [ 6 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox6" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
 [connection signal="mouse_entered" from="PopupMenu/CheckBox6/Sprite/Area2D6" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 5 ]]
 [connection signal="mouse_exited" from="PopupMenu/CheckBox6/Sprite/Area2D6" to="PopupMenu" method="_on_Area2D_mouse_exited"]
-[connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 6 ]]
 [connection signal="mouse_entered" from="PopupMenu/CheckBox7/Sprite/Area2D7" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 6 ]]
 [connection signal="mouse_exited" from="PopupMenu/CheckBox7/Sprite/Area2D7" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="toggled" from="PopupMenu/CheckBox8" to="." method="_on_CheckBox_toggled" binds= [ 7 ]]
 [connection signal="mouse_entered" from="PopupMenu/CheckBox8/Sprite/Area2D8" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 7 ]]
 [connection signal="mouse_exited" from="PopupMenu/CheckBox8/Sprite/Area2D8" to="PopupMenu" method="_on_Area2D_mouse_exited"]
-[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
 [connection signal="mouse_entered" from="PopupMenu/CheckBox9/Sprite/Area2D9" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 8 ]]
 [connection signal="mouse_exited" from="PopupMenu/CheckBox9/Sprite/Area2D9" to="PopupMenu" method="_on_Area2D_mouse_exited"]
-[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
+[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
 [connection signal="mouse_entered" from="PopupMenu/CheckBox10/Sprite/Area2D10" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 9 ]]
 [connection signal="mouse_exited" from="PopupMenu/CheckBox10/Sprite/Area2D10" to="PopupMenu" method="_on_Area2D_mouse_exited"]
 [connection signal="pressed" from="PopupMenu/StartButton" to="." method="_on_StartButton_pressed"]

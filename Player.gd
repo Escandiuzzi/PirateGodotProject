@@ -73,7 +73,7 @@ func _saveData():
 	pass;
 
 func _readData():
-	data._readData();
+	data._readData(0);
 	pass;
 
 func _get_crew():

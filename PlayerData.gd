@@ -61,7 +61,7 @@ func _saveData():
 	print("saved");
 	pass;
 
-func _readData():
+func _readData(id):
 	var save_game = File.new();
 	if not save_game.file_exists("res://savegame.json") and crewCount == 0:
 		print("file does not exists");
@@ -77,9 +77,16 @@ func _readData():
 		var newPirate = pirateObj.instance();
 		crew[i] = newPirate;
 		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"]);
-		player._position_pirate(newPirate);
+		if id == 0:
+			player._position_pirate(newPirate);
 		
 	save_game.close();
+	pass;
+
+func _update_crew(pirate):
+	
+	crew[pirate._get_id()] = pirate;
+	_saveData();
 	pass;
 
 func _get_crew():
@@ -93,7 +100,7 @@ func _on_SaveButton_pressed():
 	_saveData();
 	pass;
 func _on_LoadButton_pressed():
-	_readData();
+	_readData(0);
 	pass;
 func _receive_player_reward(player_reward):
 	inventory._insert_item(player_reward);

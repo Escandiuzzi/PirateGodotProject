@@ -25,6 +25,7 @@ ia_pos = [ Vector2( 830, 177 ), Vector2( 830, 306 ), Vector2( 830, 437 ) ]
 script = ExtResource( 2 )
 
 [node name="UI" type="Node2D" parent="Manager"]
+editor/display_folded = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -41,6 +42,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="HealthBars" type="Node2D" parent="Manager/UI"]
+editor/display_folded = true
 
 [node name="character1_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
 margin_left = 87.0
@@ -91,6 +93,7 @@ texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 
 [node name="UIButtonHandler" type="Node2D" parent="Manager/UI"]
+editor/display_folded = true
 script = ExtResource( 7 )
 
 [node name="Layer 1" type="Node2D" parent="Manager/UI/UIButtonHandler"]
@@ -124,6 +127,7 @@ icon = ExtResource( 10 )
 flat = true
 
 [node name="Layer 2" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+editor/display_folded = true
 visible = false
 
 [node name="ReturnButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
@@ -213,6 +217,14 @@ margin_left = 387.0
 margin_top = 342.0
 margin_right = 614.0
 margin_bottom = 419.0
+
+[node name="TurnText" type="RichTextLabel" parent="."]
+margin_left = 472.925
+margin_top = 17.2199
+margin_right = 551.925
+margin_bottom = 57.2199
+rect_scale = Vector2( 2, 2 )
+text = "Turn: 0"
 
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Special" ]]

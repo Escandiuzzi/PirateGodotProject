@@ -50,7 +50,6 @@ visible = false
 editor/display_folded = false
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
 position = Vector2( 713.879, 423.456 )
@@ -64,9 +63,9 @@ margin_right = 835.0
 margin_bottom = 828.0
 
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 5 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
-editor/display_folded = true
 island_states = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
@@ -74,6 +73,7 @@ regionName = "Region1"
 commonSize = 4
 rareSize = 6
 maxRewards = 9
+bonus = 1
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag"
@@ -157,12 +157,16 @@ commonSize = 4
 rareSize = 6
 maxRewards = 9
 cooldown_time = 60
+bonus = 2
 
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag3"
 
 [node name="RewardMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="5"]
 path = "World/Flags/Flag3"
+
+[node name="Area2D" parent="Flags/Flag3/IslandMenu" index="1"]
+editor/display_folded = false
 
 [node name="CollisionShape2D" parent="Flags/Flag3/IslandMenu/Area2D" index="0"]
 position = Vector2( -2.00001, 0 )
@@ -187,7 +191,6 @@ margin_bottom = 825.0
 [node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 5 )]
 
 [node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
-editor/display_folded = true
 island_states = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="4"]
@@ -196,6 +199,7 @@ regionName = "Region1"
 commonSize = 4
 rareSize = 6
 maxRewards = 9
+bonus = 3
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag4"
@@ -219,6 +223,7 @@ editor/display_folded = true
 position = Vector2( -2000, 500 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -226,6 +231,7 @@ speed = 0.5
 position = Vector2( -1720, 240 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -233,6 +239,7 @@ speed = 0.5
 position = Vector2( -2030, -110 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -240,6 +247,7 @@ speed = 0.5
 position = Vector2( -1430, -312.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -247,6 +255,7 @@ speed = 0.5
 position = Vector2( -1240, 762.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -254,6 +263,7 @@ speed = 0.5
 position = Vector2( -960, 502.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -261,6 +271,7 @@ speed = 0.5
 position = Vector2( -670, -50 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -268,6 +279,7 @@ speed = 0.5
 position = Vector2( -1270, 152.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -275,6 +287,7 @@ speed = 0.5
 position = Vector2( -60, 462.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -282,6 +295,7 @@ speed = 0.5
 position = Vector2( 220, 202.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -289,6 +303,7 @@ speed = 0.5
 position = Vector2( 510, -350 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -296,6 +311,7 @@ speed = 0.5
 position = Vector2( -90, -147.472 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -303,6 +319,7 @@ speed = 0.5
 position = Vector2( 1074.32, 622.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -310,6 +327,7 @@ speed = 0.5
 position = Vector2( 1364.32, 70 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -317,6 +335,7 @@ speed = 0.5
 position = Vector2( 764.317, 272.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
@@ -324,6 +343,7 @@ speed = 0.5
 position = Vector2( 794.317, 882.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
+initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
