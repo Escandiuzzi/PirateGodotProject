@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var playerData = get_tree().get_root().get_node("/root/PlayerData");
-onready var battleManager = get_tree().get_root().get_node("/root/BattleManager");
+onready var battleScene = get_tree().get_root().get_node("BattleScene");
 onready var ui_handler = get_node("UI/UIButtonHandler");
 
 var p_characters;
@@ -20,10 +20,6 @@ onready var ia_healthbars = [
 	get_node("UI/HealthBars/enemy3_HealthBar")	
 ];
 
-func _ready():
-	playerData._request_player_pirates();
-	pass;
-
 func _process(delta):
 	if(p_characters != null and ia_characters != null):
 		_update_healthbar();
@@ -32,8 +28,8 @@ func _process(delta):
 	pass;
 
 func _set_characters():
-	p_characters = battleManager._get_p_characters();	
-	ia_characters = battleManager._get_ia_characters();
+	p_characters = battleScene._get_p_characters();	
+	ia_characters = battleScene._get_ia_characters();
 	_update_healthbar();
 	pass;
 

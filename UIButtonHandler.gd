@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var battleManager = get_tree().get_root().get_node("BattleManager");
+onready var battleScene = get_parent().get_parent().get_parent();
 
 var ia_slots = 2;
 
@@ -43,16 +43,16 @@ func _on_UIButton_pressed(extra_arg_0):
 		_special_buttons();
 		_check_player_energy();
 	else:
-		battleManager._player_button_action(action, null, special_id);
+		battleScene._player_button_action(action, null, special_id);
 	pass;
 
 func _on_EnemyButton_pressed(extra_arg_0):
-	battleManager._player_button_action(action, extra_arg_0, special_id);
+	battleScene._player_button_action(action, extra_arg_0, special_id);
 	layer_1.visible = true;
 	layer_2.visible = false;
 	special_id = -1;
 	
-	current_character = battleManager._get_current_character();
+	current_character = battleScene._get_current_character();
 	pass;
 
 func _ia_defeated():
@@ -74,25 +74,23 @@ func _layers_visible(status):
 	
 
 func _special_buttons():
-	current_character = battleManager._get_current_character();
+	current_character = battleScene._get_current_character();
 	
 	for i in range(special_buttons.size()):
 		special_buttons[i].text = current_character._get_special_attack(i)._get_stat("name");
-	
 	pass;
-
 
 func _on_SpecialButton_pressed(extra_arg_0):
 	special_id = extra_arg_0;
 	
 	if (special_id == 1 and int(current_character._get_special_attack(extra_arg_0)._get_stat("damage")) == 0):
 		
-		battleManager._player_button_action(action, 0, special_id);
+		battleScene._player_button_action(action, 0, special_id);
 		special_id = -1;
 		layer_1.visible = true;
 		layer_2.visible = false;
 		layer_3.visible = false;
-		current_character = battleManager._get_current_character();
+		current_character = battleScene._get_current_character();
 	
 	else:
 		layer_2.visible = true;

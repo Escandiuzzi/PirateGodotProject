@@ -37,8 +37,6 @@ func _ready():
 	pass
 
 func _initializePirate():
-	
-	print("New Pirate created with: ")
 	hp = 15; #for test purposes
 	max_hp = hp;
 	
@@ -47,13 +45,10 @@ func _initializePirate():
 	var _hp;
 	if rand >= 95: #ultra rare pirate
 			_hp = randi() % 18 + 8;
-			print(_hp);
 	elif rand  > 87 and rand < 95: #rare pirate
 			_hp = randi() % 11 + 6;
-			print(_hp);
 	else: #common pirate
 			_hp = randi() % 9 + 8;
-			print(_hp);
 	
 	hp = _hp;
 	max_hp = hp;
@@ -64,13 +59,10 @@ func _initializePirate():
 	
 	if rand2 >= 97: #ultra rare pirate
 			_energy = randi() % 18 + 8;
-			print(_energy);
 	elif rand2  > 90 and rand2 < 97: #rare pirate
 			_energy = randi() % 11 + 6;
-			print(_energy);
 	else: #common pirate
 			_energy = randi() % 9 + 6;
-			print(_energy);
 	
 	energy = _energy;
 	max_energy = energy;
@@ -82,29 +74,23 @@ func _initializePirate():
 		if i == 0: #attack stat
 			if r >= 95: #ultra rare pirate
 					var s = randi() % 7 + 3;
-					print(s);
 					stats[keys[i]] = s;	
 			elif r  > 87 and r < 95: #rare pirate
 					var s = randi() % 5 + 2;
-					print(s);
 					stats[keys[i]] = s;	
 			else: #common pirate
 					var s = randi() % 4 + 1;
-					print(s);
 					stats[keys[i]] = s;	
 
 		else:
 			if r >= 95: #ultra rare pirate
 				var s = randi() % 6 + 5;
-				print(s);
 				stats[keys[i]] = s;	
 			elif r  > 87 and r < 95: #rare pirate
 				var s = randi() % 5 + 3;
-				print(s);
 				stats[keys[i]] = s;	
 			else: #common pirate
 				var s = randi() % 3 + 1;
-				print(s);
 				stats[keys[i]] = s;	
 	
 	var special_ids = [];
@@ -154,17 +140,6 @@ func _setData(_id, _tag, _hp, _max, _ener, _max_e, _atk, _mining, _cooking, _spe
 	stats["mining"] = _mining;
 	stats["cooking"] = _cooking;
 	stats["special"] = _special;
-	
-	print("updating data")
-	print(id);
-	print(tag);
-	print(hp);
-	print(max_hp);
-	print(energy);
-	print(max_energy);
-	print(stats["atk"]);
-	print(stats["mining"]);
-	print(stats["cooking"]);
 	pass; 
 
 func _get_stat(index):

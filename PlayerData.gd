@@ -7,7 +7,7 @@ var ids = [];
 onready var hudObj = get_node("HUD");
 onready var inventory = $Inventory;
 onready var pirateObj = preload("res://Pirate.tscn");
-onready var battleManager = get_tree().get_root().get_node("BattleManager");
+onready var battleScene;
 onready var player = get_tree().get_root().get_node("World/Player");
 
 func _ready():
@@ -23,7 +23,8 @@ func _selected_pirates(_ids):
 	pass;
 
 func _request_player_pirates():
-	battleManager._instanciate_player_pirates(ids);
+	battleScene = get_tree().get_root().get_node("BattleScene");
+	battleScene._instanciate_player_pirates(ids);
 	pass;
 
 func _recruitPirate():

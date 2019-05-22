@@ -1,36 +1,43 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Manager.gd" type="Script" id=1]
-[ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=2]
-[ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=3]
-[ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=4]
-[ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=5]
-[ext_resource path="res://UIButtonHandler.gd" type="Script" id=6]
-[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=7]
-[ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=8]
-[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/HUD/buttons/return_icon.png" type="Texture" id=10]
-[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=11]
-[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=12]
-[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=13]
-[ext_resource path="res://Sprite/text_background.png" type="Texture" id=14]
+[ext_resource path="res://BattleScene.gd" type="Script" id=1]
+[ext_resource path="res://Manager.gd" type="Script" id=2]
+[ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=6]
+[ext_resource path="res://UIButtonHandler.gd" type="Script" id=7]
+[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=8]
+[ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/HUD/buttons/return_icon.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=15]
 
 [node name="BattleScene" type="Node2D"]
+script = ExtResource( 1 )
+player_pos = [ Vector2( 150, 140 ), Vector2( 150, 269 ), Vector2( 150, 400 ) ]
+ia_pos = [ Vector2( 830, 177 ), Vector2( 830, 306 ), Vector2( 830, 437 ) ]
 
 [node name="Manager" type="Node2D" parent="."]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="UI" type="Node2D" parent="Manager"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Background" type="Sprite" parent="Manager/UI"]
 scale = Vector2( 7.474, 6.742 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="HUD" type="Sprite" parent="Manager/UI"]
 position = Vector2( -1.29236, -1.29236 )
 scale = Vector2( 1.6, 1.25 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="HealthBars" type="Node2D" parent="Manager/UI"]
@@ -40,51 +47,51 @@ margin_left = 87.0
 margin_top = 80.0
 margin_right = 197.0
 margin_bottom = 120.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 
 [node name="character2_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
 margin_left = 87.0
 margin_top = 211.0
 margin_right = 197.0
 margin_bottom = 251.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 
 [node name="character3_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
 margin_left = 87.0
 margin_top = 339.0
 margin_right = 197.0
 margin_bottom = 379.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 
 [node name="enemy1_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
 margin_left = 829.0
 margin_top = 70.0
 margin_right = 939.0
 margin_bottom = 110.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 
 [node name="enemy2_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
 margin_left = 829.0
 margin_top = 200.0
 margin_right = 939.0
 margin_bottom = 240.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 
 [node name="enemy3_HealthBar" type="TextureProgress" parent="Manager/UI/HealthBars"]
 margin_left = 829.0
 margin_top = 335.0
 margin_right = 939.0
 margin_bottom = 375.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 
 [node name="UIButtonHandler" type="Node2D" parent="Manager/UI"]
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Layer 1" type="Node2D" parent="Manager/UI/UIButtonHandler"]
 editor/display_folded = true
@@ -95,7 +102,7 @@ margin_top = 480.0
 margin_right = 150.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 7 )
+icon = ExtResource( 8 )
 flat = true
 
 [node name="SpecialButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 1"]
@@ -104,7 +111,7 @@ margin_top = 480.0
 margin_right = 526.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 8 )
+icon = ExtResource( 9 )
 flat = true
 
 [node name="InventoryButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 1"]
@@ -113,11 +120,10 @@ margin_top = 480.0
 margin_right = 874.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 9 )
+icon = ExtResource( 10 )
 flat = true
 
 [node name="Layer 2" type="Node2D" parent="Manager/UI/UIButtonHandler"]
-editor/display_folded = true
 visible = false
 
 [node name="ReturnButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
@@ -126,7 +132,7 @@ margin_top = 459.0
 margin_right = 67.0
 margin_bottom = 505.0
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 10 )
+icon = ExtResource( 11 )
 
 [node name="FirstEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
 margin_left = 98.0
@@ -134,7 +140,7 @@ margin_top = 480.0
 margin_right = 150.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 11 )
+icon = ExtResource( 12 )
 flat = true
 
 [node name="SecondEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
@@ -143,7 +149,7 @@ margin_top = 480.0
 margin_right = 526.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 flat = true
 
 [node name="ThirdEnemyButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 2"]
@@ -152,10 +158,11 @@ margin_top = 480.0
 margin_right = 874.0
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 13 )
+icon = ExtResource( 14 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="Manager/UI/UIButtonHandler"]
+editor/display_folded = true
 visible = false
 
 [node name="ReturnButton" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
@@ -164,7 +171,7 @@ margin_top = 459.0
 margin_right = 67.0
 margin_bottom = 505.0
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 10 )
+icon = ExtResource( 11 )
 
 [node name="SpecialButton1" type="Button" parent="Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 15.0
@@ -198,7 +205,7 @@ rect_scale = Vector2( 0.7, 0.7 )
 visible = false
 position = Vector2( 500, 380.525 )
 scale = Vector2( 7.59369, 2.74834 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Text" type="RichTextLabel" parent="Manager/UI/UIButtonHandler/Layer 3"]
 visible = false
