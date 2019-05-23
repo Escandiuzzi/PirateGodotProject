@@ -35,7 +35,6 @@ export(Array) var ia_pos;
 var player_texture = load("res://Sprite/characters/idle_warrior.png");
 var enemy_texture = load("res://Sprite/characters/idle_mimic.png");
 
-var aaaa = 0;
 
 func _ready():
 	pos = 0;
@@ -77,13 +76,10 @@ func _process(delta):
 			
 			if current_character._get_tag() == "Player":
 				if played:
-					print("PLAYER TURN ");
 					_player_action();
 			
 			elif current_character._get_tag() == "IA":
 				_ia_action();
-				print("ENEMY TURN "); print(aaaa);
-				aaaa += 1;
 			
 		else:
 			
@@ -287,7 +283,7 @@ func _next_turn():
 	
 	if turn >= characters.size():
 		turn = 0;
-	elif characters[turn]._get_hp() <= 0:
+	if characters[turn]._get_hp() <= 0:
 		ui_handler._layers_visible(false);
 		_next_turn();
 		pass;

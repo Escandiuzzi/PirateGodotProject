@@ -159,6 +159,9 @@ func _get_busy():
 
 func _set_hp(_hp):
 	hp = _hp;
+	
+	if hp > max_hp:
+		hp = max_hp;
 	pass;
 
 func _get_hp():
