@@ -38,7 +38,6 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 [node name="Center" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( -40, 530 )
 movement_speed = 200
 
@@ -50,9 +49,9 @@ visible = false
 editor/display_folded = false
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
+editor/display_folded = false
 position = Vector2( 713.879, 423.456 )
 
 [node name="Button" parent="Flags/Flag" index="0" groups=[
@@ -64,15 +63,16 @@ margin_right = 835.0
 margin_bottom = 828.0
 
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 5 )]
-editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
 island_states = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
-regionName = "Region1"
-commonSize = 4
-rareSize = 6
+islandType = "Material"
+regionName = "Sul"
+commonSize = 2
+uncommonSize = 1
+rareSize = 1
 maxRewards = 9
 bonus = 1
 
@@ -146,14 +146,15 @@ margin_bottom = 1000.0
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
-editor/display_folded = true
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
 renewable = true
-regionName = "Region1"
-commonSize = 4
-rareSize = 6
+islandType = "Consumable"
+regionName = "Sul"
+commonSize = 3
+uncommonSize = 2
+rareSize = 2
 maxRewards = 9
 cooldown_time = 60
 bonus = 2
@@ -195,9 +196,11 @@ island_states = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="4"]
 editor/display_folded = true
-regionName = "Region1"
-commonSize = 4
-rareSize = 6
+islandType = "Material"
+regionName = "Sul"
+commonSize = 3
+uncommonSize = 2
+rareSize = 2
 maxRewards = 9
 bonus = 3
 

@@ -10,7 +10,6 @@ export(String) var regionName;
 
 export(int) var miningTime;
 export(int) var islandSize;
-export(int) var indexType;
 export(int) var commonSize;
 export(int) var uncommonSize;
 export(int) var rareSize;
@@ -155,16 +154,20 @@ func _getRewards():
 	var rewards = {};
 	for i in range(rewardN):
 		#/////////////////////////////////////////
-		var rarity = randi() % 85;
+		var rarity = randi() % 100;
 		var _item = item.instance();
-		if rarity > 85:
+
+		if rarity >= 90:
 			var randReward = randi() % rareSize;
-			_item._read_json_data(randReward, regionName, "Rare");
+			_item._read_json_data(randReward, regionName, "Rare", islandType);
 			_item._print_data();
-		
+		elif rarity >= 60 and rarity < 90:
+			var randReward = randi() % uncommonSize;
+			_item._read_json_data(randReward, regionName, "Uncommon", islandType);
+			_item._print_data();
 		else:
 			var randReward = randi() % commonSize;
-			_item._read_json_data(randReward, regionName, "Common");
+			_item._read_json_data(randReward, regionName, "Common", islandType);
 			_item._print_data();
 		
 		if rewards.has(_item._get_name()):

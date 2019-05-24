@@ -1,99 +1,1028 @@
 {
-  "Region1": {
-    "Common": {
-      "0": {
-        "combinations": {
-          "golden ore": "gold lingot",
-          "iron chain": "amulet",
-          "stick": "golden sword"
+  "Sul": {
+    "Consumable": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Salchipao": {
+              "Pao": 1,
+              "Carne": 1
+            },
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 2,
+          "name": "Pao",
+          "type": "consumable"
         },
-        "damage": 0,
-        "durability": 0,
-        "heal": 0,
-        "name": "golden ore",
-        "type": "mineral"
-      },
-      "1": {
-        "combinations": {
-          "iron": "iron chain",
-          "stick": "iron sword"
+        "1": {
+          "combinations": {
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            },
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Feijao",
+          "type": "consumable"
         },
-        "damage": 0,
-        "durability": 0,
-        "heal": 0,
-        "name": "iron",
-        "type": "mineral"
+        "2": {
+          "combinations": {
+            "Salchipao": {
+              "Pao": 1,
+              "Carne": 1
+            },
+            "Churrasco": {
+              "Carne": 3
+            },
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Carne",
+          "type": "consumable"
+        }
       },
-      "2": {
-        "combinations": {
-          "golden ore": "gold lingot",
-          "iron": "iron sword",
-          "wood": "stick"
+      "Uncommon": {
+        "0": {
+          "combinations": {
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 4,
+          "name": "Chimarrao",
+          "type": "consumable"
         },
-        "damage": 0,
-        "durability": 5,
-        "heal": 0,
-        "name": "wood",
-        "type": "resource"
+        "1": {
+          "combinations": {
+            "Moqueca": {
+              "Peixe": 1,
+              "Pimentao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Peixe",
+          "type": "consumable"
+        }
       },
-      "3": {
-        "combinations": {},
-        "damage": 0,
-        "durability": 8,
-        "heal": 5,
-        "name": "amulet",
-        "type": "accessory"
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 8,
+          "name": "Churrasco",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 8,
+          "name": "Salchipao",
+          "type": "consumable"
+        }
       }
     },
-    "Rare": {
-      "0": {
-        "combinations": {},
-        "damage": 4,
-        "durability": 10,
-        "heal": 0,
-        "name": "iron sword",
-        "type": "weapon"
+    "Material": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Bombacha": {
+              "Couro": 2,
+              "Chimarrao": 1
+            },
+            "Chapeu de Cangaceiro": {
+              "Couro": 2,
+              "Acaraje": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Couro",
+          "type": "material"
+        },
+        "1": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Madeira",
+          "type": "material"
+        }
       },
-      "1": {
-        "combinations": {},
-        "damage": 10,
-        "durability": 4,
-        "heal": 0,
-        "name": "golden sword",
-        "type": "weapon"
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Metal",
+          "type": "material"
+        }
       },
-      "2": {
-        "combinations": { "mushrooom": "soup" },
-        "damage": 0,
-        "durability": 0,
-        "heal": 2,
-        "name": "mushroom",
-        "type": "consumable"
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Ouro",
+          "type": "material"
+        }
+      }
+    },
+    "Item": {
+      "Common": {
+        "0": {
+          "combinations": {},
+          "damage": 2,
+          "durability": 8,
+          "heal": 0,
+          "name": "Espada",
+          "type": "armor"
+        },
+        "1": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 6,
+          "heal": 0,
+          "name": "Armadura",
+          "type": "armor"
+        }
       },
-      "3": {
-        "combinations": { "apple": "apple pie" },
-        "damage": 0,
-        "durability": 0,
-        "heal": 1,
-        "name": "apple",
-        "type": "consumable"
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 8,
+          "heal": 0,
+          "name": "Bombacha",
+          "type": "armor"
+        }
+      }
+    }
+  },
+  "Nordeste": {
+    "Consumable": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Salchipao": {
+              "Pao": 1,
+              "Carne": 1
+            },
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 2,
+          "name": "Pao",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {
+            "Moqueca": {
+              "Peixe": 1,
+              "Pimentao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Peixe",
+          "type": "consumable"
+        },
+        "2": {
+          "combinations": {
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            },
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Feijao",
+          "type": "consumable"
+        },
+        "3": {
+          "combinations": {
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Cebola",
+          "type": "consumable"
+        },
+        "4": {
+          "combinations": {
+            "Moqueca": {
+              "Peixe": 1,
+              "Pimentao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Pimentao",
+          "type": "consumable"
+        }
       },
-      "4": {
-        "combinations": {},
-        "damage": 0,
-        "durability": 0,
-        "heal": 7,
-        "name": "soup",
-        "type": "consumable"
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Salchipao": {
+              "Pao": 1,
+              "Carne": 1
+            },
+            "Churrasco": {
+              "Carne": 3
+            },
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Carne",
+          "type": "consumable"
+        }
       },
-      "5": {
-        "combinations": {},
-        "damage": 0,
-        "durability": 0,
-        "heal": 8,
-        "name": "apple pie",
-        "type": "consumable"
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 8,
+          "name": "Acaraje",
+          "type": "consumable"
+        }
+      }
+    },
+    "Material": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Bombacha": {
+              "Couro": 2,
+              "Chimarrao": 1
+            },
+            "Chapeu de Cangaceiro": {
+              "Couro": 2,
+              "Acaraje": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Couro",
+          "type": "material"
+        },
+        "1": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Madeira",
+          "type": "material"
+        }
+      },
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Metal",
+          "type": "material"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Ouro",
+          "type": "material"
+        }
+      }
+    },
+    "Item": {
+      "Common": {
+        "0": {
+          "combinations": {},
+          "damage": 2,
+          "durability": 8,
+          "heal": 0,
+          "name": "Espada",
+          "type": "armor"
+        },
+        "1": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 6,
+          "heal": 0,
+          "name": "Armadura",
+          "type": "armor"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 8,
+          "heal": 0,
+          "name": "Chapeu de Cangaceiro",
+          "type": "armor"
+        }
+      }
+    }
+  },
+  "Sudeste": {
+    "Consumable": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Salchipao": {
+              "Pao": 1,
+              "Carne": 1
+            },
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 2,
+          "name": "Pao",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {
+            "Salchipao": {
+              "Pao": 1,
+              "Carne": 1
+            },
+            "Churrasco": {
+              "Carne": 3
+            },
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Carne",
+          "type": "consumable"
+        },
+        "2": {
+          "combinations": {
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            },
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Feijao",
+          "type": "consumable"
+        },
+        "3": {
+          "combinations": {
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Cebola",
+          "type": "consumable"
+        },
+        "4": {
+          "combinations": {
+            "Moqueca": {
+              "Peixe": 1,
+              "Pimentao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Pimentao",
+          "type": "consumable"
+        },
+        "5": {
+          "combinations": {
+            "Pao de Queijo": {
+              "Queijo": 2,
+              "Pao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Queijo",
+          "type": "consumable"
+        }
+      },
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Moqueca": {
+              "Peixe": 1,
+              "Pimentao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Peixe",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Pao de Queijo",
+          "type": "consumable"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 8,
+          "name": "Feijoada",
+          "type": "consumable"
+        }
+      }
+    },
+    "Material": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Bombacha": {
+              "Couro": 2,
+              "Chimarrao": 1
+            },
+            "Chapeu de Cangaceiro": {
+              "Couro": 2,
+              "Acaraje": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Couro",
+          "type": "material"
+        },
+        "1": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Madeira",
+          "type": "material"
+        }
+      },
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Metal",
+          "type": "material"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Ouro",
+          "type": "material"
+        }
+      }
+    },
+    "Item": {
+      "Common": {
+        "0": {
+          "combinations": {},
+          "damage": 2,
+          "durability": 8,
+          "heal": 0,
+          "name": "Espada",
+          "type": "armor"
+        },
+        "1": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 6,
+          "heal": 0,
+          "name": "Armadura",
+          "type": "armor"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 5,
+          "durability": 8,
+          "heal": 0,
+          "name": "Laco",
+          "type": "armor"
+        }
+      }
+    }
+  },
+  "Norte": {
+    "Consumable": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Pato no tucupi": {
+              "Pato": 1,
+              "Tucupi": 1
+            },
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 2,
+          "name": "Pato",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {
+            "Acaraje": {
+              "Pao": 1,
+              "Cebola": 1,
+              "Feijao": 1
+            },
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Feijao",
+          "type": "consumable"
+        },
+        "2": {
+          "combinations": {
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Mandioca",
+          "type": "consumable"
+        },
+        "3": {
+          "combinations": {
+            "Moqueca": {
+              "Tapioca": 1,
+              "Mandioca": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Tapioca",
+          "type": "consumable"
+        },
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Tacacá": {
+              "Tucupi": 1,
+              "Mandioca": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Tucupi",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Maniva",
+          "type": "consumable"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 8,
+          "name": "Maniçoba",
+          "type": "consumable"
+        }
+      }
+    },
+    "Material": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Bombacha": {
+              "Couro": 2,
+              "Chimarrao": 1
+            },
+            "Chapeu de Cangaceiro": {
+              "Couro": 2,
+              "Acaraje": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Couro",
+          "type": "material"
+        },
+        "1": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Madeira",
+          "type": "material"
+        }
+      },
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Metal",
+          "type": "material"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Ouro",
+          "type": "material"
+        }
+      }
+    },
+    "Item": {
+      "Common": {
+        "0": {
+          "combinations": {},
+          "damage": 2,
+          "durability": 8,
+          "heal": 0,
+          "name": "Espada",
+          "type": "armor"
+        },
+        "1": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 6,
+          "heal": 0,
+          "name": "Armadura",
+          "type": "armor"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 5,
+          "durability": 8,
+          "heal": 0,
+          "name": "Flecha Indígena",
+          "type": "armor"
+        }
       }
     }
   }
+  },
+  "Centro-Oeste": {
+    "Consumable": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Caldo de piranha": {
+              "Piranha": 1,
+              "Cebola": 1
+            },
+          "damage": 0,
+          "durability": 0,
+          "heal": 2,
+          "name": "Piranha",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {
+            "Feijoada": {
+              "Feijao": 2,
+              "Carne": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Feijao",
+          "type": "consumable"
+        },
+        "2": {
+          "combinations": {
+            "Empadao": {
+              "Pao": 1,
+              "Empada": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Empada",
+          "type": "consumable"
+        },
+        "3": {
+          "combinations": {
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 1,
+          "name": "Cebola",
+          "type": "consumable"
+        },
+      "Uncommon": {
+        "0": {
+          "combinations": {
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 7,
+          "name": "Linguica",
+          "type": "consumable"
+        },
+        "1": {
+          "combinations": {
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 3,
+          "name": "Arroz",
+          "type": "consumable"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {
+            "Galinhada": {
+              "Galinha": 1,
+              "Arroz": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 9,
+          "name": "Galinha",
+          "type": "consumable"
+        }
+      }
+    },
+    "Material": {
+      "Common": {
+        "0": {
+          "combinations": {
+            "Bombacha": {
+              "Couro": 2,
+              "Chimarrao": 1
+            },
+            "Chapeu de Cangaceiro": {
+              "Couro": 2,
+              "Acaraje": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Couro",
+          "type": "material"
+        },
+        "1": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Madeira",
+          "type": "material"
+        }
+      },
+      "Uncommon": {
+        "0": {
+          "combinations": {
+            "Espada": {
+              "Metal": 1,
+              "Madeira": 1
+            },
+            "Armadura": {
+              "Metal": 2,
+              "Couro": 1
+            }
+          },
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Metal",
+          "type": "material"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 0,
+          "heal": 0,
+          "name": "Ouro",
+          "type": "material"
+        }
+      }
+    },
+    "Item": {
+      "Common": {
+        "0": {
+          "combinations": {},
+          "damage": 2,
+          "durability": 8,
+          "heal": 0,
+          "name": "Espada",
+          "type": "armor"
+        },
+        "1": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 6,
+          "heal": 0,
+          "name": "Armadura",
+          "type": "armor"
+        }
+      },
+      "Rare": {
+        "0": {
+          "combinations": {},
+          "damage": 0,
+          "durability": 10,
+          "heal": 0,
+          "name": "Terno",
+          "type": "armor"
+        }
+      }
+    }
+  }
+}
+}
 }
