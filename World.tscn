@@ -50,6 +50,7 @@ visible = false
 editor/display_folded = false
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
 position = Vector2( 713.879, 423.456 )
@@ -76,10 +77,11 @@ maxRewards = 9
 bonus = 1
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="3"]
+editor/display_folded = true
+visible = false
 path = "World/Flags/Flag"
 
 [node name="RewardMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="5"]
-editor/display_folded = false
 path = "World/Flags/Flag"
 
 [node name="CollisionShape2D" parent="Flags/Flag/IslandMenu/Area2D" index="0"]
@@ -103,10 +105,6 @@ margin_bottom = 1421.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 9 )]
-editor/display_folded = true
-
-[node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
-editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
 islandType = "Boss Island"
@@ -116,6 +114,7 @@ islandSize = 3
 maxRewards = 3
 
 [node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="1"]
+editor/display_folded = true
 path = "World/Flags/Flag2"
 
 [node name="RewardMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="3"]
@@ -160,6 +159,7 @@ cooldown_time = 60
 bonus = 2
 
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="3"]
+visible = false
 path = "World/Flags/Flag3"
 
 [node name="RewardMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="5"]
@@ -202,6 +202,7 @@ maxRewards = 9
 bonus = 3
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="3"]
+visible = false
 path = "World/Flags/Flag4"
 
 [node name="RewardMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="5"]

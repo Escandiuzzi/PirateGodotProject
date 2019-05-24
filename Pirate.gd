@@ -178,6 +178,12 @@ func _get_max_hp():
 
 func _set_energy(_energy):
 	energy = _energy;
+	
+	if energy > max_energy:
+		energy = max_energy;
+	
+	elif energy <= 0:
+		energy = 0;	
 	pass;
 
 func _get_energy():

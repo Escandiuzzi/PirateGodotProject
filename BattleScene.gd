@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var b_log = $BattleLog;
+
 var playerPirates = [];
 var enemies = []
 var characters = [];
@@ -16,6 +18,7 @@ var nEnemies;
 var difficulty;
 var current_character;
 var special_id;
+var energy_turn = 2;
 
 var turn = 0;
 
@@ -53,6 +56,8 @@ func _initializeEnemies():
 	
 	var count = playerCount + nEnemies;
 	
+	var z_layer = 3;
+	
 	for i in range(enemiesCount):
 		characters.append(null);
 		enemies.append(null);
@@ -66,14 +71,18 @@ func _initializeEnemies():
 		newEnemy.position = ia_pos[i];
 		newEnemy._change_sprite(enemy_texture);
 		newEnemy._instantiate_special();
+		newEnemy.z_index = z_layer;
+		z_layer-=1;
 	battle = true
 	pass;
 
 func _process(delta):
+	if Input.is_action_pressed("key_c"):
+		b_log.text = "";
+	
 	if battle:
 		if playerPirates.size() > 0 and enemies.size() > 0:
 			current_character = characters[turn];
-			
 			if current_character._get_tag() == "Player":
 				if played:
 					_player_action();
@@ -103,7 +112,6 @@ func _process(delta):
 	pass;
 
 func _player_action():
-	
 	if player_action == "Attack":
 		var damage = int(current_character._get_stat("atk"));
 		
@@ -119,7 +127,7 @@ func _player_action():
 	
 	elif player_action == "Special":
 		var special_attack = current_character._get_special_attack(special_id);
-		var damage = int(special_attack._get_stat("damage"));
+		var damage = special_attack._get_stat("damage");
 		var heal =  special_attack._get_stat("heal");
 		var energy = special_attack._get_stat("energy");
 		var attack_range = special_attack._get_stat("range");
@@ -127,10 +135,10 @@ func _player_action():
 		var energy_loss = current_character._get_energy() - int(energy);
 		current_character._set_energy(energy_loss);
 		
-		if int(heal) > 0 and int (attack_range) == 1:
-			current_character._set_hp(int(heal) + current_character._get_hp());
-		elif int(heal) > 0 and int(attack_range) > 1:
-			_heal_partners(playerPirates, int(attack_range), heal);
+		if heal > 0 and attack_range == 1:
+			current_character._set_hp(heal + current_character._get_hp());
+		elif heal > 0 and int(attack_range) > 1:
+			_heal_partners(playerPirates, attack_range, heal);
 			
 		if damage > 0:
 			if int(attack_range) == 1:
@@ -159,12 +167,10 @@ func _player_action():
 	pass;
 
 func _ia_action():
-	
 	OS.delay_msec(3000);
 	
 	randomize();
 	var ia_action = randi() % 2;
-	
 	if ia_action == 0:
 		_ia_attack_player();
 	
@@ -173,33 +179,39 @@ func _ia_action():
 		var special_ids = [];
 		var pos = 0;
 		for i in range(4):
-			var energy = int(current_character._get_special_attack(i)._get_stat("energy"));
-			if current_character._get_energy() > energy:
-						special_ids.append(null);
-						special_ids[pos] = i;
-						pos+=1;
+			if current_character._get_energy() >= current_character._get_special_attack(i)._get_stat("energy"):
+					special_ids.append(null);
+					special_ids[pos] = i;
+					pos+=1;
 		
 		#special attack 
 		if special_ids.size() > 0:
-			var special_attack = current_character._get_special_attack(special_id);
-			var damage = int(special_attack._get_stat("damage"));
+			
+			randomize();
+			var special_index = randi() % special_ids.size();
+			
+			var special_attack = current_character._get_special_attack(special_ids[special_index]);
+			var damage = special_attack._get_stat("damage");
 			var heal =  special_attack._get_stat("heal");
 			var energy = special_attack._get_stat("energy");
 			var attack_range = special_attack._get_stat("range");
 			
-			var energy_loss = current_character._get_energy() - int(energy);
+			var energy_loss = current_character._get_energy() - energy;
 			current_character._set_energy(energy_loss);
 			
-			if int(heal) > 0 and int(attack_range) == 1:
-				current_character._set_hp(int(heal) + current_character._get_hp());
 			
-			elif int(heal) > 0 and int(attack_range) > 1:
-				_heal_partners(enemies, int(attack_range), heal);
+			b_log.text += str(turn) + " Special cost " + str(energy) + " with damage of " + str(damage) + ", heal of " + str(heal) + " and range of " + str(attack_range)  + ";" + "\n";
+			
+			if  heal> 0 and attack_range== 1:
+				current_character._set_hp(int(heal) + current_character._get_hp());	
+			
+			elif heal> 0 and attack_range > 1:
+				_heal_partners(enemies, attack_range, heal);
 			
 			if damage > 0:
 				randomize();
 				var target_player = randi() % playerPirates.size(); 
-	
+				
 				if int(attack_range) == 1:
 					_attack_one_character(damage, playerPirates, target_player, playerCount);
 				elif int(attack_range) == 2:
@@ -214,8 +226,8 @@ func _ia_action():
 						_attack_two_characters(damage, playerPirates, target_player, playerCount);
 					else:
 						_attack_one_character(damage, playerPirates, target_player, playerCount);
-				else:
-					_ia_attack_player();
+		else:
+			_ia_attack_player();
 	
 	_next_turn();
 	pass;
@@ -286,17 +298,18 @@ func _next_turn():
 	if characters[turn]._get_hp() <= 0:
 		ui_handler._layers_visible(false);
 		_next_turn();
-		pass;
-
-	if characters[turn]._get_tag() == "IA":
-		ui_handler._layers_visible(false);
 	else:
-		ui_handler._layers_visible(true);
-	
-	turnText.text = "Turn: " + str(turn);
-	
+		if characters[turn]._get_tag() == "IA":
+			ui_handler._layers_visible(false);
+		else:
+			ui_handler._layers_visible(true);
+		turnText.text = "Turn: " + str(turn);
+		print(str(turn));
+		print("current energy" + str(characters[turn]._get_energy()));
+		characters[turn]._set_energy(characters[turn]._get_energy() + energy_turn);
+		print("updated energy" + str(characters[turn]._get_energy()));
 	pass;
-	
+
 func _attack_one_character(damage, array, target, count):
 	var enemy = array[target];
 	enemy._set_hp(enemy._get_hp() - damage);
@@ -352,6 +365,8 @@ func _ia_attack_player():
 	
 	damage += additional;
 	playerPirates[target_p]._set_hp(playerPirates[target_p]._get_hp() - damage);
+	
+	b_log.text += str(turn) + " Attack of damage " + str(damage) + " on enemy with index of " + str(target_p) + ";" + "\n";
 	
 	_check_enemy_life(playerPirates[target_p], playerCount, playerPirates, target_p);
 	pass;
