@@ -25,10 +25,10 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-visible = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
+mouse_filter = 2
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="PopupMenu"]
@@ -51,10 +51,14 @@ margin_left = 40.0
 margin_top = 60.0
 margin_right = 64.0
 margin_bottom = 84.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox"]
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 2
 texture = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="PopupMenu/CheckBox/Sprite"]
@@ -76,9 +80,6 @@ texture = ExtResource( 4 )
 
 [node name="Area2D2" type="Area2D" parent="PopupMenu/CheckBox2/Sprite"]
 position = Vector2( -0.122238, 0.681122 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox2/Sprite/Area2D2"]
 shape = SubResource( 1 )
@@ -97,9 +98,6 @@ texture = ExtResource( 4 )
 
 [node name="Area2D3" type="Area2D" parent="PopupMenu/CheckBox3/Sprite"]
 position = Vector2( -0.244446, -0.681122 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox3/Sprite/Area2D3"]
 shape = SubResource( 1 )
@@ -118,9 +116,6 @@ texture = ExtResource( 4 )
 
 [node name="Area2D4" type="Area2D" parent="PopupMenu/CheckBox4/Sprite"]
 position = Vector2( -1.04785, 0 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox4/Sprite/Area2D4"]
 shape = SubResource( 1 )

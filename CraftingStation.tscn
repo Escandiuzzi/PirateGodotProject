@@ -22,6 +22,7 @@ text = "Welcome to the CraftingStation"
 script = ExtResource( 1 )
 
 [node name="Layer 1" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="MaterialsButton" type="Button" parent="Layer 1"]
 margin_left = 1230.0

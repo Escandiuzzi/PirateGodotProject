@@ -56,7 +56,6 @@ scale = Vector2( 17.5365, 15.0563 )
 texture = ExtResource( 4 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
-editor/display_folded = true
 visible = false
 margin_left = -276.0
 margin_top = -523.0

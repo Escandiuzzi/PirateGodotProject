@@ -59,7 +59,6 @@ margin_bottom = 119.642
 [node name="PopupMenu" parent="IslandMenu/Island" index="3"]
 margin_left = -149.093
 margin_right = 198.907
-mouse_filter = 2
 
 [node name="Sprite" parent="IslandMenu/Island/PopupMenu/CheckBox" index="0"]
 editor/display_folded = true

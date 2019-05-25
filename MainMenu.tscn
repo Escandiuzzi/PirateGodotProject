@@ -37,7 +37,7 @@ margin_bottom = 448.0
 size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_right = 343.0
+margin_right = 498.0
 margin_bottom = 287.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -46,17 +46,17 @@ alignment = 1
 
 [node name="StartButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_top = 33.0
-margin_right = 360.0
+margin_right = 498.0
 margin_bottom = 93.0
 
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 113.0
-margin_right = 360.0
+margin_right = 498.0
 margin_bottom = 173.0
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
 margin_top = 193.0
-margin_right = 360.0
+margin_right = 498.0
 margin_bottom = 253.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]

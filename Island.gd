@@ -143,6 +143,7 @@ func _on_StartButton_pressed():
 func _on_CollectButton_pressed():
 	rewardMenu.hide();
 	button2.hide();
+	_rescue_crew();
 	if renewable:
 		_renewable_state();
 		cooldown = true;
@@ -188,14 +189,16 @@ func _getRewards():
 		rewardText.text += "x ";
 		rewardText.text += keys[i];
 		rewardText.text += "\n";
+	
+	pass;
 
+func _rescue_crew():
 	for i in range(islandSize):
 		if pirateId[i] == null:
 			break;
 		pirates[i]._set_busy(false);
 		pirates[i]._set_post_mining_bonus(bonus);
 	pirates.clear();
-	
 	pass;
 
 func _renewable_state():
