@@ -38,6 +38,7 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 [node name="Center" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( -40, 530 )
 movement_speed = 200
 
@@ -47,11 +48,17 @@ visible = false
 
 [node name="RichTextLabel" parent="Player/HUD" index="4"]
 editor/display_folded = false
+visible = true
+
+[node name="Button" parent="Player/HUD/RichTextLabel" index="1"]
+visible = false
+
+[node name="PlayerArea2D" parent="Player" index="3"]
+editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
 position = Vector2( 713.879, 423.456 )
 
 [node name="Button" parent="Flags/Flag" index="0" groups=[
@@ -63,11 +70,13 @@ margin_right = 835.0
 margin_bottom = 828.0
 
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 5 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
 island_states = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
 islandType = "Material"
 regionName = "Sul"
 commonSize = 2
@@ -132,6 +141,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="Flag3" parent="Flags" instance=ExtResource( 4 )]
+editor/display_folded = false
 position = Vector2( -770.167, 480 )
 
 [node name="Button" parent="Flags/Flag3" index="0" groups=[
@@ -143,18 +153,18 @@ margin_right = 526.0
 margin_bottom = 1000.0
 
 [node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 5 )]
-editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
 renewable = true
 islandType = "Consumable"
 regionName = "Sul"
 commonSize = 3
-uncommonSize = 2
-rareSize = 2
+uncommonSize = 1
+rareSize = 1
 maxRewards = 9
 cooldown_time = 60
 bonus = 2

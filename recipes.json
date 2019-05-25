@@ -1,0 +1,156 @@
+{
+    "Consumable": {
+      "0": {
+        "name": "Salchipão",
+        "ingredients": {
+          "Pao": 1,
+          "Carne": 1
+        },
+        "path": [ "Sul", "Consumable", "Rare", 1 ]
+      },
+      "1": {
+        "name": "Acarajé",
+        "ingredients": {
+          "Pao": 1,
+          "Cebola": 1,
+          "Feijao": 1
+        },
+        "path": [ "Nordeste", "Consumable", "Rare", 0 ]
+      },
+      "2": {
+        "name": "Churrasco",
+        "ingredients": {
+          "Carne": 3
+        },
+        "path": [ "Sul", "Consumable", "Rare", 0]
+      },
+      "3": {
+        "name": "Feijoada",
+        "ingredients": {
+          "Feijao": 2,
+          "Carne": 1
+        },
+        "path": [ "Sudeste", "Consumable", "Rare", 0 ]
+      },
+      "4": {
+        "name": "Moqueca",
+        "ingredients": {
+          "Peixe": 1,
+          "Pimentao": 1
+        },
+        "path": [ "Nordeste", "Consumable", "Rare", 1 ]
+      },
+      "5": {
+        "name": "Pão de Queijo",
+        "ingredients": {
+          "Queijo": 2,
+          "Pao": 1
+        },
+        "path": [ "Sudeste", "Consumable", "Uncommon", 1 ]
+      },
+      "6": {
+        "name": "Pato no tucupi",
+        "ingredients": {
+          "Pato": 1,
+          "Tucupi": 1
+        },
+        "path": [ "Norte", "Consumable", "Rare", 1 ]
+      },
+      "7": {
+        "name": "Moqueca do Norte",
+        "ingredients": {
+          "Tapioca": 1,
+          "Mandioca": 1
+        },
+        "path": [ "Norte", "Consumable", "Rare", 2 ]
+      },
+      "8": {
+        "name": "Tacacá",
+        "ingredients": {
+          "Tucupi": 1,
+          "Mandioca": 1
+        },
+        "path": [ "Norte", "Consumable", "Rare", 3]
+
+      },
+      "9": {
+        "name": "Caldo de Piranha",
+        "ingredients": {
+          "Piranha": 1,
+          "Cebola": 1
+        },
+        "path": [ "Centro-Oeste", "Consumable", "Rare", 1]
+      },
+      "10": {
+        "name": "Empadão",
+        "ingredients": {
+          "Pao": 1,
+          "Empada": 1
+        },
+        "path": [ "Centro-Oeste", "Consumable", "Common", 2 ]
+      },
+      "11": {
+        "name": "Galinhada",
+        "ingredients": {
+          "Galinha": 1,
+          "Arroz": 1
+        },
+        "path": [ "Centro-Oeste", "Consumable", "Rare", 0 ]
+      }
+    },
+  "Material": {
+    "0": {
+      "name": "Carimbó",
+      "ingredients": {
+        "Couro": 5
+      },
+      "path": [ "Norte", "Item", "Rare", 1 ]
+    },
+    "1": {
+      "name": "Chapéu de Cangaceiro",
+      "ingredients": {
+        "Couro": 2,
+        "Acaraje": 1
+      },
+      "path": [ "Nordeste", "Item", "Rare", 0 ]
+    },
+    "2": {
+      "name": "Armadura",
+      "ingredients": {
+        "Metal": 2,
+        "Couro": 1
+      },
+      "path": [ "Centro-Oeste", "Item", "Common", 1 ]
+    },
+    "3": {
+      "name": "Espada",
+      "ingredients": {
+        "Metal": 1,
+        "Madeira": 1
+      },
+      "path": [ "Centro-Oeste", "Item", "Common", 0 ]
+    },
+    "4": {
+      "name": "Laço",
+      "ingredients": {
+        "Couro": 5
+      },
+      "path": [ "Sudeste", "Item", "Rare", 0]
+    },
+    "5": {
+      "name": "Terno",
+      "ingredients": {
+        "Couro": 10
+      },
+      "path": [ "Centro-Oeste", "Item", "Rare", 0 ]
+    },
+    "6": {
+      "name": "Bombacha",
+      "ingredients": {
+        "Couro": 10
+      },
+      "path": [ "Sul", "Item", "Rare", 0 ]
+    }
+  }
+}
+        

@@ -6,7 +6,6 @@ var type;
 var heal;
 var damage;
 var durability;
-var combinations;
 
 func _read_json_data(index, region, rarity, _type):
 	var items_file = File.new();
@@ -26,7 +25,6 @@ func _read_json_data(index, region, rarity, _type):
 	heal = data[region][_type][rarity][str(index)]["heal"];
 	damage = data[region][_type][rarity][str(index)]["damage"];
 	durability = data[region][_type][rarity][str(index)]["durability"];
-	combinations = data[region][_type][rarity][str(index)]["combinations"];
 	
 	items_file.close();
 	pass;
@@ -40,7 +38,6 @@ func _print_data():
 	print(heal);
 	print(damage);
 	print(durability);
-	print(combinations);
 	print("#################");
 	
 	pass;
@@ -51,4 +48,15 @@ func _get_id():
 
 func _get_name():
 	return item_name;
+	pass;
+func _get_stat(_stat):
+	
+	if _stat == "type":
+		return type;
+	elif _stat == "heal":
+		return heal;
+	elif _stat == "damage":
+		return damage;
+	elif _stat == "durability":
+		return durability;
 	pass;

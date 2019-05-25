@@ -84,7 +84,6 @@ func _readData(id):
 	pass;
 
 func _update_crew(pirate):
-	
 	crew[pirate._get_id()] = pirate;
 	_saveData();
 	pass;
@@ -102,9 +101,16 @@ func _on_SaveButton_pressed():
 func _on_LoadButton_pressed():
 	_readData(0);
 	pass;
+
 func _receive_player_reward(player_reward):
 	inventory._insert_item(player_reward);
 	pass ;
+
+func _remove_item(item, quantity):
+	inventory._remove_item(item, quantity);
+	pass;
+
+
 func _get_inventory():
 	return inventory;
 	pass;

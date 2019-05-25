@@ -17,17 +17,14 @@
 [ext_resource path="res://Sprite/text_background.png" type="Texture" id=15]
 
 [node name="BattleScene" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 player_pos = [ Vector2( 150, 140 ), Vector2( 150, 269 ), Vector2( 150, 400 ) ]
 ia_pos = [ Vector2( 830, 177 ), Vector2( 830, 306 ), Vector2( 830, 437 ) ]
 
 [node name="Manager" type="Node2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="UI" type="Node2D" parent="Manager"]
-editor/display_folded = true
 __meta__ = {
 "_edit_group_": true
 }

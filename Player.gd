@@ -37,7 +37,8 @@ func _input(event):
 				hudObj.visible = false;
 		else:
 			hudObj.visible = true;
-			
+	if event.is_action_pressed("key_b"):
+		get_tree().change_scene("res://CraftingStation.tscn")
 	pass;
 
 # Performed on each step
