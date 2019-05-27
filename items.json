@@ -7,21 +7,24 @@
           "durability": 0,
           "heal": 2,
           "name": "Pao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sul", "Consumable", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Feijao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sul", "Consumable", "Common", 1]
         },
         "2": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Carne",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sul", "Consumable", "Common", 2]
         }
       },
       "Uncommon": {
@@ -30,7 +33,8 @@
           "durability": 0,
           "heal": 1,
           "name": "Peixe",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sul", "Consumable", "Uncommon", 0]
         }
       },
       "Rare": {
@@ -39,14 +43,16 @@
           "durability": 0,
           "heal": 8,
           "name": "Churrasco",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sul", "Consumable", "Rare", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 8,
           "name": "Salchipao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sul", "Consumable", "Rare", 1]
         }
       }
     },
@@ -57,14 +63,16 @@
           "durability": 0,
           "heal": 0,
           "name": "Couro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sul", "Material", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 0,
           "name": "Madeira",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sul", "Material", "Common", 1]
         }
       },
       "Uncommon": {
@@ -73,7 +81,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Metal",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sul", "Material", "Uncommon", 0]
         }
       },
       "Rare": {
@@ -82,7 +91,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Ouro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sul", "Material", "Rare", 0]
         }
       }
     },
@@ -93,14 +103,16 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Sul", "Item", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 6,
           "heal": 0,
           "name": "Armadura",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Sul", "Item", "Common", 1]
         }
       },
       "Rare": {
@@ -109,14 +121,16 @@
           "durability": 8,
           "heal": 0,
           "name": "Bombacha",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Sul", "Item", "Rare", 0]
         },
         "1": {
           "damage": 0,
           "durability": 8,
           "heal": 0,
           "name": "Laço",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Sul", "Item", "Rare", 1]
         }
       }
     }
@@ -129,35 +143,40 @@
           "durability": 0,
           "heal": 2,
           "name": "Pao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Peixe",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Common", 1]
         },
         "2": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Feijao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Common", 2]
         },
         "3": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Cebola",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Common", 3]
         },
         "4": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Pimentao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Common", 4]
         }
       },
       "Uncommon": {
@@ -166,7 +185,8 @@
           "durability": 0,
           "heal": 1,
           "name": "Carne",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Uncommon", 0]
         }
       },
       "Rare": {
@@ -175,14 +195,16 @@
           "durability": 0,
           "heal": 8,
           "name": "Acaraje",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Rare", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 9,
           "name": "Moqueca",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Nordeste", "Consumable", "Rare", 1]
         }
       }
     },
@@ -193,14 +215,16 @@
           "durability": 0,
           "heal": 0,
           "name": "Couro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Nordeste", "Material", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 0,
           "name": "Madeira",
-          "type": "material"
+          "type": "material",
+          "path": [ "Nordeste", "Material", "Common", 1]
         }
       },
       "Uncommon": {
@@ -209,7 +233,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Metal",
-          "type": "material"
+          "type": "material",
+          "path": [ "Nordeste", "Material", "Uncommon", 0]
         }
       },
       "Rare": {
@@ -218,7 +243,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Ouro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Nordeste", "Material", "Rare", 0]
         }
       }
     },
@@ -229,14 +255,16 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Nordeste", "Item", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 6,
           "heal": 0,
           "name": "Armadura",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Nordeste", "Item", "Common", 1]
         }
       },
       "Rare": {
@@ -245,7 +273,8 @@
           "durability": 8,
           "heal": 0,
           "name": "Chapeu de Cangaceiro",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Nordeste", "Item", "Rare", 0]
         }
       }
     }
@@ -258,42 +287,48 @@
           "durability": 0,
           "heal": 2,
           "name": "Pao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Carne",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Common", 1]
         },
         "2": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Feijao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Common", 2]
         },
         "3": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Cebola",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Common", 3]
         },
         "4": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Pimentao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Common", 4]
         },
         "5": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Queijo",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Common", 5]
         }
       },
       "Uncommon": {
@@ -302,14 +337,16 @@
         "durability": 0,
         "heal": 1,
         "name": "Peixe",
-        "type": "consumable"
+        "type": "consumable",
+        "path": [ "Sudeste", "Consumable", "Uncommon", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Pao de Queijo",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Uncommon", 1]
         }
       },
       "Rare": {
@@ -318,7 +355,8 @@
           "durability": 0,
           "heal": 8,
           "name": "Feijoada",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Sudeste", "Consumable", "Rare", 0]
         }
       }
     },
@@ -329,14 +367,16 @@
           "durability": 0,
           "heal": 0,
           "name": "Couro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sudeste", "Material", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 0,
           "name": "Madeira",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sudeste", "Material", "Common", 1]
         }
       },
       "Uncommon": {
@@ -345,7 +385,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Metal",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sudeste", "Material", "Uncommon", 0]
         }
       },
       "Rare": {
@@ -354,7 +395,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Ouro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Sudeste", "Material", "Rare", 0]
         }
       }
     },
@@ -365,14 +407,16 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Sudeste", "Item", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 6,
           "heal": 0,
           "name": "Armadura",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Sudeste", "Item", "Common", 1]
         }
       },
       "Rare": {
@@ -381,7 +425,8 @@
           "durability": 8,
           "heal": 0,
           "name": "Laco",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Sudeste", "Item", "Rare", 0]
         }
       }
     }
@@ -394,28 +439,32 @@
           "durability": 0,
           "heal": 2,
           "name": "Pato",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Norte", "Consumable", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Feijao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Norte", "Consumable", "Common", 1]
         },
         "2": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Mandioca",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Norte", "Consumable", "Common", 2]
         },
         "3": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Tapioca",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Norte", "Consumable", "Common", 3]
         },
       "Uncommon": {
         "0": {
@@ -423,14 +472,16 @@
           "durability": 0,
           "heal": 1,
           "name": "Tucupi",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Norte", "Consumable", "Uncommon", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Maniva",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Norte", "Consumable", "Uncommon", 1]
         }
       },
         "Rare": {
@@ -439,28 +490,32 @@
             "durability": 0,
             "heal": 8,
             "name": "Maniçoba",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Norte", "Consumable", "Rare", 0]
           },
           "1": {
             "damage": 0,
             "durability": 0,
             "heal": 7,
             "name": "Pato no tucupi",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Norte", "Consumable", "Rare", 1]
           },
           "2": {
             "damage": 0,
             "durability": 0,
             "heal": 12,
             "name": "Moqueca no norte",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Norte", "Consumable", "Rare", 2]
           },
           "3": {
             "damage": 0,
             "durability": 0,
             "heal": 10,
             "name": "Tacacá",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Norte", "Consumable", "Rare", 3]
           }
         }
     },
@@ -471,14 +526,16 @@
           "durability": 0,
           "heal": 0,
           "name": "Couro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Norte", "Material", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 0,
           "name": "Madeira",
-          "type": "material"
+          "type": "material",
+          "path": [ "Norte", "Material", "Common", 1]
         }
       },
       "Uncommon": {
@@ -487,7 +544,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Metal",
-          "type": "material"
+          "type": "material",
+          "path": [ "Norte", "Material", "Uncommon", 0]
         }
       },
       "Rare": {
@@ -496,7 +554,8 @@
           "durability": 0,
           "heal": 0,
           "name": "Ouro",
-          "type": "material"
+          "type": "material",
+          "path": [ "Norte", "Material", "Rare", 0]
         }
       }
     },
@@ -507,14 +566,16 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Norte", "Item", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 6,
           "heal": 0,
           "name": "Armadura",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Norte", "Item", "Common", 1]
         }
       },
       "Rare": {
@@ -523,14 +584,16 @@
           "durability": 8,
           "heal": 0,
           "name": "Flecha Indígena",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Norte", "Item", "Rare", 0]
         },
         "1": {
           "damage": 1,
           "durability": 8,
           "heal": 0,
           "name": "Carimbó",
-          "type": "armor"
+          "type": "armor",
+          "path": [ "Norte", "Item", "Rare", 1]
         }
       }
     }
@@ -544,28 +607,32 @@
           "durability": 0,
           "heal": 2,
           "name": "Piranha",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Centro-Oeste", "Consumable", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Feijao",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Centro-Oeste", "Consumable", "Common", 1]
         },
         "2": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Empada",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Centro-Oeste", "Consumable", "Common", 2]
         },
         "3": {
           "damage": 0,
           "durability": 0,
           "heal": 1,
           "name": "Cebola",
-          "type": "consumable"
+          "type": "consumable",
+          "path": [ "Centro-Oeste", "Consumable", "Common", 3]
         },
         "Uncommon": {
           "0": {
@@ -573,21 +640,24 @@
             "durability": 0,
             "heal": 7,
             "name": "Linguica",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Centro-Oeste", "Consumable", "Uncommon", 0]
           },
           "1": {
             "damage": 0,
             "durability": 0,
             "heal": 3,
             "name": "Arroz",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Centro-Oeste", "Consumable", "Uncommon", 1]
           },
           "2": {
             "damage": 0,
             "durability": 0,
             "heal": 5,
             "name": "Empadão",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Centro-Oeste", "Consumable", "Uncommon", 2]
           }
         },
         "Rare": {
@@ -596,14 +666,16 @@
             "durability": 0,
             "heal": 9,
             "name": "Galinha",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Centro-Oeste", "Consumable", "Rare", 0]
           },
           "1": {
             "damage": 0,
             "durability": 0,
             "heal": 6,
             "name": "Caldo de Piranha",
-            "type": "consumable"
+            "type": "consumable",
+            "path": [ "Centro-Oeste", "Consumable", "Rare", 1]
           }
         }
       },
@@ -614,14 +686,16 @@
             "durability": 0,
             "heal": 0,
             "name": "Couro",
-            "type": "material"
+            "type": "material",
+            "path": [ "Centro-Oeste", "Material", "Common", 0]
           },
           "1": {
             "damage": 0,
             "durability": 0,
             "heal": 0,
             "name": "Madeira",
-            "type": "material"
+            "type": "material",
+            "path": [ "Centro-Oeste", "Material", "Common", 1]
           }
         },
         "Uncommon": {
@@ -630,7 +704,8 @@
             "durability": 0,
             "heal": 0,
             "name": "Metal",
-            "type": "material"
+            "type": "material",
+            "path": [ "Centro-Oeste", "Material", "Uncommon", 0]
           }
         },
         "Rare": {
@@ -639,7 +714,8 @@
             "durability": 0,
             "heal": 0,
             "name": "Ouro",
-            "type": "material"
+            "type": "material",
+            "path": [ "Centro-Oeste", "Material", "Rare", 0]
           }
         }
       },
@@ -650,14 +726,16 @@
             "durability": 8,
             "heal": 0,
             "name": "Espada",
-            "type": "armor"
+            "type": "armor",
+            "path": [ "Centro-Oeste", "Item", "Common", 0]
           },
           "1": {
             "damage": 0,
             "durability": 6,
             "heal": 0,
             "name": "Armadura",
-            "type": "armor"
+            "type": "armor",
+            "path": [ "Centro-Oeste", "Item", "Common", 1]
           }
         },
         "Rare": {
@@ -666,7 +744,8 @@
             "durability": 10,
             "heal": 0,
             "name": "Terno",
-            "type": "armor"
+            "type": "armor",
+            "path": [ "Centro-Oeste", "Item", "Rare", 0]
           }
         }
       }
