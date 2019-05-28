@@ -6,6 +6,7 @@ var type;
 var heal;
 var damage;
 var durability;
+var path;
 
 func _read_json_data(index, region, rarity, _type):
 	var items_file = File.new();
@@ -25,6 +26,7 @@ func _read_json_data(index, region, rarity, _type):
 	heal = data[region][_type][rarity][str(index)]["heal"];
 	damage = data[region][_type][rarity][str(index)]["damage"];
 	durability = data[region][_type][rarity][str(index)]["durability"];
+	path = data[region][_type][rarity][str(index)]["path"];
 	
 	items_file.close();
 	pass;
@@ -38,6 +40,7 @@ func _print_data():
 	print(heal);
 	print(damage);
 	print(durability);
+	print(path);
 	print("#################");
 	
 	pass;
@@ -59,4 +62,6 @@ func _get_stat(_stat):
 		return damage;
 	elif _stat == "durability":
 		return durability;
+	elif _stat == "path":
+		return path;
 	pass;

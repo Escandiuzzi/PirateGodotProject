@@ -9,7 +9,7 @@ onready var inventory = $Inventory;
 onready var pirateObj = preload("res://Pirate.tscn");
 onready var battleScene;
 onready var player = get_tree().get_root().get_node("World/Player");
-
+onready var item = preload("res://Item.tscn");
 func _ready():
 	for i in range(10):
 		crew.append(null);
@@ -59,6 +59,7 @@ func _saveData():
 		
 	save_game.close();
 	print("saved");
+	_save_inventory_data();
 	pass;
 
 func _readData(id):
@@ -81,7 +82,50 @@ func _readData(id):
 			player._position_pirate(newPirate);
 		
 	save_game.close();
+	
+	_read_inventory_data();
+	
 	pass;
+
+func _save_inventory_data():
+	var save_inventory = File.new();
+	
+	save_inventory.open("res://invetorysave.json", File.WRITE);
+	
+	var json_data = {"Inventory Size":inventory._get_keys().size()};
+	
+	var inventory_keys = inventory._get_keys();
+	
+	for i in inventory_keys.size():
+		var item = {"name": inventory_keys[i], "quantity": inventory._get_item_count(inventory_keys[i]), "path" : inventory._get_item_path(inventory_keys[i])}
+		json_data[i] = item;
+	
+	save_inventory.store_line(to_json(json_data));
+		
+	save_inventory.close();
+	pass;
+
+func _read_inventory_data():
+	var inventory_save = File.new();
+	if not inventory_save.file_exists("res://invetorysave.json"):
+		print("file does not exists");
+		return;
+		
+	inventory_save.open("res://invetorysave.json", File.READ)
+	
+	var current_line =  parse_json(inventory_save.get_line());
+	
+	var pos = 0;
+	
+	for i in range(current_line["Inventory Size"]):
+		var _item = item.instance();
+		for i in range(current_line[str(pos)]["quantity"]):
+			_item._read_json_data(current_line[str(pos)]["path"][3], current_line[str(pos)]["path"][0], current_line[str(pos)]["path"][2], current_line[str(pos)]["path"][1]);
+			inventory._insert_item(_item);
+		pos+= 1;
+	inventory_save.close();
+	pass;
+
 
 func _update_crew(pirate):
 	crew[pirate._get_id()] = pirate;

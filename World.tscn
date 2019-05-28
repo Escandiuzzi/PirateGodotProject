@@ -38,12 +38,10 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 [node name="Center" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( -40, 530 )
 movement_speed = 200
 
 [node name="HUD" parent="Player" index="1"]
-editor/display_folded = true
 visible = false
 
 [node name="RichTextLabel" parent="Player/HUD" index="4"]
@@ -52,7 +50,6 @@ editor/display_folded = true
 [node name="Flags" type="Node" parent="."]
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
 position = Vector2( 713.879, 423.456 )
 
 [node name="Button" parent="Flags/Flag" index="0" groups=[
@@ -79,6 +76,7 @@ mouse_filter = 1
 mouse_filter = 1
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
 islandType = "Material"
 regionName = "Sul"
 commonSize = 2
@@ -116,7 +114,6 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 6 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
 
 [node name="Button" parent="Flags/Flag2" index="0" groups=[
 "my_buttons",
@@ -128,6 +125,7 @@ margin_bottom = 1421.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 9 )]
+editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
 islandType = "Boss Island"
@@ -203,6 +201,7 @@ scale = Vector2( 0.412657, 0.437253 )
 texture = ExtResource( 11 )
 
 [node name="Flag4" parent="Flags" instance=ExtResource( 4 )]
+editor/display_folded = false
 position = Vector2( -797.636, -222.528 )
 
 [node name="Button" parent="Flags/Flag4" index="0" groups=[
@@ -222,9 +221,9 @@ island_states = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
 editor/display_folded = true
 islandType = "Material"
 regionName = "Sul"
-commonSize = 3
-uncommonSize = 2
-rareSize = 2
+commonSize = 2
+uncommonSize = 1
+rareSize = 1
 maxRewards = 9
 bonus = 3
 

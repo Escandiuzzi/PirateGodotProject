@@ -34,3 +34,10 @@ func _get_item_count(key):
 	else:
 		return 0;
 	pass;
+
+func _get_item_path(key):
+	if inventory.has(key):
+		var _item = inventory[key];
+		return _item[0]._get_stat("path");
+	else:
+		return 0;
