@@ -146,6 +146,10 @@ func _get_stat(index):
 	return stats[index];
 	pass;
 
+func _set_stat(index, bonus):
+	stats[index] = int(stats[index] + int(bonus));
+	pass;
+
 func _set_busy(status):
 	busy = status;
 	if busy == true:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://Manager.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=14]
 [ext_resource path="res://Sprite/text_background.png" type="Texture" id=15]
 [ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=16]
+[ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=17]
 
 [node name="BattleScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,11 +24,9 @@ player_pos = [ Vector2( 150, 140 ), Vector2( 150, 269 ), Vector2( 150, 400 ) ]
 ia_pos = [ Vector2( 830, 177 ), Vector2( 830, 306 ), Vector2( 830, 437 ) ]
 
 [node name="Manager" type="Node2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="UI" type="Node2D" parent="Manager"]
-editor/display_folded = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -95,6 +94,7 @@ texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 
 [node name="UIButtonHandler" type="Node2D" parent="Manager/UI"]
+editor/display_folded = true
 script = ExtResource( 7 )
 
 [node name="Layer 1" type="Node2D" parent="Manager/UI/UIButtonHandler"]
@@ -242,6 +242,7 @@ margin_bottom = 436.0
 [node name="RewardsContainer" type="Node" parent="."]
 
 [node name="Panel" type="Panel" parent="."]
+editor/display_folded = true
 visible = false
 margin_left = 413.0
 margin_top = 73.0
@@ -278,6 +279,10 @@ margin_top = 137.179
 margin_right = 736.792
 margin_bottom = 327.179
 
+[node name="InventoryScreen" parent="." instance=ExtResource( 17 )]
+visible = false
+z_index = 5
+
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Special" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/InventoryButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Inventory" ]]
@@ -300,5 +305,9 @@ margin_bottom = 327.179
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 3/SpecialButton4" to="Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 3 ]]
 [connection signal="pressed" from="Panel/Button" to="Manager/UI/UIButtonHandler" method="_on_Button_pressed"]
 [connection signal="pressed" from="RecruitPirate/Panel/RecruitButton" to="." method="_on_RecruitButton_pressed"]
+[connection signal="on_item_selected" from="InventoryScreen/UIInputHandler" to="Manager/UI/UIButtonHandler" method="_on_UIInputHandler_on_item_selected"]
+[connection signal="pressed" from="InventoryScreen/CloseButton" to="Manager/UI/UIButtonHandler" method="_on_CloseInventoryButton_pressed"]
 
 [editable path="RecruitPirate"]
+
+[editable path="InventoryScreen"]

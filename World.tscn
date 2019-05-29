@@ -53,6 +53,7 @@ editor/display_folded = true
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 4 )]
 position = Vector2( 713.879, 423.456 )
@@ -116,7 +117,6 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 6 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
 
 [node name="Button" parent="Flags/Flag2" index="0" groups=[
 "my_buttons",
@@ -128,6 +128,7 @@ margin_bottom = 1421.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 9 )]
+editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
 editor/display_folded = true

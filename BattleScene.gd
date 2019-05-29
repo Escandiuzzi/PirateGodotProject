@@ -27,7 +27,7 @@ var scenePath;
 var current_character;
 var special_id;
 var energy_turn = 2;
-
+var item_selected;
 var turn = 0;
 
 onready var recruitPanel = get_node("RecruitPirate");
@@ -179,11 +179,18 @@ func _player_action():
 				else:
 					_attack_one_character(damage, enemies, target_enemy, enemiesCount);
 	
-	#elif player_action == "Inventory":
-	
+	elif player_action == "Inventory":
+		var heal = item_selected[0];
+		var damage = item_selected[1];
+		var durability = item_selected[2];
+		
+		current_character._set_hp(current_character._get_hp() + heal);
+		current_character._set_stat("atk", damage);
+
 	target_enemy = null;
 	player_action = null;
 	played = false;
+	item_selected = null;
 	
 	_next_turn();
 	
@@ -296,11 +303,12 @@ func _instanciate_player_pirates(ids):
 	
 	pass;
 
-func _player_button_action(action, target, id):
+func _player_button_action(action, target, id, item):
 	played = true;
 	player_action = action;
 	target_enemy = target;
 	special_id = id;
+	item_selected = item;
 	pass;
 
 func _island_data(_difficulty, _nEnemies):
