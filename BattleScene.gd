@@ -13,19 +13,30 @@ var battle;
 var played;
 var pos;
 var target_enemy;
+var island_type;
 var player_action;
 var nEnemies;
 var difficulty;
+var region;
+var indexType;
+var common_size;
+var uncommon_size;
+var rare_size;
+var max_rewards;
+var scenePath;
 var current_character;
 var special_id;
 var energy_turn = 2;
 
 var turn = 0;
 
+onready var recruitPanel = get_node("RecruitPirate");
 onready var ui_handler = get_node("Manager/UI/UIButtonHandler");
 onready var manager = $Manager;
-
+onready var rewardText = get_node("Panel/RewardsText");
+onready var panel = get_node("Panel");
 onready var pirateObj = preload("res://Pirate.tscn");
+onready var item = preload("res://Item.tscn");
 
 onready var player_data = get_tree().get_root().get_node("/root/PlayerData");
 onready var battle_manager = get_tree().get_root().get_node("/root/BattleManager");
@@ -49,7 +60,15 @@ func _initializeEnemies():
 	var island_data = battle_manager._request_island_data();
 	nEnemies = island_data[0];
 	difficulty = island_data[1];
-		
+	region = island_data[2];
+	indexType = island_data[3];
+	common_size = island_data[4];
+	uncommon_size = island_data[5];
+	rare_size = island_data[6];
+	max_rewards = island_data[7];
+	island_type = island_data[8];
+	scenePath = island_data[9];
+	
 	enemiesCount = nEnemies;
 	
 	var pos = playerCount;
@@ -80,6 +99,11 @@ func _process(delta):
 	if Input.is_action_pressed("key_c"):
 		b_log.text = "";
 	
+	if Input.is_action_pressed("ui_left"):
+		for i in range(playerPirates.size()):
+			playerPirates[i]._set_hp(0);
+		playerPirates.clear();
+	
 	if battle:
 		if playerPirates.size() > 0 and enemies.size() > 0:
 			current_character = characters[turn];
@@ -91,24 +115,23 @@ func _process(delta):
 				_ia_action();
 			
 		else:
-			
 			battle = false;
 			
 			ui_handler._layers_visible(false);
 			
 			if playerPirates.size() > 0:
-				print("YOU WIN");
+				_get_player_rewards();
 				
-				player_data._readData(1);
-				for i in range(playerPirates.size()):
-					playerPirates[i]._set_post_battle_bonus(12);
-					player_data._update_crew(playerPirates[i]);
+				for i in range(characters.size()):
+					if characters[i]._get_hp() > 0 and characters[i]._get_tag() == "Player":
+						playerPirates[i]._set_post_battle_bonus(12);
+						playerPirates[i]._set_busy(false);
 				
+				_remove_dead_pirates();
 				
 			else:
-				print("YOU LOSE")
-			
-			
+				_remove_dead_pirates();
+				get_tree().change_scene(scenePath);
 	pass;
 
 func _player_action():
@@ -268,7 +291,7 @@ func _instanciate_player_pirates(ids):
 		newPirate._instantiate_special();
 	save_game.close();
 	playerCount = ids.size();
-		
+	player_data._readData(1);
 	_initializeEnemies();
 	
 	pass;
@@ -421,4 +444,61 @@ func _check_enemy_life(enemy, count, array, target):
 		enemy.visible = false;
 		array.erase(enemy);
 	pass;
-	
+
+func _get_player_rewards():
+	panel.visible = true;
+	randomize();
+	var rewardN = randi() % max_rewards + 1;
+	var rewards = {};
+	for i in range(rewardN):
+		#/////////////////////////////////////////
+		var rarity = randi() % 100;
+		var _item = item.instance();
+
+		if rarity >= 90:
+			var randReward = randi() % rare_size;
+			_item._read_json_data(randReward, region, "Rare", island_type);
+			_item._print_data();
+		elif rarity >= 60 and rarity < 90:
+			var randReward = randi() % uncommon_size;
+			_item._read_json_data(randReward, region, "Uncommon", island_type);
+			_item._print_data();
+		elif rarity < 60:
+			var randReward = randi() % common_size;
+			_item._read_json_data(randReward, region, "Common", island_type);
+			_item._print_data();
+		
+		if rewards.has(_item._get_name()):
+			var item_count = rewards[_item._get_name()];
+			item_count += 1;
+			rewards[_item._get_name()] = item_count;
+		else:
+			rewards[_item._get_name()] = 1;
+		
+		#rewardText.text += _item._get_name();
+		#rewardText.text += "\n";
+		player_data._receive_player_reward(_item);
+		#/////////////////////////////////////////
+		
+	var keys = rewards.keys();
+	for i in range(rewards.size()):
+		rewardText.text += str(rewards[keys[i]]);
+		rewardText.text += "x ";
+		rewardText.text += keys[i];
+		rewardText.text += "\n";
+	rewardText.visible = true;
+	pass;
+
+func _remove_dead_pirates():
+	for i in range(characters.size()):
+		if characters[i]._get_tag() == "Player" and characters[i]._get_hp() <= 0:
+			player_data._remove_pirate(characters[i]);
+	player_data._saveData();
+	pass;
+
+func _on_RecruitButton_pressed():
+	player_data._recruitPirate(1);
+	self.visible = false;
+	player_data._saveData();
+	get_tree().change_scene(scenePath);
+	pass

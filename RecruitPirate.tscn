@@ -1,0 +1,24 @@
+[gd_scene format=2]
+
+[node name="RecruitPirate" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 430.0
+margin_bottom = 190.0
+
+[node name="Text" type="RichTextLabel" parent="Panel"]
+margin_left = 20.0
+margin_top = 70.0
+margin_right = 280.0
+margin_bottom = 110.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "A man was found lost on the island, do you want to recruit him for your crew?"
+
+[node name="RecruitButton" type="Button" parent="Panel"]
+margin_left = 170.0
+margin_top = 150.0
+margin_right = 227.0
+margin_bottom = 170.0
+rect_scale = Vector2( 1.5, 1.5 )
+text = "Recruit"
+

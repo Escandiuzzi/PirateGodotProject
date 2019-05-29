@@ -17,7 +17,6 @@ func _process(delta):
 	if button != null:
 		if visible == false and button.visible == false:
 			button.visible = true;
-			
 	pass;
 
 

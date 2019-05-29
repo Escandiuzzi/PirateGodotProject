@@ -4,6 +4,7 @@ signal send_player_reward(player_reward);
 
 export(String) var islandType;
 export(String) var regionName;
+export(String) var scenePath;
 
 export(int) var difficulty;
 export(int) var enemies;
@@ -90,7 +91,7 @@ func _on_StartButton_pressed():
 	if selectedPirates > -1:
 			get_tree().change_scene("res://BattleScene.tscn")
 			player_data._selected_pirates(pirateId);
-			battle_manager._island_data(difficulty, enemies);
+			battle_manager._island_data(difficulty, enemies, regionName, indexType, commonSize, uncommonSize, rareSize, maxRewards, islandType, scenePath);
 			button.hide();
 	pass;
 

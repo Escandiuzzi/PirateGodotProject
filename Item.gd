@@ -20,6 +20,7 @@ func _read_json_data(index, region, rarity, _type):
 	var data = {};
 	
 	data = parse_json(items_file.get_as_text());
+	
 	id = index;
 	item_name = data[region][_type][rarity][str(index)]["name"];
 	type = data[region][_type][rarity][str(index)]["type"];

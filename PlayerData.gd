@@ -8,12 +8,8 @@ onready var hudObj = get_node("HUD");
 onready var inventory = $Inventory;
 onready var pirateObj = preload("res://Pirate.tscn");
 onready var battleScene;
-onready var player = get_tree().get_root().get_node("World/Player");
+onready var player;
 onready var item = preload("res://Item.tscn");
-func _ready():
-	for i in range(10):
-		crew.append(null);
-	pass
 
 func _selected_pirates(_ids):
 	for i in range(_ids.size()):
@@ -27,16 +23,20 @@ func _request_player_pirates():
 	battleScene._instanciate_player_pirates(ids);
 	pass;
 
-func _recruitPirate():
+func _recruitPirate(index):
 	if crewCount < 10:
+		crew.append(null);
 		var newPirate = pirateObj.instance();
 		newPirate._set_tag(0);
 		crew[crewCount] = newPirate;
 		newPirate._initializePirate();
 		newPirate._setId(crewCount);
-		player._position_pirate(newPirate);
 		crewCount += 1;
 		_saveData();
+		
+		if index == 0:
+			player = get_tree().get_root().get_node("World/Player");
+			player._position_pirate(newPirate);
 	pass;
 
 func _saveData():
@@ -51,7 +51,6 @@ func _saveData():
 	}
 	
 	var json_data = {"ship": ship_dict}
-	
 	for i in crewCount:
 		json_data[i] = crew[i]._savePirate();
 	
@@ -63,6 +62,7 @@ func _saveData():
 	pass;
 
 func _readData(id):
+	crew.clear();
 	var save_game = File.new();
 	if not save_game.file_exists("res://savegame.json") and crewCount == 0:
 		print("file does not exists");
@@ -75,10 +75,12 @@ func _readData(id):
 	crewCount = current_line["ship"]["crewCount"];
 	
 	for i in range(crewCount):
+		crew.append(null);
 		var newPirate = pirateObj.instance();
 		crew[i] = newPirate;
 		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"]);
 		if id == 0:
+			player = get_tree().get_root().get_node("World/Player");
 			player._position_pirate(newPirate);
 		
 	save_game.close();
@@ -146,15 +148,24 @@ func _on_LoadButton_pressed():
 	_readData(0);
 	pass;
 
+func _remove_pirate(pirate):
+	crew.erase(pirate);
+	crewCount -= 1;
+	pass;
+
 func _receive_player_reward(player_reward):
 	inventory._insert_item(player_reward);
-	pass ;
+	pass;
 
 func _remove_item(item, quantity):
 	inventory._remove_item(item, quantity);
 	pass;
 
-
 func _get_inventory():
 	return inventory;
+	pass;
+
+func print_crew():
+	for i in range(crewCount):
+		print(crew[i]);
 	pass;

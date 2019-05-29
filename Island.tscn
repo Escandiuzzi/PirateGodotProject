@@ -25,6 +25,7 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
@@ -47,6 +48,7 @@ Island Capacity : 3"
 
 [node name="CheckBox" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 40.0
 margin_top = 60.0
 margin_right = 64.0
@@ -68,6 +70,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox2" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 100.0
 margin_top = 60.0
 margin_right = 124.0
@@ -86,6 +89,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox3" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 160.0
 margin_top = 60.0
 margin_right = 184.0
@@ -104,6 +108,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox4" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 220.0
 margin_top = 60.0
 margin_right = 244.0
@@ -122,6 +127,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox5" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 280.0
 margin_top = 60.0
 margin_right = 304.0
@@ -143,6 +149,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox6" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 40.0
 margin_top = 149.0
 margin_right = 64.0
@@ -164,6 +171,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 100.0
 margin_top = 149.0
 margin_right = 124.0
@@ -185,6 +193,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox8" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 160.0
 margin_top = 149.0
 margin_right = 184.0
@@ -206,6 +215,7 @@ shape = SubResource( 1 )
 
 [node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 220.0
 margin_top = 149.0
 margin_right = 244.0
@@ -230,6 +240,7 @@ __meta__ = {
 
 [node name="CheckBox10" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
+visible = false
 margin_left = 280.0
 margin_top = 149.0
 margin_right = 304.0

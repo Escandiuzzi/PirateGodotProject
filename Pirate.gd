@@ -269,8 +269,14 @@ func _instantiate_special():
 		special_attacks.append(null);
 		var s = special_obj.instance();
 		s._get_data(str(i), stats["special"][i]);
-		self.add_child(s);
 		special_attacks[i] = s;
+	pass;
+
+func _clear_specials():
+	for i in range(special_attacks.size()):
+		special_attacks[i].queue_free();
+	
+	special_attacks.clear();
 	pass;
 
 func _get_special_attack(index):

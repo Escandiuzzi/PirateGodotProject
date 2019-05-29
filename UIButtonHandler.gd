@@ -12,7 +12,8 @@ var current_character;
 onready var background = get_node("Layer 3/Background");
 onready var text = get_node("Layer 3/Text");
 
-
+onready var panel = get_parent().get_parent().get_parent().get_node("Panel");
+onready var recruit_panel = get_parent().get_parent().get_parent().get_node("RecruitPirate");
 onready var layer_1 = get_node("Layer 1");
 onready var layer_2 = get_node("Layer 2");
 onready var layer_3 = get_node("Layer 3");
@@ -131,3 +132,9 @@ func _check_player_energy():
 	
 	pass;
 
+
+
+func _on_Button_pressed():
+	panel.visible = false;
+	recruit_panel.visible = true;
+	pass

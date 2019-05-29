@@ -31,7 +31,7 @@ onready var sprite = $"Player Sprite";
 
 func _input(event):
 	if event.is_action_pressed("key_k") and crewCount < 10:
-		data._recruitPirate();
+		data._recruitPirate(0);
 	if event.is_action_pressed("key_v"):
 		if hudObj.visible == true:
 				hudObj.visible = false;

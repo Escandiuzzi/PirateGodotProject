@@ -4,8 +4,11 @@ signal current_menu_opened(menu);
 
 
 onready var menuButton = $Button;
+onready var player = get_tree().get_root().get_node("World/Player");
+
 var islandMenu;
 var player_inside;
+
 func _ready():
 	player_inside = false;
 	islandMenu = get_node("IslandMenu/IslandMenu");
