@@ -2,9 +2,11 @@ extends Node2D
 
 signal current_menu_opened(menu);
 
+export(Vector2) var path;
 
 onready var menuButton = $Button;
 onready var player = get_tree().get_root().get_node("World/Player");
+onready var world = get_parent().get_parent();
 
 var islandMenu;
 var player_inside;
@@ -24,6 +26,8 @@ func _on_Button_pressed():
 		islandMenu.show();
 		menuButton.visible = false;
 		emit_signal("current_menu_opened", islandMenu);
+	else:
+		world._set_island_path(path);
 	pass 
 
 func _on_Area2D_area_entered(area):

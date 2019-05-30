@@ -34,3 +34,16 @@ func _calculate_new_path():
 func _on_Flag_current_menu_opened(menu):
 	current_menu = menu;
 	pass 
+
+func _set_island_path(_path):
+	var path;
+	path = navigation_map._get_path(player.position, _path);
+	print(path);
+	# If we got a path...
+	if path:
+		# Remove the first point (it's where the sidekick is)
+		path.remove(0)
+		
+		# Sets the sidekick's path
+		player.path = path
+	pass;

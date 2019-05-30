@@ -258,7 +258,6 @@ margin_right = 229.0
 margin_bottom = 39.0
 rect_scale = Vector2( 1.7, 1.7 )
 text = "Inventory"
-
 [connection signal="pressed" from="Layer 1/MaterialsButton" to="UICraftHandler" method="_on_LayerButton_pressed" binds= [ 0 ]]
 [connection signal="mouse_entered" from="Layer 1/Slot1Button" to="UICraftHandler" method="_on_SlotButton_mouse_entered" binds= [ 0 ]]
 [connection signal="mouse_exited" from="Layer 1/Slot1Button" to="UICraftHandler" method="_on_SlotButton_mouse_exited"]
