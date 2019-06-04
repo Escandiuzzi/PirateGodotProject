@@ -20,7 +20,7 @@ func _remove_item(item, quantity):
 		var _item = inventory[item];
 		for i in range(quantity):
 			_item.pop_front();
-		if quantity <= 0:
+		if inventory[item].size() <= 0:
 			inventory.erase(item);
 	else:
 		print("item not found");

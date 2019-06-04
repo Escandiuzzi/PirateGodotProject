@@ -43,4 +43,5 @@ func _get_inventory_items():
 			slot_buttons[i].text = keys[i];
 		else:
 			slot_buttons[i].disabled = true;
+			slot_buttons[i].text = "";
 	pass;

@@ -29,6 +29,7 @@ var special_id;
 var energy_turn = 2;
 var item_selected;
 var turn = 0;
+var equipament_loss = 1;
 
 onready var recruitPanel = get_node("RecruitPirate");
 onready var ui_handler = get_node("Manager/UI/UIButtonHandler");
@@ -142,6 +143,9 @@ func _player_action():
 		var additional = randi() % 3;
 		
 		damage += additional;
+		if current_character._get_stat("atkBonus") > 0:
+			damage += current_character._get_stat("atkBonus");
+			current_character._set_weapon_durability(equipament_loss);
 		
 		var enemy = enemies[target_enemy];
 		
@@ -356,12 +360,29 @@ func _next_turn():
 
 func _attack_one_character(damage, array, target, count):
 	var enemy = array[target];
+	
+	var enemy_shield = enemy._get_stat("defBonus");
+	
+	if enemy_shield > 0:
+		damage -= enemy_shield;
+		if damage <= 0:
+			damage = 0;
+		enemy._set_shield_durability(equipament_loss);
+	
 	enemy._set_hp(enemy._get_hp() - damage);
 	_check_enemy_life(enemy, count, array, target);
 	pass;
 
 func _attack_two_characters(damage, array, target, count):
 	var enemy = array[target];
+	
+	var enemy_shield = enemy._get_stat("defBonus");
+	if enemy_shield > 0:
+		damage -= enemy_shield;
+		if damage <= 0:
+			damage = 0;
+		enemy._set_shield_durability(equipament_loss);
+	
 	enemy._set_hp(enemy._get_hp() - damage);
 	_check_enemy_life(enemy, count, array, target);
 
@@ -371,12 +392,27 @@ func _attack_two_characters(damage, array, target, count):
 	else:
 		target += 1;
 	enemy = array[target];
+	enemy_shield = enemy._get_stat("defBonus");
+	
+	if enemy_shield > 0:
+		damage -= enemy_shield;
+		if damage <= 0:
+			damage = 0;
+		enemy._set_shield_durability(equipament_loss);
 	enemy._set_hp(enemy._get_hp() - damage);
+	
 	_check_enemy_life(enemy, count, array, target);
 	pass;
 
 func _attack_three_characters(damage, array, target, count):
 	var enemy = array[target];
+	var enemy_shield = enemy._get_stat("defBonus");
+	
+	if enemy_shield > 0:
+		damage -= enemy_shield;
+		if damage <= 0:
+			damage = 0;
+		enemy._set_shield_durability(equipament_loss);
 	enemy._set_hp(enemy._get_hp() - damage);
 	_check_enemy_life(enemy, count, array, target);
 
@@ -386,6 +422,13 @@ func _attack_three_characters(damage, array, target, count):
 	else:
 		target += 1;
 	enemy = array[target];
+	enemy_shield = enemy._get_stat("defBonus");
+	
+	if enemy_shield > 0:
+		damage -= enemy_shield;
+		if damage <= 0:
+			damage = 0;
+		enemy._set_shield_durability(equipament_loss);
 	enemy._set_hp(enemy._get_hp() - damage);
 	_check_enemy_life(enemy, count, array, target);
 	
@@ -395,6 +438,13 @@ func _attack_three_characters(damage, array, target, count):
 	else:
 		target += 1;
 	enemy = array[target];
+	enemy_shield = enemy._get_stat("defBonus");
+	
+	if enemy_shield > 0:
+		damage -= enemy_shield;
+		if damage <= 0:
+			damage = 0;
+		enemy._set_shield_durability(equipament_loss);
 	enemy._set_hp(enemy._get_hp() - damage);
 	_check_enemy_life(enemy, count, array, target);
 	pass;
@@ -408,6 +458,15 @@ func _ia_attack_player():
 	var additional = randi() % 3;
 	
 	damage += additional;
+	
+	var enemy_shield = playerPirates[target_p]._get_stat("defBonus");
+	
+	if enemy_shield > 0:
+		damage -= enemy_shield;
+		if damage <= 0:
+			damage = 0;
+		playerPirates[target_p]._set_shield_durability(equipament_loss);
+	
 	playerPirates[target_p]._set_hp(playerPirates[target_p]._get_hp() - damage);
 	
 	b_log.text += str(turn) + " Attack of damage " + str(damage) + " on enemy with index of " + str(target_p) + ";" + "\n";

@@ -281,12 +281,8 @@
         "0": {
           "damage": 0,
           "durability": 8,
-          <<<<<<< HEAD
-          "heal": 5,
-          =======
           "heal": 6,
-          >>>>>>> 7e36004f61f583a8475f56bbbb5b8f7300fc5f52
-          "name": "Chapeu de Cangaceiro",
+          "name":"Chapeu de Cangaceiro",
           "type": "armor",
           "path": [ "Nordeste", "Item", "Rare", 0 ]
         }

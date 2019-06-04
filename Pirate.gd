@@ -258,8 +258,10 @@ func _on_Area2D_mouse_entered():
 		pirateStat.text += "Energy: " + str(energy) +  " / " + str(max_energy) + "\n";
 		if weapon != null:
 			pirateStat.text += "Weapon: " + weapon._get_name() + "\n";
+			pirateStat.text += "Weapon Durability: " + str(weapon._get_stat("durability")) + "\n";
 		if shield != null:
 			pirateStat.text += "Shield: " + shield._get_name() + "\n";
+			pirateStat.text += "Shield Durability: " + str(shield._get_stat("durability")) + "\n";
 		pirateStat.text += "AtkBonus: " + str(_get_stat("atkBonus")) + "\n";
 		pirateStat.text += "DefBonus: " + str(_get_stat("defBonus")) + "\n";	
 	else:
@@ -350,10 +352,10 @@ func _set_weapon_durability(value):
 		weapon.queue_free();
 		weapon = null;
 	else:
-		weapon._set_durability(weapon._get_stat("durability") - value <= 0);
+		weapon._set_durability(int(weapon._get_stat("durability")) - value);
 	pass;
 func _get_weapon_durability():
-	return weapon._get_stat("durability");
+	return int(weapon._get_stat("durability"));
 	pass;
 func _set_atk_bonus(bonus):
 	stats["atkBonus"] = bonus;
@@ -370,12 +372,13 @@ func _get_shield():
 	return shield;
 	pass;
 func _set_shield_durability(value):
-	if shield._get_stat("durability") - value <= 0:
+	if int(shield._get_stat("durability")) - value <= 0:
 		shield.queue_free();
 		shield = null;
 	else:
-		shield._set_durability(shield._get_stat("durability") - value <= 0);
+		shield._set_durability(int(shield._get_stat("durability")) - value);
 	pass;
 func _get_shield_durability():
-	return shield._get_stat("durability");
+	print(int(shield._get_stat("durability")));
+	return int(shield._get_stat("durability"));
 	pass;

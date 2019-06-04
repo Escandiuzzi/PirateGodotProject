@@ -155,7 +155,7 @@ func _getRewards():
 	var rewards = {};
 	for i in range(rewardN):
 		#/////////////////////////////////////////
-		var rarity = randi() % 100;
+		var rarity = randi() % 100 + 1;
 		var _item = item.instance();
 
 		if rarity >= 90:

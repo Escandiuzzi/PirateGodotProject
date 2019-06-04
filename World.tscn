@@ -85,6 +85,7 @@ editor/display_folded = true
 islandType = "Item"
 regionName = "Sul"
 commonSize = 2
+uncommonSize = 1
 rareSize = 2
 maxRewards = 9
 bonus = 1

@@ -47,6 +47,7 @@ func _on_UIButton_pressed(extra_arg_0):
 		_check_player_energy();
 	elif action == "Inventory":
 		inventory_screen.visible = true;
+		inventory_screen._get_inventory_items();
 	pass;
 
 func _on_EnemyButton_pressed(extra_arg_0):
