@@ -66,3 +66,7 @@ func _get_stat(_stat):
 	elif _stat == "path":
 		return path;
 	pass;
+
+func _set_durability(value):
+	durability = value;
+	pass;

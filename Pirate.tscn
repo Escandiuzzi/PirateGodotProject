@@ -24,7 +24,7 @@ shape = SubResource( 1 )
 
 [node name="textBGD" type="Sprite" parent="."]
 visible = false
-scale = Vector2( 4.54994, 2.97994 )
+scale = Vector2( 4.54994, 4.26153 )
 texture = ExtResource( 3 )
 centered = false
 

@@ -1,1 +1,1 @@
-{"0":{"name":"Madeira","path":["Sul","Material","Common",1],"quantity":4},"1":{"name":"Ouro","path":["Sul","Material","Rare",0],"quantity":2},"2":{"name":"Metal","path":["Sul","Material","Uncommon",0],"quantity":6},"3":{"name":"Feijao","path":["Sul","Consumable","Common",1],"quantity":1},"4":{"name":"Peixe","path":["Sul","Consumable","Uncommon",0],"quantity":1},"Inventory Size":5}
+{"0":{"name":"Armadura","path":["Sul","Item","Common",1],"quantity":4},"1":{"name":"Espada","path":["Sul","Item","Common",0],"quantity":5},"Inventory Size":2}

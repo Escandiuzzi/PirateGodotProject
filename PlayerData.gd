@@ -78,7 +78,7 @@ func _readData(id):
 		crew.append(null);
 		var newPirate = pirateObj.instance();
 		crew[i] = newPirate;
-		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"]);
+		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"], current_line[str(i)]["atkBonus"], current_line[str(i)]["weaponPath"], current_line[str(i)]["weaponDurability"], current_line[str(i)]["defBonus"], current_line[str(i)]["shieldPath"], current_line[str(i)]["shieldDurability"]);
 		if id == 0:
 			player = get_tree().get_root().get_node("World/Player");
 			player._position_pirate(newPirate);
@@ -100,7 +100,7 @@ func _save_inventory_data():
 	
 	for i in inventory_keys.size():
 		var item = {"name": inventory_keys[i], "quantity": inventory._get_item_count(inventory_keys[i]), "path" : inventory._get_item_path(inventory_keys[i])}
-		json_data[i] = item;
+		json_data[i] = item;			
 	
 	save_inventory.store_line(to_json(json_data));
 		

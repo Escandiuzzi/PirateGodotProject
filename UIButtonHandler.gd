@@ -142,7 +142,7 @@ func _on_CloseInventoryButton_pressed():
 	inventory_screen.visible = false;
 	pass;
 
-func _on_UIInputHandler_on_item_selected(item_stats):
+func _on_UIInputHandler_on_item_selected(item):
 	inventory_screen.visible = false;
-	battleScene._player_button_action(action, -1, -1, item_stats);
+	battleScene._player_button_action(action, -1, -1, item);
 	pass;

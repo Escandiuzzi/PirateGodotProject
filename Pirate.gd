@@ -7,20 +7,29 @@ var max_hp;
 var energy;
 var max_energy;
 var busy;
+var weapon;
+var shield;
+
 
 var special_attacks = [];
+
+onready var item = preload("res://Item.tscn");
 
 var stats = {
 	"atk": 0,
 	"mining": 0,
 	"cooking": 0,
-	"special": []
+	"special": [],
+	"atkBonus":0,
+	"defBonus":0
 };
 var keys = [
 	"atk",
 	"mining",
 	"cooking",
-	"special"
+	"special",
+	"atkBonus",
+	"defBonus"
 ]
 
 onready var pirateStat = get_node("pirateStat");
@@ -114,6 +123,21 @@ func _get_id():
 	pass;
 
 func _savePirate():
+	
+	var _wpath;
+	var _wdurability;
+	var _spath;
+	var _sdurability;
+	
+	if weapon != null:
+		_wpath = weapon._get_path();
+		_wdurability =  weapon._get_stat("durablity");
+	
+	if shield != null:
+		_spath = shield._get_path();
+		_sdurability = shield._get_stat("durablity");
+	
+	
 	var save_dict = {
 		"id" : id,
 		"tag" : tag,
@@ -124,12 +148,20 @@ func _savePirate():
 		"attack" : stats["atk"],
 		"mining" : stats["mining"],
 		"cooking" : stats["cooking"],
-		"special" : stats["special"]
+		"special" : stats["special"],
+		"defBonus": stats["defBonus"],
+		"atkBonus": stats["atkBonus"],
+		"weapon": weapon,
+		"weaponPath":_wpath,
+		"weaponDurability": _wdurability,
+		"shield": shield,
+		"shieldPath": _spath,
+		"shieldDurability": _sdurability
 		}
 	
 	return save_dict;
 
-func _setData(_id, _tag, _hp, _max, _ener, _max_e, _atk, _mining, _cooking, _special):	
+func _setData(_id, _tag, _hp, _max, _ener, _max_e, _atk, _mining, _cooking, _special, _atkBonus, _weaponPath, _weaponDurability, _defBonus, _shieldPath, _shieldDurability):	
 	id = _id;
 	tag = _tag;
 	hp = _hp;
@@ -140,6 +172,21 @@ func _setData(_id, _tag, _hp, _max, _ener, _max_e, _atk, _mining, _cooking, _spe
 	stats["mining"] = _mining;
 	stats["cooking"] = _cooking;
 	stats["special"] = _special;
+	stats["atkBonus"] = _atkBonus;
+	stats["defBonus"] = _defBonus;
+	
+	if _weaponPath != null:
+		var item;
+		item.instance();
+		item._read_json_data(_weaponPath[3], _weaponPath[0], _weaponPath[2], _weaponPath[1]);
+		weapon = item;
+		weapon._set_durability(_weaponDurability);
+	if _shieldPath != null:
+		var item;
+		item.instance();
+		item._read_json_data(_shieldPath[3], _shieldPath[0], _shieldPath[2], _shieldPath[1]);
+		shield = item;
+		shield._set_durability(_shieldDurability);
 	pass; 
 
 func _get_stat(index):
@@ -208,8 +255,13 @@ func _on_Area2D_mouse_entered():
 		pirateStat.text = "";
 		pirateStat.text += "HP: " + str(_get_hp()) +  " / " + str(max_hp) + "\n";	
 		pirateStat.text += "Attack: " + str(_get_stat("atk")) +  " - " + str(_get_stat("atk") + 2) + "\n";	
-		pirateStat.text += "Energy: " + str(energy) +  " / " + str(max_energy) + "\n";	
-	
+		pirateStat.text += "Energy: " + str(energy) +  " / " + str(max_energy) + "\n";
+		if weapon != null:
+			pirateStat.text += "Weapon: " + weapon._get_name() + "\n";
+		if shield != null:
+			pirateStat.text += "Shield: " + shield._get_name() + "\n";
+		pirateStat.text += "AtkBonus: " + str(_get_stat("atkBonus")) + "\n";
+		pirateStat.text += "DefBonus: " + str(_get_stat("defBonus")) + "\n";	
 	else:
 		pirateStat.text = "";
 		pirateStat.text += "Mining: " + str(_get_stat("mining")) + "\n";
@@ -268,7 +320,6 @@ func _change_sprite(spr):
 	pass;
 	
 func _instantiate_special():
-	
 	for i in range(4):
 		special_attacks.append(null);
 		var s = special_obj.instance();
@@ -285,4 +336,46 @@ func _clear_specials():
 
 func _get_special_attack(index):
 	return special_attacks[index];
+	pass;
+
+func _set_weapon(_weapon):
+	weapon = _weapon;
+	stats["atkBonus"] = weapon._get_stat("damage");
+	pass;
+func _get_weapon():
+	return weapon;
+	pass;
+func _set_weapon_durability(value):
+	if weapon._get_stat("durability") - value <= 0:
+		weapon.queue_free();
+		weapon = null;
+	else:
+		weapon._set_durability(weapon._get_stat("durability") - value <= 0);
+	pass;
+func _get_weapon_durability():
+	return weapon._get_stat("durability");
+	pass;
+func _set_atk_bonus(bonus):
+	stats["atkBonus"] = bonus;
+	pass;
+func _set_def_bonus(bonus):
+	stats["defBonus"] = bonus;
+	pass;
+
+func _set_shield(_shield):
+	shield = _shield;
+	stats["defBonus"] = shield._get_stat("heal");
+	pass;
+func _get_shield():
+	return shield;
+	pass;
+func _set_shield_durability(value):
+	if shield._get_stat("durability") - value <= 0:
+		shield.queue_free();
+		shield = null;
+	else:
+		shield._set_durability(shield._get_stat("durability") - value <= 0);
+	pass;
+func _get_shield_durability():
+	return shield._get_stat("durability");
 	pass;

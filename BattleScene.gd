@@ -179,14 +179,27 @@ func _player_action():
 				else:
 					_attack_one_character(damage, enemies, target_enemy, enemiesCount);
 	
-	elif player_action == "Inventory":
-		var heal = item_selected[0];
-		var damage = item_selected[1];
-		var durability = item_selected[2];
-		
-		current_character._set_hp(current_character._get_hp() + heal);
-		current_character._set_stat("atk", damage);
+	elif player_action == "Inventory":	
+		var type = item_selected._get_stat("type");
+		print(type);
+		if type == "consumable":
+			var heal = item_selected._get_stat("heal");
+			var damage = item_selected._get_stat("damage");
+			var durability = item_selected._get_stat("durability");
+			current_character._set_hp(current_character._get_hp() + heal);
 
+		elif type == "weapon":
+			var damage = item_selected._get_stat("damage");
+			var durability =  item_selected._get_stat("durability");
+			current_character._set_weapon(item_selected);
+			current_character._set_atk_bonus(damage);
+		elif type == "armor":
+			var heal = item_selected._get_stat("heal");
+			var durability =  item_selected._get_stat("durability");
+			current_character._set_shield(item_selected);
+			current_character._set_def_bonus(heal);
+			
+			
 	target_enemy = null;
 	player_action = null;
 	played = false;
@@ -292,7 +305,7 @@ func _instanciate_player_pirates(ids):
 		characters[i] = newPirate;
 		playerPirates[i] = newPirate;
 		self.add_child(newPirate);
-		newPirate._setData(ids[i], current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(i)]["energy"], current_line[str(i)]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"] );
+		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"], current_line[str(i)]["atkBonus"], current_line[str(i)]["weaponPath"], current_line[str(i)]["weaponDurability"], current_line[str(i)]["defBonus"], current_line[str(i)]["shieldPath"], current_line[str(i)]["shieldDurability"]);
 		newPirate.position = player_pos[i];
 		newPirate._change_sprite(player_texture);
 		newPirate._instantiate_special();

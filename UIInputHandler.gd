@@ -11,8 +11,8 @@ func _on_SlotButton_pressed(extra_arg_0):
 	
 	if keys.size() > extra_arg_0:
 		var item = inventory._get_item(keys[extra_arg_0]);
-		var stats = [item._get_stat("heal"), str(item._get_stat("damage")), item._get_stat("durability")];
-		emit_signal("on_item_selected", stats);
+		#var stats = [item._get_stat("heal"), str(item._get_stat("damage")), item._get_stat("durability"), item._get_stat("type")];
+		emit_signal("on_item_selected", item);
 		inventory._remove_item(keys[extra_arg_0], 1);
 	pass;
 

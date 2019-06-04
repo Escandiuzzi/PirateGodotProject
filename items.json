@@ -109,7 +109,7 @@
         "1": {
           "damage": 0,
           "durability": 6,
-          "heal": 0,
+          "heal": 5,
           "name": "Armadura",
           "type": "armor",
           "path": [ "Sul", "Item", "Common", 1 ]
@@ -119,7 +119,7 @@
         "0": {
           "damage": 0,
           "durability": 8,
-          "heal": 0,
+          "heal": 5,
           "name": "Bombacha",
           "type": "armor",
           "path": [ "Sul", "Item", "Rare", 0 ]
@@ -129,13 +129,13 @@
         "0": {
           "damage": 0,
           "durability": 8,
-          "heal": 0,
+          "heal": 8,
           "name": "Bombacha",
           "type": "armor",
           "path": [ "Sul", "Item", "Rare", 0 ]
         },
         "1": {
-          "damage": 0,
+          "damage": 7,
           "durability": 8,
           "heal": 0,
           "name": "Laço",
@@ -261,7 +261,7 @@
     "Item": {
       "Common": {
         "0": {
-          "damage": 2,
+          "damage": 3,
           "durability": 8,
           "heal": 0,
           "name": "Espada",
@@ -281,7 +281,7 @@
         "0": {
           "damage": 0,
           "durability": 8,
-          "heal": 0,
+          "heal": 5,
           "name": "Chapeu de Cangaceiro",
           "type": "armor",
           "path": [ "Nordeste", "Item", "Rare", 0]

@@ -94,7 +94,6 @@ texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 
 [node name="UIButtonHandler" type="Node2D" parent="Manager/UI"]
-editor/display_folded = true
 script = ExtResource( 7 )
 
 [node name="Layer 1" type="Node2D" parent="Manager/UI/UIButtonHandler"]
@@ -282,6 +281,9 @@ margin_bottom = 327.179
 [node name="InventoryScreen" parent="." instance=ExtResource( 17 )]
 visible = false
 z_index = 5
+
+[node name="SlotsContainer" parent="InventoryScreen" index="2"]
+editor/display_folded = false
 
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/AttackButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
 [connection signal="pressed" from="Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Special" ]]
