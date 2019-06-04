@@ -46,9 +46,6 @@ func _ready():
 	pass
 
 func _initializePirate():
-	hp = 15; #for test purposes
-	max_hp = hp;
-	
 	randomize();
 	var rand = randi() & 100;
 	var _hp;
@@ -109,11 +106,80 @@ func _initializePirate():
 		var index = int(rand_range(0,4));
 		special_ids.append(null);
 		special_ids[i] = index;
-	
-	pass
-	
 	stats["special"] = special_ids;
+	pass;
+
+func _initialize_ia_pirate(difficulty_percentage):
 	
+	randomize();
+	var rand = randi() & 100;
+	var _hp;
+	if rand >= 95: #ultra rare pirate
+			_hp = randi() % 18 + 8;
+	elif rand  > 87 and rand < 95: #rare pirate
+			_hp = randi() % 11 + 6;
+	else: #common pirate
+			_hp = randi() % 9 + 8;
+	
+	_hp *= difficulty_percentage;
+	
+	hp = int(_hp);
+	max_hp = hp;
+	
+	randomize();
+	var rand2 = randi() & 100;
+	var _energy;
+	
+	if rand2 >= 97: #ultra rare pirate
+			_energy = randi() % 18 + 8;
+	elif rand2  > 90 and rand2 < 97: #rare pirate
+			_energy = randi() % 11 + 6;
+	else: #common pirate
+			_energy = randi() % 9 + 6;
+	
+	_energy *= difficulty_percentage;
+	energy = int(_energy);
+	max_energy = energy;
+	
+	for i in range(3):
+		randomize();
+		var r = randi() & 100;
+		
+		if i == 0: #attack stat
+			if r >= 95: #ultra rare pirate
+					var s = randi() % 7 + 3;
+					s *= difficulty_percentage;
+					stats[keys[i]] = int(s);	
+					
+			elif r  > 87 and r < 95: #rare pirate
+					var s = randi() % 5 + 2;
+					s *= difficulty_percentage;
+					stats[keys[i]] = int(s);	
+			else: #common pirate
+					var s = randi() % 4 + 1;
+					stats[keys[i]] = s;	
+
+		else:
+			if r >= 95: #ultra rare pirate
+				var s = randi() % 6 + 5;
+				stats[keys[i]] = s;	
+			elif r  > 87 and r < 95: #rare pirate
+				var s = randi() % 5 + 3;
+				stats[keys[i]] = s;	
+			else: #common pirate
+				var s = randi() % 3 + 1;
+				stats[keys[i]] = s;	
+	
+	var special_ids = [];
+	
+	for i in range(4):
+		randomize();
+		var index = int(rand_range(0,4));
+		special_ids.append(null);
+		special_ids[i] = index;
+	stats["special"] = special_ids;
+	pass;
+
 func _setId(_id):
 	id = _id;
 	pass;
@@ -351,6 +417,7 @@ func _set_weapon_durability(value):
 	if weapon._get_stat("durability") - value <= 0:
 		weapon.queue_free();
 		weapon = null;
+		stats["atkBonus"] = 0;
 	else:
 		weapon._set_durability(int(weapon._get_stat("durability")) - value);
 	pass;
@@ -375,6 +442,7 @@ func _set_shield_durability(value):
 	if int(shield._get_stat("durability")) - value <= 0:
 		shield.queue_free();
 		shield = null;
+		stats["defBonus"] = 0;
 	else:
 		shield._set_durability(int(shield._get_stat("durability")) - value);
 	pass;

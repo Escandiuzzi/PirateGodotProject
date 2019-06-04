@@ -1,4 +1,4 @@
-{
+﻿{
   "Sul": {
     "Consumable": {
       "Common": {
@@ -118,7 +118,7 @@
       "Uncommon": {
         "0": {
           "damage": 0,
-          "durability": 8,
+          "durability": 1,
           "heal": 5,
           "name": "Bombacha",
           "type": "armor",
@@ -128,7 +128,7 @@
       "Rare": {
         "0": {
           "damage": 0,
-          "durability": 8,
+          "durability": 1,
           "heal": 8,
           "name": "Bombacha",
           "type": "armor",

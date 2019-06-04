@@ -6,7 +6,8 @@ export(String) var islandType;
 export(String) var regionName;
 export(String) var scenePath;
 
-export(int) var difficulty;
+export(float) var difficulty;
+
 export(int) var enemies;
 export(int) var islandSize;
 export(int) var indexType;

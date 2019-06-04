@@ -82,7 +82,7 @@ func _initializeEnemies():
 		characters.append(null);
 		enemies.append(null);
 		var newEnemy = pirateObj.instance();
-		newEnemy._initializePirate();
+		newEnemy._initialize_ia_pirate(difficulty);
 		newEnemy._set_tag(1);
 		self.add_child(newEnemy);
 		enemies[i] = newEnemy
