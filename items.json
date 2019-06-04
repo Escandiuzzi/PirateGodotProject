@@ -103,13 +103,13 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Sul", "Item", "Common", 0 ]
         },
         "1": {
           "damage": 0,
           "durability": 6,
-          "heal": 0,
+          "heal": 2,
           "name": "Armadura",
           "type": "armor",
           "path": [ "Sul", "Item", "Common", 1 ]
@@ -119,7 +119,7 @@
         "0": {
           "damage": 0,
           "durability": 8,
-          "heal": 0,
+          "heal": 4,
           "name": "Bombacha",
           "type": "armor",
           "path": [ "Sul", "Item", "Rare", 0 ]
@@ -129,17 +129,17 @@
         "0": {
           "damage": 0,
           "durability": 8,
-          "heal": 0,
+          "heal": 5,
           "name": "Bombacha",
           "type": "armor",
           "path": [ "Sul", "Item", "Rare", 0 ]
         },
         "1": {
-          "damage": 0,
+          "damage": 5,
           "durability": 8,
           "heal": 0,
           "name": "Laço",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Sul", "Item", "Rare", 1 ]
         }
       }
@@ -265,13 +265,13 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Nordeste", "Item", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 6,
-          "heal": 0,
+          "heal": 2,
           "name": "Armadura",
           "type": "armor",
           "path": [ "Nordeste", "Item", "Common", 1]
@@ -281,7 +281,7 @@
         "0": {
           "damage": 0,
           "durability": 8,
-          "heal": 0,
+          "heal": 6,
           "name": "Chapeu de Cangaceiro",
           "type": "armor",
           "path": [ "Nordeste", "Item", "Rare", 0]
@@ -417,13 +417,13 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Sudeste", "Item", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 6,
-          "heal": 0,
+          "heal": 2,
           "name": "Armadura",
           "type": "armor",
           "path": [ "Sudeste", "Item", "Common", 1]
@@ -435,7 +435,7 @@
           "durability": 8,
           "heal": 0,
           "name": "Laco",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Sudeste", "Item", "Rare", 0]
         }
       }
@@ -528,7 +528,8 @@
             "path": [ "Norte", "Consumable", "Rare", 3]
           }
         }
-    },
+    }
+  },
     "Material": {
       "Common": {
         "0": {
@@ -576,13 +577,13 @@
           "durability": 8,
           "heal": 0,
           "name": "Espada",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Norte", "Item", "Common", 0]
         },
         "1": {
           "damage": 0,
           "durability": 6,
-          "heal": 0,
+          "heal": 2,
           "name": "Armadura",
           "type": "armor",
           "path": [ "Norte", "Item", "Common", 1]
@@ -594,20 +595,19 @@
           "durability": 8,
           "heal": 0,
           "name": "Flecha Indígena",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Norte", "Item", "Rare", 0]
         },
         "1": {
-          "damage": 1,
+          "damage": 6,
           "durability": 8,
           "heal": 0,
           "name": "Carimbó",
-          "type": "armor",
+          "type": "weapon",
           "path": [ "Norte", "Item", "Rare", 1]
         }
       }
     }
-  }
   },
   "Centro-Oeste": {
     "Consumable": {
