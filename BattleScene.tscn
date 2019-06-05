@@ -21,27 +21,23 @@
 [node name="BattleScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 1 )
 player_pos = [ Vector2( 260, 210 ), Vector2( 450, 380 ), Vector2( 140, 550 ) ]
 ia_pos = [ Vector2( 1203, 210 ), Vector2( 1011, 380 ), Vector2( 1310, 550 ) ]
 
-[node name="BackgroundController" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
-editor/display_folded = true
 size = Vector2( 1440, 900 )
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Manager" type="Node2D" parent="ViewportContainer/Viewport"]
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="UI" type="Control" parent="ViewportContainer/Viewport/Manager"]
@@ -50,6 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1440.0
 margin_bottom = 900.0
+mouse_filter = 2
 
 [node name="Background" type="TextureRect" parent="ViewportContainer/Viewport/Manager/UI"]
 anchor_right = 1.0

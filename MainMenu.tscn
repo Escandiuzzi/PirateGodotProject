@@ -19,6 +19,7 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="Control" type="VBoxContainer" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -29,6 +30,7 @@ texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="Menu" type="VBoxContainer" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
@@ -48,10 +50,12 @@ custom_fonts/font = SubResource( 1 )
 text = "Alpha Version"
 
 [node name="Centro" type="CenterContainer" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Buttons" type="VBoxContainer" parent="Centro"]
+editor/display_folded = true
 margin_left = 540.0
 margin_top = 356.0
 margin_right = 900.0
