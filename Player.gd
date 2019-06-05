@@ -29,6 +29,7 @@ onready var hudObj = get_node("HUD");
 onready var data = get_tree().get_root().get_node("/root/PlayerData");
 onready var sprite = $"Player Sprite";
 onready var global = get_node("/root/Global");
+onready var camera = $Camera2D;
 func _ready():
 	if global.getGame() == true:
 		data._recruitPirate(0);

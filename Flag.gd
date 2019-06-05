@@ -7,7 +7,7 @@ export(Vector2) var path;
 onready var menuButton = $Button;
 onready var player = get_tree().get_root().get_node("World/Player");
 onready var world = get_parent().get_parent();
-
+onready var player_camera = get_tree().get_root().get_node("World/Player/Camera2D");
 var islandMenu;
 var player_inside;
 
