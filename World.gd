@@ -5,8 +5,19 @@ onready var navigation_map = $NavigationMap;
 onready var player = $Player;
 onready var node2D = $Center;
 onready var flag = $Flags;
+onready var inventory = preload("res://Inventory.gd");
+onready var pirateObj = preload("res://Pirate.tscn");
+onready var item = preload("res://Item.tscn");
+onready var data = get_node("/root/PlayerData");
 
 var current_menu;
+
+var crewCount = 0;
+var crew = [];
+var ids = [];
+#onready var menu = get_node("/root/MainMenu");
+var MenuOption = "Start";
+
 
 func _unhandled_input(event):
 	if Input.is_action_pressed("right_click"):
@@ -47,3 +58,4 @@ func _set_island_path(_path):
 		# Sets the sidekick's path
 		player.path = path
 	pass;
+

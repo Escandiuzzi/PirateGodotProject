@@ -28,7 +28,12 @@ Vector2(450, 0)];
 onready var hudObj = get_node("HUD");
 onready var data = get_tree().get_root().get_node("/root/PlayerData");
 onready var sprite = $"Player Sprite";
-
+onready var global = get_node("/root/Global");
+func _ready():
+	if global.getGame() == true:
+		data._recruitPirate(0);
+	else:
+		data._readData(0);
 func _input(event):
 	if event.is_action_pressed("key_k") and crewCount < 10:
 		data._recruitPirate(0);
