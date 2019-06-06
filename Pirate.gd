@@ -415,7 +415,6 @@ func _get_weapon():
 	pass;
 func _set_weapon_durability(value):
 	if weapon._get_stat("durability") - value <= 0:
-		weapon.queue_free();
 		weapon = null;
 		stats["atkBonus"] = 0;
 	else:
@@ -440,7 +439,6 @@ func _get_shield():
 	pass;
 func _set_shield_durability(value):
 	if int(shield._get_stat("durability")) - value <= 0:
-		shield.queue_free();
 		shield = null;
 		stats["defBonus"] = 0;
 	else:

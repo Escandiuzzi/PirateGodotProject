@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var battleScene = get_parent().get_parent().get_parent();
+onready var battleScene = get_parent().get_parent().get_parent().get_parent().get_parent();
 
 var ia_slots = 2;
 
@@ -12,12 +12,12 @@ var current_character;
 onready var background = get_node("Layer 3/Background");
 onready var text = get_node("Layer 3/Text");
 
-onready var panel = get_parent().get_parent().get_parent().get_node("Panel");
-onready var recruit_panel = get_parent().get_parent().get_parent().get_node("RecruitPirate");
+onready var panel = get_tree().get_root().get_node("BattleScene/ViewportContainer/Viewport/RewardsPanel");
+onready var recruit_panel = get_tree().get_root().get_node("BattleScene/ViewportContainer/Viewport/RecruitPirate");
 onready var layer_1 = get_node("Layer 1");
 onready var layer_2 = get_node("Layer 2");
 onready var layer_3 = get_node("Layer 3");
-onready var inventory_screen = get_parent().get_parent().get_parent().get_node("InventoryScreen");
+onready var inventory_screen = get_tree().get_root().get_node("BattleScene/ViewportContainer/InventoryScreen");
 
 
 onready var enemy_buttons = [

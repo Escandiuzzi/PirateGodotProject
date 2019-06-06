@@ -1,6 +1,5 @@
 extends Control
 
-
 var scene_path;
 
 onready var global = get_node("/root/Global");

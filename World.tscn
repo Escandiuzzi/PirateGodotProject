@@ -38,6 +38,7 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 [node name="Center" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( -40, 530 )
 movement_speed = 200
 
@@ -122,6 +123,7 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 6 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 4 )]
+editor/display_folded = false
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 
@@ -135,18 +137,14 @@ margin_bottom = 1421.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 9 )]
-editor/display_folded = true
-
-[node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
-editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
 editor/display_folded = true
 islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
-difficulty = 1.25
-enemies = 3
+difficulty = 0.25
+enemies = 1
 islandSize = 3
 commonSize = 2
 uncommonSize = 1
@@ -231,6 +229,7 @@ margin_right = 815.0
 margin_bottom = 825.0
 
 [node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 5 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
 island_states = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]

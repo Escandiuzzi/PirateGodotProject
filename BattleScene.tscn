@@ -1,22 +1,22 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://BattleScene.gd" type="Script" id=1]
-[ext_resource path="res://Manager.gd" type="Script" id=2]
-[ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=3]
-[ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=4]
-[ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=5]
-[ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=6]
-[ext_resource path="res://UIButtonHandler.gd" type="Script" id=7]
-[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=8]
-[ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=10]
-[ext_resource path="res://Sprite/HUD/buttons/return_icon.png" type="Texture" id=11]
-[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=12]
-[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=13]
-[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=14]
-[ext_resource path="res://Sprite/text_background.png" type="Texture" id=15]
-[ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=16]
-[ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=17]
+[ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Manager.gd" type="Script" id=3]
+[ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=7]
+[ext_resource path="res://UIButtonHandler.gd" type="Script" id=8]
+[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/HUD/buttons/return_icon.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=16]
+[ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=17]
 
 [node name="BattleScene" type="Control"]
 anchor_right = 1.0
@@ -32,16 +32,23 @@ anchor_bottom = 1.0
 mouse_filter = 2
 stretch = true
 
+[node name="InventoryScreen" parent="ViewportContainer" instance=ExtResource( 2 )]
+editor/display_folded = true
+visible = false
+z_index = 5
+
+[node name="CharactersContainer" type="Control" parent="ViewportContainer"]
+mouse_filter = 2
+
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 1440, 900 )
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Manager" type="Node2D" parent="ViewportContainer/Viewport"]
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="UI" type="Control" parent="ViewportContainer/Viewport/Manager"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1440.0
@@ -52,7 +59,7 @@ mouse_filter = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 1
 
@@ -60,7 +67,7 @@ stretch_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 
@@ -73,52 +80,51 @@ margin_left = 137.692
 margin_top = 100.0
 margin_right = 247.692
 margin_bottom = 140.0
-texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 6 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 
 [node name="character2_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
 margin_left = 283.846
 margin_top = 230.769
 margin_right = 393.846
 margin_bottom = 270.769
-texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 6 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 
 [node name="character3_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
 margin_left = 45.3846
 margin_top = 361.538
 margin_right = 155.385
 margin_bottom = 401.538
-texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 6 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 
 [node name="enemy1_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
 margin_left = 869.231
 margin_top = 86.9231
 margin_right = 979.231
 margin_bottom = 126.923
-texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 6 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 
 [node name="enemy2_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
 margin_left = 723.077
 margin_top = 215.385
 margin_right = 833.077
 margin_bottom = 255.385
-texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 6 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 
 [node name="enemy3_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
 margin_left = 953.846
 margin_top = 346.154
 margin_right = 1063.85
 margin_bottom = 386.154
-texture_under = ExtResource( 5 )
-texture_progress = ExtResource( 6 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 
 [node name="UIButtonHandler" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI"]
-editor/display_folded = true
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Layer 1" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
 editor/display_folded = true
@@ -133,7 +139,7 @@ margin_top = 480.0
 margin_right = 211.176
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 8 )
+icon = ExtResource( 9 )
 flat = true
 
 [node name="SpecialButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 1"]
@@ -146,7 +152,7 @@ margin_top = 480.0
 margin_right = 521.882
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 9 )
+icon = ExtResource( 10 )
 flat = true
 
 [node name="InventoryButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 1"]
@@ -159,7 +165,7 @@ margin_top = 480.0
 margin_right = 817.294
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 10 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="Layer 2" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
@@ -174,7 +180,7 @@ margin_top = 425.81
 margin_right = 161.197
 margin_bottom = 471.81
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 11 )
+icon = ExtResource( 12 )
 
 [node name="FirstEnemyButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 2"]
 margin_left = 158.588
@@ -182,7 +188,7 @@ margin_top = 480.0
 margin_right = 210.588
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 flat = true
 
 [node name="SecondEnemyButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 2"]
@@ -191,7 +197,7 @@ margin_top = 480.0
 margin_right = 521.882
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 13 )
+icon = ExtResource( 14 )
 flat = true
 
 [node name="ThirdEnemyButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 2"]
@@ -200,7 +206,7 @@ margin_top = 480.0
 margin_right = 816.941
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 14 )
+icon = ExtResource( 15 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
@@ -216,7 +222,7 @@ margin_top = 411.025
 margin_right = 78.5727
 margin_bottom = 457.025
 rect_scale = Vector2( 0.8, 0.8 )
-icon = ExtResource( 11 )
+icon = ExtResource( 12 )
 
 [node name="SpecialButton1" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 15.0
@@ -250,7 +256,7 @@ rect_scale = Vector2( 0.7, 0.7 )
 visible = false
 position = Vector2( 500, 380.525 )
 scale = Vector2( 7.59369, 2.74834 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="Text" type="RichTextLabel" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 visible = false
@@ -270,7 +276,7 @@ text = "Turn: 0"
 [node name="Background" type="Sprite" parent="ViewportContainer/Viewport"]
 position = Vector2( 738, 345 )
 scale = Vector2( 7.625, 14.0625 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="BattleLog" type="RichTextLabel" parent="ViewportContainer/Viewport"]
 margin_left = 626.0
@@ -288,6 +294,7 @@ margin_left = 633.0
 margin_top = 230.0
 margin_right = 846.0
 margin_bottom = 420.0
+mouse_filter = 2
 
 [node name="Title" type="RichTextLabel" parent="ViewportContainer/Viewport/RewardsPanel"]
 margin_left = 77.0
@@ -309,15 +316,15 @@ margin_right = 206.0
 margin_bottom = 187.0
 text = "Close"
 
-[node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 16 )]
-editor/display_folded = true
+[node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 17 )]
 visible = false
+position = Vector2( 525, 250 )
 
-[node name="InventoryScreen" parent="ViewportContainer/Viewport" instance=ExtResource( 17 )]
+[node name="Panel" parent="ViewportContainer/Viewport/RecruitPirate" index="0"]
 editor/display_folded = true
-visible = false
-z_index = 5
 
+[connection signal="on_item_selected" from="ViewportContainer/InventoryScreen/UIInputHandler" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_UIInputHandler_on_item_selected"]
+[connection signal="pressed" from="ViewportContainer/InventoryScreen/CloseButton" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_CloseInventoryButton_pressed"]
 [connection signal="pressed" from="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 1/AttackButton" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Attack" ]]
 [connection signal="pressed" from="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 1/SpecialButton" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Special" ]]
 [connection signal="pressed" from="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 1/InventoryButton" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_UIButton_pressed" binds= [ "Inventory" ]]
@@ -339,3 +346,8 @@ z_index = 5
 [connection signal="mouse_exited" from="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3/SpecialButton4" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_SpecialButton_mouse_exited"]
 [connection signal="pressed" from="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3/SpecialButton4" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 3 ]]
 [connection signal="pressed" from="ViewportContainer/Viewport/RewardsPanel/Button" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_Button_pressed"]
+[connection signal="pressed" from="ViewportContainer/Viewport/RecruitPirate/Panel/RecruitButton" to="." method="_on_RecruitButton_pressed"]
+
+[editable path="ViewportContainer/InventoryScreen"]
+
+[editable path="ViewportContainer/Viewport/RecruitPirate"]

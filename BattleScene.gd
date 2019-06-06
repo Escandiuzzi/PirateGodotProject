@@ -1,7 +1,5 @@
 extends Control
 
-onready var b_log = $BattleLog;
-
 var playerPirates = [];
 var enemies = []
 var characters = [];
@@ -32,24 +30,23 @@ var turn = 0;
 var equipament_loss = 1;
 
 onready var recruitPanel = get_node("RecruitPirate");
-onready var ui_handler = get_node("Manager/UI/UIButtonHandler");
-onready var manager = $Manager;
-onready var rewardText = get_node("Panel/RewardsText");
-onready var panel = get_node("Panel");
+onready var ui_handler = get_node("ViewportContainer/Viewport/Manager/UI/UIButtonHandler");
+onready var manager = get_node("ViewportContainer/Viewport/Manager");
+onready var rewardText = get_node("ViewportContainer/Viewport/RewardsPanel/RewardsText");
+onready var panel = get_node("ViewportContainer/Viewport/RewardsPanel");
 onready var pirateObj = preload("res://Pirate.tscn");
 onready var item = preload("res://Item.tscn");
-
+onready var b_log = get_node("ViewportContainer/Viewport/BattleLog");
 onready var player_data = get_tree().get_root().get_node("/root/PlayerData");
 onready var battle_manager = get_tree().get_root().get_node("/root/BattleManager");
-
-onready var turnText = $TurnText;
+onready var characters_container = get_node("ViewportContainer/CharactersContainer");
+onready var turnText = get_node("ViewportContainer/Viewport/TurnText");
 
 export(Array) var player_pos;
 export(Array) var ia_pos;
 
 var player_texture = load("res://Sprite/characters/idle_warrior.png");
 var enemy_texture = load("res://Sprite/characters/idle_mimic.png");
-
 
 func _ready():
 	pos = 0;
@@ -84,7 +81,7 @@ func _initializeEnemies():
 		var newEnemy = pirateObj.instance();
 		newEnemy._initialize_ia_pirate(difficulty);
 		newEnemy._set_tag(1);
-		self.add_child(newEnemy);
+		characters_container.add_child(newEnemy);
 		enemies[i] = newEnemy
 		characters[pos] = newEnemy;
 		pos += 1;
@@ -308,7 +305,7 @@ func _instanciate_player_pirates(ids):
 		var newPirate = pirateObj.instance();
 		characters[i] = newPirate;
 		playerPirates[i] = newPirate;
-		self.add_child(newPirate);
+		characters_container.add_child(newPirate);
 		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"], current_line[str(i)]["atkBonus"], current_line[str(i)]["weaponPath"], current_line[str(i)]["weaponDurability"], current_line[str(i)]["defBonus"], current_line[str(i)]["shieldPath"], current_line[str(i)]["shieldDurability"]);
 		newPirate.position = player_pos[i];
 		newPirate._change_sprite(player_texture);
