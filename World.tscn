@@ -1,21 +1,22 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
-[ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Flag.tscn" type="PackedScene" id=4]
-[ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Tema.tres" type="Theme" id=6]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=8]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=9]
-[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=11]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=12]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1state3.png" type="Texture" id=14]
-[ext_resource path="res://Cloud.tscn" type="PackedScene" id=15]
-[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=16]
+[ext_resource path="res://MainCamera.gd" type="Script" id=2]
+[ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Flag.tscn" type="PackedScene" id=5]
+[ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tema.tres" type="Theme" id=7]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=10]
+[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=12]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1state3.png" type="Texture" id=15]
+[ext_resource path="res://Cloud.tscn" type="PackedScene" id=16]
+[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 216.121, 209.456 )
@@ -32,37 +33,38 @@ extents = Vector2( 174.83, 177.472 )
 [node name="World" type="Node"]
 script = ExtResource( 1 )
 
-[node name="NavigationMap" parent="." instance=ExtResource( 2 )]
+[node name="MainCamera" type="Camera2D" parent="."]
+current = true
+limit_left = -1024
+limit_top = -450
+limit_right = 1154
+limit_bottom = 833
+script = ExtResource( 2 )
+speed = 250.0
+
+[node name="NavigationMap" parent="." instance=ExtResource( 3 )]
 visible = false
 tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 0, 0, -393228, 0, 0, -393227, 0, 0, -393226, 0, 0, -393225, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -458744, 0, 0, -458743, 0, 0, -458742, 0, 0, -458741, 0, 0, -458740, 0, 0, -458739, 0, 0, -458738, 0, 0, -458737, 0, 0, -458736, 0, 0, -458735, 0, 0, -327696, 0, 0, -327690, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393201, 0, 0, -393200, 0, 0, -393199, 0, 0, -262160, 0, 0, -262154, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327671, 0, 0, -327670, 0, 0, -327668, 0, 0, -327667, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -196624, 0, 0, -196618, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262135, 0, 0, -262134, 0, 0, -262132, 0, 0, -262131, 0, 0, -262129, 0, 0, -262128, 0, 0, -262127, 0, 0, -131088, 0, 0, -131082, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196593, 0, 0, -196592, 0, 0, -196591, 0, 0, -65552, 0, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131062, 0, 0, -131060, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -16, 0, 0, -15, 0, 0, -14, 0, 0, -13, 0, 0, -12, 0, 0, -11, 0, 0, -10, 0, 0, -9, 0, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65526, 0, 0, -65524, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 131056, 0, 0, 131057, 0, 0, 131058, 0, 0, 131061, 0, 0, 131062, 0, 0, 131063, 0, 0, 131064, 0, 0, 131065, 0, 0, 131066, 0, 0, 131067, 0, 0, 131068, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 196592, 0, 0, 196593, 0, 0, 196594, 0, 0, 196597, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 262128, 0, 0, 262129, 0, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 327664, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 393200, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 458736, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 524272, 0, 0, 524274, 0, 0, 524278, 0, 0, 524279, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 589808, 0, 0, 589809, 0, 0, 589810, 0, 0, 589814, 0, 0, 589815, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 655344, 0, 0, 655345, 0, 0, 655346, 0, 0, 655350, 0, 0, 655351, 0, 0, 655352, 0, 0, 655353, 0, 0, 655354, 0, 0, 655355, 0, 0, 655356, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 720880, 0, 0, 720881, 0, 0, 720882, 0, 0, 720886, 0, 0, 720887, 0, 0, 720890, 0, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 786416, 0, 0, 786417, 0, 0, 786418, 0, 0, 786419, 0, 0, 786420, 0, 0, 786421, 0, 0, 786422, 0, 0, 786423, 0, 0, 786424, 0, 0, 786427, 0, 0, 786428, 0, 0, 786429, 0, 0, 786430, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 851952, 0, 0, 851953, 0, 0, 851954, 0, 0, 851955, 0, 0, 851956, 0, 0, 851957, 0, 0, 851958, 0, 0, 851959, 0, 0, 851960, 0, 0, 851961, 0, 0, 851962, 0, 0, 851963, 0, 0, 851964, 0, 0, 851965, 0, 0, 851966, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0 )
 
 [node name="Center" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( -40, 530 )
 movement_speed = 200
 
 [node name="HUD" parent="Player" index="1"]
-editor/display_folded = true
 visible = false
 
 [node name="RichTextLabel" parent="Player/HUD" index="4"]
 editor/display_folded = true
 
-[node name="Camera2D" parent="Player" index="2"]
-limit_left = -1024
-limit_top = -450
-limit_right = 1154
-limit_bottom = 833
-
-[node name="PlayerArea2D" parent="Player" index="3"]
+[node name="PlayerArea2D" parent="Player" index="2"]
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="Flag" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
+[node name="Flag" parent="Flags" instance=ExtResource( 5 )]
 position = Vector2( 713.879, 423.456 )
 path = Vector2( 470, 447 )
 
@@ -75,13 +77,12 @@ margin_right = 1097.0
 margin_bottom = 1107.0
 icon = null
 
-[node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 5 )]
-editor/display_folded = true
+[node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 6 )]
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 6 )
-island_states = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+theme = ExtResource( 7 )
+island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 path = "Flags/Flag/Button"
 
 [node name="RichTextLabel" parent="Flags/Flag/IslandMenu/IslandMenu" index="1"]
@@ -127,10 +128,9 @@ shape = SubResource( 1 )
 [node name="Sprite" parent="Flags/Flag/IslandMenu" index="2"]
 position = Vector2( -8.87903, 24.544 )
 scale = Vector2( 0.380859, 0.375 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
-[node name="Flag2" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
+[node name="Flag2" parent="Flags" instance=ExtResource( 5 )]
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 
@@ -143,11 +143,11 @@ margin_right = 1428.0
 margin_bottom = 1421.0
 icon = null
 
-[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 10 )]
+[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 11 )]
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
 editor/display_folded = true
@@ -177,10 +177,9 @@ shape = SubResource( 2 )
 
 [node name="Sprite" parent="Flags/Flag2/IslandMenu" index="2"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
-[node name="Flag3" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
+[node name="Flag3" parent="Flags" instance=ExtResource( 5 )]
 position = Vector2( -770.167, 480 )
 path = Vector2( -580, 500 )
 
@@ -192,13 +191,13 @@ margin_top = -200.0
 margin_right = 526.0
 margin_bottom = 1000.0
 
-[node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 5 )]
+[node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 6 )]
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 6 )
-island_states = [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+theme = ExtResource( 7 )
+island_states = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
 editor/display_folded = true
@@ -228,10 +227,9 @@ shape = SubResource( 3 )
 [node name="Sprite" parent="Flags/Flag3/IslandMenu" index="2"]
 position = Vector2( 2.06972, -0.126345 )
 scale = Vector2( 0.412657, 0.437253 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
-[node name="Flag4" parent="Flags" instance=ExtResource( 4 )]
-editor/display_folded = false
+[node name="Flag4" parent="Flags" instance=ExtResource( 5 )]
 position = Vector2( -797.636, -222.528 )
 path = Vector2( -600, -120 )
 
@@ -243,12 +241,12 @@ margin_top = -146.0
 margin_right = 815.0
 margin_bottom = 825.0
 
-[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 5 )]
+[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 6 )]
 
 [node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 6 )
-island_states = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+theme = ExtResource( 7 )
+island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="4"]
 islandType = "Material"
@@ -260,7 +258,6 @@ maxRewards = 9
 bonus = 3
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="3"]
-visible = true
 path = "World/Flags/Flag4"
 
 [node name="RewardMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="5"]
@@ -273,12 +270,12 @@ shape = SubResource( 4 )
 [node name="Sprite" parent="Flags/Flag4/IslandMenu" index="2"]
 position = Vector2( -2.36401, -4.41884 )
 scale = Vector2( 0.3125, 0.318463 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="Clouds" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Cloud" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -1740, 440.106 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -286,7 +283,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud2" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud2" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -1560, -77.1152 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -294,7 +291,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud3" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud3" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -1910, -350.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -302,7 +299,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud4" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud4" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -880.167, -312.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -310,7 +307,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud5" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud5" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -1240, 762.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -318,7 +315,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud6" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud6" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -793.074, 513.472 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -326,7 +323,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud7" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud7" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -530, 50 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -334,7 +331,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud8" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud8" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -1097, 120 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -342,7 +339,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud9" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud9" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -60, 462.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -350,7 +347,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud10" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud10" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( 220, 202.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -358,7 +355,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud11" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud11" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( 510, -350 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -366,7 +363,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud12" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud12" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( -90, -147.472 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -374,7 +371,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud13" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud13" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( 1074.32, 622.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -382,7 +379,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud14" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud14" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( 1364.32, 70 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -390,7 +387,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud15" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud15" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( 764.317, 272.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -398,7 +395,7 @@ initial_pos = -2000
 final_pos = 2000
 speed = 0.5
 
-[node name="Cloud16" parent="Clouds" instance=ExtResource( 15 )]
+[node name="Cloud16" parent="Clouds" instance=ExtResource( 16 )]
 position = Vector2( 794.317, 882.528 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
@@ -407,7 +404,7 @@ final_pos = 2000
 speed = 0.5
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 16 )
+tile_set = ExtResource( 17 )
 format = 1
 tile_data = PoolIntArray( -327689, 0, 1, -327688, 0, 65536, -327687, 0, 2, -393215, 0, 196608, -393214, 0, 196609, -393213, 0, 196609, -393212, 0, 196610, -393208, 0, 6, -393207, 0, 196609, -393206, 0, 196609, -393205, 0, 131076, -393204, 0, 196609, -393203, 0, 196609, -393202, 0, 7, -262153, 0, 131073, -262152, 0, 196619, -262151, 0, 131074, -327672, 0, 65541, -327669, 0, 65541, -327666, 0, 65541, -196617, 0, 65537, -196616, 0, 131072, -196615, 0, 65538, -262136, 0, 65541, -262133, 0, 65541, -262130, 0, 65541, -196600, 0, 8, -196599, 0, 9, -196598, 0, 196609, -196597, 0, 131083, -196596, 0, 196609, -196595, 0, 10, -196594, 0, 11, -131064, 0, 65537, -131063, 0, 65545, -131061, 0, 65541, -131059, 0, 65546, -131058, 0, 65538, -65527, 0, 131077, -65525, 0, 131077, -65523, 0, 131077, 65523, 0, 1, 65524, 0, 2, 131059, 0, 131073, 131060, 0, 131074, 65547, 0, 196608, 65548, 0, 196609, 65549, 0, 196609, 65550, 0, 7, 196595, 0, 65537, 196596, 0, 65538, 131078, 0, 5, 131086, 0, 65542, 131087, 0, 196609, 131088, 0, 196609, 131089, 0, 196610, 196614, 0, 131077, 393211, 0, 5, 458747, 0, 65541, 393218, 0, 1, 393219, 0, 65536, 393220, 0, 2, 524283, 0, 65541, 458754, 0, 65537, 458755, 0, 131072, 458756, 0, 65538, 589819, 0, 131077, 720888, 0, 196608, 720889, 0, 7, 655363, 0, 196608, 655364, 0, 196610, 786425, 0, 65542, 786426, 0, 196610, 720902, 0, 196608, 720903, 0, 196609, 720904, 0, 196610 )
 
