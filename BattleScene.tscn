@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=2]
@@ -15,8 +15,10 @@
 [ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=13]
 [ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=14]
 [ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=15]
-[ext_resource path="res://Sprite/text_background.png" type="Texture" id=16]
-[ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=17]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=16]
+[ext_resource path="res://Menu/fundo2.png" type="Texture" id=17]
+[ext_resource path="res://Tema.tres" type="Theme" id=18]
+[ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=19]
 
 [node name="BattleScene" type="Control"]
 anchor_right = 1.0
@@ -29,6 +31,10 @@ ia_pos = [ Vector2( 1203, 210 ), Vector2( 1011, 380 ), Vector2( 1310, 550 ) ]
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 103.387
+margin_top = 12.1919
+margin_right = 103.387
+margin_bottom = 12.1919
 mouse_filter = 2
 stretch = true
 
@@ -210,7 +216,6 @@ icon = ExtResource( 15 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
-editor/display_folded = true
 visible = false
 position = Vector2( 0, 50 )
 scale = Vector2( 1.4, 1.4 )
@@ -230,6 +235,7 @@ margin_top = 499.36
 margin_right = 345.0
 margin_bottom = 583.36
 rect_scale = Vector2( 0.7, 0.7 )
+theme = ExtResource( 16 )
 
 [node name="SpecialButton2" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 271.25
@@ -237,6 +243,7 @@ margin_top = 498.0
 margin_right = 601.25
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
+theme = ExtResource( 16 )
 
 [node name="SpecialButton3" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 529.159
@@ -244,6 +251,7 @@ margin_top = 498.0
 margin_right = 859.159
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
+theme = ExtResource( 16 )
 
 [node name="SpecialButton4" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 778.508
@@ -251,19 +259,21 @@ margin_top = 498.0
 margin_right = 1108.51
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
+theme = ExtResource( 16 )
 
 [node name="Background" type="Sprite" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 visible = false
-position = Vector2( 500, 380.525 )
-scale = Vector2( 7.59369, 2.74834 )
-texture = ExtResource( 16 )
+position = Vector2( 530, 380.525 )
+scale = Vector2( 0.3, 0.2 )
+texture = ExtResource( 17 )
 
 [node name="Text" type="RichTextLabel" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 visible = false
-margin_left = 387.0
+margin_left = 430.0
 margin_top = 342.0
-margin_right = 614.0
+margin_right = 657.0
 margin_bottom = 419.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="TurnText" type="RichTextLabel" parent="ViewportContainer/Viewport"]
 margin_left = 694.925
@@ -275,8 +285,8 @@ text = "Turn: 0"
 
 [node name="Background" type="Sprite" parent="ViewportContainer/Viewport"]
 position = Vector2( 738, 345 )
-scale = Vector2( 7.625, 14.0625 )
-texture = ExtResource( 16 )
+scale = Vector2( 0.3, 0.8 )
+texture = ExtResource( 17 )
 
 [node name="BattleLog" type="RichTextLabel" parent="ViewportContainer/Viewport"]
 margin_left = 626.0
@@ -284,24 +294,25 @@ margin_top = 130.0
 margin_right = 798.0
 margin_bottom = 458.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 
 [node name="RewardsContainer" type="Node" parent="ViewportContainer/Viewport"]
 
 [node name="RewardsPanel" type="Panel" parent="ViewportContainer/Viewport"]
-editor/display_folded = true
 visible = false
 margin_left = 633.0
 margin_top = 230.0
 margin_right = 846.0
 margin_bottom = 420.0
 mouse_filter = 2
+theme = ExtResource( 18 )
 
 [node name="Title" type="RichTextLabel" parent="ViewportContainer/Viewport/RewardsPanel"]
-margin_left = 77.0
+margin_left = 68.0
 margin_top = 15.0
-margin_right = 173.0
+margin_right = 164.0
 margin_bottom = 40.0
-text = "Rewards"
+text = "Recompensas"
 
 [node name="RewardsText" type="RichTextLabel" parent="ViewportContainer/Viewport/RewardsPanel"]
 margin_left = 15.0
@@ -311,17 +322,28 @@ margin_bottom = 163.0
 
 [node name="Button" type="Button" parent="ViewportContainer/Viewport/RewardsPanel"]
 margin_left = 159.0
-margin_top = 167.0
-margin_right = 206.0
-margin_bottom = 187.0
+margin_top = 163.0
+margin_right = 211.0
+margin_bottom = 191.0
 text = "Close"
 
-[node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 17 )]
+[node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 19 )]
 visible = false
 position = Vector2( 525, 250 )
 
 [node name="Panel" parent="ViewportContainer/Viewport/RecruitPirate" index="0"]
-editor/display_folded = true
+theme = ExtResource( 18 )
+
+[node name="Text" parent="ViewportContainer/Viewport/RecruitPirate/Panel" index="0"]
+margin_top = 50.0
+text = "Um homem foi encontrado perdido na ilha, deseja o recrutar para sua tripulação?"
+
+[node name="RecruitButton" parent="ViewportContainer/Viewport/RecruitPirate/Panel" index="1"]
+margin_left = 150.0
+margin_top = 145.0
+margin_right = 230.0
+margin_bottom = 175.0
+text = "Recrutar"
 
 [connection signal="on_item_selected" from="ViewportContainer/InventoryScreen/UIInputHandler" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_UIInputHandler_on_item_selected"]
 [connection signal="pressed" from="ViewportContainer/InventoryScreen/CloseButton" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_CloseInventoryButton_pressed"]

@@ -30,8 +30,6 @@ func _ready():
 
 func _on_CloseButton2_pressed():
 	self.hide();
-	for i in range(10):
-		canvasSlots[i].visible = true;
 	pass
 
 func _on_Button_pressed():

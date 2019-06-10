@@ -2,7 +2,7 @@
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MenuInicial.png" type="Texture" id=2]
-[ext_resource path="res://Menu/tit.png" type="Texture" id=3]
+[ext_resource path="res://Menu/logoPt.png" type="Texture" id=3]
 [ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menu/Buttons/StartButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menu/Buttons/ContinueButton.tscn" type="PackedScene" id=6]
@@ -31,7 +31,6 @@ texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="Menu" type="VBoxContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
@@ -68,6 +67,7 @@ margin_bottom = 60.0
 margin_top = 64.0
 margin_right = 360.0
 margin_bottom = 124.0
+scene_to_load = "res://Menu/LoadingScene.tscn"
 
 [node name="OptionsButton" parent="Centro/Buttons" instance=ExtResource( 7 )]
 margin_top = 128.0
