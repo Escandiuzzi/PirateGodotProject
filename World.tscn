@@ -3,19 +3,19 @@
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://MainCamera.gd" type="Script" id=2]
 [ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Flag.tscn" type="PackedScene" id=5]
-[ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Tema.tres" type="Theme" id=7]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=10]
-[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=12]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=14]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1state3.png" type="Texture" id=15]
-[ext_resource path="res://Cloud.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Cloud.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Flag.tscn" type="PackedScene" id=6]
+[ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Tema.tres" type="Theme" id=8]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=11]
+[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=13]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1state3.png" type="Texture" id=16]
 [ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -48,7 +48,122 @@ tile_data = PoolIntArray( -393232, 0, 0, -393231, 0, 0, -393230, 0, 0, -393229, 
 
 [node name="Center" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Clouds" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Cloud" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -1740, 440.106 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud2" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -1560, -77.1152 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud3" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -1910, -350.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud4" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -880.167, -312.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud5" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -1240, 762.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud6" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -793.074, 513.472 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud7" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -530, 50 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud8" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -1097, 120 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud9" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -60, 462.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud10" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( 220, 202.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud11" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( 510, -350 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud12" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( -90, -147.472 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud13" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( 1074.32, 622.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud14" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( 1364.32, 70 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud15" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( 764.317, 272.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Cloud16" parent="Clouds" instance=ExtResource( 4 )]
+position = Vector2( 794.317, 882.528 )
+scale = Vector2( 0.5, 0.5 )
+initial_pos = -2000
+final_pos = 2000
+speed = 0.5
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -40, 530 )
 movement_speed = 200
 
@@ -64,7 +179,7 @@ editor/display_folded = true
 [node name="Flags" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Flag" parent="Flags" instance=ExtResource( 5 )]
+[node name="Flag" parent="Flags" instance=ExtResource( 6 )]
 position = Vector2( 713.879, 423.456 )
 path = Vector2( 470, 447 )
 
@@ -77,12 +192,12 @@ margin_right = 1097.0
 margin_bottom = 1107.0
 icon = null
 
-[node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 6 )]
+[node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 7 )]
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 7 )
-island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+theme = ExtResource( 8 )
+island_states = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 path = "Flags/Flag/Button"
 
 [node name="RichTextLabel" parent="Flags/Flag/IslandMenu/IslandMenu" index="1"]
@@ -128,9 +243,9 @@ shape = SubResource( 1 )
 [node name="Sprite" parent="Flags/Flag/IslandMenu" index="2"]
 position = Vector2( -8.87903, 24.544 )
 scale = Vector2( 0.380859, 0.375 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
-[node name="Flag2" parent="Flags" instance=ExtResource( 5 )]
+[node name="Flag2" parent="Flags" instance=ExtResource( 6 )]
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 
@@ -143,11 +258,10 @@ margin_right = 1428.0
 margin_bottom = 1421.0
 icon = null
 
-[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 11 )]
-editor/display_folded = true
+[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 12 )]
 
 [node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
-theme = ExtResource( 7 )
+theme = ExtResource( 8 )
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
 editor/display_folded = true
@@ -177,9 +291,9 @@ shape = SubResource( 2 )
 
 [node name="Sprite" parent="Flags/Flag2/IslandMenu" index="2"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
-[node name="Flag3" parent="Flags" instance=ExtResource( 5 )]
+[node name="Flag3" parent="Flags" instance=ExtResource( 6 )]
 position = Vector2( -770.167, 480 )
 path = Vector2( -580, 500 )
 
@@ -191,13 +305,13 @@ margin_top = -200.0
 margin_right = 526.0
 margin_bottom = 1000.0
 
-[node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 6 )]
+[node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 7 )]
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 7 )
-island_states = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+theme = ExtResource( 8 )
+island_states = [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ]
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
 editor/display_folded = true
@@ -227,9 +341,9 @@ shape = SubResource( 3 )
 [node name="Sprite" parent="Flags/Flag3/IslandMenu" index="2"]
 position = Vector2( 2.06972, -0.126345 )
 scale = Vector2( 0.412657, 0.437253 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
-[node name="Flag4" parent="Flags" instance=ExtResource( 5 )]
+[node name="Flag4" parent="Flags" instance=ExtResource( 6 )]
 position = Vector2( -797.636, -222.528 )
 path = Vector2( -600, -120 )
 
@@ -241,12 +355,12 @@ margin_top = -146.0
 margin_right = 815.0
 margin_bottom = 825.0
 
-[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 6 )]
+[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 7 )]
 
 [node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 7 )
-island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+theme = ExtResource( 8 )
+island_states = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
 [node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="4"]
 islandType = "Material"
@@ -270,138 +384,7 @@ shape = SubResource( 4 )
 [node name="Sprite" parent="Flags/Flag4/IslandMenu" index="2"]
 position = Vector2( -2.36401, -4.41884 )
 scale = Vector2( 0.3125, 0.318463 )
-texture = ExtResource( 8 )
-
-[node name="Clouds" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="Cloud" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -1740, 440.106 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud2" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -1560, -77.1152 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud3" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -1910, -350.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud4" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -880.167, -312.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud5" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -1240, 762.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud6" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -793.074, 513.472 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud7" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -530, 50 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud8" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -1097, 120 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud9" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -60, 462.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud10" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( 220, 202.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud11" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( 510, -350 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud12" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( -90, -147.472 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud13" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( 1074.32, 622.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud14" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( 1364.32, 70 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud15" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( 764.317, 272.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
-
-[node name="Cloud16" parent="Clouds" instance=ExtResource( 16 )]
-position = Vector2( 794.317, 882.528 )
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
-initial_pos = -2000
-final_pos = 2000
-speed = 0.5
+texture = ExtResource( 9 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 17 )

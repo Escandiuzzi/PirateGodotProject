@@ -6,7 +6,7 @@ enum MODES {
 	MODE_RETURN
 	};
 
-const POINT_RADIUS = 5;
+const POINT_RADIUS = 1;
 
 export(float) var speed;
 
