@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MenuInicial.png" type="Texture" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://Menu/Buttons/StartButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menu/Buttons/ContinueButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menu/Buttons/OptionsButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Menu/Fade/FadeIn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menu/Buttons/CreditosBut.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menu/Fade/FadeIn.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -50,16 +51,14 @@ custom_fonts/font = SubResource( 1 )
 text = "Alpha Version"
 
 [node name="Centro" type="CenterContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Buttons" type="VBoxContainer" parent="Centro"]
-editor/display_folded = true
 margin_left = 540.0
-margin_top = 356.0
+margin_top = 324.0
 margin_right = 900.0
-margin_bottom = 544.0
+margin_bottom = 576.0
 
 [node name="StartButton" parent="Centro/Buttons" instance=ExtResource( 5 )]
 margin_right = 360.0
@@ -75,7 +74,14 @@ margin_top = 128.0
 margin_right = 360.0
 margin_bottom = 188.0
 
-[node name="FadeIn" parent="." instance=ExtResource( 8 )]
+[node name="CreditosBut" parent="Centro/Buttons" instance=ExtResource( 8 )]
+margin_top = 192.0
+margin_right = 360.0
+margin_bottom = 252.0
+scene_to_load = "res://Menu/Creditos.tscn"
+action = "Creditos"
+
+[node name="FadeIn" parent="." instance=ExtResource( 9 )]
 visible = false
 
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

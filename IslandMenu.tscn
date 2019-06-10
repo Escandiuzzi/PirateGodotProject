@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://IslandMenu.gd" type="Script" id=1]
-[ext_resource path="res://Sprite/mine_bar/layer_1.png" type="Texture" id=2]
-[ext_resource path="res://Sprite/mine_bar/layer_2.png" type="Texture" id=3]
-[ext_resource path="res://MineProgress.gd" type="Script" id=4]
-[ext_resource path="res://Island.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tema.tres" type="Theme" id=1]
+[ext_resource path="res://IslandMenu.gd" type="Script" id=2]
+[ext_resource path="res://Sprite/mine_bar/layer_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/mine_bar/layer_2.png" type="Texture" id=4]
+[ext_resource path="res://MineProgress.gd" type="Script" id=5]
+[ext_resource path="res://Island.tscn" type="PackedScene" id=6]
 
 [node name="IslandMenu" type="Node2D"]
 
@@ -15,21 +16,19 @@ margin_right = 110.0
 margin_bottom = 90.0
 rect_pivot_offset = Vector2( 110, 90 )
 mouse_filter = 2
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="IslandMenu"]
-margin_left = 91.0
-margin_top = 18.0
-margin_right = 131.0
-margin_bottom = 33.0
+margin_left = 87.0
+margin_top = 18.501
+margin_right = 167.0
+margin_bottom = 41.501
 text = "Island"
 
 [node name="Close" type="Button" parent="IslandMenu"]
 margin_left = 79.0
-margin_top = 150.0
+margin_top = 143.0
 margin_right = 140.0
 margin_bottom = 170.0
 rect_pivot_offset = Vector2( 30.5, 10 )
@@ -41,11 +40,11 @@ margin_top = 53.3532
 margin_right = 1010.0
 margin_bottom = 153.353
 rect_scale = Vector2( 0.2, 0.2 )
-texture_under = ExtResource( 2 )
-texture_progress = ExtResource( 3 )
-script = ExtResource( 4 )
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+script = ExtResource( 5 )
 
-[node name="Island" parent="IslandMenu" instance=ExtResource( 5 )]
+[node name="Island" parent="IslandMenu" instance=ExtResource( 6 )]
 position = Vector2( 89.093, 0 )
 
 [node name="CooldownTimer" parent="IslandMenu/Island" index="1"]
@@ -53,10 +52,11 @@ one_shot = true
 
 [node name="Button" parent="IslandMenu/Island" index="2"]
 margin_left = -2.0
-margin_top = 99.6419
-margin_bottom = 119.642
+margin_top = 91.0
+margin_bottom = 120.0
 
 [node name="PopupMenu" parent="IslandMenu/Island" index="3"]
+editor/display_folded = false
 margin_left = -149.093
 margin_right = 198.907
 
@@ -66,8 +66,31 @@ editor/display_folded = true
 [node name="Area2D" parent="IslandMenu/Island/PopupMenu/CheckBox/Sprite" index="0"]
 editor/display_folded = true
 
+[node name="StartButton" parent="IslandMenu/Island/PopupMenu" index="13"]
+margin_left = 136.0
+margin_top = 166.0
+margin_right = 209.0
+margin_bottom = 198.0
+
+[node name="CloseButton2" parent="IslandMenu/Island/PopupMenu" index="14"]
+margin_left = 289.0
+margin_top = -31.0
+margin_right = 336.0
+margin_bottom = -3.0
+
+[node name="Button2" parent="IslandMenu/Island" index="4"]
+margin_left = 43.0
+margin_top = 3.0
+margin_right = 126.0
+
 [node name="RewardMenu" parent="IslandMenu/Island" index="5"]
 mouse_filter = 2
+
+[node name="CollectButton" parent="IslandMenu/Island/RewardMenu" index="2"]
+margin_left = 78.0
+margin_top = 98.0
+margin_right = 150.0
+margin_bottom = 124.0
 
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true

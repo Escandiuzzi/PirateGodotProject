@@ -24,26 +24,26 @@ margin_top = -1.58667
 margin_bottom = -1.58667
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 634.0
+margin_left = 643.0
 margin_top = 393.0
-margin_right = 805.0
+margin_right = 797.0
 margin_bottom = 507.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 171.0
+margin_right = 154.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.898039, 0.772549, 0.286275, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 5
-text = "Options"
+text = "Opções"
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 66.0
-margin_right = 171.0
+margin_right = 154.0
 margin_bottom = 114.0
 custom_fonts/font = SubResource( 2 )
-text = "Back"
+text = "Voltar"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

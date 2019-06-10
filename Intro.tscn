@@ -40,20 +40,20 @@ align = 1
 autowrap = true
 
 [node name="Button" type="Button" parent="."]
-margin_left = 677.0
+margin_left = 660.0
 margin_top = 800.0
-margin_right = 764.0
+margin_right = 780.0
 margin_bottom = 848.0
 custom_fonts/font = SubResource( 2 )
-text = "Back"
+text = "Voltar"
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 670.0
+margin_left = 651.0
 margin_top = 700.0
-margin_right = 773.0
+margin_right = 789.0
 margin_bottom = 748.0
 custom_fonts/font = SubResource( 3 )
-text = "Start"
+text = "Começar"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 editor/display_folded = true

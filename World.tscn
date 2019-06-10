@@ -7,11 +7,11 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Flag.tscn" type="PackedScene" id=6]
 [ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Tema.tres" type="Theme" id=8]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=11]
-[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=10]
+[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Tema.tres" type="Theme" id=12]
 [ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=13]
 [ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=14]
 [ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=15]
@@ -177,9 +177,9 @@ editor/display_folded = true
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 6 )]
+editor/display_folded = false
 position = Vector2( 713.879, 423.456 )
 path = Vector2( 470, 447 )
 
@@ -195,21 +195,20 @@ icon = null
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 7 )]
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
-editor/display_folded = true
-theme = ExtResource( 8 )
-island_states = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 path = "Flags/Flag/Button"
 
 [node name="RichTextLabel" parent="Flags/Flag/IslandMenu/IslandMenu" index="1"]
-margin_right = 155.0
-margin_bottom = 37.0
+margin_left = 85.0
+margin_right = 163.0
+margin_bottom = 45.0
 mouse_filter = 1
 
 [node name="Close" parent="Flags/Flag/IslandMenu/IslandMenu" index="2"]
+margin_top = 139.0
 mouse_filter = 1
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
-editor/display_folded = true
 islandType = "Item"
 regionName = "Sul"
 commonSize = 2
@@ -217,6 +216,12 @@ uncommonSize = 1
 rareSize = 2
 maxRewards = 9
 bonus = 1
+
+[node name="Button" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="2"]
+margin_left = -8.0
+margin_top = 88.0
+margin_right = 48.0
+margin_bottom = 119.0
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag"
@@ -243,7 +248,7 @@ shape = SubResource( 1 )
 [node name="Sprite" parent="Flags/Flag/IslandMenu" index="2"]
 position = Vector2( -8.87903, 24.544 )
 scale = Vector2( 0.380859, 0.375 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 6 )]
 scale = Vector2( 0.7, 0.7 )
@@ -258,10 +263,10 @@ margin_right = 1428.0
 margin_bottom = 1421.0
 icon = null
 
-[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 12 )]
+[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 11 )]
 
 [node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
-theme = ExtResource( 8 )
+theme = ExtResource( 12 )
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
 editor/display_folded = true
@@ -310,7 +315,6 @@ editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 8 )
 island_states = [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ]
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
@@ -344,6 +348,7 @@ scale = Vector2( 0.412657, 0.437253 )
 texture = ExtResource( 14 )
 
 [node name="Flag4" parent="Flags" instance=ExtResource( 6 )]
+editor/display_folded = false
 position = Vector2( -797.636, -222.528 )
 path = Vector2( -600, -120 )
 
@@ -356,11 +361,11 @@ margin_right = 815.0
 margin_bottom = 825.0
 
 [node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 7 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
 editor/display_folded = true
-theme = ExtResource( 8 )
-island_states = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="4"]
 islandType = "Material"
@@ -384,7 +389,7 @@ shape = SubResource( 4 )
 [node name="Sprite" parent="Flags/Flag4/IslandMenu" index="2"]
 position = Vector2( -2.36401, -4.41884 )
 scale = Vector2( 0.3125, 0.318463 )
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 17 )
