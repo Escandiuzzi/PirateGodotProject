@@ -21,6 +21,8 @@ func _on_Button_pressed(scene_to_load, action):
 	print(action);
 	if(action == "Continue"):
 		global.setLoadGame();
+	elif action == "Exit":
+		get_tree().quit();
 	else:
 		global.setNewGame();
 	

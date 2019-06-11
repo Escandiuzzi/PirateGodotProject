@@ -31,10 +31,6 @@ ia_pos = [ Vector2( 1203, 210 ), Vector2( 1011, 380 ), Vector2( 1310, 550 ) ]
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 103.387
-margin_top = 12.1919
-margin_right = 103.387
-margin_bottom = 12.1919
 mouse_filter = 2
 stretch = true
 

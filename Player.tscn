@@ -1,16 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites MagicaVoxel/Player/zeppelin.png" type="Texture" id=2]
 [ext_resource path="res://Sprite/placeholder.png" type="Texture" id=3]
-[ext_resource path="res://Sprite/text_background.png" type="Texture" id=4]
-[ext_resource path="res://RichTextLabel.gd" type="Script" id=5]
+[ext_resource path="res://Menu/fundo2.png" type="Texture" id=4]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=5]
+[ext_resource path="res://RichTextLabel.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 54.0877
 
 [node name="Player" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Player Sprite" type="Sprite" parent="."]
@@ -19,7 +19,7 @@ z_index = 1
 texture = ExtResource( 2 )
 
 [node name="HUD" type="Sprite" parent="."]
-editor/display_folded = true
+visible = false
 position = Vector2( 6.10558, 102.102 )
 scale = Vector2( 0.486804, 0.5 )
 z_index = 2
@@ -53,25 +53,29 @@ text = "Inventory"
 
 [node name="Background" type="Sprite" parent="HUD"]
 visible = false
-position = Vector2( -9.30146, -294.948 )
-scale = Vector2( 17.5365, 15.0563 )
+position = Vector2( -4.8891, -294.948 )
+scale = Vector2( 0.709519, 0.818617 )
 texture = ExtResource( 4 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
+editor/display_folded = true
 visible = false
 margin_left = -276.0
-margin_top = -523.0
+margin_top = -529.0
 margin_right = -59.0
-margin_bottom = -334.0
+margin_bottom = -340.0
 rect_scale = Vector2( 2.5, 2.5 )
-script = ExtResource( 5 )
+theme = ExtResource( 5 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 6 )
 bgd_path = NodePath("../../Background")
 
 [node name="Button" type="Button" parent="HUD/RichTextLabel"]
-margin_left = 168.877
-margin_top = 163.974
-margin_right = 215.877
-margin_bottom = 183.974
+visible = false
+margin_left = 144.0
+margin_top = 164.0
+margin_right = 216.0
+margin_bottom = 184.0
 text = "Close"
 
 [node name="PlayerArea2D" type="Area2D" parent="."]

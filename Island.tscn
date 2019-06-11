@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Island.gd" type="Script" id=1]
 [ext_resource path="res://PopupMenu.gd" type="Script" id=2]
 [ext_resource path="res://Sprite/text_background.png" type="Texture" id=3]
 [ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=4]
-[ext_resource path="res://Button2.gd" type="Script" id=5]
-[ext_resource path="res://RewardMenu.gd" type="Script" id=6]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=5]
+[ext_resource path="res://Button2.gd" type="Script" id=6]
+[ext_resource path="res://RewardMenu.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.9284
@@ -284,20 +285,21 @@ mouse_filter = 2
 readonly = true
 
 [node name="Button2" type="Button" parent="."]
-visible = false
 margin_left = 65.0
 margin_top = 11.0
-margin_right = 121.0
-margin_bottom = 31.0
+margin_right = 168.15
+margin_bottom = 41.0
+rect_scale = Vector2( 0.8, 0.8 )
+theme = ExtResource( 5 )
 text = "Collect"
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="RewardMenu" type="PopupMenu" parent="."]
 editor/display_folded = true
 margin_left = 68.0
 margin_right = 306.0
 margin_bottom = 133.0
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="RewardMenu"]
 margin_left = 11.7913

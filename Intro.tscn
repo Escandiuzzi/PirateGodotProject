@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Intro.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MenuInicial.png" type="Texture" id=2]
 [ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -40,18 +41,20 @@ align = 1
 autowrap = true
 
 [node name="Button" type="Button" parent="."]
-margin_left = 660.0
+margin_left = 640.0
 margin_top = 800.0
-margin_right = 780.0
+margin_right = 810.0
 margin_bottom = 848.0
+theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 2 )
 text = "Voltar"
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 651.0
-margin_top = 700.0
-margin_right = 789.0
-margin_bottom = 748.0
+margin_left = 630.0
+margin_top = 710.0
+margin_right = 828.0
+margin_bottom = 760.0
+theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 3 )
 text = "Começar"
 

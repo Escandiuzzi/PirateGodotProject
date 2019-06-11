@@ -1,17 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu/LoadingScene.gd" type="Script" id=1]
 [ext_resource path="res://Menu/CarregarJogo.png" type="Texture" id=2]
-[ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Menu/Buttons/MenuButton.gd" type="Script" id=4]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=3]
+[ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Menu/Buttons/MenuButton.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -24,47 +25,50 @@ margin_bottom = 40.0
 texture = ExtResource( 2 )
 
 [node name="Botoes" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="Botoes"]
-margin_left = 617.0
+margin_left = 590.0
 margin_top = 265.0
-margin_right = 823.0
-margin_bottom = 354.0
+margin_right = 860.0
+margin_bottom = 365.0
 custom_fonts/font = SubResource( 1 )
 text = "Slot 1"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scene_to_load = "res://World.tscn"
 action = "Continue"
 
 [node name="Button2" type="Button" parent="Botoes"]
-margin_left = 617.0
+margin_left = 590.0
 margin_top = 400.0
-margin_right = 823.0
-margin_bottom = 489.0
+margin_right = 860.0
+margin_bottom = 500.0
 custom_fonts/font = SubResource( 1 )
 text = "Slot 2"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scene_to_load = "res://World.tscn"
 action = "Continue"
 
 [node name="Button3" type="Button" parent="Botoes"]
-margin_left = 617.0
+margin_left = 590.0
 margin_top = 535.0
-margin_right = 824.0
-margin_bottom = 624.0
+margin_right = 860.0
+margin_bottom = 635.0
 custom_fonts/font = SubResource( 1 )
 text = "Slot 3"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 scene_to_load = "res://World.tscn"
 action = "Continue"
 
 [node name="Button4" type="Button" parent="."]
-margin_left = 660.0
+margin_left = 650.0
 margin_top = 829.818
-margin_right = 780.0
+margin_right = 810.0
 margin_bottom = 877.818
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 2 )
 text = "Voltar"
 

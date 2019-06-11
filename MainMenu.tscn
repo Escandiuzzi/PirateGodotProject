@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MenuInicial.png" type="Texture" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://Menu/Buttons/ContinueButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menu/Buttons/OptionsButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Menu/Buttons/CreditosBut.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Menu/Fade/FadeIn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menu/Buttons/ExitButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menu/Fade/FadeIn.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -49,39 +50,51 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "Alpha Version"
 
-[node name="Centro" type="CenterContainer" parent="."]
+[node name="Centro" type="Control" parent="."]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+margin_top = -126.0
+margin_bottom = 126.0
 
-[node name="Buttons" type="VBoxContainer" parent="Centro"]
-margin_left = 540.0
-margin_top = 324.0
-margin_right = 900.0
-margin_bottom = 576.0
+[node name="Buttons" type="Control" parent="Centro"]
+margin_left = 550.0
+margin_top = 16.0
+margin_right = 910.0
+margin_bottom = 268.0
 
 [node name="StartButton" parent="Centro/Buttons" instance=ExtResource( 5 )]
+margin_top = 60.0
 margin_right = 360.0
-margin_bottom = 60.0
+margin_bottom = 120.0
 
 [node name="ContinueButton" parent="Centro/Buttons" instance=ExtResource( 6 )]
-margin_top = 64.0
+margin_top = 170.0
 margin_right = 360.0
-margin_bottom = 124.0
+margin_bottom = 230.0
 scene_to_load = "res://Menu/LoadingScene.tscn"
 
 [node name="OptionsButton" parent="Centro/Buttons" instance=ExtResource( 7 )]
-margin_top = 128.0
+margin_top = 290.0
 margin_right = 360.0
-margin_bottom = 188.0
+margin_bottom = 350.0
 
 [node name="CreditosBut" parent="Centro/Buttons" instance=ExtResource( 8 )]
-margin_top = 192.0
-margin_right = 360.0
-margin_bottom = 252.0
+margin_left = -500.0
+margin_top = 490.0
+margin_right = -140.0
+margin_bottom = 550.0
 scene_to_load = "res://Menu/Creditos.tscn"
 action = "Creditos"
 
-[node name="FadeIn" parent="." instance=ExtResource( 9 )]
+[node name="ExitButton" parent="Centro/Buttons" instance=ExtResource( 9 )]
+margin_left = 670.0
+margin_top = 510.0
+margin_right = 1030.0
+margin_bottom = 570.0
+rect_scale = Vector2( 0.8, 0.8 )
+
+[node name="FadeIn" parent="." instance=ExtResource( 10 )]
 visible = false
 
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

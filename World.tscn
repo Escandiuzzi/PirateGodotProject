@@ -166,16 +166,11 @@ speed = 0.5
 position = Vector2( -40, 530 )
 movement_speed = 200
 
-[node name="HUD" parent="Player" index="1"]
-visible = false
-
-[node name="RichTextLabel" parent="Player/HUD" index="4"]
-editor/display_folded = true
-
 [node name="PlayerArea2D" parent="Player" index="2"]
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 6 )]
 position = Vector2( 713.879, 423.456 )
@@ -250,7 +245,6 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 8 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 6 )]
-editor/display_folded = false
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 

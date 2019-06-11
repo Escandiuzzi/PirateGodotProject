@@ -2,10 +2,9 @@
 
 [ext_resource path="res://Menu/Buttons/MenuButton.tscn" type="PackedScene" id=1]
 
-[node name="StartButton" instance=ExtResource( 1 )]
-scene_to_load = "res://Intro.tscn"
-action = "Start"
+[node name="ExitButton" instance=ExtResource( 1 )]
+action = "Exit"
 
 [node name="Label" parent="." index="0"]
-text = "Começar"
+text = "Sair"
 
