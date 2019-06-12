@@ -5,14 +5,22 @@ const INVENTORY_SIZE = 25
 var inventory = {};
 
 func _insert_item(item):
-	if inventory.keys().size() < INVENTORY_SIZE:
-		if inventory.has(item._get_name()):
-			var _item_list = inventory[item._get_name()];
-			_item_list.push_front(item);
-		else:
-			var _item_list = [];
-			_item_list.push_front(item);
-			inventory[item._get_name()] = _item_list;
+	
+	if inventory.has(item._get_name()): 
+		var _item_list = inventory[item._get_name()];
+		_item_list.push_front(item); 
+	elif  inventory.keys().size() < INVENTORY_SIZE:
+		var _item_list = [];
+		_item_list.push_front(item); 
+		inventory[item._get_name()] = _item_list;
+	
+	#if inventory.has(item._get_name()): #Checking if the inventory already has one item of the same type
+	#	var _item_list = inventory[item._get_name()];
+	#	_item_list.push_front(item); #Adding the new object to the list
+	#elif  inventory.keys().size() < INVENTORY_SIZE:#If the inventory can add a new item
+	#	var _item_list = []; #Creating a new slot for the item
+	#	_item_list.push_front(item); #Adding the new object to the list
+	#	inventory[item._get_name()] = _item_list;
 	pass;
 
 func _remove_item(item, quantity):
