@@ -1,21 +1,23 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://MainCamera.gd" type="Script" id=2]
 [ext_resource path="res://NavigationMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cloud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Flag.tscn" type="PackedScene" id=6]
-[ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=10]
-[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=12]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=14]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1state3.png" type="Texture" id=15]
-[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=16]
+[ext_resource path="res://Tema.tres" type="Theme" id=6]
+[ext_resource path="res://Menu/Borda.png" type="Texture" id=7]
+[ext_resource path="res://Flag.tscn" type="PackedScene" id=8]
+[ext_resource path="res://IslandMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=12]
+[ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=14]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1state3.png" type="Texture" id=17]
+[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 216.121, 209.456 )
@@ -166,13 +168,36 @@ speed = 0.5
 position = Vector2( -40, 530 )
 movement_speed = 200
 
-[node name="PlayerArea2D" parent="Player" index="2"]
-editor/display_folded = true
+[node name="SaveButton" parent="Player/HUD" index="0"]
+theme = ExtResource( 6 )
+
+[node name="LoadButton" parent="Player/HUD" index="1"]
+theme = ExtResource( 6 )
+
+[node name="InventoryButton" parent="Player/HUD" index="2"]
+theme = ExtResource( 6 )
+
+[node name="Background" parent="Player/HUD" index="3"]
+position = Vector2( 1.58424, -346.628 )
+
+[node name="Sprite" type="Sprite" parent="Player/HUD/Background" index="0"]
+position = Vector2( 3.88025, 2.31797 )
+scale = Vector2( 0.483268, 0.694915 )
+texture = ExtResource( 7 )
+
+[node name="RichTextLabel" parent="Player/HUD" index="4"]
+editor/display_folded = false
+margin_left = -261.759
+margin_top = -579.42
+margin_right = -44.7587
+margin_bottom = -390.42
+
+[node name="Button" parent="Player/HUD/RichTextLabel" index="1"]
+visible = true
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
-[node name="Flag" parent="Flags" instance=ExtResource( 6 )]
+[node name="Flag" parent="Flags" instance=ExtResource( 8 )]
 position = Vector2( 713.879, 423.456 )
 path = Vector2( 470, 447 )
 
@@ -185,24 +210,23 @@ margin_right = 1097.0
 margin_bottom = 1107.0
 icon = null
 
-[node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 7 )]
-editor/display_folded = true
+[node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 9 )]
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
-island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+island_states = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ]
 path = "Flags/Flag/Button"
 
-[node name="RichTextLabel" parent="Flags/Flag/IslandMenu/IslandMenu" index="1"]
+[node name="RichTextLabel" parent="Flags/Flag/IslandMenu/IslandMenu" index="2"]
 margin_left = 85.0
 margin_right = 163.0
 margin_bottom = 45.0
 mouse_filter = 1
 
-[node name="Close" parent="Flags/Flag/IslandMenu/IslandMenu" index="2"]
+[node name="Close" parent="Flags/Flag/IslandMenu/IslandMenu" index="3"]
 margin_top = 139.0
 mouse_filter = 1
 
-[node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="4"]
+[node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="5"]
 islandType = "Item"
 regionName = "Sul"
 commonSize = 2
@@ -242,9 +266,10 @@ shape = SubResource( 1 )
 [node name="Sprite" parent="Flags/Flag/IslandMenu" index="2"]
 position = Vector2( -8.87903, 24.544 )
 scale = Vector2( 0.380859, 0.375 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
-[node name="Flag2" parent="Flags" instance=ExtResource( 6 )]
+[node name="Flag2" parent="Flags" instance=ExtResource( 8 )]
+editor/display_folded = false
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 
@@ -257,9 +282,9 @@ margin_right = 1428.0
 margin_bottom = 1421.0
 icon = null
 
-[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 11 )]
+[node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 13 )]
 
-[node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="3"]
+[node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="4"]
 islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
@@ -277,18 +302,15 @@ path = "World/Flags/Flag2"
 [node name="RewardMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag2"
 
-[node name="Area2D" parent="Flags/Flag2/IslandMenu" index="1"]
-editor/display_folded = true
-
 [node name="CollisionShape2D" parent="Flags/Flag2/IslandMenu/Area2D" index="0"]
 position = Vector2( 0, 2.58469 )
 shape = SubResource( 2 )
 
 [node name="Sprite" parent="Flags/Flag2/IslandMenu" index="2"]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 
-[node name="Flag3" parent="Flags" instance=ExtResource( 6 )]
+[node name="Flag3" parent="Flags" instance=ExtResource( 8 )]
 position = Vector2( -770.167, 480 )
 path = Vector2( -580, 500 )
 
@@ -300,15 +322,12 @@ margin_top = -200.0
 margin_right = 526.0
 margin_bottom = 1000.0
 
-[node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 7 )]
-editor/display_folded = true
+[node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 9 )]
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
-editor/display_folded = true
-island_states = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
+island_states = [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ]
 
-[node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="4"]
-editor/display_folded = true
+[node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="5"]
 renewable = true
 islandType = "Consumable"
 regionName = "Sul"
@@ -335,9 +354,9 @@ shape = SubResource( 3 )
 [node name="Sprite" parent="Flags/Flag3/IslandMenu" index="2"]
 position = Vector2( 2.06972, -0.126345 )
 scale = Vector2( 0.412657, 0.437253 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
-[node name="Flag4" parent="Flags" instance=ExtResource( 6 )]
+[node name="Flag4" parent="Flags" instance=ExtResource( 8 )]
 position = Vector2( -797.636, -222.528 )
 path = Vector2( -600, -120 )
 
@@ -349,14 +368,13 @@ margin_top = -146.0
 margin_right = 815.0
 margin_bottom = 825.0
 
-[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 7 )]
+[node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 9 )]
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
-editor/display_folded = true
-island_states = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ]
+island_states = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ]
 
-[node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="4"]
+[node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
 regionName = "Sul"
 commonSize = 2
@@ -378,10 +396,10 @@ shape = SubResource( 4 )
 [node name="Sprite" parent="Flags/Flag4/IslandMenu" index="2"]
 position = Vector2( -2.36401, -4.41884 )
 scale = Vector2( 0.3125, 0.318463 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 16 )
+tile_set = ExtResource( 18 )
 format = 1
 tile_data = PoolIntArray( -327689, 0, 1, -327688, 0, 65536, -327687, 0, 2, -393215, 0, 196608, -393214, 0, 196609, -393213, 0, 196609, -393212, 0, 196610, -393208, 0, 6, -393207, 0, 196609, -393206, 0, 196609, -393205, 0, 131076, -393204, 0, 196609, -393203, 0, 196609, -393202, 0, 7, -262153, 0, 131073, -262152, 0, 196619, -262151, 0, 131074, -327672, 0, 65541, -327669, 0, 65541, -327666, 0, 65541, -196617, 0, 65537, -196616, 0, 131072, -196615, 0, 65538, -262136, 0, 65541, -262133, 0, 65541, -262130, 0, 65541, -196600, 0, 8, -196599, 0, 9, -196598, 0, 196609, -196597, 0, 131083, -196596, 0, 196609, -196595, 0, 10, -196594, 0, 11, -131064, 0, 65537, -131063, 0, 65545, -131061, 0, 65541, -131059, 0, 65546, -131058, 0, 65538, -65527, 0, 131077, -65525, 0, 131077, -65523, 0, 131077, 65523, 0, 1, 65524, 0, 2, 131059, 0, 131073, 131060, 0, 131074, 65547, 0, 196608, 65548, 0, 196609, 65549, 0, 196609, 65550, 0, 7, 196595, 0, 65537, 196596, 0, 65538, 131078, 0, 5, 131086, 0, 65542, 131087, 0, 196609, 131088, 0, 196609, 131089, 0, 196610, 196614, 0, 131077, 393211, 0, 5, 458747, 0, 65541, 393218, 0, 1, 393219, 0, 65536, 393220, 0, 2, 524283, 0, 65541, 458754, 0, 65537, 458755, 0, 131072, 458756, 0, 65538, 589819, 0, 131077, 720888, 0, 196608, 720889, 0, 7, 655363, 0, 196608, 655364, 0, 196610, 786425, 0, 65542, 786426, 0, 196610, 720902, 0, 196608, 720903, 0, 196609, 720904, 0, 196610 )
 

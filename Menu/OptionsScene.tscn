@@ -1,17 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu/ReturnButton.gd" type="Script" id=1]
 [ext_resource path="res://Menu/ConfigMenu.png" type="Texture" id=2]
-[ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Menu/The Foregen Rough One.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Tema.tres" type="Theme" id=3]
+[ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Menu/The Foregen Rough One.otf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -24,10 +25,11 @@ margin_bottom = 40.0
 texture = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 660.0
+margin_left = 635.0
 margin_top = 819.495
-margin_right = 780.0
+margin_right = 805.0
 margin_bottom = 867.495
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 text = "Voltar"
 
