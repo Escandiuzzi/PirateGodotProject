@@ -282,10 +282,10 @@ path = Vector2( 0, 226 )
 [node name="Button" parent="Flags/Flag2" index="0" groups=[
 "my_buttons",
 ]]
-margin_left = -254.0
-margin_top = -252.0
-margin_right = 1428.0
-margin_bottom = 1421.0
+margin_left = -157.0
+margin_top = -171.0
+margin_right = 890.0
+margin_bottom = 970.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 13 )]
@@ -308,6 +308,9 @@ path = "World/Flags/Flag2"
 [node name="RewardMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag2"
 
+[node name="Area2D" parent="Flags/Flag2/IslandMenu" index="1"]
+editor/display_folded = false
+
 [node name="CollisionShape2D" parent="Flags/Flag2/IslandMenu/Area2D" index="0"]
 position = Vector2( 0, 2.58469 )
 shape = SubResource( 2 )
@@ -317,16 +320,17 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 14 )
 
 [node name="Flag3" parent="Flags" instance=ExtResource( 8 )]
+editor/display_folded = false
 position = Vector2( -770.167, 480 )
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Flags/Flag3" index="0" groups=[
 "my_buttons",
 ]]
-margin_left = -50.0
-margin_top = -200.0
-margin_right = 526.0
-margin_bottom = 1000.0
+margin_left = -40.0
+margin_top = -170.0
+margin_right = 462.0
+margin_bottom = 963.0
 
 [node name="IslandMenu" parent="Flags/Flag3" instance=ExtResource( 9 )]
 
