@@ -217,6 +217,7 @@ rect_scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 4 )
 
 [node name="IngredientsPanel" type="Panel" parent="."]
+editor/display_folded = true
 margin_left = 870.0
 margin_top = 160.0
 margin_right = 1210.0
@@ -247,6 +248,7 @@ rect_scale = Vector2( 1.7, 1.7 )
 text = "Ingredientes"
 
 [node name="InventoryPanel" type="Panel" parent="."]
+editor/display_folded = true
 margin_left = 870.0
 margin_top = 530.0
 margin_right = 1210.0
@@ -275,6 +277,14 @@ margin_right = 229.0
 margin_bottom = 39.0
 rect_scale = Vector2( 1.7, 1.7 )
 text = "Inventário"
+
+[node name="ReturnButton" type="Button" parent="."]
+margin_left = 1280.0
+margin_top = 840.0
+margin_right = 1425.0
+margin_bottom = 890.0
+theme = ExtResource( 3 )
+text = "Voltar"
 
 [connection signal="pressed" from="Layer 1/MaterialsButton" to="UICraftHandler" method="_on_LayerButton_pressed" binds= [ 0 ]]
 [connection signal="mouse_entered" from="Layer 1/Slot1Button" to="UICraftHandler" method="_on_SlotButton_mouse_entered" binds= [ 0 ]]
@@ -335,3 +345,4 @@ text = "Inventário"
 [connection signal="mouse_entered" from="Layer 2/Slot7Button" to="UICraftHandler" method="_on_SlotButton_mouse_entered" binds= [ 6 ]]
 [connection signal="mouse_exited" from="Layer 2/Slot7Button" to="UICraftHandler" method="_on_SlotButton_mouse_exited"]
 [connection signal="pressed" from="Layer 2/Slot7Button" to="UICraftHandler" method="_on_SlotButton_pressed" binds= [ 6 ]]
+[connection signal="pressed" from="ReturnButton" to="UICraftHandler" method="_on_ReturnButton_pressed"]

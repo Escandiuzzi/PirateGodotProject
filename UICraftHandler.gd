@@ -177,3 +177,8 @@ func _on_LayerButton_pressed(extra_arg_0):
 		layers[0].visible  = true;
 		layers[1].visible  = false;
 	pass;
+
+
+func _on_ReturnButton_pressed():
+	get_tree().change_scene("res://World.tscn")
+	pass;
