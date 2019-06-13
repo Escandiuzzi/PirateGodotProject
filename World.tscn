@@ -168,6 +168,9 @@ speed = 0.5
 position = Vector2( -40, 530 )
 movement_speed = 200
 
+[node name="HUD" parent="Player" index="1"]
+editor/display_folded = true
+
 [node name="SaveButton" parent="Player/HUD" index="0"]
 theme = ExtResource( 6 )
 
@@ -194,6 +197,9 @@ margin_bottom = -390.42
 
 [node name="Button" parent="Player/HUD/RichTextLabel" index="1"]
 visible = true
+
+[node name="PlayerArea2D" parent="Player" index="2"]
+editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
 

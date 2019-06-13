@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TemaCraft.tres" type="Theme" id=1]
 [ext_resource path="res://UICraftHandler.gd" type="Script" id=2]
 [ext_resource path="res://CraftButtons.tres" type="Theme" id=3]
 [ext_resource path="res://SlotButton.gd" type="Script" id=4]
 [ext_resource path="res://PanelCraft.tres" type="Theme" id=5]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=6]
 
 [node name="CraftingStation" type="Node"]
 
@@ -221,6 +222,11 @@ margin_top = 160.0
 margin_right = 1210.0
 margin_bottom = 440.0
 theme = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="IngredientsPanel"]
+position = Vector2( 170.796, 140.387 )
+scale = Vector2( 9.02418, 6.71337 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -246,6 +252,11 @@ margin_top = 530.0
 margin_right = 1210.0
 margin_bottom = 810.0
 theme = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="InventoryPanel"]
+position = Vector2( 170.796, 140.387 )
+scale = Vector2( 9.02418, 6.71337 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
