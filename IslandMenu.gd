@@ -2,6 +2,8 @@ extends PopupMenu
 
 signal on_popupmenu_closed;
 
+onready var data = get_tree().get_root().get_node("/root/PlayerData");
+
 onready var pirate_menu = get_node("Island/PopupMenu");
 onready var reward_menu = get_node("Island/RewardMenu");
 
@@ -42,3 +44,12 @@ func _on_timer_change(time):
 	else:
 		sprite.texture = island_states[2];
 	pass;
+
+func _on_Save_pressed():
+	data._saveData();
+	pass
+
+
+func _on_CraftingButton_pressed():
+	get_tree().change_scene("res://BattleScene.tscn");
+	pass

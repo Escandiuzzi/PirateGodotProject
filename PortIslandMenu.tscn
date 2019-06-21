@@ -1,18 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Tema.tres" type="Theme" id=1]
 [ext_resource path="res://IslandMenu.gd" type="Script" id=2]
 [ext_resource path="res://Menu/Borda.png" type="Texture" id=3]
-[ext_resource path="res://Sprite/mine_bar/layer_1.png" type="Texture" id=4]
-[ext_resource path="res://Sprite/mine_bar/layer_2.png" type="Texture" id=5]
-[ext_resource path="res://MineProgress.gd" type="Script" id=6]
-[ext_resource path="res://Island.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Island.tscn" type="PackedScene" id=4]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=5]
 
 [node name="IslandMenu" type="Node2D"]
 position = Vector2( 0, 0.323532 )
 
 [node name="IslandMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
+visible = true
 margin_left = -110.0
 margin_top = -90.0
 margin_right = 110.0
@@ -28,44 +26,51 @@ scale = Vector2( 0.133777, 0.205668 )
 texture = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="IslandMenu"]
-margin_left = 87.0
-margin_top = 18.501
-margin_right = 167.0
-margin_bottom = 41.501
-text = "Island"
+margin_left = 20.3018
+margin_top = 17.8112
+margin_right = 216.302
+margin_bottom = 64.8112
+text = "Hora de desansar marujo. . ."
 
 [node name="Close" type="Button" parent="IslandMenu"]
-margin_left = 80.0
-margin_top = 143.0
-margin_right = 141.0
-margin_bottom = 170.0
+margin_left = 6.51112
+margin_top = 143.717
+margin_right = 67.5111
+margin_bottom = 170.717
 rect_pivot_offset = Vector2( 30.5, 10 )
 text = "Close"
 
-[node name="MineProgress" type="TextureProgress" parent="IslandMenu"]
-margin_left = 9.99999
-margin_top = 53.3532
-margin_right = 1010.0
-margin_bottom = 153.353
-rect_scale = Vector2( 0.2, 0.2 )
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
-script = ExtResource( 6 )
+[node name="Save" type="Button" parent="IslandMenu"]
+margin_left = 151.338
+margin_top = 143.717
+margin_right = 212.338
+margin_bottom = 170.717
+rect_pivot_offset = Vector2( 30.5, 10 )
+text = "Save"
 
-[node name="Island" parent="IslandMenu" instance=ExtResource( 7 )]
-editor/display_folded = true
+[node name="Island" parent="IslandMenu" instance=ExtResource( 4 )]
 position = Vector2( 89.093, 0 )
 
 [node name="CooldownTimer" parent="IslandMenu/Island" index="1"]
 one_shot = true
 
 [node name="Button" parent="IslandMenu/Island" index="2"]
-margin_left = -2.0
-margin_top = 91.0
-margin_bottom = 120.0
-theme = ExtResource( 1 )
+margin_left = -34.0
+margin_top = 55.0
+margin_right = 78.0
+margin_bottom = 90.0
+theme = ExtResource( 5 )
+text = "Inventory"
 
-[node name="PopupMenu" parent="IslandMenu/Island" index="3"]
+[node name="CraftingButton" type="Button" parent="IslandMenu/Island"]
+margin_left = -17.9189
+margin_top = 100.183
+margin_right = 61.0811
+margin_bottom = 132.183
+theme = ExtResource( 5 )
+text = "Craft"
+
+[node name="PopupMenu" parent="IslandMenu/Island" index="4"]
 margin_left = -149.093
 margin_right = 198.907
 theme = ExtResource( 1 )
@@ -99,7 +104,7 @@ margin_top = -31.0
 margin_right = 336.0
 margin_bottom = -3.0
 
-[node name="Button2" parent="IslandMenu/Island" index="4"]
+[node name="Button2" parent="IslandMenu/Island" index="5"]
 visible = false
 margin_left = 66.0739
 margin_top = 10.0281
@@ -107,7 +112,7 @@ margin_right = 166.074
 margin_bottom = 48.028
 rect_scale = Vector2( 0.6, 0.6 )
 
-[node name="RewardMenu" parent="IslandMenu/Island" index="5"]
+[node name="RewardMenu" parent="IslandMenu/Island" index="6"]
 mouse_filter = 2
 theme = ExtResource( 1 )
 
@@ -130,6 +135,7 @@ editor/display_folded = true
 [node name="Sprite" type="Sprite" parent="."]
 
 [connection signal="pressed" from="IslandMenu/Close" to="IslandMenu" method="_on_Close_pressed"]
-[connection signal="on_timer_change" from="IslandMenu/Island" to="IslandMenu/MineProgress" method="_on_Island_on_timer_change"]
+[connection signal="pressed" from="IslandMenu/Save" to="IslandMenu" method="_on_Save_pressed"]
+[connection signal="pressed" from="IslandMenu/Island/CraftingButton" to="IslandMenu" method="_on_CraftingButton_pressed"]
 
 [editable path="IslandMenu/Island"]

@@ -32,6 +32,7 @@ texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="Menu" type="VBoxContainer" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
@@ -51,6 +52,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Alpha Version"
 
 [node name="Centro" type="Control" parent="."]
+editor/display_folded = true
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -58,6 +60,7 @@ margin_top = -126.0
 margin_bottom = 126.0
 
 [node name="Buttons" type="Control" parent="Centro"]
+editor/display_folded = true
 margin_left = 550.0
 margin_top = 16.0
 margin_right = 910.0

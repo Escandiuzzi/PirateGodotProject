@@ -13,6 +13,7 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="BackgroundContainer" type="Control" parent="."]
+editor/display_folded = true
 theme = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="BackgroundContainer"]
@@ -219,10 +220,10 @@ margin_bottom = 615.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="CloseButton" type="Button" parent="."]
-margin_left = 1252.0
-margin_top = 840.0
-margin_right = 1333.0
-margin_bottom = 860.0
+margin_left = 633.0
+margin_top = 850.0
+margin_right = 714.0
+margin_bottom = 872.0
 rect_scale = Vector2( 2, 2 )
 theme = ExtResource( 5 )
 text = "Fechar"

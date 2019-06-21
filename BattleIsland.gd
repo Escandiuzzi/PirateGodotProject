@@ -90,7 +90,7 @@ func _insertPirates():
 func _on_StartButton_pressed():
 	popupMenu.hide();
 	if selectedPirates > -1:
-			get_tree().change_scene("res://BattleScene.tscn")
+			get_tree().change_scene("res://BattleScene.tscn");
 			player_data._selected_pirates(pirateId);
 			battle_manager._island_data(difficulty, enemies, regionName, indexType, commonSize, uncommonSize, rareSize, maxRewards, islandType, scenePath);
 			button.hide();

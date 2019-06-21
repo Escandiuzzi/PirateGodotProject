@@ -30,7 +30,11 @@ onready var data = get_tree().get_root().get_node("/root/PlayerData");
 onready var sprite = $"Player Sprite";
 onready var global = get_node("/root/Global");
 onready var camera = $Camera2D;
+
+var move;
+
 func _ready():
+	move = true;
 	if global.getGame() == true:
 		data._recruitPirate(0);
 	else:
@@ -51,7 +55,7 @@ func _input(event):
 func _process(delta):
 	
 	# Only do stuff if we have a current path
-	if path:
+	if path and move:
 
 		# The next point is the first member of the path array
 		var target = path[0];
@@ -116,4 +120,8 @@ func _position_pirate(pirate_obj):
 
 func _clear_path():
 	path = null;
+	pass;
+	
+func _set_move(value):
+	move = value;
 	pass;

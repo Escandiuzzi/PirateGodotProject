@@ -8,6 +8,9 @@ onready var menuButton = $Button;
 onready var player = get_tree().get_root().get_node("World/Player");
 onready var world = get_parent().get_parent();
 onready var camera = get_tree().get_root().get_node("World/MainCamera");
+onready var inventory_camera = get_tree().get_root().get_node("World/InventoryCamera");
+onready var inventory_screen = get_tree().get_root().get_node("World/InventoryCamera/InventoryScreen");
+
 var islandMenu;
 var player_inside;
 
@@ -40,4 +43,16 @@ func _on_Area2D_area_exited(area):
 	if area.name == "PlayerArea2D":
 		player_inside = false;
 		menuButton.visible = true;
+	pass
+
+func _on_InventoryButton_pressed():
+	inventory_screen.visible = true;
+	inventory_camera._set_current(true); 
+	player._set_move(false);
+	pass
+	
+func _on_CloseInventoryButton_pressed():
+	inventory_screen.visible = false;
+	camera._set_current(true); 
+	player._set_move(true);
 	pass

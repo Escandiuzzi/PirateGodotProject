@@ -22,7 +22,7 @@ onready var pirateStat = $PirateStat;
 
 func _ready():
 	player = get_tree().get_root().get_node("World/Player");
-	parent = get_tree().get_root().get_node(path);
+	parent = get_parent().get_parent().get_parent().get_parent();
 	rect_position.x = parent.position.x - (rect_size.x/2);
 	rect_position.y = parent.position.y - (rect_size.y/2);
 	pass 
