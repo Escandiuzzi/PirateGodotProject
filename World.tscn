@@ -41,8 +41,10 @@ extents = Vector2( 152.025, 180.324 )
 script = ExtResource( 1 )
 
 [node name="InventoryCamera" type="Camera2D" parent="."]
+editor/display_folded = true
 
 [node name="InventoryScreen" parent="InventoryCamera" instance=ExtResource( 2 )]
+editor/display_folded = true
 visible = false
 position = Vector2( -723.729, -448.388 )
 z_index = 5
@@ -217,6 +219,7 @@ visible = true
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 9 )]
 position = Vector2( 713.879, 423.456 )
@@ -264,7 +267,9 @@ margin_right = 48.0
 margin_bottom = 119.0
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="3"]
+editor/display_folded = false
 path = "World/Flags/Flag"
+islandType = "Resource"
 
 [node name="Sprite" parent="Flags/Flag/IslandMenu/IslandMenu/Island/PopupMenu/CheckBox5" index="0"]
 editor/display_folded = true
@@ -304,7 +309,6 @@ margin_bottom = 970.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 14 )]
-editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
 editor/display_folded = true
@@ -325,6 +329,7 @@ maxRewards = 3
 [node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="1"]
 editor/display_folded = false
 path = "World/Flags/Flag2"
+islandType = "Battle"
 
 [node name="RewardMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag2"
@@ -353,10 +358,12 @@ margin_bottom = 963.0
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
+editor/display_folded = false
 island_states = [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ]
 path = "Flags/Flag3/Button"
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = false
 renewable = true
 islandType = "Consumable"
 regionName = "Sul"
@@ -369,6 +376,7 @@ bonus = 2
 
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag3"
+islandType = "Resource"
 
 [node name="RewardMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="5"]
 path = "World/Flags/Flag3"
@@ -383,7 +391,6 @@ scale = Vector2( 0.412657, 0.437253 )
 texture = ExtResource( 16 )
 
 [node name="Flag4" parent="Flags" instance=ExtResource( 9 )]
-editor/display_folded = false
 position = Vector2( -797.636, -222.528 )
 path = Vector2( -600, -120 )
 
@@ -404,7 +411,6 @@ island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 path = "Flags/Flag4/Button"
 
 [node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="5"]
-editor/display_folded = false
 islandType = "Material"
 regionName = "Sul"
 commonSize = 2
@@ -416,6 +422,7 @@ bonus = 3
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="3"]
 editor/display_folded = false
 path = "World/Flags/Flag4"
+islandType = "Resource"
 
 [node name="RewardMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="5"]
 path = "World/Flags/Flag4"
@@ -433,7 +440,6 @@ scale = Vector2( 0.3125, 0.318463 )
 texture = ExtResource( 11 )
 
 [node name="Flag5" parent="Flags" instance=ExtResource( 9 )]
-editor/display_folded = false
 position = Vector2( -192.025, -670 )
 path = Vector2( -190, -670 )
 
@@ -454,6 +460,15 @@ position = Vector2( 0, 0.323547 )
 
 [node name="IslandMenu" parent="Flags/Flag5/IslandMenu" index="0"]
 path = "Flags/Flag5/Button"
+
+[node name="PopupMenu" parent="Flags/Flag5/IslandMenu/IslandMenu/Island" index="3"]
+islandType = "Battle"
+
+[node name="CheckBox9" parent="Flags/Flag5/IslandMenu/IslandMenu/Island/PopupMenu" index="11"]
+editor/display_folded = false
+
+[node name="CheckBox10" parent="Flags/Flag5/IslandMenu/IslandMenu/Island/PopupMenu" index="12"]
+editor/display_folded = false
 
 [node name="Area2D" parent="Flags/Flag5/IslandMenu" index="1"]
 editor/display_folded = false

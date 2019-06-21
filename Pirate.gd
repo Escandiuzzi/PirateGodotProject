@@ -329,7 +329,7 @@ func _on_Area2D_mouse_entered():
 			pirateStat.text += "Shield: " + shield._get_name() + "\n";
 			pirateStat.text += "Shield Durability: " + str(shield._get_stat("durability")) + "\n";
 		pirateStat.text += "AtkBonus: " + str(_get_stat("atkBonus")) + "\n";
-		pirateStat.text += "DefBonus: " + str(_get_stat("defBonus")) + "\n";	
+		pirateStat.text += "DefBonus: " + str(_get_stat("defBonus")) + "\n";
 	else:
 		pirateStat.text = "";
 		pirateStat.text += "Mining: " + str(_get_stat("mining")) + "\n";

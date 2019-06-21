@@ -55,6 +55,9 @@ margin_top = 50.8304
 margin_right = 166.0
 margin_bottom = 81.8304
 
+[node name="PopupMenu" parent="IslandMenu/Island" index="3"]
+editor/display_folded = true
+
 [node name="CraftButton" type="Button" parent="IslandMenu"]
 margin_left = 72.0
 margin_top = 93.0

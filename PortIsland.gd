@@ -4,6 +4,7 @@ signal on_pirate_selected(pirate);
 
 export(int) var islandSize;
 
+
 var selectedPirates = -1;
 var pirates = [];
 var pirateId = [];
