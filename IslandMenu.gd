@@ -53,3 +53,4 @@ func _on_Save_pressed():
 func _on_CraftingButton_pressed():
 	get_tree().change_scene("res://BattleScene.tscn");
 	pass
+

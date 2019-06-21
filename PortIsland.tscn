@@ -1,0 +1,316 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://PortIsland.gd" type="Script" id=1]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=2]
+[ext_resource path="res://PopupMenu.gd" type="Script" id=3]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 40.9284
+
+[node name="Island" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+margin_right = 45.0
+margin_bottom = 20.0
+theme = ExtResource( 2 )
+text = "Inventory"
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_left = -0.451874
+margin_right = 347.548
+margin_bottom = 206.0
+mouse_filter = 2
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="PopupMenu"]
+position = Vector2( 0, -44.3525 )
+scale = Vector2( 10.8997, 1.50925 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PopupMenu"]
+margin_left = 111.073
+margin_top = -38.0
+margin_right = 236.073
+margin_bottom = 6.0
+text = "      Pirates Slots
+Island Capacity : 3"
+
+[node name="CheckBox" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 40.0
+margin_top = 60.0
+margin_right = 64.0
+margin_bottom = 84.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="PopupMenu/CheckBox/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox/Sprite/Area2D"]
+shape = SubResource( 1 )
+
+[node name="CheckBox2" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 100.0
+margin_top = 60.0
+margin_right = 124.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox2"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D2" type="Area2D" parent="PopupMenu/CheckBox2/Sprite"]
+position = Vector2( -0.122238, 0.681122 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox2/Sprite/Area2D2"]
+shape = SubResource( 1 )
+
+[node name="CheckBox3" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 160.0
+margin_top = 60.0
+margin_right = 184.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox3"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D3" type="Area2D" parent="PopupMenu/CheckBox3/Sprite"]
+position = Vector2( -0.244446, -0.681122 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox3/Sprite/Area2D3"]
+shape = SubResource( 1 )
+
+[node name="CheckBox4" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 220.0
+margin_top = 60.0
+margin_right = 244.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox4"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D4" type="Area2D" parent="PopupMenu/CheckBox4/Sprite"]
+position = Vector2( -1.04785, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox4/Sprite/Area2D4"]
+shape = SubResource( 1 )
+
+[node name="CheckBox5" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 280.0
+margin_top = 60.0
+margin_right = 304.0
+margin_bottom = 84.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox5"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D5" type="Area2D" parent="PopupMenu/CheckBox5/Sprite"]
+position = Vector2( 0.87323, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox5/Sprite/Area2D5"]
+shape = SubResource( 1 )
+
+[node name="CheckBox6" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 40.0
+margin_top = 149.0
+margin_right = 64.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox6"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D6" type="Area2D" parent="PopupMenu/CheckBox6/Sprite"]
+position = Vector2( -0.306519, -0.839722 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox6/Sprite/Area2D6"]
+shape = SubResource( 1 )
+
+[node name="CheckBox7" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 100.0
+margin_top = 149.0
+margin_right = 124.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D7" type="Area2D" parent="PopupMenu/CheckBox7/Sprite"]
+position = Vector2( -0.292557, -0.0564575 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox7/Sprite/Area2D7"]
+shape = SubResource( 1 )
+
+[node name="CheckBox8" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 160.0
+margin_top = 149.0
+margin_right = 184.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox8"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D8" type="Area2D" parent="PopupMenu/CheckBox8/Sprite"]
+position = Vector2( 0.734283, -0.755478 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox8/Sprite/Area2D8"]
+shape = SubResource( 1 )
+
+[node name="CheckBox9" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 220.0
+margin_top = 149.0
+margin_right = 244.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D9" type="Area2D" parent="PopupMenu/CheckBox9/Sprite"]
+position = Vector2( -1.55872, -0.226746 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox9/Sprite/Area2D9"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CheckBox10" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
+visible = false
+margin_left = 280.0
+margin_top = 149.0
+margin_right = 304.0
+margin_bottom = 173.0
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox10"]
+position = Vector2( 12.4383, -21.8937 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Area2D10" type="Area2D" parent="PopupMenu/CheckBox10/Sprite"]
+position = Vector2( -0.489014, -0.0564575 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupMenu/CheckBox10/Sprite/Area2D10"]
+shape = SubResource( 1 )
+
+[node name="StartButton" type="Button" parent="PopupMenu"]
+margin_left = 135.744
+margin_top = 177.903
+margin_right = 208.744
+margin_bottom = 197.903
+text = "Start"
+
+[node name="CloseButton2" type="Button" parent="PopupMenu"]
+margin_left = 288.734
+margin_top = -22.5031
+margin_right = 335.734
+margin_bottom = -2.5031
+text = "Close"
+
+[node name="PirateStat" type="TextEdit" parent="PopupMenu"]
+visible = false
+margin_left = 54.0
+margin_top = 39.0
+margin_right = 168.0
+margin_bottom = 116.0
+mouse_filter = 2
+readonly = true
+
+[connection signal="pressed" from="Button" to="PopupMenu" method="_on_Button_pressed"]
+[connection signal="toggled" from="PopupMenu/CheckBox" to="." method="_on_CheckBox_toggled" binds= [ 0 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox/Sprite/Area2D" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 0 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox/Sprite/Area2D" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox2" to="." method="_on_CheckBox_toggled" binds= [ 1 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox2/Sprite/Area2D2" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 1 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox2/Sprite/Area2D2" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox3" to="." method="_on_CheckBox_toggled" binds= [ 2 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox3/Sprite/Area2D3" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 2 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox3/Sprite/Area2D3" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox4" to="." method="_on_CheckBox_toggled" binds= [ 3 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox4/Sprite/Area2D4" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 3 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox4/Sprite/Area2D4" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox5" to="." method="_on_CheckBox_toggled" binds= [ 4 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox5/Sprite/Area2D5" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 4 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox5/Sprite/Area2D5" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox6" to="." method="_on_CheckBox_toggled" binds= [ 5 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox6/Sprite/Area2D6" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 5 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox6/Sprite/Area2D6" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox7" to="." method="_on_CheckBox_toggled" binds= [ 6 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox7/Sprite/Area2D7" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 6 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox7/Sprite/Area2D7" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox8" to="." method="_on_CheckBox_toggled" binds= [ 7 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox8/Sprite/Area2D8" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 7 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox8/Sprite/Area2D8" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox9" to="." method="_on_CheckBox_toggled" binds= [ 8 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox9/Sprite/Area2D9" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 8 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox9/Sprite/Area2D9" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="toggled" from="PopupMenu/CheckBox10" to="." method="_on_CheckBox_toggled" binds= [ 9 ]]
+[connection signal="mouse_entered" from="PopupMenu/CheckBox10/Sprite/Area2D10" to="PopupMenu" method="_on_Area2D_mouse_entered" binds= [ 9 ]]
+[connection signal="mouse_exited" from="PopupMenu/CheckBox10/Sprite/Area2D10" to="PopupMenu" method="_on_Area2D_mouse_exited"]
+[connection signal="pressed" from="PopupMenu/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="PopupMenu/CloseButton2" to="PopupMenu" method="_on_CloseButton2_pressed"]

@@ -32,6 +32,8 @@ onready var global = get_node("/root/Global");
 onready var camera = $Camera2D;
 
 var move;
+var current_pirate = null;
+
 
 func _ready():
 	move = true;
@@ -125,3 +127,33 @@ func _clear_path():
 func _set_move(value):
 	move = value;
 	pass;
+
+func _set_current_pirate(current):
+	current_pirate = current;
+	pass;
+
+func _on_UIInputHandler_on_item_selected(item_selected):
+	var type = item_selected._get_stat("type");
+	if type == "consumable":
+		var heal = item_selected._get_stat("heal");
+		var damage = item_selected._get_stat("damage");
+		var durability = item_selected._get_stat("durability");
+		current_pirate._set_hp(current_pirate._get_hp() + heal);
+	elif type == "weapon":
+		var damage = item_selected._get_stat("damage");
+		var durability =  item_selected._get_stat("durability");
+		current_pirate._set_weapon(item_selected);
+		current_pirate._set_atk_bonus(damage);
+	elif type == "armor":
+		var heal = item_selected._get_stat("heal");
+		var durability =  item_selected._get_stat("durability");
+		current_pirate._set_shield(item_selected);
+		current_pirate._set_def_bonus(heal);
+	current_pirate = null;
+	pass;
+
+
+func _on_Island_on_pirate_selected(pirate):
+	crew = data._get_crew();
+	current_pirate = crew[pirate];
+	pass 

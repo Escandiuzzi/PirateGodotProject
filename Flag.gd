@@ -56,3 +56,7 @@ func _on_CloseInventoryButton_pressed():
 	camera._set_current(true); 
 	player._set_move(true);
 	pass
+
+
+func _on_StartButton_pressed():
+	 _on_InventoryButton_pressed();

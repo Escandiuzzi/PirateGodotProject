@@ -47,9 +47,6 @@ visible = false
 position = Vector2( -723.729, -448.388 )
 z_index = 5
 
-[node name="BackgroundContainer" parent="InventoryCamera/InventoryScreen" index="1"]
-editor/display_folded = true
-
 [node name="MainCamera" type="Camera2D" parent="."]
 visible = false
 current = true
@@ -220,7 +217,6 @@ visible = true
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 9 )]
 position = Vector2( 713.879, 423.456 )
@@ -387,6 +383,7 @@ scale = Vector2( 0.412657, 0.437253 )
 texture = ExtResource( 16 )
 
 [node name="Flag4" parent="Flags" instance=ExtResource( 9 )]
+editor/display_folded = false
 position = Vector2( -797.636, -222.528 )
 path = Vector2( -600, -120 )
 
@@ -407,6 +404,7 @@ island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 path = "Flags/Flag4/Button"
 
 [node name="Island" parent="Flags/Flag4/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = false
 islandType = "Material"
 regionName = "Sul"
 commonSize = 2
@@ -416,6 +414,7 @@ maxRewards = 9
 bonus = 3
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="3"]
+editor/display_folded = false
 path = "World/Flags/Flag4"
 
 [node name="RewardMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="5"]
@@ -434,6 +433,7 @@ scale = Vector2( 0.3125, 0.318463 )
 texture = ExtResource( 11 )
 
 [node name="Flag5" parent="Flags" instance=ExtResource( 9 )]
+editor/display_folded = false
 position = Vector2( -192.025, -670 )
 path = Vector2( -190, -670 )
 
@@ -450,18 +450,16 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
 [node name="IslandMenu" parent="Flags/Flag5" instance=ExtResource( 20 )]
-visible = false
 position = Vector2( 0, 0.323547 )
 
 [node name="IslandMenu" parent="Flags/Flag5/IslandMenu" index="0"]
-editor/display_folded = true
-visible = false
 path = "Flags/Flag5/Button"
 
-[node name="Island" parent="Flags/Flag5/IslandMenu/IslandMenu" index="5"]
-islandSize = 1
+[node name="Area2D" parent="Flags/Flag5/IslandMenu" index="1"]
+editor/display_folded = false
 
 [node name="CollisionShape2D" parent="Flags/Flag5/IslandMenu/Area2D" index="0"]
+position = Vector2( -0.000396729, 0 )
 shape = SubResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -469,6 +467,7 @@ tile_set = ExtResource( 21 )
 format = 1
 tile_data = PoolIntArray( -327689, 0, 1, -327688, 0, 65536, -327687, 0, 2, -393215, 0, 196608, -393214, 0, 196609, -393213, 0, 196609, -393212, 0, 196610, -393208, 0, 6, -393207, 0, 196609, -393206, 0, 196609, -393205, 0, 131076, -393204, 0, 196609, -393203, 0, 196609, -393202, 0, 7, -262153, 0, 131073, -262152, 0, 196619, -262151, 0, 131074, -327672, 0, 65541, -327669, 0, 65541, -327666, 0, 65541, -196617, 0, 65537, -196616, 0, 131072, -196615, 0, 65538, -262136, 0, 65541, -262133, 0, 65541, -262130, 0, 65541, -196600, 0, 8, -196599, 0, 9, -196598, 0, 196609, -196597, 0, 131083, -196596, 0, 196609, -196595, 0, 10, -196594, 0, 11, -131064, 0, 65537, -131063, 0, 65545, -131061, 0, 65541, -131059, 0, 65546, -131058, 0, 65538, -65527, 0, 131077, -65525, 0, 131077, -65523, 0, 131077, 65523, 0, 1, 65524, 0, 2, 131059, 0, 131073, 131060, 0, 131074, 65547, 0, 196608, 65548, 0, 196609, 65549, 0, 196609, 65550, 0, 7, 196595, 0, 65537, 196596, 0, 65538, 131078, 0, 5, 131086, 0, 65542, 131087, 0, 196609, 131088, 0, 196609, 131089, 0, 196610, 196614, 0, 131077, 393211, 0, 5, 458747, 0, 65541, 393218, 0, 1, 393219, 0, 65536, 393220, 0, 2, 524283, 0, 65541, 458754, 0, 65537, 458755, 0, 131072, 458756, 0, 65538, 589819, 0, 131077, 720888, 0, 196608, 720889, 0, 7, 655363, 0, 196608, 655364, 0, 196610, 786425, 0, 65542, 786426, 0, 196610, 720902, 0, 196608, 720903, 0, 196609, 720904, 0, 196610 )
 
+[connection signal="on_item_selected" from="InventoryCamera/InventoryScreen/UIInputHandler" to="Player" method="_on_UIInputHandler_on_item_selected"]
 [connection signal="pressed" from="InventoryCamera/InventoryScreen/CloseButton" to="Flags/Flag5" method="_on_CloseInventoryButton_pressed"]
 [connection signal="pressed" from="Player/HUD/SaveButton" to="Player" method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="Player/HUD/LoadButton" to="Player" method="_on_LoadButton_pressed"]
@@ -487,7 +486,8 @@ tile_data = PoolIntArray( -327689, 0, 1, -327688, 0, 65536, -327687, 0, 2, -3932
 [connection signal="send_player_reward" from="Flags/Flag4/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
 [connection signal="area_entered" from="Flags/Flag4/IslandMenu/Area2D" to="Flags/Flag4" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Flags/Flag4/IslandMenu/Area2D" to="Flags/Flag4" method="_on_Area2D_area_exited"]
-[connection signal="pressed" from="Flags/Flag5/IslandMenu/IslandMenu/Island/Button" to="Flags/Flag5" method="_on_InventoryButton_pressed"]
+[connection signal="on_pirate_selected" from="Flags/Flag5/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_on_pirate_selected"]
+[connection signal="pressed" from="Flags/Flag5/IslandMenu/IslandMenu/Island/PopupMenu/StartButton" to="Flags/Flag5" method="_on_StartButton_pressed"]
 [connection signal="area_entered" from="Flags/Flag5/IslandMenu/Area2D" to="Flags/Flag5" method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Flags/Flag5/IslandMenu/Area2D" to="Flags/Flag5" method="_on_Area2D_area_exited"]
 

@@ -1,20 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tema.tres" type="Theme" id=1]
 [ext_resource path="res://IslandMenu.gd" type="Script" id=2]
 [ext_resource path="res://Menu/Borda.png" type="Texture" id=3]
-[ext_resource path="res://Island.tscn" type="PackedScene" id=4]
-[ext_resource path="res://CraftButtons.tres" type="Theme" id=5]
+[ext_resource path="res://PortIsland.tscn" type="PackedScene" id=4]
 
 [node name="IslandMenu" type="Node2D"]
 position = Vector2( 0, 0.323532 )
 
 [node name="IslandMenu" type="PopupMenu" parent="."]
-visible = true
 margin_left = -110.0
-margin_top = -90.0
+margin_top = -89.5367
 margin_right = 110.0
-margin_bottom = 90.0
+margin_bottom = 90.4633
 rect_pivot_offset = Vector2( 110, 90 )
 mouse_filter = 2
 theme = ExtResource( 1 )
@@ -49,83 +47,20 @@ rect_pivot_offset = Vector2( 30.5, 10 )
 text = "Save"
 
 [node name="Island" parent="IslandMenu" instance=ExtResource( 4 )]
-position = Vector2( 89.093, 0 )
-
-[node name="CooldownTimer" parent="IslandMenu/Island" index="1"]
-one_shot = true
+islandSize = 1
 
 [node name="Button" parent="IslandMenu/Island" index="2"]
-margin_left = -34.0
-margin_top = 55.0
-margin_right = 78.0
-margin_bottom = 90.0
-theme = ExtResource( 5 )
-text = "Inventory"
+margin_left = 54.0
+margin_top = 50.8304
+margin_right = 166.0
+margin_bottom = 81.8304
 
-[node name="CraftingButton" type="Button" parent="IslandMenu/Island"]
-margin_left = -17.9189
-margin_top = 100.183
-margin_right = 61.0811
-margin_bottom = 132.183
-theme = ExtResource( 5 )
+[node name="CraftButton" type="Button" parent="IslandMenu"]
+margin_left = 72.0
+margin_top = 93.0
+margin_right = 148.0
+margin_bottom = 122.0
 text = "Craft"
-
-[node name="PopupMenu" parent="IslandMenu/Island" index="4"]
-margin_left = -149.093
-margin_right = 198.907
-theme = ExtResource( 1 )
-
-[node name="Sprite2" type="Sprite" parent="IslandMenu/Island/PopupMenu" index="2"]
-position = Vector2( 176.277, 83.6714 )
-scale = Vector2( 0.205993, 0.297288 )
-texture = ExtResource( 3 )
-
-[node name="RichTextLabel" parent="IslandMenu/Island/PopupMenu" index="3"]
-custom_colors/default_color = Color( 1, 1, 1, 1 )
-
-[node name="CheckBox" parent="IslandMenu/Island/PopupMenu" index="4"]
-editor/display_folded = false
-
-[node name="Sprite" parent="IslandMenu/Island/PopupMenu/CheckBox" index="0"]
-editor/display_folded = true
-
-[node name="Area2D" parent="IslandMenu/Island/PopupMenu/CheckBox/Sprite" index="0"]
-editor/display_folded = true
-
-[node name="StartButton" parent="IslandMenu/Island/PopupMenu" index="14"]
-margin_left = 136.0
-margin_top = 166.0
-margin_right = 209.0
-margin_bottom = 198.0
-
-[node name="CloseButton2" parent="IslandMenu/Island/PopupMenu" index="15"]
-margin_left = 289.0
-margin_top = -31.0
-margin_right = 336.0
-margin_bottom = -3.0
-
-[node name="Button2" parent="IslandMenu/Island" index="5"]
-visible = false
-margin_left = 66.0739
-margin_top = 10.0281
-margin_right = 166.074
-margin_bottom = 48.028
-rect_scale = Vector2( 0.6, 0.6 )
-
-[node name="RewardMenu" parent="IslandMenu/Island" index="6"]
-mouse_filter = 2
-theme = ExtResource( 1 )
-
-[node name="CollectButton" parent="IslandMenu/Island/RewardMenu" index="2"]
-margin_left = 78.0
-margin_top = 98.0
-margin_right = 150.0
-margin_bottom = 124.0
-
-[node name="Sprite3" type="Sprite" parent="IslandMenu/Island/RewardMenu" index="3"]
-position = Vector2( 118.321, 66.3396 )
-scale = Vector2( 0.14264, 0.150814 )
-texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true
@@ -136,6 +71,6 @@ editor/display_folded = true
 
 [connection signal="pressed" from="IslandMenu/Close" to="IslandMenu" method="_on_Close_pressed"]
 [connection signal="pressed" from="IslandMenu/Save" to="IslandMenu" method="_on_Save_pressed"]
-[connection signal="pressed" from="IslandMenu/Island/CraftingButton" to="IslandMenu" method="_on_CraftingButton_pressed"]
+[connection signal="pressed" from="IslandMenu/CraftButton" to="IslandMenu" method="_on_CraftingButton_pressed"]
 
 [editable path="IslandMenu/Island"]

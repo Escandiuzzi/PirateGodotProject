@@ -59,3 +59,4 @@ func _on_Area2D_mouse_entered(extra_arg_0):
 func _on_Area2D_mouse_exited():
 	pirateStat.hide();	
 	pass;
+

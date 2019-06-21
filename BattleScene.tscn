@@ -35,7 +35,6 @@ mouse_filter = 2
 stretch = true
 
 [node name="InventoryScreen" parent="ViewportContainer" instance=ExtResource( 2 )]
-editor/display_folded = true
 visible = false
 z_index = 5
 
@@ -48,9 +47,11 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Manager" type="Node2D" parent="ViewportContainer/Viewport"]
+editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="UI" type="Control" parent="ViewportContainer/Viewport/Manager"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1440.0
