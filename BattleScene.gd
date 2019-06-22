@@ -28,6 +28,7 @@ var energy_turn = 2;
 var item_selected;
 var turn = 0;
 var equipament_loss = 1;
+var is_bossIsland;
 
 onready var recruitPanel = get_node("RecruitPirate");
 onready var ui_handler = get_node("ViewportContainer/Viewport/Manager/UI/UIButtonHandler");
@@ -41,6 +42,8 @@ onready var player_data = get_tree().get_root().get_node("/root/PlayerData");
 onready var battle_manager = get_tree().get_root().get_node("/root/BattleManager");
 onready var characters_container = get_node("ViewportContainer/CharactersContainer");
 onready var turnText = get_node("ViewportContainer/Viewport/TurnText");
+onready var fragment_panel = get_node("ViewportContainer/Viewport/FragmentMapContainer");
+onready var fragment_text = get_node("ViewportContainer/Viewport/FragmentMapContainer/RichTextLabel");
 
 export(Array) var player_pos;
 export(Array) var ia_pos;
@@ -66,6 +69,7 @@ func _initializeEnemies():
 	max_rewards = island_data[7];
 	island_type = island_data[8];
 	scenePath = island_data[9];
+	is_bossIsland = island_data[10];
 	
 	enemiesCount = nEnemies;
 	
@@ -116,6 +120,16 @@ func _process(delta):
 			battle = false;
 			
 			ui_handler._layers_visible(false);
+			
+			if is_bossIsland:
+				fragment_panel.visible = true;
+				if player_data._get_map_fragment() < 4:
+					player_data._add_map_fragment();
+					if player_data._get_map_fragment() < 4:
+						fragment_text.text = "Novo fragmento de mapa encontrado! \n \n \n";
+						fragment_text.text += "Numero de Fragmentos encontrados " + str(player_data._get_map_fragment()) + " de 4";
+					else:
+						fragment_text.text = "Arghhh!!! Encontramos todos os pedaços! \n \n \n";
 			
 			if playerPirates.size() > 0:
 				_get_player_rewards();
@@ -579,3 +593,6 @@ func _on_RecruitButton_pressed():
 	player_data._saveData();
 	get_tree().change_scene(scenePath);
 	pass
+func _get_path():
+	return scenePath;
+	pass;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Menu/fundo2.png" type="Texture" id=17]
 [ext_resource path="res://Tema.tres" type="Theme" id=18]
 [ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Menu/Borda.png" type="Texture" id=20]
 
 [node name="BattleScene" type="Control"]
 anchor_right = 1.0
@@ -29,12 +30,14 @@ player_pos = [ Vector2( 260, 210 ), Vector2( 450, 380 ), Vector2( 140, 550 ) ]
 ia_pos = [ Vector2( 1203, 210 ), Vector2( 1011, 380 ), Vector2( 1310, 550 ) ]
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 stretch = true
 
 [node name="InventoryScreen" parent="ViewportContainer" instance=ExtResource( 2 )]
+editor/display_folded = true
 visible = false
 z_index = 5
 
@@ -42,6 +45,7 @@ z_index = 5
 mouse_filter = 2
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
+editor/display_folded = true
 size = Vector2( 1440, 900 )
 handle_input_locally = false
 render_target_update_mode = 3
@@ -127,6 +131,7 @@ texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="UIButtonHandler" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI"]
+editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="Layer 1" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
@@ -213,6 +218,7 @@ icon = ExtResource( 15 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
+editor/display_folded = true
 visible = false
 position = Vector2( 0, 50 )
 scale = Vector2( 1.4, 1.4 )
@@ -296,6 +302,7 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 [node name="RewardsContainer" type="Node" parent="ViewportContainer/Viewport"]
 
 [node name="RewardsPanel" type="Panel" parent="ViewportContainer/Viewport"]
+editor/display_folded = true
 visible = false
 margin_left = 633.0
 margin_top = 230.0
@@ -325,22 +332,53 @@ margin_bottom = 191.0
 text = "Close"
 
 [node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 19 )]
+editor/display_folded = true
 visible = false
-position = Vector2( 525, 250 )
+position = Vector2( 520, 250 )
 
 [node name="Panel" parent="ViewportContainer/Viewport/RecruitPirate" index="0"]
+editor/display_folded = true
 theme = ExtResource( 18 )
 
 [node name="Text" parent="ViewportContainer/Viewport/RecruitPirate/Panel" index="0"]
 margin_top = 50.0
-text = "Um homem foi encontrado perdido na ilha, deseja o recrutar para sua tripulação?"
 
 [node name="RecruitButton" parent="ViewportContainer/Viewport/RecruitPirate/Panel" index="1"]
-margin_left = 150.0
+margin_left = 230.0
 margin_top = 145.0
-margin_right = 230.0
-margin_bottom = 175.0
-text = "Recrutar"
+margin_right = 280.0
+margin_bottom = 168.0
+
+[node name="Button" parent="ViewportContainer/Viewport/RecruitPirate/Panel" index="2"]
+margin_top = 148.0
+margin_bottom = 178.0
+
+[node name="FragmentMapContainer" type="Node2D" parent="ViewportContainer/Viewport"]
+editor/display_folded = true
+visible = false
+position = Vector2( 1015, 0 )
+z_index = 20
+
+[node name="Paper" type="Sprite" parent="ViewportContainer/Viewport/FragmentMapContainer"]
+position = Vector2( 220, 250 )
+scale = Vector2( 0.45, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="Border" type="Sprite" parent="ViewportContainer/Viewport/FragmentMapContainer"]
+position = Vector2( 220, 250 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 20 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ViewportContainer/Viewport/FragmentMapContainer"]
+margin_left = 70.0
+margin_top = 180.0
+margin_right = 300.0
+margin_bottom = 288.0
+rect_scale = Vector2( 1.3, 1.3 )
+theme = ExtResource( 18 )
+text = "Novo fragmento de mapa encontrado!
+
+Numero de  Fragmentos x de 4"
 
 [connection signal="on_item_selected" from="ViewportContainer/InventoryScreen/UIInputHandler" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_UIInputHandler_on_item_selected"]
 [connection signal="pressed" from="ViewportContainer/InventoryScreen/CloseButton" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_CloseInventoryButton_pressed"]
@@ -366,6 +404,7 @@ text = "Recrutar"
 [connection signal="pressed" from="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3/SpecialButton4" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_SpecialButton_pressed" binds= [ 3 ]]
 [connection signal="pressed" from="ViewportContainer/Viewport/RewardsPanel/Button" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_Button_pressed"]
 [connection signal="pressed" from="ViewportContainer/Viewport/RecruitPirate/Panel/RecruitButton" to="." method="_on_RecruitButton_pressed"]
+[connection signal="pressed" from="ViewportContainer/Viewport/RecruitPirate/Panel/Button" to="ViewportContainer/Viewport/Manager/UI/UIButtonHandler" method="_on_CloseRecruitButton_pressed"]
 
 [editable path="ViewportContainer/InventoryScreen"]
 

@@ -181,7 +181,6 @@ final_pos = 2000
 speed = 0.5
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-editor/display_folded = true
 position = Vector2( -40, 530 )
 movement_speed = 200
 
@@ -219,7 +218,6 @@ visible = true
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 9 )]
 position = Vector2( 713.879, 423.456 )
@@ -259,6 +257,7 @@ uncommonSize = 1
 rareSize = 2
 maxRewards = 9
 bonus = 1
+recruit_seed = 85
 
 [node name="Button" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="2"]
 margin_left = -8.0
@@ -267,9 +266,11 @@ margin_right = 48.0
 margin_bottom = 119.0
 
 [node name="PopupMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="3"]
-editor/display_folded = false
 path = "World/Flags/Flag"
 islandType = "Resource"
+
+[node name="CheckBox" parent="Flags/Flag/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
+editor/display_folded = true
 
 [node name="Sprite" parent="Flags/Flag/IslandMenu/IslandMenu/Island/PopupMenu/CheckBox5" index="0"]
 editor/display_folded = true
@@ -284,6 +285,7 @@ editor/display_folded = true
 editor/display_folded = true
 
 [node name="RewardMenu" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="5"]
+editor/display_folded = true
 path = "World/Flags/Flag"
 
 [node name="CollisionShape2D" parent="Flags/Flag/IslandMenu/Area2D" index="0"]
@@ -296,6 +298,7 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 11 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 9 )]
+editor/display_folded = false
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 
@@ -310,11 +313,8 @@ icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 14 )]
 
-[node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
-editor/display_folded = true
-
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="4"]
-editor/display_folded = true
+is_bossIsland = true
 islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
@@ -358,12 +358,10 @@ margin_bottom = 963.0
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag3/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ]
 path = "Flags/Flag3/Button"
 
 [node name="Island" parent="Flags/Flag3/IslandMenu/IslandMenu" index="5"]
-editor/display_folded = false
 renewable = true
 islandType = "Consumable"
 regionName = "Sul"
@@ -373,12 +371,14 @@ rareSize = 1
 maxRewards = 9
 cooldown_time = 60
 bonus = 2
+recruit_seed = 85
 
 [node name="PopupMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="3"]
 path = "World/Flags/Flag3"
 islandType = "Resource"
 
 [node name="RewardMenu" parent="Flags/Flag3/IslandMenu/IslandMenu/Island" index="5"]
+editor/display_folded = true
 path = "World/Flags/Flag3"
 
 [node name="CollisionShape2D" parent="Flags/Flag3/IslandMenu/Area2D" index="0"]
@@ -403,7 +403,6 @@ margin_right = 815.0
 margin_bottom = 825.0
 
 [node name="IslandMenu" parent="Flags/Flag4" instance=ExtResource( 10 )]
-editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag4/IslandMenu" index="0"]
 editor/display_folded = false
@@ -418,6 +417,7 @@ uncommonSize = 1
 rareSize = 1
 maxRewards = 9
 bonus = 3
+recruit_seed = 85
 
 [node name="PopupMenu" parent="Flags/Flag4/IslandMenu/IslandMenu/Island" index="3"]
 editor/display_folded = false
@@ -517,6 +517,8 @@ tile_data = PoolIntArray( -327689, 0, 1, -327688, 0, 65536, -327687, 0, 2, -3932
 [editable path="Flags/Flag/IslandMenu"]
 
 [editable path="Flags/Flag/IslandMenu/IslandMenu/Island"]
+
+[editable path="Flags/Flag/IslandMenu/IslandMenu/Island/RecruitPirate"]
 
 [editable path="Flags/Flag2"]
 

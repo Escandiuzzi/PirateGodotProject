@@ -4,6 +4,8 @@ var crewCount = 0;
 var crew = [];
 var ids = [];
 
+var map_fragments = 0;
+
 onready var hudObj = get_node("HUD");
 onready var inventory = $Inventory;
 onready var pirateObj = preload("res://Pirate.tscn");
@@ -47,7 +49,8 @@ func _saveData():
 	
 	var ship_dict = {
 		"shipType" : "starterShip",
-		"crewCount" : crewCount
+		"crewCount" : crewCount,
+		"fragments" : map_fragments
 	}
 	
 	var json_data = {"ship": ship_dict}
@@ -73,7 +76,7 @@ func _readData(id):
 	var current_line =  parse_json(save_game.get_line());
 	
 	crewCount = current_line["ship"]["crewCount"];
-	
+	map_fragments = current_line["ship"]["fragments"];
 	for i in range(crewCount):
 		crew.append(null);
 		var newPirate = pirateObj.instance();
@@ -168,4 +171,12 @@ func _get_inventory():
 func print_crew():
 	for i in range(crewCount):
 		print(crew[i]);
+	pass;
+
+func _add_map_fragment():
+	map_fragments += 1;
+	pass;
+
+func _get_map_fragment():
+	return map_fragments;
 	pass;

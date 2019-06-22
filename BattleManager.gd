@@ -13,8 +13,9 @@ var uncommon_size;
 var rare_size;
 var max_rewards;
 var scenePath;
+var is_bossIsland;
 
-func _island_data(_difficulty, _nEnemies, _region, _indexType, _common_size, _uncommon_size, _rare_size, _max_rewards, _island_type, _scenePath):
+func _island_data(_difficulty, _nEnemies, _region, _indexType, _common_size, _uncommon_size, _rare_size, _max_rewards, _island_type, _scenePath, _is_boss):
 	difficulty = _difficulty;
 	nEnemies = _nEnemies;
 	region = _region;
@@ -25,9 +26,10 @@ func _island_data(_difficulty, _nEnemies, _region, _indexType, _common_size, _un
 	max_rewards = _max_rewards;
 	island_type = _island_type;
 	scenePath = _scenePath;
+	is_bossIsland = _is_boss;
 	pass;
 	
 func _request_island_data():
-	var island_data = [nEnemies, difficulty, region, indexType, common_size, uncommon_size, rare_size, max_rewards, island_type, scenePath];
+	var island_data = [nEnemies, difficulty, region, indexType, common_size, uncommon_size, rare_size, max_rewards, island_type, scenePath, is_bossIsland];
 	return island_data;
 	pass;

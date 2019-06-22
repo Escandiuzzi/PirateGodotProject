@@ -31,6 +31,7 @@ onready var sprite = $"Player Sprite";
 onready var global = get_node("/root/Global");
 onready var camera = $Camera2D;
 
+
 var move;
 var current_pirate = null;
 
@@ -41,6 +42,9 @@ func _ready():
 		data._recruitPirate(0);
 	else:
 		data._readData(0);
+	
+	position = global._get_player_coordinates();
+
 func _input(event):
 	if event.is_action_pressed("key_k") and crewCount < 10:
 		data._recruitPirate(0);

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Island.gd" type="Script" id=1]
 [ext_resource path="res://PopupMenu.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://CraftButtons.tres" type="Theme" id=5]
 [ext_resource path="res://Button2.gd" type="Script" id=6]
 [ext_resource path="res://RewardMenu.gd" type="Script" id=7]
+[ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.9284
@@ -285,6 +286,7 @@ mouse_filter = 2
 readonly = true
 
 [node name="Button2" type="Button" parent="."]
+visible = false
 margin_left = 65.0
 margin_top = 11.0
 margin_right = 168.15
@@ -295,7 +297,6 @@ text = "Collect"
 script = ExtResource( 6 )
 
 [node name="RewardMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_left = 68.0
 margin_right = 306.0
 margin_bottom = 133.0
@@ -313,6 +314,10 @@ margin_top = 103.472
 margin_right = 144.0
 margin_bottom = 123.472
 text = "Collect"
+
+[node name="RecruitPirate" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
+visible = false
 
 [connection signal="pressed" from="Button" to="PopupMenu" method="_on_Button_pressed"]
 [connection signal="toggled" from="PopupMenu/CheckBox" to="." method="_on_CheckBox_toggled" binds= [ 0 ]]
@@ -349,3 +354,6 @@ text = "Collect"
 [connection signal="pressed" from="PopupMenu/CloseButton2" to="PopupMenu" method="_on_CloseButton2_pressed"]
 [connection signal="pressed" from="Button2" to="RewardMenu" method="_on_Button2_pressed"]
 [connection signal="pressed" from="RewardMenu/CollectButton" to="." method="_on_CollectButton_pressed"]
+[connection signal="pressed" from="RecruitPirate/Panel/RecruitButton" to="." method="_on_RecruitButton_pressed"]
+
+[editable path="RecruitPirate"]

@@ -2,6 +2,8 @@ extends Node2D
 
 signal send_player_reward(player_reward);
 
+export(bool) var is_bossIsland;
+
 export(String) var islandType;
 export(String) var regionName;
 export(String) var scenePath;
@@ -36,6 +38,8 @@ onready var island_menu = get_parent();
 onready var text = get_parent().get_node("RichTextLabel");
 onready var player_data = get_tree().get_root().get_node("/root/PlayerData");
 onready var battle_manager = get_tree().get_root().get_node("/root/BattleManager");
+onready var global = get_tree().get_root().get_node("/root/Global");
+
 
 onready var canvasSlots = [
 get_node("PopupMenu/CheckBox"),
@@ -89,10 +93,11 @@ func _insertPirates():
 
 func _on_StartButton_pressed():
 	popupMenu.hide();
+	global._set_player_coordinates(player.position);
 	if selectedPirates > -1:
 			get_tree().change_scene("res://BattleScene.tscn");
 			player_data._selected_pirates(pirateId);
-			battle_manager._island_data(difficulty, enemies, regionName, indexType, commonSize, uncommonSize, rareSize, maxRewards, islandType, scenePath);
+			battle_manager._island_data(difficulty, enemies, regionName, indexType, commonSize, uncommonSize, rareSize, maxRewards, islandType, scenePath, is_bossIsland);
 			button.hide();
 	pass;
 

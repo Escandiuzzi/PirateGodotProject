@@ -19,7 +19,6 @@ onready var layer_2 = get_node("Layer 2");
 onready var layer_3 = get_node("Layer 3");
 onready var inventory_screen = get_tree().get_root().get_node("BattleScene/ViewportContainer/InventoryScreen");
 
-
 onready var enemy_buttons = [
 	get_node("Layer 2/FirstEnemyButton"),
 	get_node("Layer 2/SecondEnemyButton"),
@@ -147,3 +146,7 @@ func _on_UIInputHandler_on_item_selected(item):
 	inventory_screen.visible = false;
 	battleScene._player_button_action(action, -1, -1, item);
 	pass;
+
+func _on_CloseRecruitButton_pressed():
+		get_tree().change_scene(battleScene._get_path());
+

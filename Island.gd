@@ -16,6 +16,7 @@ export(int) var rareSize;
 export(int) var maxRewards;
 export(int) var cooldown_time;
 export(int) var bonus;
+export(int) var recruit_seed;
 
 var selectedPirates = -1;
 var pirates = [];
@@ -33,9 +34,10 @@ onready var rewardMenu = $RewardMenu;
 onready var rewardText = $RewardMenu/RichTextLabel;
 onready var timer = $Timer;
 onready var cooldown_timer = $CooldownTimer;
+onready var recruit = $RecruitPirate;
 
 onready var item = preload("res://Item.tscn");
-
+onready var data = get_tree().get_root().get_node("/root/PlayerData");
 onready var island_menu = get_parent();
 
 onready var canvasSlots = [
@@ -52,6 +54,8 @@ get_node("PopupMenu/CheckBox10")
 ]
 
 func _ready():
+	recruit.position.x = get_global_position().x - (recruit.position.x/2);
+	recruit.position.y = get_global_position().y - (recruit.position.y/2);
 	player = get_tree().get_root().get_node("World/Player");
 	for i in range(islandSize):
 		pirates.append(null);
@@ -147,6 +151,12 @@ func _on_CollectButton_pressed():
 	if renewable:
 		_renewable_state();
 		cooldown = true;
+	
+	randomize();
+	var thold = randi() % 100;
+		
+	if thold >= 0:
+		recruit.visible = true;
 	pass 
 
 func _getRewards():	
@@ -209,4 +219,11 @@ func _renewable_state():
 		pirates.append(null);
 		pirateId.append(null);
 	selectedPirates = -1;
+	pass;
+
+
+func _on_RecruitButton_pressed():
+	data._recruitPirate(1);
+	recruit.visible = false;
+	data._saveData();
 	pass;
