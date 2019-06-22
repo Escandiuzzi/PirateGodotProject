@@ -233,9 +233,9 @@ margin_bottom = 1107.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 10 )]
-editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
+editor/display_folded = false
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 path = "Flags/Flag/Button"
 
@@ -250,6 +250,7 @@ margin_top = 139.0
 mouse_filter = 1
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = false
 islandType = "Item"
 regionName = "Sul"
 commonSize = 2
@@ -288,6 +289,9 @@ editor/display_folded = true
 editor/display_folded = true
 path = "World/Flags/Flag"
 
+[node name="RecruitPirate" parent="Flags/Flag/IslandMenu/IslandMenu/Island" index="6"]
+visible = true
+
 [node name="CollisionShape2D" parent="Flags/Flag/IslandMenu/Area2D" index="0"]
 position = Vector2( -10, 26 )
 shape = SubResource( 1 )
@@ -319,7 +323,7 @@ islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
 difficulty = 0.25
-enemies = 1
+enemies = 3
 islandSize = 3
 commonSize = 2
 uncommonSize = 1
@@ -327,7 +331,6 @@ rareSize = 2
 maxRewards = 3
 
 [node name="PopupMenu" parent="Flags/Flag2/IslandMenu/IslandMenu/Island" index="1"]
-editor/display_folded = false
 path = "World/Flags/Flag2"
 islandType = "Battle"
 

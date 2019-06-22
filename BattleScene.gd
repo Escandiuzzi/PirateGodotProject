@@ -1,5 +1,39 @@
 extends Control
 
+var backgrounds = [ 
+load("res://Sprite/BattleBackgrouds/1.png"),
+load("res://Sprite/BattleBackgrouds/1-night.png"),
+load("res://Sprite/BattleBackgrouds/2.png"),
+load("res://Sprite/BattleBackgrouds/2-night.png"),
+load("res://Sprite/BattleBackgrouds/3.png"),
+load("res://Sprite/BattleBackgrouds/3-night.png"),
+load("res://Sprite/BattleBackgrouds/4.png"),
+load("res://Sprite/BattleBackgrouds/4-night.png"),
+load("res://Sprite/BattleBackgrouds/5.png"),
+load("res://Sprite/BattleBackgrouds/5-night.png"),
+load("res://Sprite/BattleBackgrouds/6.png"),
+load("res://Sprite/BattleBackgrouds/6-night.png"),
+load("res://Sprite/BattleBackgrouds/7.png"),
+load("res://Sprite/BattleBackgrouds/7-night.png"),
+load("res://Sprite/BattleBackgrouds/8.png"),
+load("res://Sprite/BattleBackgrouds/9.png"),
+load("res://Sprite/BattleBackgrouds/10.png"),
+load("res://Sprite/BattleBackgrouds/11.png"),
+load("res://Sprite/BattleBackgrouds/12.png"),
+load("res://Sprite/BattleBackgrouds/13.png"),
+load("res://Sprite/BattleBackgrouds/14.png"),
+load("res://Sprite/BattleBackgrouds/15.png"),
+load("res://Sprite/BattleBackgrouds/16.png"),
+load("res://Sprite/BattleBackgrouds/17.png"),
+load("res://Sprite/BattleBackgrouds/18.png"),
+load("res://Sprite/BattleBackgrouds/19.png"),
+load("res://Sprite/BattleBackgrouds/20.png"),
+load("res://Sprite/BattleBackgrouds/21.png"),
+load("res://Sprite/BattleBackgrouds/22.png"),
+load("res://Sprite/BattleBackgrouds/23.png"),
+load("res://Sprite/BattleBackgrouds/24.png"),
+];
+
 var playerPirates = [];
 var enemies = []
 var characters = [];
@@ -44,6 +78,7 @@ onready var characters_container = get_node("ViewportContainer/CharactersContain
 onready var turnText = get_node("ViewportContainer/Viewport/TurnText");
 onready var fragment_panel = get_node("ViewportContainer/Viewport/FragmentMapContainer");
 onready var fragment_text = get_node("ViewportContainer/Viewport/FragmentMapContainer/RichTextLabel");
+onready var background = get_node("ViewportContainer/Viewport/Manager/UI/Background");
 
 export(Array) var player_pos;
 export(Array) var ia_pos;
@@ -52,6 +87,10 @@ var player_texture = load("res://Sprite/characters/idle_warrior.png");
 var enemy_texture = load("res://Sprite/characters/idle_mimic.png");
 
 func _ready():
+	randomize();
+	var rand_bgd = randi() % backgrounds.size();
+	background.texture = backgrounds[rand_bgd];
+	
 	pos = 0;
 	player_data._request_player_pirates();
 	pass;

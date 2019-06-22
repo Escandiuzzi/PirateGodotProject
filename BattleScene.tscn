@@ -3,7 +3,7 @@
 [ext_resource path="res://BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Manager.gd" type="Script" id=3]
-[ext_resource path="res://Sprite/backgrounds/15.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/BattleBackgrouds/6.png" type="Texture" id=4]
 [ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=5]
 [ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=6]
 [ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=7]
@@ -26,11 +26,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
-player_pos = [ Vector2( 260, 210 ), Vector2( 450, 380 ), Vector2( 140, 550 ) ]
-ia_pos = [ Vector2( 1203, 210 ), Vector2( 1011, 380 ), Vector2( 1310, 550 ) ]
+player_pos = [ Vector2( 162, 509 ), Vector2( 361, 399 ), Vector2( 491, 549 ) ]
+ia_pos = [ Vector2( 982, 540 ), Vector2( 1136, 417 ), Vector2( 1330, 487 ) ]
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -45,17 +44,14 @@ z_index = 5
 mouse_filter = 2
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
-editor/display_folded = true
 size = Vector2( 1440, 900 )
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Manager" type="Node2D" parent="ViewportContainer/Viewport"]
-editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="UI" type="Control" parent="ViewportContainer/Viewport/Manager"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1440.0
@@ -83,50 +79,50 @@ editor/display_folded = true
 scale = Vector2( 1.3, 1.3 )
 
 [node name="character1_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 137.692
-margin_top = 100.0
-margin_right = 247.692
-margin_bottom = 140.0
+margin_left = 65.0
+margin_top = 335.0
+margin_right = 175.0
+margin_bottom = 375.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="character2_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 283.846
-margin_top = 230.769
-margin_right = 393.846
-margin_bottom = 270.769
+margin_left = 215.0
+margin_top = 242.0
+margin_right = 325.0
+margin_bottom = 282.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="character3_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 45.3846
+margin_left = 315.605
 margin_top = 361.538
-margin_right = 155.385
+margin_right = 425.605
 margin_bottom = 401.538
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="enemy1_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 869.231
-margin_top = 86.9231
-margin_right = 979.231
-margin_bottom = 126.923
+margin_left = 700.0
+margin_top = 340.0
+margin_right = 810.0
+margin_bottom = 380.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="enemy2_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 723.077
-margin_top = 215.385
-margin_right = 833.077
-margin_bottom = 255.385
+margin_left = 820.0
+margin_top = 249.0
+margin_right = 930.0
+margin_bottom = 289.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="enemy3_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 953.846
-margin_top = 346.154
-margin_right = 1063.85
-margin_bottom = 386.154
+margin_left = 970.0
+margin_top = 305.0
+margin_right = 1080.0
+margin_bottom = 345.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 

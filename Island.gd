@@ -54,8 +54,10 @@ get_node("PopupMenu/CheckBox10")
 ]
 
 func _ready():
-	recruit.position.x = get_global_position().x - (recruit.position.x/2);
-	recruit.position.y = get_global_position().y - (recruit.position.y/2);
+	
+	recruit.position.x = 250
+	recruit.position.y = 100
+	
 	player = get_tree().get_root().get_node("World/Player");
 	for i in range(islandSize):
 		pirates.append(null);
