@@ -13,7 +13,7 @@ func _on_Button_pressed(scene_to_load, action):
 		global.setNewGame();
 	
 	scene_path = scene_to_load;
-	
+	global.stopMenuMusic();
 	get_tree().change_scene(scene_path);
 
 func _on_Voltar_pressed():

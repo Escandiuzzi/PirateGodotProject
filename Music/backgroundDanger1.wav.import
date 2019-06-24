@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/backgroundDanger1.wav-a82486fc674920c5da7be44dbc1c0f0a.sample"
+
+[deps]
+
+source_file="res://Music/backgroundDanger1.wav"
+dest_files=[ "res://.import/backgroundDanger1.wav-a82486fc674920c5da7be44dbc1c0f0a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

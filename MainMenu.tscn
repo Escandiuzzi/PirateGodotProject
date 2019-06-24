@@ -32,7 +32,6 @@ texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="Menu" type="VBoxContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
@@ -49,7 +48,7 @@ margin_right = 1440.0
 margin_bottom = 900.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-text = "Alpha Version"
+text = "Beta Version"
 
 [node name="Centro" type="Control" parent="."]
 editor/display_folded = true

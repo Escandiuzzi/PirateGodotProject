@@ -37,6 +37,7 @@ var current_pirate = null;
 
 
 func _ready():
+	global.playBackground1();
 	move = true;
 	if global.getGame() == true:
 		data._recruitPirate(0);

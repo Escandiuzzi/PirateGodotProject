@@ -8,6 +8,7 @@ var action;
 var screenSize = Vector2(0,0)
 #onready var background = $Menu/TextureRect;
 func _ready():
+	global.playMenuMusic();
 	for button in $Centro/Buttons.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load, button.action]);
 	var save_game = File.new();
