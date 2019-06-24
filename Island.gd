@@ -39,7 +39,7 @@ onready var recruit = $RecruitPirate;
 onready var item = preload("res://Item.tscn");
 onready var data = get_tree().get_root().get_node("/root/PlayerData");
 onready var island_menu = get_parent();
-
+onready var global = get_node("/root/Global");
 onready var canvasSlots = [
 get_node("PopupMenu/CheckBox"),
 get_node("PopupMenu/CheckBox2"),
@@ -140,6 +140,7 @@ func _insertPirates():
 	pass
 
 func _on_StartButton_pressed():
+	global.playButtonSound();
 	popupMenu.hide();
 	if selectedPirates > -1:
 			_insertPirates();
@@ -147,6 +148,7 @@ func _on_StartButton_pressed():
 	pass;
 
 func _on_CollectButton_pressed():
+	global.playButtonSound();
 	rewardMenu.hide();
 	button2.hide();
 	_rescue_crew();

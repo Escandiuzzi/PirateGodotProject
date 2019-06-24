@@ -38,3 +38,6 @@ func playBackground1():
 
 func playButtonSound():
 	$Button.play();
+
+func playIslandMenuSound():
+	$IslandMenu.play();

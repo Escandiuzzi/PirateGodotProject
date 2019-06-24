@@ -20,7 +20,7 @@ var player;
 var parent;
 
 onready var pirateStat = $PirateStat;
-
+onready var global = get_node("/root/Global");
 func _ready():
 	player = get_tree().get_root().get_node("World/Player");
 	parent = get_parent().get_parent().get_parent().get_parent();
@@ -30,10 +30,12 @@ func _ready():
 	
 
 func _on_CloseButton2_pressed():
+	global.playButtonSound();
 	self.hide();
 	pass
 
 func _on_Button_pressed():
+	global.playButtonSound();
 	self.show();
 	_check_player_crew();
 	pass

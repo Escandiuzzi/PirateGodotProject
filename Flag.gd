@@ -3,7 +3,7 @@ extends Node2D
 signal current_menu_opened(menu);
 
 export(Vector2) var path;
-
+onready var global = get_node("/root/Global");
 onready var menuButton = $Button;
 onready var player = get_tree().get_root().get_node("World/Player");
 onready var world = get_parent().get_parent();
@@ -26,6 +26,7 @@ func _on_Button_pressed():
 	if player_inside:
 		islandMenu.rect_position.x = position.x - (islandMenu.rect_size.x/2);
 		islandMenu.rect_position.y = position.y - (islandMenu.rect_size.y/2);
+		global.playIslandMenuSound();
 		islandMenu.show();
 		menuButton.visible = false;
 		emit_signal("current_menu_opened", islandMenu);

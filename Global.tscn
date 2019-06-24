@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Node.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MenuBackground.wav" type="AudioStream" id=2]
 [ext_resource path="res://Music/background3.wav" type="AudioStream" id=3]
 [ext_resource path="res://Music/Button-SoundBible.com-1420500901.wav" type="AudioStream" id=4]
+[ext_resource path="res://Music/page-flip-02.wav" type="AudioStream" id=5]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -16,4 +17,7 @@ stream = ExtResource( 3 )
 
 [node name="Button" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="IslandMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 

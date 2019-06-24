@@ -302,7 +302,7 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 11 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 9 )]
-editor/display_folded = false
+editor/display_folded = true
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 

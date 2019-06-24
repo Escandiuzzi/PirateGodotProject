@@ -14,6 +14,7 @@ onready var sprite = get_parent().get_node("Sprite");
 onready var button = get_parent().get_parent().get_node("Button");
 onready var player = get_tree().get_root().get_node("World/Player");
 onready var camera = get_tree().get_root().get_node("World/MainCamera");
+onready var global = get_node("/root/Global");
 
 func _process(delta):
 	if button != null:
@@ -31,6 +32,7 @@ func _player_moved_hide():
 
 
 func _on_Close_pressed():
+	global.playButtonSound();
 	self.hide();
 	camera.return_to_player();
 	pass 
