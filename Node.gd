@@ -35,3 +35,6 @@ func stopMenuMusic():
 func playBackground1():
 	if($Background1.playing == false):
 		$Background1.play();
+
+func playButtonSound():
+	$Button.play();

@@ -28,7 +28,7 @@ func _on_Button_pressed(scene_to_load, action):
 		global.setNewGame();
 	
 	scene_path = scene_to_load;
-	
+	global.playButtonSound();
 	$FadeIn.show();
 	$FadeIn.fade_in();
 

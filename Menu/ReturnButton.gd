@@ -1,10 +1,6 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
+onready var global = get_node("/root/Global");
 func _ready():
 	pass # Replace with function body.
 
@@ -14,4 +10,5 @@ func _ready():
 
 
 func _on_Button_pressed():
+	global.playButtonSound();
 	get_tree().change_scene('res://MainMenu.tscn')
