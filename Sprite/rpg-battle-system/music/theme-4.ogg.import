@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/theme-4.ogg-54bfe1f4e4b24b5721d020e9e078b1f5.oggstr"
+
+[deps]
+
+source_file="res://Sprite/rpg-battle-system/music/theme-4.ogg"
+dest_files=[ "res://.import/theme-4.ogg-54bfe1f4e4b24b5721d020e9e078b1f5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

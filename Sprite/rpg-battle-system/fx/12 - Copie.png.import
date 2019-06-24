@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/12 - Copie.png-827a29b4e3b1d20a70bc6ef4d1ee2ca0.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Sprite/rpg-battle-system/fx/12 - Copie.png"
+dest_files=[ "res://.import/12 - Copie.png-827a29b4e3b1d20a70bc6ef4d1ee2ca0.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

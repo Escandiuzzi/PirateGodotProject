@@ -64,6 +64,7 @@ var turn = 0;
 var equipament_loss = 1;
 var is_bossIsland;
 
+
 onready var recruitPanel = get_node("RecruitPirate");
 onready var ui_handler = get_node("ViewportContainer/Viewport/Manager/UI/UIButtonHandler");
 onready var manager = get_node("ViewportContainer/Viewport/Manager");
@@ -129,9 +130,10 @@ func _initializeEnemies():
 		characters[pos] = newEnemy;
 		pos += 1;
 		newEnemy.position = ia_pos[i];
-		newEnemy._change_sprite(enemy_texture);
+		newEnemy._change_sprite("null");
 		newEnemy._instantiate_special();
 		newEnemy.z_index = z_layer;
+		newEnemy._play_animation("enemy_idle");
 		z_layer-=1;
 	battle = true
 	pass;
@@ -186,6 +188,7 @@ func _process(delta):
 	pass;
 
 func _player_action():
+	
 	if player_action == "Attack":
 		var damage = int(current_character._get_stat("atk"));
 		
@@ -198,9 +201,12 @@ func _player_action():
 			current_character._set_weapon_durability(equipament_loss);
 		
 		var enemy = enemies[target_enemy];
+		print("aaaaa");
+	
+		_wait_animation(current_character);
 		
 		enemy._set_hp(enemy._get_hp() - damage);
-		_check_enemy_life(enemy, enemiesCount, enemies, target_enemy);
+		#_check_enemy_life(enemy, enemiesCount, enemies, target_enemy);
 	
 	elif player_action == "Special":
 		var special_attack = current_character._get_special_attack(special_id);
@@ -361,8 +367,9 @@ func _instanciate_player_pirates(ids):
 		characters_container.add_child(newPirate);
 		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"], current_line[str(i)]["atkBonus"], current_line[str(i)]["weaponPath"], current_line[str(i)]["weaponDurability"], current_line[str(i)]["defBonus"], current_line[str(i)]["shieldPath"], current_line[str(i)]["shieldDurability"]);
 		newPirate.position = player_pos[i];
-		newPirate._change_sprite(player_texture);
+		newPirate._change_sprite("null");
 		newPirate._instantiate_special();
+		newPirate._play_animation("player_idle");
 	save_game.close();
 	playerCount = ids.size();
 	player_data._readData(1);
@@ -634,4 +641,14 @@ func _on_RecruitButton_pressed():
 	pass
 func _get_path():
 	return scenePath;
+	pass;
+
+func _wait_animation(a):
+	var enemy = enemies[target_enemy];
+	a._play_animation("player_attack");
+	yield(current_character._get_animated_sprite(), "animation_finished");
+	a._play_animation("player_idle");
+	enemy._play_animation("enemy_hit");
+	yield(enemy._get_animated_sprite(), "animation_finished");
+	enemy._play_animation("enemy_idle");
 	pass;

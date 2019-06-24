@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/33.ogg-c1646c3be82c06266021a531295232be.oggstr"
+
+[deps]
+
+source_file="res://Sprite/rpg-battle-system/sound/33.ogg"
+dest_files=[ "res://.import/33.ogg-c1646c3be82c06266021a531295232be.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

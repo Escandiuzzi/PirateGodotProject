@@ -1,5 +1,9 @@
 extends Node2D
 
+signal animation_finished;
+
+onready var battleScene = get_tree().get_root().get_node("BattleScene");
+
 var id;
 var tag;
 var hp;
@@ -14,7 +18,7 @@ var shield;
 var special_attacks = [];
 
 onready var item = preload("res://Item.tscn");
-
+onready var animatedSprite = $AnimatedSprite;
 var stats = {
 	"atk": 0,
 	"mining": 0,
@@ -279,6 +283,9 @@ func _set_hp(_hp):
 	
 	if hp > max_hp:
 		hp = max_hp;
+	
+	if hp <= 0:
+		get_node("AnimatedSprite").visible = false;
 	pass;
 
 func _get_hp():
@@ -384,7 +391,10 @@ func _set_post_battle_bonus(bonus):
 	pass;
 
 func _change_sprite(spr):
-	sprite.texture = spr;
+	if spr == "null":
+		sprite.texture = null;
+	else:
+		sprite.texture = spr;
 	pass;
 	
 func _instantiate_special():
@@ -447,4 +457,12 @@ func _set_shield_durability(value):
 func _get_shield_durability():
 	print(int(shield._get_stat("durability")));
 	return int(shield._get_stat("durability"));
+	pass;
+
+func _play_animation(index):
+	animatedSprite.play(index);
+	pass;
+
+func _get_animated_sprite():
+	return get_node("AnimatedSprite");
 	pass;
