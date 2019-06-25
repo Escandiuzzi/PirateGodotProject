@@ -64,6 +64,8 @@ var turn = 0;
 var equipament_loss = 1;
 var is_bossIsland;
 
+var animating;
+var ia_action;
 
 onready var recruitPanel = get_node("RecruitPirate");
 onready var ui_handler = get_node("ViewportContainer/Viewport/Manager/UI/UIButtonHandler");
@@ -150,11 +152,11 @@ func _process(delta):
 	if battle:
 		if playerPirates.size() > 0 and enemies.size() > 0:
 			current_character = characters[turn];
-			if current_character._get_tag() == "Player":
+			if current_character._get_tag() == "Player" and !animating:
 				if played:
 					_player_action();
 			
-			elif current_character._get_tag() == "IA":
+			elif current_character._get_tag() == "IA" and !animating:
 				_ia_action();
 			
 		else:
@@ -201,12 +203,12 @@ func _player_action():
 			current_character._set_weapon_durability(equipament_loss);
 		
 		var enemy = enemies[target_enemy];
-		print("aaaaa");
-	
-		_wait_animation(current_character);
+		var __target = [enemy];
+		
+		_wait_animation_player(current_character, __target, "Attack");
 		
 		enemy._set_hp(enemy._get_hp() - damage);
-		#_check_enemy_life(enemy, enemiesCount, enemies, target_enemy);
+		_check_enemy_life(enemy, enemiesCount, enemies, target_enemy);
 	
 	elif player_action == "Special":
 		var special_attack = current_character._get_special_attack(special_id);
@@ -220,6 +222,8 @@ func _player_action():
 		
 		if heal > 0 and attack_range == 1:
 			current_character._set_hp(heal + current_character._get_hp());
+			current_character._play_fx_animation("heal_fx");
+		
 		elif heal > 0 and int(attack_range) > 1:
 			_heal_partners(playerPirates, attack_range, heal);
 			
@@ -259,7 +263,6 @@ func _player_action():
 			current_character._set_shield(item_selected);
 			current_character._set_def_bonus(heal);
 			
-			
 	target_enemy = null;
 	player_action = null;
 	played = false;
@@ -270,10 +273,9 @@ func _player_action():
 	pass;
 
 func _ia_action():
-	OS.delay_msec(3000);
-	
+	#OS.delay_msec(3000);
 	randomize();
-	var ia_action = randi() % 2;
+	ia_action = randi() % 2;
 	if ia_action == 0:
 		_ia_attack_player();
 	
@@ -289,7 +291,6 @@ func _ia_action():
 		
 		#special attack 
 		if special_ids.size() > 0:
-			
 			randomize();
 			var special_index = randi() % special_ids.size();
 			
@@ -347,7 +348,7 @@ func _get_ia_characters():
 	return enemies;
 	pass;
 
-func _instanciate_player_pirates(ids):
+func _instantiate_player_pirates(ids):
 	
 	var save_game = File.new();
 	if not save_game.file_exists("res://savegame.json"):
@@ -365,7 +366,7 @@ func _instanciate_player_pirates(ids):
 		characters[i] = newPirate;
 		playerPirates[i] = newPirate;
 		characters_container.add_child(newPirate);
-		newPirate._setData(i, current_line[str(i)]["tag"], current_line[str(i)]["hp"], current_line[str(i)]["maxHp"], current_line[str(i)]["energy"],  current_line[str(i)]["maxEnergy"], current_line[str(i)]["attack"], current_line[str(i)]["mining"], current_line[str(i)]["cooking"], current_line[str(i)]["special"], current_line[str(i)]["atkBonus"], current_line[str(i)]["weaponPath"], current_line[str(i)]["weaponDurability"], current_line[str(i)]["defBonus"], current_line[str(i)]["shieldPath"], current_line[str(i)]["shieldDurability"]);
+		newPirate._setData(i, current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(ids[i])]["energy"],  current_line[str(ids[i])]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"], current_line[str(ids[i])]["atkBonus"], current_line[str(ids[i])]["weaponPath"], current_line[str(ids[i])]["weaponDurability"], current_line[str(ids[i])]["defBonus"], current_line[str(ids[i])]["shieldPath"], current_line[str(ids[i])]["shieldDurability"]);
 		newPirate.position = player_pos[i];
 		newPirate._change_sprite("null");
 		newPirate._instantiate_special();
@@ -418,6 +419,14 @@ func _next_turn():
 func _attack_one_character(damage, array, target, count):
 	var enemy = array[target];
 	
+	var __target = [enemy];
+	
+	if current_character._get_tag() == "Player":
+		_wait_animation_player(current_character, __target, "Special");
+	
+	if current_character._get_tag() == "IA":
+		_wait_animation_ia(current_character, __target, "Special");
+	
 	var enemy_shield = enemy._get_stat("defBonus");
 	
 	if enemy_shield > 0:
@@ -432,33 +441,46 @@ func _attack_one_character(damage, array, target, count):
 
 func _attack_two_characters(damage, array, target, count):
 	var enemy = array[target];
-	
 	var enemy_shield = enemy._get_stat("defBonus");
+	
 	if enemy_shield > 0:
 		damage -= enemy_shield;
 		if damage <= 0:
 			damage = 0;
 		enemy._set_shield_durability(equipament_loss);
-	
-	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, count, array, target);
 
 	var second_enemy = target + 1
 	if second_enemy >= array.size():
 		target = 0;
 	else:
 		target += 1;
-	enemy = array[target];
-	enemy_shield = enemy._get_stat("defBonus");
 	
-	if enemy_shield > 0:
-		damage -= enemy_shield;
+	second_enemy = array[target];
+	
+	var second_enemy_shield = second_enemy._get_stat("defBonus");
+	
+	if second_enemy_shield > 0:
+		damage -= second_enemy_shield;
 		if damage <= 0:
 			damage = 0;
-		enemy._set_shield_durability(equipament_loss);
-	enemy._set_hp(enemy._get_hp() - damage);
+		second_enemy._set_shield_durability(equipament_loss);
 	
+	var __target = [enemy, second_enemy];
+	
+	if current_character._get_tag() == "Player":
+		_wait_animation_player(current_character, __target, "Special");
+	
+	if current_character._get_tag() == "IA":
+		_wait_animation_ia(current_character, __target, "Special");
+	
+	###################################################################
+	enemy._set_hp(enemy._get_hp() - damage);
 	_check_enemy_life(enemy, count, array, target);
+	###################################################################
+	second_enemy._set_hp(second_enemy._get_hp() - damage);
+	_check_enemy_life(second_enemy, count, array, target);
+	###################################################################
+	
 	pass;
 
 func _attack_three_characters(damage, array, target, count):
@@ -470,40 +492,55 @@ func _attack_three_characters(damage, array, target, count):
 		if damage <= 0:
 			damage = 0;
 		enemy._set_shield_durability(equipament_loss);
-	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, count, array, target);
 
 	var second_enemy = target + 1
 	if second_enemy >= array.size():
 		target = 0;
 	else:
 		target += 1;
-	enemy = array[target];
-	enemy_shield = enemy._get_stat("defBonus");
+	second_enemy = array[target];
+	var second_enemy_shield = second_enemy._get_stat("defBonus");
 	
-	if enemy_shield > 0:
-		damage -= enemy_shield;
+	if second_enemy_shield > 0:
+		damage -= second_enemy_shield;
 		if damage <= 0:
 			damage = 0;
-		enemy._set_shield_durability(equipament_loss);
-	enemy._set_hp(enemy._get_hp() - damage);
-	_check_enemy_life(enemy, count, array, target);
-	
+		second_enemy._set_shield_durability(equipament_loss);
+
 	var third_enemy = target + 1
 	if third_enemy  >= array.size():
 		target = 0;
 	else:
 		target += 1;
-	enemy = array[target];
-	enemy_shield = enemy._get_stat("defBonus");
+	third_enemy = array[target];
 	
-	if enemy_shield > 0:
-		damage -= enemy_shield;
+	var third_enemy_shield = enemy._get_stat("defBonus");
+	
+	if third_enemy_shield > 0:
+		damage -= third_enemy_shield;
 		if damage <= 0:
 			damage = 0;
-		enemy._set_shield_durability(equipament_loss);
+		third_enemy._set_shield_durability(equipament_loss);
+	
+	var __target = [enemy, second_enemy, third_enemy];
+	
+	if current_character._get_tag() == "Player":
+		_wait_animation_player(current_character, __target, "Special");
+	
+	if current_character._get_tag() == "IA":
+		_wait_animation_ia(current_character, __target, "Special");
+	
+	###################################################################
 	enemy._set_hp(enemy._get_hp() - damage);
 	_check_enemy_life(enemy, count, array, target);
+	###################################################################
+	second_enemy._set_hp(second_enemy._get_hp() - damage);
+	_check_enemy_life(second_enemy, count, array, target);
+	###################################################################
+	third_enemy._set_hp(third_enemy._get_hp() - damage);
+	_check_enemy_life(third_enemy, count, array, target);
+	###################################################################
+	
 	pass;
 
 func _ia_attack_player():
@@ -524,6 +561,9 @@ func _ia_attack_player():
 			damage = 0;
 		playerPirates[target_p]._set_shield_durability(equipament_loss);
 	
+	var __target = [playerPirates[target_p]];
+	
+	_wait_animation_ia(current_character, __target, "Attack");
 	playerPirates[target_p]._set_hp(playerPirates[target_p]._get_hp() - damage);
 	
 	b_log.text += str(turn) + " Attack of damage " + str(damage) + " on enemy with index of " + str(target_p) + ";" + "\n";
@@ -549,6 +589,8 @@ func _heal_crew(array, heal_range, heal):
 			current_character._set_hp(int(heal) + current_character._get_hp());
 		else:
 			array[i]._set_hp(int(heal)/2 + current_character._get_hp());
+		
+		array[i]._play_fx_animation("heal_fx");
 	pass;
 
 func _heal_two_characters(array, heal_range, heal):
@@ -566,7 +608,7 @@ func _heal_two_characters(array, heal_range, heal):
 		
 		if count == 2:
 			break;
-		
+		array[i]._play_fx_animation("heal_fx");
 	pass;
 
 func _check_enemy_life(enemy, count, array, target):
@@ -643,12 +685,36 @@ func _get_path():
 	return scenePath;
 	pass;
 
-func _wait_animation(a):
-	var enemy = enemies[target_enemy];
-	a._play_animation("player_attack");
-	yield(current_character._get_animated_sprite(), "animation_finished");
-	a._play_animation("player_idle");
-	enemy._play_animation("enemy_hit");
-	yield(enemy._get_animated_sprite(), "animation_finished");
-	enemy._play_animation("enemy_idle");
+func _wait_animation_player(current, target, type):
+	animating = true;
+	if type == "Attack":
+		current._play_animation("player_attack");
+	elif type == "Special":
+		current._play_animation("player_special");
+		
+	yield(current._get_animated_sprite(), "animation_finished");
+	current._play_animation("player_idle");
+	for i in range(target.size()):
+		target[i]._play_animation("enemy_hit");
+	yield(target[0]._get_animated_sprite(), "animation_finished");
+	for i in range(target.size()):
+		target[i]._play_animation("enemy_idle");
+	animating = false;
+	pass;
+
+func _wait_animation_ia(current, target, type):
+	animating = true;
+	if type == "Attack":
+		current._play_animation("enemy_attack");
+	elif type == "Special":
+		current._play_animation("enemy_special");
+		
+	yield(current._get_animated_sprite(), "animation_finished");
+	current._play_animation("enemy_idle");
+	for i in range(target.size()):
+		target[i]._play_animation("player_hit");
+	yield(target[0]._get_animated_sprite(), "animation_finished");
+	for i in range(target.size()):
+		target[i]._play_animation("player_idle");
+	animating = false;
 	pass;

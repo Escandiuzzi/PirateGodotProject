@@ -19,6 +19,8 @@ var special_attacks = [];
 
 onready var item = preload("res://Item.tscn");
 onready var animatedSprite = $AnimatedSprite;
+onready var fx = $FX;
+
 var stats = {
 	"atk": 0,
 	"mining": 0,
@@ -420,9 +422,11 @@ func _set_weapon(_weapon):
 	weapon = _weapon;
 	stats["atkBonus"] = weapon._get_stat("damage");
 	pass;
+	
 func _get_weapon():
 	return weapon;
 	pass;
+	
 func _set_weapon_durability(value):
 	if weapon._get_stat("durability") - value <= 0:
 		weapon = null;
@@ -430,12 +434,15 @@ func _set_weapon_durability(value):
 	else:
 		weapon._set_durability(int(weapon._get_stat("durability")) - value);
 	pass;
+	
 func _get_weapon_durability():
 	return int(weapon._get_stat("durability"));
 	pass;
+	
 func _set_atk_bonus(bonus):
 	stats["atkBonus"] = bonus;
 	pass;
+	
 func _set_def_bonus(bonus):
 	stats["defBonus"] = bonus;
 	pass;
@@ -444,6 +451,7 @@ func _set_shield(_shield):
 	shield = _shield;
 	stats["defBonus"] = shield._get_stat("heal");
 	pass;
+	
 func _get_shield():
 	return shield;
 	pass;
@@ -461,8 +469,18 @@ func _get_shield_durability():
 
 func _play_animation(index):
 	animatedSprite.play(index);
+	if index == "player_hit" or index == "enemy_hit":
+		_play_fx_animation("damage_fx");
 	pass;
 
 func _get_animated_sprite():
 	return get_node("AnimatedSprite");
+	pass;
+
+func _play_fx_animation(index):
+	fx.play(index);
+	pass;
+	
+func _on_FX_animation_finished():
+	fx.play("default")
 	pass;

@@ -14,15 +14,13 @@ onready var player;
 onready var item = preload("res://Item.tscn");
 
 func _selected_pirates(_ids):
-	for i in range(_ids.size()):
-		if _ids[i] != null:
-			ids.append(null);
-			ids[i] = _ids[i];
+	print(_ids);
+	ids =_ids;
 	pass;
 
 func _request_player_pirates():
 	battleScene = get_tree().get_root().get_node("BattleScene");
-	battleScene._instanciate_player_pirates(ids);
+	battleScene._instantiate_player_pirates(ids);
 	pass;
 
 func _recruitPirate(index):

@@ -1,40 +1,40 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://Pirate.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=2]
 [ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/hit1.png" type="Texture" id=3]
 [ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/hit2.png" type="Texture" id=4]
 [ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/hit3.png" type="Texture" id=5]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle1.png" type="Texture" id=6]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle2.png" type="Texture" id=7]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle3.png" type="Texture" id=8]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle4.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle5.png" type="Texture" id=10]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle6.png" type="Texture" id=11]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle7.png" type="Texture" id=12]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special2.png" type="Texture" id=13]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special3.png" type="Texture" id=14]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special4.png" type="Texture" id=15]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special5.png" type="Texture" id=16]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special6.png" type="Texture" id=17]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special7.png" type="Texture" id=18]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special8.png" type="Texture" id=19]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special9.png" type="Texture" id=20]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special10.png" type="Texture" id=21]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special11.png" type="Texture" id=22]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special12.png" type="Texture" id=23]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special13.png" type="Texture" id=24]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special14.png" type="Texture" id=25]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special15.png" type="Texture" id=26]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special16.png" type="Texture" id=27]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special17.png" type="Texture" id=28]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special18.png" type="Texture" id=29]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special19.png" type="Texture" id=30]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special20.png" type="Texture" id=31]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special21.png" type="Texture" id=32]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special22.png" type="Texture" id=33]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special23.png" type="Texture" id=34]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special24.png" type="Texture" id=35]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special2.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special3.png" type="Texture" id=7]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special4.png" type="Texture" id=8]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special5.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special6.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special7.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special8.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special9.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special10.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special11.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special12.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special13.png" type="Texture" id=17]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special14.png" type="Texture" id=18]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special15.png" type="Texture" id=19]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special16.png" type="Texture" id=20]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special17.png" type="Texture" id=21]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special18.png" type="Texture" id=22]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special19.png" type="Texture" id=23]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special20.png" type="Texture" id=24]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special21.png" type="Texture" id=25]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special22.png" type="Texture" id=26]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special23.png" type="Texture" id=27]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack_special24.png" type="Texture" id=28]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle1.png" type="Texture" id=29]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle2.png" type="Texture" id=30]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle3.png" type="Texture" id=31]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle4.png" type="Texture" id=32]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle5.png" type="Texture" id=33]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle6.png" type="Texture" id=34]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/idle7.png" type="Texture" id=35]
 [ext_resource path="res://Sprite/rpg-battle-system/char/bowman/idle1.png" type="Texture" id=36]
 [ext_resource path="res://Sprite/rpg-battle-system/char/bowman/idle2.png" type="Texture" id=37]
 [ext_resource path="res://Sprite/rpg-battle-system/char/bowman/idle3.png" type="Texture" id=38]
@@ -47,36 +47,57 @@
 [ext_resource path="res://Sprite/rpg-battle-system/char/bowman/hit2.png" type="Texture" id=45]
 [ext_resource path="res://Sprite/rpg-battle-system/char/bowman/hit3.png" type="Texture" id=46]
 [ext_resource path="res://Sprite/rpg-battle-system/char/bowman/hit4.png" type="Texture" id=47]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack1.png" type="Texture" id=48]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack2.png" type="Texture" id=49]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack3.png" type="Texture" id=50]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack4.png" type="Texture" id=51]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack5.png" type="Texture" id=52]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack6.png" type="Texture" id=53]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack7.png" type="Texture" id=54]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack8.png" type="Texture" id=55]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack9.png" type="Texture" id=56]
-[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack10.png" type="Texture" id=57]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack1.png" type="Texture" id=58]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack2.png" type="Texture" id=59]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack3.png" type="Texture" id=60]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack4.png" type="Texture" id=61]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack5.png" type="Texture" id=62]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special1.png" type="Texture" id=63]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special2.png" type="Texture" id=64]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special3.png" type="Texture" id=65]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special4.png" type="Texture" id=66]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special5.png" type="Texture" id=67]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special6.png" type="Texture" id=68]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special7.png" type="Texture" id=69]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special8.png" type="Texture" id=70]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special9.png" type="Texture" id=71]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special10.png" type="Texture" id=72]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special11.png" type="Texture" id=73]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special12.png" type="Texture" id=74]
-[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special13.png" type="Texture" id=75]
-[ext_resource path="res://Sprite/text_background.png" type="Texture" id=76]
-[ext_resource path="res://Font/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=77]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack1.png" type="Texture" id=48]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack2.png" type="Texture" id=49]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack3.png" type="Texture" id=50]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack4.png" type="Texture" id=51]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack5.png" type="Texture" id=52]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special1.png" type="Texture" id=53]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special2.png" type="Texture" id=54]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special3.png" type="Texture" id=55]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special4.png" type="Texture" id=56]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special5.png" type="Texture" id=57]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special6.png" type="Texture" id=58]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special7.png" type="Texture" id=59]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special8.png" type="Texture" id=60]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special9.png" type="Texture" id=61]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special10.png" type="Texture" id=62]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special11.png" type="Texture" id=63]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special12.png" type="Texture" id=64]
+[ext_resource path="res://Sprite/rpg-battle-system/monster/mimic/attack_special13.png" type="Texture" id=65]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack1.png" type="Texture" id=66]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack2.png" type="Texture" id=67]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack3.png" type="Texture" id=68]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack4.png" type="Texture" id=69]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack5.png" type="Texture" id=70]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack6.png" type="Texture" id=71]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack7.png" type="Texture" id=72]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack8.png" type="Texture" id=73]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack9.png" type="Texture" id=74]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/attack10.png" type="Texture" id=75]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/damage1.png" type="Texture" id=76]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/damage2.png" type="Texture" id=77]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/damage3.png" type="Texture" id=78]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/damage4.png" type="Texture" id=79]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/damage5.png" type="Texture" id=80]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/damage6.png" type="Texture" id=81]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/damage7.png" type="Texture" id=82]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/powerup1.png" type="Texture" id=83]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/powerup2.png" type="Texture" id=84]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/powerup3.png" type="Texture" id=85]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/powerup4.png" type="Texture" id=86]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/powerup5.png" type="Texture" id=87]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/powerup6.png" type="Texture" id=88]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/powerup7.png" type="Texture" id=89]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/heal1.png" type="Texture" id=90]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/heal2.png" type="Texture" id=91]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/heal3.png" type="Texture" id=92]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/heal4.png" type="Texture" id=93]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/heal5.png" type="Texture" id=94]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/heal6.png" type="Texture" id=95]
+[ext_resource path="res://Sprite/rpg-battle-system/fx/heal7.png" type="Texture" id=96]
+[ext_resource path="res://Sprite/text_background.png" type="Texture" id=97]
+[ext_resource path="res://Font/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=98]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 31.8755
@@ -88,14 +109,14 @@ animations = [ {
 "name": "enemy_hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "enemy_idle",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
 "loop": false,
 "name": "player_special",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "enemy_idle",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ) ],
@@ -108,27 +129,47 @@ animations = [ {
 "name": "player_hit",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
-"loop": false,
-"name": "player_attack",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
 "loop": false,
 "name": "enemy_attack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ) ],
+"frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ) ],
 "loop": false,
 "name": "enemy_special",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ) ],
+"loop": false,
+"name": "player_attack",
+"speed": 12.0
 } ]
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle_player"
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "damage_fx",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ) ],
+"loop": false,
+"name": "powerup_fx",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ) ],
+"loop": false,
+"name": "heal_fx",
+"speed": 8.0
+} ]
 
 [sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 77 )
+font_data = ExtResource( 98 )
 
 [node name="Pirate" type="Node2D"]
 script = ExtResource( 1 )
@@ -144,19 +185,21 @@ editor/display_folded = true
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-editor/display_folded = true
 frames = SubResource( 2 )
-animation = "enemy_hit"
-frame = 2
+animation = "enemy_idle"
 playing = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite"]
-anims/idle_player = SubResource( 3 )
+[node name="FX" type="AnimatedSprite" parent="."]
+position = Vector2( 19.0431, 27.7377 )
+frames = SubResource( 3 )
+animation = "powerup_fx"
+frame = 6
+playing = true
 
 [node name="textBGD" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 4.54994, 4.26153 )
-texture = ExtResource( 76 )
+texture = ExtResource( 97 )
 centered = false
 
 [node name="pirateStat" type="RichTextLabel" parent="."]
@@ -169,3 +212,4 @@ custom_fonts/mono_font = SubResource( 4 )
 
 [connection signal="mouse_entered" from="Sprite/Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite/Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="animation_finished" from="FX" to="." method="_on_FX_animation_finished"]
