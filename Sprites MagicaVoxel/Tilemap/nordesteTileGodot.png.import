@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/islandSulState2.png-27494229c514bc343f9a9d39bca0a691.stex"
+path="res://.import/nordesteTileGodot.png-987a896c74d080431d024cf9cb3c2850.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites MagicaVoxel/Island/Sul/islandSulState2.png"
-dest_files=[ "res://.import/islandSulState2.png-27494229c514bc343f9a9d39bca0a691.stex" ]
+source_file="res://Sprites MagicaVoxel/Tilemap/nordesteTileGodot.png"
+dest_files=[ "res://.import/nordesteTileGodot.png-987a896c74d080431d024cf9cb3c2850.stex" ]
 
 [params]
 
