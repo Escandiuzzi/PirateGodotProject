@@ -22,22 +22,22 @@ func _process(delta):
 			button.visible = true;
 			camera.return_to_player();
 	pass;
-
-
+	
+	
 func _player_moved_hide():
 	pirate_menu.hide();
 	reward_menu.hide();
 	self.hide();
 	pass;
-
-
+	
+	
 func _on_Close_pressed():
 	global.playButtonSound();
 	self.hide();
 	camera.return_to_player();
-	pass 
-
-
+	pass;
+	
+	
 func _on_timer_change(time):
 	if time >= 0 and time < 1:
 		sprite.texture = island_states[0];
@@ -53,6 +53,6 @@ func _on_Save_pressed():
 
 
 func _on_CraftingButton_pressed():
-	get_tree().change_scene("res://BattleScene.tscn");
+	get_tree().change_scene("res://CraftingStation.tscn");
 	pass
 

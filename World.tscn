@@ -181,6 +181,7 @@ final_pos = 2000
 speed = 0.5
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 position = Vector2( -40, 530 )
 movement_speed = 200
 
@@ -218,6 +219,7 @@ visible = true
 editor/display_folded = true
 
 [node name="Flags" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Flag" parent="Flags" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -234,9 +236,9 @@ margin_bottom = 1107.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag" instance=ExtResource( 10 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Flags/Flag/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 path = "Flags/Flag/Button"
 
@@ -251,7 +253,6 @@ margin_top = 139.0
 mouse_filter = 1
 
 [node name="Island" parent="Flags/Flag/IslandMenu/IslandMenu" index="5"]
-editor/display_folded = false
 islandType = "Item"
 regionName = "Sul"
 commonSize = 2
@@ -303,6 +304,7 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 11 )
 
 [node name="Flag2" parent="Flags" instance=ExtResource( 9 )]
+editor/display_folded = true
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 
@@ -316,13 +318,18 @@ margin_bottom = 970.0
 icon = null
 
 [node name="IslandMenu" parent="Flags/Flag2" instance=ExtResource( 14 )]
+editor/display_folded = true
+
+[node name="IslandMenu" parent="Flags/Flag2/IslandMenu" index="0"]
+editor/display_folded = true
 
 [node name="Island" parent="Flags/Flag2/IslandMenu/IslandMenu" index="4"]
+editor/display_folded = true
 is_bossIsland = true
 islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
-difficulty = 5.0
+difficulty = 1.25
 enemies = 3
 islandSize = 3
 commonSize = 2
@@ -462,10 +469,15 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
 [node name="IslandMenu" parent="Flags/Flag5" instance=ExtResource( 20 )]
+editor/display_folded = true
 position = Vector2( 0, 0.323547 )
 
 [node name="IslandMenu" parent="Flags/Flag5/IslandMenu" index="0"]
+editor/display_folded = true
 path = "Flags/Flag5/Button"
+
+[node name="Island" parent="Flags/Flag5/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = true
 
 [node name="PopupMenu" parent="Flags/Flag5/IslandMenu/IslandMenu/Island" index="3"]
 islandType = "Battle"
@@ -474,9 +486,6 @@ islandType = "Battle"
 editor/display_folded = false
 
 [node name="CheckBox10" parent="Flags/Flag5/IslandMenu/IslandMenu/Island/PopupMenu" index="12"]
-editor/display_folded = false
-
-[node name="Area2D" parent="Flags/Flag5/IslandMenu" index="1"]
 editor/display_folded = false
 
 [node name="CollisionShape2D" parent="Flags/Flag5/IslandMenu/Area2D" index="0"]

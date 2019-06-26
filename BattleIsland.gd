@@ -78,8 +78,8 @@ func _on_CheckBox_toggled(button_pressed, extra_arg_0):
 			canvasSlots[extra_arg_0].pressed = false
 	
 	else:
+		pirateId[selectedPirates] = null;
 		selectedPirates -= 1;
-		pirateId.remove(extra_arg_0);
 	pass;
 
 func _insertPirates():

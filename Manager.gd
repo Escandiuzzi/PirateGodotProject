@@ -34,34 +34,40 @@ func _set_characters():
 	pass;
 
 func _update_healthbar():
-	
 	for i in range(p_healthbars.size()):
-		if p_characters.size() - 1  < i or p_characters[i]._get_hp() <= 0:
+		if p_characters.size() > i :
+			if p_characters.size() > 0 and p_characters[i]._get_hp() <= 0:
+				p_healthbars[i].visible = false;
+			else:
+				p_healthbars[i].visible = true;
+				var hp = p_characters[i]._get_hp();
+				var max_hp = p_characters[i]._get_max_hp();
+				var percentage = (100 * hp) / max_hp;	
+				p_healthbars[i].set_value(percentage);
+		else:
 			p_healthbars[i].visible = false;
-		else:
-			var hp = p_characters[i]._get_hp();
-			var max_hp = p_characters[i]._get_max_hp();
-			var percentage = (100 * hp) / max_hp;	
-			p_healthbars[i].set_value(percentage);
-	
+
 	for i in range(ia_healthbars.size()):
-		if ia_characters.size() - 1 < i or ia_characters[i]._get_hp() <= 0:
-			ia_healthbars[i].visible = false;
-		else:
-			var hp = ia_characters[i]._get_hp();
-			var max_hp = ia_characters[i]._get_max_hp();
-			var percentage = (100 * hp) / max_hp;	
-			ia_healthbars[i].set_value(percentage);
+		if ia_characters.size() > i :
+			if ia_characters.size() > 0 and ia_characters[i]._get_hp() <= 0:
+				ia_healthbars[i].visible = false;
+			else:
+				ia_healthbars[i].visible = true;
+				var hp = ia_characters[i]._get_hp();
+				var max_hp = ia_characters[i]._get_max_hp();
+				var percentage = (100 * hp) / max_hp;	
+				ia_healthbars[i].set_value(percentage);
 	pass;
 
 func _remove_healthbar(id, index):
 	if id == 0:
-		var hb = p_healthbars[index];
-		p_healthbars.erase(hb);
-		hb.queue_free();
+		if p_healthbars.size() > 0:
+			var hb = p_healthbars[index];
+			p_healthbars.erase(hb);
+			hb.queue_free();
 	else:
-		var hb = ia_healthbars[index];
-		ia_healthbars.erase(hb);
-		hb.queue_free();
+		if ia_healthbars.size() > 0:
+			var hb = ia_healthbars[index];
+			ia_healthbars.erase(hb);
+			hb.queue_free();
 	pass;
-

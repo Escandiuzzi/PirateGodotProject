@@ -14,6 +14,7 @@ var busy;
 var weapon;
 var shield;
 
+var battle_id;
 
 var special_attacks = [];
 
@@ -483,4 +484,12 @@ func _play_fx_animation(index):
 	
 func _on_FX_animation_finished():
 	fx.play("default")
+	pass;
+
+func _set_battle_id(__id):
+	battle_id = __id;
+	pass;
+
+func _get_battle_id():
+	return battle_id;
 	pass;
