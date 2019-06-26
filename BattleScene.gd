@@ -165,16 +165,6 @@ func _process(delta):
 			
 			ui_handler._layers_visible(false);
 			
-			if is_bossIsland:
-				fragment_panel.visible = true;
-				if player_data._get_map_fragment() < 4:
-					player_data._add_map_fragment();
-					if player_data._get_map_fragment() < 4:
-						fragment_text.text = "Novo fragmento de mapa encontrado! \n \n \n";
-						fragment_text.text += "Numero de Fragmentos encontrados " + str(player_data._get_map_fragment()) + " de 4";
-					else:
-						fragment_text.text = "Arghhh!!! Encontramos todos os pedaços! \n \n \n";
-			
 			if playerPirates.size() > 0:
 				_get_player_rewards();
 				
@@ -184,6 +174,16 @@ func _process(delta):
 						playerPirates[i]._set_busy(false);
 				
 				_remove_dead_pirates();
+				
+				if is_bossIsland:
+					fragment_panel.visible = true;
+					if player_data._get_map_fragment() < 4:
+						player_data._add_map_fragment();
+						if player_data._get_map_fragment() < 4:
+							fragment_text.text = "Novo fragmento de mapa encontrado! \n \n \n";
+							fragment_text.text += "Numero de Fragmentos encontrados " + str(player_data._get_map_fragment()) + " de 4";
+						else:
+							fragment_text.text = "Arghhh!!! Encontramos todos os pedaços! \n \n \n";
 				
 			else:
 				_remove_dead_pirates();
@@ -222,9 +222,11 @@ func _player_action():
 		if heal > 0 and attack_range == 1:
 			current_character._set_hp(heal + current_character._get_hp());
 			current_character._play_fx_animation("heal_fx");
+			_next_turn();
 		
 		elif heal > 0 and int(attack_range) > 1:
 			_heal_partners(playerPirates, attack_range, heal);
+			_next_turn();
 			
 		if damage > 0:
 			if int(attack_range) == 1:

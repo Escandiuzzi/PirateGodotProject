@@ -1,7 +1,5 @@
 extends PopupMenu
 
-export(String) var path;
-
 var parent;
 
 func _ready():

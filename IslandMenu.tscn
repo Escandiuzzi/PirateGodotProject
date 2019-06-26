@@ -100,7 +100,6 @@ margin_right = 336.0
 margin_bottom = -3.0
 
 [node name="Button2" parent="IslandMenu/Island" index="4"]
-visible = false
 margin_left = 66.0739
 margin_top = 10.0281
 margin_right = 166.074
@@ -123,7 +122,6 @@ scale = Vector2( 0.14264, 0.150814 )
 texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 

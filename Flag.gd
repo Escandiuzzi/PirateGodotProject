@@ -6,7 +6,7 @@ export(Vector2) var path;
 onready var global = get_node("/root/Global");
 onready var menuButton = $Button;
 onready var player = get_tree().get_root().get_node("World/Player");
-onready var world = get_parent().get_parent();
+onready var world = get_parent().get_parent().get_parent();
 onready var camera = get_tree().get_root().get_node("World/MainCamera");
 onready var inventory_camera = get_tree().get_root().get_node("World/InventoryCamera");
 onready var inventory_screen = get_tree().get_root().get_node("World/InventoryCamera/InventoryScreen");
@@ -37,6 +37,7 @@ func _on_Button_pressed():
 
 func _on_Area2D_area_entered(area):
 	if area.name == "PlayerArea2D":
+		print("aaaa");
 		player_inside = true;
 	pass
 	

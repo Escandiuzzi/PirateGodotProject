@@ -13,7 +13,6 @@ $CheckBox9,
 $CheckBox10
 ]
 
-export(String) var path;
 export(String) var islandType;
 
 var player;

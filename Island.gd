@@ -55,8 +55,8 @@ get_node("PopupMenu/CheckBox10")
 
 func _ready():
 	
-	recruit.position.x = 250
-	recruit.position.y = 100
+	recruit.rect_position.x = popupMenu.rect_position.x - 50;
+	recruit.rect_position.y = popupMenu.rect_position.y;
 	
 	player = get_tree().get_root().get_node("World/Player");
 	for i in range(islandSize):
@@ -159,7 +159,7 @@ func _on_CollectButton_pressed():
 	randomize();
 	var thold = randi() % 100;
 		
-	if thold >= 0:
+	if thold >= recruit_seed:
 		recruit.visible = true;
 	pass 
 

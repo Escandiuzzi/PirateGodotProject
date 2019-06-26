@@ -21,8 +21,6 @@
 [ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Menu/Borda.png" type="Texture" id=20]
 
-
-
 [node name="BattleScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,11 +36,9 @@ mouse_filter = 2
 stretch = true
 
 [node name="InventoryScreen" parent="ViewportContainer" instance=ExtResource( 2 )]
+editor/display_folded = true
 visible = false
 z_index = 5
-
-[node name="BackgroundContainer" parent="ViewportContainer/InventoryScreen" index="1"]
-editor/display_folded = false
 
 [node name="CharactersContainer" type="Control" parent="ViewportContainer"]
 mouse_filter = 2
@@ -53,9 +49,11 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Manager" type="Node2D" parent="ViewportContainer/Viewport"]
+editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="UI" type="Control" parent="ViewportContainer/Viewport/Manager"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1440.0
@@ -286,11 +284,13 @@ rect_scale = Vector2( 2, 2 )
 text = "Turn: 0"
 
 [node name="Background" type="Sprite" parent="ViewportContainer/Viewport"]
+visible = false
 position = Vector2( 738, 345 )
 scale = Vector2( 0.3, 0.8 )
 texture = ExtResource( 17 )
 
 [node name="BattleLog" type="RichTextLabel" parent="ViewportContainer/Viewport"]
+visible = false
 margin_left = 626.0
 margin_top = 130.0
 margin_right = 798.0
@@ -332,10 +332,8 @@ text = "Close"
 
 [node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 19 )]
 editor/display_folded = true
-visible = false
-position = Vector2( 520, 250 )
 
-[node name="Panel" parent="ViewportContainer/Viewport/RecruitPirate" index="0"]
+[node name="Panel" parent="ViewportContainer/Viewport/RecruitPirate" index="1"]
 editor/display_folded = true
 theme = ExtResource( 18 )
 

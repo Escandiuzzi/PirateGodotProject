@@ -8,7 +8,6 @@ onready var pirate_menu = get_node("Island/PopupMenu");
 onready var reward_menu = get_node("Island/RewardMenu");
 
 export(Array) var island_states;
-export(String) var path;
 
 onready var sprite = get_parent().get_node("Sprite");
 onready var button = get_parent().get_parent().get_node("Button");
