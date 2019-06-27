@@ -14,4 +14,10 @@ margin_bottom = 120.0
 rect_scale = Vector2( 0.3, 0.3 )
 icon = ExtResource( 2 )
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

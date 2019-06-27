@@ -121,10 +121,6 @@ position = Vector2( 118.321, 66.3396 )
 scale = Vector2( 0.14264, 0.150814 )
 texture = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-
 [node name="Sprite" type="Sprite" parent="."]
 
 [connection signal="pressed" from="IslandMenu/Close" to="IslandMenu" method="_on_Close_pressed"]
