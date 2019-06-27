@@ -45,6 +45,9 @@ func _ready():
 		data._readData(0);
 	
 	position = global._get_player_coordinates();
+	
+	get_tree().get_root().get_node("World")._update_camera_limit(data._get_map_fragment());
+	
 
 func _input(event):
 	if event.is_action_pressed("key_k") and crewCount < 10:

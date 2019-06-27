@@ -1,5 +1,8 @@
 extends Node
 
+export(Array) var camera_positions;
+
+
 # Internal node references
 onready var navigation_map = $NavigationMap;
 onready var player = $Player;
@@ -9,6 +12,7 @@ onready var inventory = preload("res://Inventory.gd");
 onready var pirateObj = preload("res://Pirate.tscn");
 onready var item = preload("res://Item.tscn");
 onready var data = get_node("/root/PlayerData");
+onready var camera;
 
 var current_menu;
 
@@ -17,7 +21,6 @@ var crew = [];
 var ids = [];
 #onready var menu = get_node("/root/MainMenu");
 var MenuOption = "Start";
-
 
 func _unhandled_input(event):
 	if Input.is_action_pressed("right_click"):
@@ -59,3 +62,7 @@ func _set_island_path(_path):
 		player.path = path
 	pass;
 
+func _update_camera_limit(fragments):
+	camera = get_node("MainCamera");
+	camera.limit_bottom = camera_positions[fragments][3];
+	pass;
