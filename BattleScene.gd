@@ -360,22 +360,23 @@ func _instantiate_player_pirates(ids):
 	save_game.open("res://savegame.json", File.READ)
 	
 	var current_line =  parse_json(save_game.get_line());
-		
+	playerCount = 0;
 	for i in range(ids.size()):
-		characters.append(null);
-		playerPirates.append(null);
-		var newPirate = pirateObj.instance();
-		characters[i] = newPirate;
-		playerPirates[i] = newPirate;
-		characters_container.add_child(newPirate);
-		newPirate._setData(i, current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(ids[i])]["energy"],  current_line[str(ids[i])]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"], current_line[str(ids[i])]["atkBonus"], current_line[str(ids[i])]["weaponPath"], current_line[str(ids[i])]["weaponDurability"], current_line[str(ids[i])]["defBonus"], current_line[str(ids[i])]["shieldPath"], current_line[str(ids[i])]["shieldDurability"]);
-		newPirate.position = player_pos[i];
-		newPirate._change_sprite("null");
-		newPirate._instantiate_special();
-		newPirate._play_animation("player_idle");
-		newPirate._set_battle_id(i);
+		if ids[i] != null:
+			characters.append(null);
+			playerPirates.append(null);
+			var newPirate = pirateObj.instance();
+			characters[i] = newPirate;
+			playerPirates[i] = newPirate;
+			characters_container.add_child(newPirate);
+			newPirate._setData(i, current_line[str(ids[i])]["tag"], current_line[str(ids[i])]["hp"], current_line[str(ids[i])]["maxHp"], current_line[str(ids[i])]["energy"],  current_line[str(ids[i])]["maxEnergy"], current_line[str(ids[i])]["attack"], current_line[str(ids[i])]["mining"], current_line[str(ids[i])]["cooking"], current_line[str(ids[i])]["special"], current_line[str(ids[i])]["atkBonus"], current_line[str(ids[i])]["weaponPath"], current_line[str(ids[i])]["weaponDurability"], current_line[str(ids[i])]["defBonus"], current_line[str(ids[i])]["shieldPath"], current_line[str(ids[i])]["shieldDurability"]);
+			newPirate.position = player_pos[i];
+			newPirate._change_sprite("null");
+			newPirate._instantiate_special();
+			newPirate._play_animation("player_idle");
+			newPirate._set_battle_id(i);
+			playerCount +=1;
 	save_game.close();
-	playerCount = ids.size();
 	player_data._readData(1);
 	_initializeEnemies();
 	

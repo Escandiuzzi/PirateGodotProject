@@ -4,7 +4,6 @@ var newGame = true;
 
 var player_pos;
 
-
 func _ready():
 	player_pos = Vector2(-40, 530);
 	pass

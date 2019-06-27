@@ -52,6 +52,7 @@ func _on_Save_pressed():
 
 
 func _on_CraftingButton_pressed():
+	global._set_player_coordinates(player.position);
 	get_tree().change_scene("res://CraftingStation.tscn");
 	pass
 

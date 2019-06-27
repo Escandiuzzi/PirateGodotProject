@@ -332,6 +332,11 @@ text = "Close"
 
 [node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 19 )]
 editor/display_folded = true
+visible = false
+margin_left = 525.0
+margin_top = 250.0
+margin_right = 955.0
+margin_bottom = 440.0
 
 [node name="Panel" parent="ViewportContainer/Viewport/RecruitPirate" index="1"]
 editor/display_folded = true

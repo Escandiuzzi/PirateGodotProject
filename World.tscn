@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=2]
@@ -68,88 +68,92 @@ extents = Vector2( 240.167, 250 )
 extents = Vector2( 197.636, 197.472 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 210, 197.531 )
+extents = Vector2( 192.025, 200 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 230, 242.299 )
+extents = Vector2( 210, 197.531 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 217.237, 196.323 )
+extents = Vector2( 230, 242.299 )
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 266.936, 270 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 265.32, 256.43 )
+extents = Vector2( 217.237, 196.323 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 342.857, 347.214 )
+extents = Vector2( 265.32, 256.43 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 230, 260 )
+extents = Vector2( 342.857, 347.214 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 280, 270 )
+extents = Vector2( 230, 260 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 239.681, 240 )
+extents = Vector2( 280, 270 )
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 290, 276.32 )
+extents = Vector2( 239.681, 240 )
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 250.167, 260 )
+extents = Vector2( 290, 276.32 )
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 440.055, 457.143 )
+extents = Vector2( 250.167, 260 )
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 242.936, 260 )
+extents = Vector2( 440.055, 457.143 )
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 270.002, 277.028 )
+extents = Vector2( 242.936, 260 )
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 326.167, 310.32 )
+extents = Vector2( 270.002, 277.028 )
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 310, 282.28 )
+extents = Vector2( 326.167, 310.32 )
 
 [sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 259, 270 )
+extents = Vector2( 310, 282.28 )
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 445.2, 471.429 )
+extents = Vector2( 259, 270 )
 
 [sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 240, 246.5 )
+extents = Vector2( 445.2, 471.429 )
 
 [sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 280, 284.78 )
+extents = Vector2( 240, 246.5 )
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 360, 320 )
+extents = Vector2( 280, 284.78 )
 
 [sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 330, 350 )
+extents = Vector2( 360, 320 )
 
 [sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 312.285, 300 )
+extents = Vector2( 330, 350 )
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 302.05, 313.6 )
+extents = Vector2( 312.285, 300 )
 
 [sub_resource type="RectangleShape2D" id=28]
-extents = Vector2( 223, 226.67 )
+extents = Vector2( 302.05, 313.6 )
 
 [sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 223, 226.67 )
+
+[sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 490.699, 557.142 )
 
 [node name="World" type="Node"]
 script = ExtResource( 1 )
 
 [node name="InventoryCamera" type="Camera2D" parent="."]
-editor/display_folded = true
 
 [node name="InventoryScreen" parent="InventoryCamera" instance=ExtResource( 2 )]
-editor/display_folded = true
 visible = false
 position = Vector2( -723.729, -448.388 )
 z_index = 5
@@ -326,7 +330,6 @@ editor/display_folded = true
 [node name="Regions" type="Node" parent="."]
 
 [node name="Tutorial" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Tutorial" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -415,18 +418,28 @@ margin_top = -214.0
 margin_right = 1146.0
 margin_bottom = 1166.0
 
+[node name="Area2D" parent="Regions/Tutorial/BossIsland" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Regions/Tutorial/BossIsland/Area2D" index="0"]
 shape = SubResource( 2 )
 
 [node name="IslandMenu" parent="Regions/Tutorial/BossIsland" instance=ExtResource( 14 )]
+editor/display_folded = true
+
+[node name="IslandMenu" parent="Regions/Tutorial/BossIsland/IslandMenu" index="0"]
+editor/display_folded = true
 
 [node name="Island" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
 islandType = "Item"
 regionName = "Sul"
-difficulty = 0.25
+scenePath = "res://World.tscn"
+difficulty = 1.5
 enemies = 3
 islandSize = 3
+commonSize = 2
+uncommonSize = 1
 rareSize = 1
 maxRewards = 1
 
@@ -446,11 +459,15 @@ margin_top = -180.0
 margin_right = 472.0
 margin_bottom = 1010.0
 
+[node name="Area2D" parent="Regions/Tutorial/RenewableIsland" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Regions/Tutorial/RenewableIsland/Area2D" index="0"]
 position = Vector2( 5.073, -10 )
 shape = SubResource( 3 )
 
 [node name="IslandMenu" parent="Regions/Tutorial/RenewableIsland" instance=ExtResource( 10 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Tutorial/RenewableIsland/IslandMenu" index="0"]
 editor/display_folded = false
@@ -511,14 +528,32 @@ texture = ExtResource( 11 )
 position = Vector2( -192.025, -670 )
 path = Vector2( -190, -670 )
 
+[node name="Button" parent="Regions/Tutorial/PortIsland1" index="0"]
+margin_left = -103.0
+margin_top = -109.0
+margin_right = 602.0
+margin_bottom = 615.0
+
+[node name="Area2D" parent="Regions/Tutorial/PortIsland1" index="1"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" parent="Regions/Tutorial/PortIsland1/Area2D" index="0"]
+position = Vector2( 0, 3.78687 )
+shape = SubResource( 5 )
+
 [node name="Sprite" type="Sprite" parent="Regions/Tutorial/PortIsland1"]
 position = Vector2( 0.000396729, 0 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 22 )
 
 [node name="IslandMenu" parent="Regions/Tutorial/PortIsland1" instance=ExtResource( 23 )]
-editor/display_folded = true
 position = Vector2( 0, 0.323547 )
+
+[node name="Island" parent="Regions/Tutorial/PortIsland1/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = true
+
+[node name="PopupMenu" parent="Regions/Tutorial/PortIsland1/IslandMenu/IslandMenu/Island" index="3"]
+editor/display_folded = false
 
 [node name="Sul" type="Node" parent="Regions"]
 editor/display_folded = true
@@ -538,7 +573,7 @@ icon = null
 
 [node name="CollisionShape2D" parent="Regions/Sul/RenewableIsland1/Area2D" index="0"]
 position = Vector2( 0.000244141, 19.3428 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="IslandMenu" parent="Regions/Sul/RenewableIsland1" instance=ExtResource( 10 )]
 
@@ -585,7 +620,7 @@ margin_right = 1093.0
 margin_bottom = 1113.0
 
 [node name="CollisionShape2D" parent="Regions/Sul/ResourcesIsland/Area2D" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="IslandMenu" parent="Regions/Sul/ResourcesIsland" instance=ExtResource( 10 )]
 
@@ -614,12 +649,20 @@ editor/display_folded = true
 position = Vector2( -39.5163, 1230 )
 path = Vector2( -190, -670 )
 
+[node name="Area2D" parent="Regions/Sul/PortIsland" index="1"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" parent="Regions/Sul/PortIsland/Area2D" index="0"]
+position = Vector2( 72.5807, -30 )
+shape = SubResource( 31 )
+
 [node name="Sprite" type="Sprite" parent="Regions/Sul/PortIsland"]
 position = Vector2( 79.5163, -30 )
 scale = Vector2( 0.453509, 0.453509 )
 texture = ExtResource( 28 )
 
 [node name="IslandMenu" parent="Regions/Sul/PortIsland" instance=ExtResource( 23 )]
+editor/display_folded = true
 position = Vector2( 89.5163, -19.9999 )
 
 [node name="IslandMenu" parent="Regions/Sul/PortIsland/IslandMenu" index="0"]
@@ -641,7 +684,7 @@ margin_bottom = 854.0
 
 [node name="CollisionShape2D" parent="Regions/Sul/RenewableIsland2/Area2D" index="0"]
 position = Vector2( 0, 26.3235 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="IslandMenu" parent="Regions/Sul/RenewableIsland2" instance=ExtResource( 10 )]
 editor/display_folded = true
@@ -689,7 +732,7 @@ margin_right = 1196.0
 margin_bottom = 1193.0
 
 [node name="CollisionShape2D" parent="Regions/Sul/ResourcesIsland2/Area2D" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="IslandMenu" parent="Regions/Sul/ResourcesIsland2" instance=ExtResource( 10 )]
 
@@ -726,14 +769,19 @@ margin_right = 1545.0
 margin_bottom = 1487.0
 
 [node name="CollisionShape2D" parent="Regions/Sul/BossIsland/Area2D" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="IslandMenu" parent="Regions/Sul/BossIsland" instance=ExtResource( 14 )]
+editor/display_folded = true
+
+[node name="IslandMenu" parent="Regions/Sul/BossIsland/IslandMenu" index="0"]
+editor/display_folded = true
 
 [node name="Island" parent="Regions/Sul/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
 islandType = "Item"
 regionName = "Sul"
+scenePath = "res://World.tscn"
 difficulty = 0.65
 enemies = 2
 islandSize = 3
@@ -762,7 +810,7 @@ margin_right = 829.0
 margin_bottom = 883.0
 
 [node name="CollisionShape2D" parent="Regions/Sudeste/Portisland/Area2D" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Regions/Sudeste/Portisland"]
 position = Vector2( 0.398064, 0 )
@@ -770,7 +818,14 @@ scale = Vector2( 0.453509, 0.453509 )
 texture = ExtResource( 30 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/Portisland" instance=ExtResource( 23 )]
+editor/display_folded = true
 position = Vector2( 89.5163, -19.9999 )
+
+[node name="IslandMenu" parent="Regions/Sudeste/Portisland/IslandMenu" index="0"]
+editor/display_folded = true
+
+[node name="Island" parent="Regions/Sudeste/Portisland/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -784,7 +839,7 @@ margin_right = 1340.0
 margin_bottom = 1280.0
 
 [node name="CollisionShape2D" parent="Regions/Sudeste/ResourcesIsland1/Area2D" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland1" instance=ExtResource( 10 )]
 
@@ -822,7 +877,7 @@ margin_bottom = 1089.0
 
 [node name="CollisionShape2D" parent="Regions/Sudeste/Resourcesisland2/Area2D" index="0"]
 position = Vector2( 0.00390625, 4.5163 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/Resourcesisland2" instance=ExtResource( 10 )]
 
@@ -858,7 +913,7 @@ margin_right = 590.0
 margin_bottom = 1170.0
 
 [node name="CollisionShape2D" parent="Regions/Sudeste/RenewableIsland/Area2D" index="0"]
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/RenewableIsland" instance=ExtResource( 10 )]
 
@@ -895,7 +950,7 @@ margin_right = 1180.0
 margin_bottom = 1157.0
 
 [node name="CollisionShape2D" parent="Regions/Sudeste/ResourcesIsland3/Area2D" index="0"]
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland3" instance=ExtResource( 10 )]
 
@@ -920,7 +975,6 @@ scale = Vector2( 0.418945, 0.418945 )
 texture = ExtResource( 19 )
 
 [node name="BossIsland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 1.96143, 5690 )
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
@@ -932,7 +986,7 @@ margin_right = 1866.0
 margin_bottom = 1958.0
 
 [node name="CollisionShape2D" parent="Regions/Sudeste/BossIsland/Area2D" index="0"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/BossIsland" instance=ExtResource( 14 )]
 
@@ -940,6 +994,7 @@ shape = SubResource( 15 )
 is_bossIsland = true
 islandType = "Item"
 regionName = "Sudeste"
+scenePath = "res://World.tscn"
 difficulty = 0.85
 enemies = 3
 islandSize = 3
@@ -964,9 +1019,12 @@ margin_top = -183.0
 margin_right = 925.0
 margin_bottom = 858.0
 
+[node name="Area2D" parent="Regions/Nordeste/PortIsland" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Regions/Nordeste/PortIsland/Area2D" index="0"]
 position = Vector2( 83.3311, -14.0063 )
-shape = SubResource( 16 )
+shape = SubResource( 17 )
 
 [node name="Sprite" type="Sprite" parent="Regions/Nordeste/PortIsland"]
 position = Vector2( 79.5163, -30 )
@@ -974,7 +1032,14 @@ scale = Vector2( 0.453509, 0.453509 )
 texture = ExtResource( 35 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/PortIsland" instance=ExtResource( 23 )]
+editor/display_folded = true
 position = Vector2( 89.5163, -19.9999 )
+
+[node name="IslandMenu" parent="Regions/Nordeste/PortIsland/IslandMenu" index="0"]
+editor/display_folded = true
+
+[node name="Island" parent="Regions/Nordeste/PortIsland/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -993,7 +1058,7 @@ editor/display_folded = true
 
 [node name="CollisionShape2D" parent="Regions/Nordeste/ResourcesIsland1/Area2D" index="0"]
 position = Vector2( 20, 10.0001 )
-shape = SubResource( 17 )
+shape = SubResource( 18 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland1" instance=ExtResource( 10 )]
 
@@ -1024,7 +1089,7 @@ position = Vector2( -706.167, 6800.32 )
 path = Vector2( -580, 500 )
 
 [node name="CollisionShape2D" parent="Regions/Nordeste/RenewableIsland/Area2D" index="0"]
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/RenewableIsland" instance=ExtResource( 10 )]
 
@@ -1063,7 +1128,7 @@ margin_bottom = 1301.0
 
 [node name="CollisionShape2D" parent="Regions/Nordeste/ResourcesIsland3/Area2D" index="0"]
 position = Vector2( 12.6451, 0 )
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland3" instance=ExtResource( 10 )]
 position = Vector2( 6.51112, 0.323532 )
@@ -1103,7 +1168,7 @@ margin_bottom = 1217.0
 
 [node name="CollisionShape2D" parent="Regions/Nordeste/ResourcesIsland4/Area2D" index="0"]
 position = Vector2( 4.77258, 10 )
-shape = SubResource( 20 )
+shape = SubResource( 21 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland4" instance=ExtResource( 10 )]
 editor/display_folded = true
@@ -1142,14 +1207,16 @@ margin_right = 1941.0
 margin_bottom = 2023.0
 
 [node name="CollisionShape2D" parent="Regions/Nordeste/BossIsland/Area2D" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 22 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/BossIsland" instance=ExtResource( 14 )]
+editor/display_folded = true
 
 [node name="Island" parent="Regions/Nordeste/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
 islandType = "Item"
 regionName = "Nordeste"
+scenePath = "res://World.tscn"
 difficulty = 1.0
 enemies = 3
 islandSize = 3
@@ -1174,8 +1241,11 @@ margin_top = -142.0
 margin_right = 822.0
 margin_bottom = 825.0
 
+[node name="Area2D" parent="Regions/Norte/PortIsland" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Regions/Norte/PortIsland/Area2D" index="0"]
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Sprite" type="Sprite" parent="Regions/Norte/PortIsland"]
 position = Vector2( 0.0137939, 3.5 )
@@ -1186,6 +1256,7 @@ texture = ExtResource( 43 )
 position = Vector2( -13.9726, -6.4999 )
 
 [node name="RenewableIsland2" parent="Regions/Norte" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( -440, 9815.22 )
 path = Vector2( -580, 500 )
 
@@ -1196,7 +1267,7 @@ margin_right = 1411.0
 margin_bottom = 664.0
 
 [node name="CollisionShape2D" parent="Regions/Norte/RenewableIsland2/Area2D" index="0"]
-shape = SubResource( 23 )
+shape = SubResource( 24 )
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland2" instance=ExtResource( 10 )]
 
@@ -1224,6 +1295,7 @@ scale = Vector2( 0.606717, 0.606717 )
 texture = ExtResource( 44 )
 
 [node name="RenewableIsland1" parent="Regions/Norte" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 660, 10180 )
 path = Vector2( -580, 500 )
 
@@ -1234,7 +1306,7 @@ margin_right = 759.0
 margin_bottom = 1484.0
 
 [node name="CollisionShape2D" parent="Regions/Norte/RenewableIsland1/Area2D" index="0"]
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland1" instance=ExtResource( 10 )]
 
@@ -1261,6 +1333,7 @@ scale = Vector2( 0.670738, 0.670738 )
 texture = ExtResource( 44 )
 
 [node name="RenewableIsland3" parent="Regions/Norte" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( -1270, 10750 )
 path = Vector2( -580, 500 )
 
@@ -1272,7 +1345,7 @@ margin_bottom = 564.0
 
 [node name="CollisionShape2D" parent="Regions/Norte/RenewableIsland3/Area2D" index="0"]
 position = Vector2( -2, -16.3232 )
-shape = SubResource( 25 )
+shape = SubResource( 26 )
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland3" instance=ExtResource( 10 )]
 
@@ -1300,6 +1373,7 @@ scale = Vector2( 0.649439, 0.649439 )
 texture = ExtResource( 44 )
 
 [node name="RenewableIsland4" parent="Regions/Norte" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 542.285, 12310 )
 path = Vector2( -580, 500 )
 
@@ -1310,7 +1384,7 @@ margin_right = 571.0
 margin_bottom = 1303.0
 
 [node name="CollisionShape2D" parent="Regions/Norte/RenewableIsland4/Area2D" index="0"]
-shape = SubResource( 26 )
+shape = SubResource( 27 )
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland4" instance=ExtResource( 10 )]
 
@@ -1344,7 +1418,7 @@ rotation = 3.14159
 path = Vector2( 470, 447 )
 
 [node name="CollisionShape2D" parent="Regions/Norte/ResourcesIsland1/Area2D" index="0"]
-shape = SubResource( 27 )
+shape = SubResource( 28 )
 
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland1" instance=ExtResource( 10 )]
 
@@ -1382,7 +1456,7 @@ margin_right = 941.0
 margin_bottom = 944.0
 
 [node name="CollisionShape2D" parent="Regions/Norte/ResourcesIsland2/Area2D" index="0"]
-shape = SubResource( 28 )
+shape = SubResource( 29 )
 
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland2" instance=ExtResource( 10 )]
 
@@ -1422,7 +1496,7 @@ margin_bottom = 2159.0
 
 [node name="CollisionShape2D" parent="Regions/Norte/BossIsland/Area2D" index="0"]
 position = Vector2( 304.984, -111.001 )
-shape = SubResource( 29 )
+shape = SubResource( 30 )
 
 [node name="IslandMenu" parent="Regions/Norte/BossIsland" instance=ExtResource( 14 )]
 position = Vector2( 196, -21.001 )
@@ -1475,21 +1549,27 @@ tile_data = PoolIntArray( 9568231, 0, 196608, 9568232, 0, 196610, 9633764, 0, 19
 [connection signal="current_menu_opened" from="Regions/Tutorial/RenewableIsland" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="send_player_reward" from="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_send_player_reward"]
 [connection signal="current_menu_opened" from="Regions/Tutorial/ResourcesIsland2" to="." method="_on_Flag_current_menu_opened"]
+[connection signal="on_pirate_selected" from="Regions/Tutorial/PortIsland1/IslandMenu/IslandMenu/Island" to="Player" method="_on_Island_on_pirate_selected"]
+[connection signal="pressed" from="Regions/Tutorial/PortIsland1/IslandMenu/IslandMenu/Island/PopupMenu/StartButton" to="Regions/Tutorial/PortIsland1" method="_on_InventoryButton_pressed"]
 [connection signal="current_menu_opened" from="Regions/Sul/RenewableIsland1" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Sul/ResourcesIsland" to="." method="_on_Flag_current_menu_opened"]
+[connection signal="pressed" from="Regions/Sul/PortIsland/IslandMenu/IslandMenu/Island/PopupMenu/StartButton" to="Regions/Sul/PortIsland" method="_on_InventoryButton_pressed"]
 [connection signal="current_menu_opened" from="Regions/Sul/RenewableIsland2" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Sul/ResourcesIsland2" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Sul/BossIsland" to="." method="_on_Flag_current_menu_opened"]
+[connection signal="pressed" from="Regions/Sudeste/Portisland/IslandMenu/IslandMenu/Island/PopupMenu/StartButton" to="Regions/Sudeste/Portisland" method="_on_InventoryButton_pressed"]
 [connection signal="current_menu_opened" from="Regions/Sudeste/ResourcesIsland1" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Sudeste/Resourcesisland2" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Sudeste/RenewableIsland" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Sudeste/ResourcesIsland3" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Sudeste/BossIsland" to="." method="_on_Flag_current_menu_opened"]
+[connection signal="pressed" from="Regions/Nordeste/PortIsland/IslandMenu/IslandMenu/Island/PopupMenu/StartButton" to="Regions/Nordeste/PortIsland" method="_on_InventoryButton_pressed"]
 [connection signal="current_menu_opened" from="Regions/Nordeste/ResourcesIsland1" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Nordeste/RenewableIsland" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Nordeste/ResourcesIsland3" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Nordeste/ResourcesIsland4" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Nordeste/BossIsland" to="." method="_on_Flag_current_menu_opened"]
+[connection signal="pressed" from="Regions/Norte/PortIsland/IslandMenu/IslandMenu/Island/PopupMenu/StartButton" to="Regions/Norte/PortIsland" method="_on_InventoryButton_pressed"]
 [connection signal="current_menu_opened" from="Regions/Norte/RenewableIsland2" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Norte/RenewableIsland1" to="." method="_on_Flag_current_menu_opened"]
 [connection signal="current_menu_opened" from="Regions/Norte/RenewableIsland3" to="." method="_on_Flag_current_menu_opened"]
@@ -1524,7 +1604,11 @@ tile_data = PoolIntArray( 9568231, 0, 196608, 9568232, 0, 196610, 9633764, 0, 19
 
 [editable path="Regions/Tutorial/ResourcesIsland2/IslandMenu"]
 
+[editable path="Regions/Tutorial/PortIsland1"]
+
 [editable path="Regions/Tutorial/PortIsland1/IslandMenu"]
+
+[editable path="Regions/Tutorial/PortIsland1/IslandMenu/IslandMenu/Island"]
 
 [editable path="Regions/Sul/RenewableIsland1"]
 
@@ -1534,7 +1618,11 @@ tile_data = PoolIntArray( 9568231, 0, 196608, 9568232, 0, 196610, 9633764, 0, 19
 
 [editable path="Regions/Sul/ResourcesIsland/IslandMenu"]
 
+[editable path="Regions/Sul/PortIsland"]
+
 [editable path="Regions/Sul/PortIsland/IslandMenu"]
+
+[editable path="Regions/Sul/PortIsland/IslandMenu/IslandMenu/Island"]
 
 [editable path="Regions/Sul/RenewableIsland2"]
 
@@ -1553,6 +1641,8 @@ tile_data = PoolIntArray( 9568231, 0, 196608, 9568232, 0, 196610, 9633764, 0, 19
 [editable path="Regions/Sudeste/Portisland"]
 
 [editable path="Regions/Sudeste/Portisland/IslandMenu"]
+
+[editable path="Regions/Sudeste/Portisland/IslandMenu/IslandMenu/Island"]
 
 [editable path="Regions/Sudeste/ResourcesIsland1"]
 
@@ -1578,6 +1668,8 @@ tile_data = PoolIntArray( 9568231, 0, 196608, 9568232, 0, 196610, 9633764, 0, 19
 
 [editable path="Regions/Nordeste/PortIsland/IslandMenu"]
 
+[editable path="Regions/Nordeste/PortIsland/IslandMenu/IslandMenu/Island"]
+
 [editable path="Regions/Nordeste/ResourcesIsland1"]
 
 [editable path="Regions/Nordeste/ResourcesIsland1/IslandMenu"]
@@ -1599,6 +1691,10 @@ tile_data = PoolIntArray( 9568231, 0, 196608, 9568232, 0, 196610, 9633764, 0, 19
 [editable path="Regions/Nordeste/BossIsland/IslandMenu"]
 
 [editable path="Regions/Norte/PortIsland"]
+
+[editable path="Regions/Norte/PortIsland/IslandMenu"]
+
+[editable path="Regions/Norte/PortIsland/IslandMenu/IslandMenu/Island"]
 
 [editable path="Regions/Norte/RenewableIsland2"]
 
