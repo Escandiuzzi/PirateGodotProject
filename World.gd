@@ -13,7 +13,7 @@ onready var pirateObj = preload("res://Pirate.tscn");
 onready var item = preload("res://Item.tscn");
 onready var data = get_node("/root/PlayerData");
 onready var camera;
-
+onready var global = get_node("/root/Global");
 var current_menu;
 
 var crewCount = 0;
@@ -43,6 +43,7 @@ func _calculate_new_path():
 		
 		# Sets the sidekick's path
 		player.path = path
+		global.playWind();
 	pass
 
 func _on_Flag_current_menu_opened(menu):
@@ -60,6 +61,7 @@ func _set_island_path(_path):
 		
 		# Sets the sidekick's path
 		player.path = path
+		global.playWind();
 	pass;
 
 func _update_camera_limit(fragments):

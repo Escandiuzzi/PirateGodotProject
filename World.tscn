@@ -355,7 +355,6 @@ shape = SubResource( 1 )
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="RichTextLabel" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu" index="2"]
@@ -470,7 +469,6 @@ shape = SubResource( 3 )
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Tutorial/RenewableIsland/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ]
 
 [node name="Island" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu" index="5"]
@@ -515,7 +513,6 @@ shape = SubResource( 4 )
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland2" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland2/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ]
 
 [node name="Island" parent="Regions/Tutorial/ResourcesIsland2/IslandMenu/IslandMenu" index="5"]
@@ -591,7 +588,6 @@ shape = SubResource( 6 )
 [node name="IslandMenu" parent="Regions/Sul/RenewableIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sul/RenewableIsland1/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="RichTextLabel" parent="Regions/Sul/RenewableIsland1/IslandMenu/IslandMenu" index="2"]
@@ -638,7 +634,6 @@ shape = SubResource( 7 )
 [node name="IslandMenu" parent="Regions/Sul/ResourcesIsland" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sul/ResourcesIsland/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ]
 
 [node name="Island" parent="Regions/Sul/ResourcesIsland/IslandMenu/IslandMenu" index="5"]
@@ -703,7 +698,6 @@ shape = SubResource( 9 )
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Sul/RenewableIsland2/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="RichTextLabel" parent="Regions/Sul/RenewableIsland2/IslandMenu/IslandMenu" index="2"]
@@ -750,7 +744,6 @@ shape = SubResource( 10 )
 [node name="IslandMenu" parent="Regions/Sul/ResourcesIsland2" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sul/ResourcesIsland2/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ]
 
 [node name="Island" parent="Regions/Sul/ResourcesIsland2/IslandMenu/IslandMenu" index="5"]
@@ -857,7 +850,6 @@ shape = SubResource( 13 )
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland1/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ]
 
 [node name="Island" parent="Regions/Sudeste/ResourcesIsland1/IslandMenu/IslandMenu" index="5"]
@@ -895,7 +887,6 @@ shape = SubResource( 14 )
 [node name="IslandMenu" parent="Regions/Sudeste/Resourcesisland2" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/Resourcesisland2/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ]
 
 [node name="Island" parent="Regions/Sudeste/Resourcesisland2/IslandMenu/IslandMenu" index="5"]
@@ -931,7 +922,6 @@ shape = SubResource( 15 )
 [node name="IslandMenu" parent="Regions/Sudeste/RenewableIsland" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/RenewableIsland/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ]
 
 [node name="Island" parent="Regions/Sudeste/RenewableIsland/IslandMenu/IslandMenu" index="5"]
@@ -968,7 +958,6 @@ shape = SubResource( 16 )
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland3" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland3/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ]
 
 [node name="Island" parent="Regions/Sudeste/ResourcesIsland3/IslandMenu/IslandMenu" index="5"]
@@ -1076,7 +1065,6 @@ shape = SubResource( 19 )
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland1/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ]
 
 [node name="Island" parent="Regions/Nordeste/ResourcesIsland1/IslandMenu/IslandMenu" index="5"]
@@ -1107,7 +1095,6 @@ shape = SubResource( 20 )
 [node name="IslandMenu" parent="Regions/Nordeste/RenewableIsland" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Nordeste/RenewableIsland/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ]
 
 [node name="Island" parent="Regions/Nordeste/RenewableIsland/IslandMenu/IslandMenu" index="5"]
@@ -1147,7 +1134,6 @@ shape = SubResource( 21 )
 position = Vector2( 6.51112, 0.323532 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland3/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ]
 
 [node name="Island" parent="Regions/Nordeste/ResourcesIsland3/IslandMenu/IslandMenu" index="5"]
@@ -1187,7 +1173,6 @@ shape = SubResource( 22 )
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland4/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ]
 
 [node name="Island" parent="Regions/Nordeste/ResourcesIsland4/IslandMenu/IslandMenu" index="5"]
@@ -1285,7 +1270,6 @@ shape = SubResource( 25 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland2" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland2/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland2/IslandMenu/IslandMenu" index="5"]
@@ -1324,7 +1308,6 @@ shape = SubResource( 26 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland1/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland1/IslandMenu/IslandMenu" index="5"]
@@ -1363,7 +1346,6 @@ shape = SubResource( 27 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland3" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland3/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland3/IslandMenu/IslandMenu" index="5"]
@@ -1402,7 +1384,6 @@ shape = SubResource( 28 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland4" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland4/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland4/IslandMenu/IslandMenu" index="5"]
@@ -1436,7 +1417,6 @@ shape = SubResource( 29 )
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland1/IslandMenu" index="0"]
-editor/display_folded = false
 island_states = [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ]
 
 [node name="Island" parent="Regions/Norte/ResourcesIsland1/IslandMenu/IslandMenu" index="5"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Wind-Mark_DiAngelo-1940285615.wav-a54045651c5bf18ff5261940eabda48b.sample"
+
+[deps]
+
+source_file="res://Music/Wind-Mark_DiAngelo-1940285615.wav"
+dest_files=[ "res://.import/Wind-Mark_DiAngelo-1940285615.wav-a54045651c5bf18ff5261940eabda48b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

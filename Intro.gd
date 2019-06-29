@@ -16,4 +16,5 @@ func _on_Button_pressed():
 
 func _on_Button2_pressed():
 	global.playButtonSound();
+	global.stopMenuMusic();
 	get_tree().change_scene('res://World.tscn');

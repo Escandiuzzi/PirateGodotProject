@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var item = preload("res://Item.tscn");
-
+onready var global = get_node("/root/Global");
 onready var consumables_buttons = [
 	get_parent().get_node("Layer 1/Slot1Button"),
 	get_parent().get_node("Layer 1/Slot2Button"),
@@ -143,7 +143,7 @@ func _generate_itens():
 
 
 func _on_SlotButton_pressed(extra_arg_0):
-	
+	global.playButtonSound();
 	if layers[0].visible == true:
 		var ingredients = consumables_buttons[extra_arg_0]._get_ingredients();
 		var i_keys = ingredients.keys();
@@ -170,6 +170,7 @@ func _on_SlotButton_pressed(extra_arg_0):
 
 
 func _on_LayerButton_pressed(extra_arg_0):
+	global.playButtonSound();
 	if extra_arg_0 == 0:
 		layers[0].visible = false;
 		layers[1].visible  = true;
@@ -180,5 +181,6 @@ func _on_LayerButton_pressed(extra_arg_0):
 
 
 func _on_ReturnButton_pressed():
+	global.playButtonSound();
 	get_tree().change_scene("res://World.tscn")
 	pass;

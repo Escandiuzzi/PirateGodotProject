@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Tema.tres" type="Theme" id=1]
 [ext_resource path="res://BattleIslandMenu.gd" type="Script" id=2]
-[ext_resource path="res://Menu/Borda.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Borda2.png" type="Texture" id=3]
 [ext_resource path="res://BattleIsland.tscn" type="PackedScene" id=4]
 
 [node name="IslandMenu" type="Node2D"]

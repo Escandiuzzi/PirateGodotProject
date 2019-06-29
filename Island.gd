@@ -227,6 +227,7 @@ func _renewable_state():
 
 
 func _on_RecruitButton_pressed():
+	global.playButtonSound();
 	data._recruitPirate(1);
 	recruit.visible = false;
 	data._saveData();

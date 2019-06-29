@@ -92,6 +92,7 @@ func _insertPirates():
 	pass
 
 func _on_StartButton_pressed():
+	global.playButtonSound();
 	popupMenu.hide();
 	global._set_player_coordinates(player.position);
 	if selectedPirates > -1:
@@ -102,6 +103,7 @@ func _on_StartButton_pressed():
 	pass;
 
 func _on_CollectButton_pressed():
+	global.playButtonSound();
 	rewardMenu.hide();
 	button2.hide();
 	pass 

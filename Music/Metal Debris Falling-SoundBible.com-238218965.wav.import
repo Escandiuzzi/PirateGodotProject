@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Metal Debris Falling-SoundBible.com-238218965.wav-64ddab5c7a7ac4de7dd5b2d5181cbf10.sample"
+
+[deps]
+
+source_file="res://Music/Metal Debris Falling-SoundBible.com-238218965.wav"
+dest_files=[ "res://.import/Metal Debris Falling-SoundBible.com-238218965.wav-64ddab5c7a7ac4de7dd5b2d5181cbf10.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Node.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MenuBackground.wav" type="AudioStream" id=2]
 [ext_resource path="res://Music/background3.wav" type="AudioStream" id=3]
 [ext_resource path="res://Music/Button-SoundBible.com-1420500901.wav" type="AudioStream" id=4]
 [ext_resource path="res://Music/page-flip-02.wav" type="AudioStream" id=5]
+[ext_resource path="res://Music/Metal Debris Falling-SoundBible.com-238218965.wav" type="AudioStream" id=6]
+[ext_resource path="res://Music/Wind-Mark_DiAngelo-1940285615.wav" type="AudioStream" id=7]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -21,3 +23,11 @@ stream = ExtResource( 4 )
 [node name="IslandMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
+[node name="Rewards" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -0.818
+
+[connection signal="finished" from="Background1" to="." method="_on_Background1_finished"]
