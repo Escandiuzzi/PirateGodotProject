@@ -37,7 +37,6 @@ func _on_Button_pressed():
 
 func _on_Area2D_area_entered(area):
 	if area.name == "PlayerArea2D":
-		print("aaaa");
 		player_inside = true;
 	pass
 	

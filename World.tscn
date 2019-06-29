@@ -333,7 +333,6 @@ visible = true
 [node name="Regions" type="Node" parent="."]
 
 [node name="Tutorial" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Tutorial" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -370,6 +369,7 @@ margin_top = 139.0
 mouse_filter = 1
 
 [node name="Island" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = false
 islandType = "Item"
 regionName = "Sul"
 commonSize = 2
@@ -386,10 +386,11 @@ margin_right = 48.0
 margin_bottom = 119.0
 
 [node name="PopupMenu" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island" index="3"]
+editor/display_folded = false
 islandType = "Resource"
 
-[node name="CheckBox" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
-editor/display_folded = true
+[node name="Sprite" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu/CheckBox" index="0"]
+editor/display_folded = false
 
 [node name="Sprite" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu/CheckBox5" index="0"]
 editor/display_folded = true
@@ -412,7 +413,6 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 11 )
 
 [node name="BossIsland" parent="Regions/Tutorial" instance=ExtResource( 9 )]
-editor/display_folded = true
 scale = Vector2( 0.7, 0.7 )
 path = Vector2( 0, 226 )
 
@@ -421,9 +421,6 @@ margin_left = -207.0
 margin_top = -214.0
 margin_right = 1146.0
 margin_bottom = 1166.0
-
-[node name="Area2D" parent="Regions/Tutorial/BossIsland" index="1"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" parent="Regions/Tutorial/BossIsland/Area2D" index="0"]
 shape = SubResource( 2 )
@@ -444,6 +441,7 @@ rareSize = 1
 maxRewards = 1
 
 [node name="PopupMenu" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu/Island" index="1"]
+editor/display_folded = false
 islandType = "Battle"
 
 [node name="Sprite" parent="Regions/Tutorial/BossIsland/IslandMenu" index="1"]
@@ -477,6 +475,7 @@ editor/display_folded = false
 island_states = [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ]
 
 [node name="Island" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = false
 renewable = true
 islandType = "Consumable"
 regionName = "Sul"
@@ -487,13 +486,21 @@ maxRewards = 5
 cooldown_time = 60
 recruit_seed = 85
 
+[node name="PopupMenu" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island" index="3"]
+islandType = "Resource"
+
+[node name="CheckBox" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
+editor/display_folded = true
+
+[node name="PirateStat" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="16"]
+text = "asdasdasdasdasd"
+
 [node name="Sprite" parent="Regions/Tutorial/RenewableIsland/IslandMenu" index="1"]
 position = Vector2( 2.06972, -0.126345 )
 scale = Vector2( 0.412657, 0.437253 )
 texture = ExtResource( 16 )
 
 [node name="ResourcesIsland2" parent="Regions/Tutorial" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( -797.636, -222.528 )
 path = Vector2( -600, -120 )
 
@@ -513,6 +520,7 @@ editor/display_folded = false
 island_states = [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ]
 
 [node name="Island" parent="Regions/Tutorial/ResourcesIsland2/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = false
 islandType = "Material"
 regionName = "Sul"
 commonSize = 2
@@ -521,6 +529,9 @@ rareSize = 1
 maxRewards = 6
 bonus = 1
 recruit_seed = 85
+
+[node name="PopupMenu" parent="Regions/Tutorial/ResourcesIsland2/IslandMenu/IslandMenu/Island" index="3"]
+islandType = "Resource"
 
 [node name="Sprite" parent="Regions/Tutorial/ResourcesIsland2/IslandMenu" index="1"]
 position = Vector2( -2, -0.323578 )
@@ -1614,9 +1625,13 @@ texture = ExtResource( 55 )
 
 [editable path="Regions/Tutorial/RenewableIsland/IslandMenu"]
 
+[editable path="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island"]
+
 [editable path="Regions/Tutorial/ResourcesIsland2"]
 
 [editable path="Regions/Tutorial/ResourcesIsland2/IslandMenu"]
+
+[editable path="Regions/Tutorial/ResourcesIsland2/IslandMenu/IslandMenu/Island"]
 
 [editable path="Regions/Tutorial/PortIsland1"]
 
