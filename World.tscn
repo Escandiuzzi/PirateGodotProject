@@ -442,7 +442,6 @@ maxRewards = 1
 
 [node name="PopupMenu" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu/Island" index="1"]
 editor/display_folded = false
-islandType = "Battle"
 
 [node name="Sprite" parent="Regions/Tutorial/BossIsland/IslandMenu" index="1"]
 position = Vector2( 0, -3.41143 )
@@ -571,7 +570,6 @@ editor/display_folded = true
 editor/display_folded = false
 
 [node name="Sul" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="RenewableIsland1" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -783,13 +781,13 @@ margin_top = -276.0
 margin_right = 1545.0
 margin_bottom = 1487.0
 
+[node name="Area2D" parent="Regions/Sul/BossIsland" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Regions/Sul/BossIsland/Area2D" index="0"]
 shape = SubResource( 11 )
 
 [node name="IslandMenu" parent="Regions/Sul/BossIsland" instance=ExtResource( 14 )]
-editor/display_folded = true
-
-[node name="IslandMenu" parent="Regions/Sul/BossIsland/IslandMenu" index="0"]
 editor/display_folded = true
 
 [node name="Island" parent="Regions/Sul/BossIsland/IslandMenu/IslandMenu" index="4"]
@@ -1666,6 +1664,8 @@ texture = ExtResource( 55 )
 [editable path="Regions/Sul/BossIsland"]
 
 [editable path="Regions/Sul/BossIsland/IslandMenu"]
+
+[editable path="Regions/Sul/BossIsland/IslandMenu/IslandMenu/Island"]
 
 [editable path="Regions/Sudeste/Portisland"]
 

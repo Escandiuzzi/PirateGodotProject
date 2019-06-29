@@ -1,6 +1,7 @@
 extends Node
 
 var newGame = true;
+var started = false;
 
 var player_pos;
 
@@ -40,3 +41,9 @@ func playButtonSound():
 
 func playIslandMenuSound():
 	$IslandMenu.play();
+	
+func _get_started():
+	return started;
+
+func _set_started(state):
+	started = state;

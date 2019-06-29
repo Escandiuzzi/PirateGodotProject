@@ -39,10 +39,12 @@ var current_pirate = null;
 func _ready():
 	global.playBackground1();
 	move = true;
-	if global.getGame() == true:
+	if global.getGame() == true and global._get_started() == false:
 		data._recruitPirate(0);
+		global._set_started(true);
 	else:
 		data._readData(0);
+		global._set_started(true);
 	
 	position = global._get_player_coordinates();
 	

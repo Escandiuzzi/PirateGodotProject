@@ -26,7 +26,6 @@ text = "Bem Vindo a estação de criação"
 script = ExtResource( 2 )
 
 [node name="Layer 1" type="Control" parent="."]
-editor/display_folded = true
 theme = ExtResource( 3 )
 
 [node name="MaterialsButton" type="Button" parent="Layer 1"]

@@ -33,6 +33,7 @@ margin_right = 347.548
 margin_bottom = 206.0
 mouse_filter = 2
 script = ExtResource( 2 )
+islandType = "Resources"
 
 [node name="Background" type="Sprite" parent="PopupMenu"]
 position = Vector2( 0, -44.3525 )
