@@ -331,8 +331,10 @@ margin_bottom = -390.42
 visible = true
 
 [node name="Regions" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Tutorial" type="Node" parent="Regions"]
+editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Tutorial" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -403,9 +405,6 @@ editor/display_folded = true
 [node name="Area2D10" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu/CheckBox10/Sprite" index="0"]
 editor/display_folded = true
 
-[node name="RewardMenu" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island" index="5"]
-editor/display_folded = true
-
 [node name="Sprite" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu" index="1"]
 position = Vector2( -9.56177, 25.1063 )
 scale = Vector2( 0.380859, 0.375 )
@@ -438,9 +437,6 @@ commonSize = 2
 uncommonSize = 1
 rareSize = 1
 maxRewards = 1
-
-[node name="PopupMenu" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu/Island" index="1"]
-editor/display_folded = false
 
 [node name="Sprite" parent="Regions/Tutorial/BossIsland/IslandMenu" index="1"]
 position = Vector2( 0, -3.41143 )
@@ -1468,9 +1464,6 @@ maxRewards = 9
 bonus = 3
 recruit_seed = 83
 
-[node name="RewardMenu" parent="Regions/Norte/ResourcesIsland2/IslandMenu/IslandMenu/Island" index="5"]
-editor/display_folded = true
-
 [node name="Sprite" parent="Regions/Norte/ResourcesIsland2/IslandMenu" index="1"]
 position = Vector2( -0.000244141, -0.316406 )
 scale = Vector2( 0.359418, 0.36129 )
@@ -1495,7 +1488,6 @@ shape = SubResource( 31 )
 position = Vector2( 196, -21.001 )
 
 [node name="Island" parent="Regions/Norte/BossIsland/IslandMenu/IslandMenu" index="4"]
-editor/display_folded = true
 is_bossIsland = true
 islandType = "Item"
 regionName = "Norte"

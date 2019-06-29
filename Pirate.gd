@@ -43,8 +43,8 @@ onready var pirateStat = get_node("pirateStat");
 onready var statBGD = get_node("textBGD");
 onready var sprite = $Sprite;
 
-var miningtexture = load("res://Sprite/entities/player/mining.png");
-var idle = load("res://Sprite/entities/player/pirate.png");
+var miningtexture = load("res://Sprite/rpg-battle-system/char/bowman/faceset_busy.png");
+var idle = load("res://Sprite/rpg-battle-system/char/bowman/faceset.png");
 
 onready var special_obj = preload("res://Special.tscn");
 

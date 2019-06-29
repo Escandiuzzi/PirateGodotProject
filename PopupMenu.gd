@@ -69,6 +69,7 @@ func _on_Area2D_mouse_entered(extra_arg_0):
 			pirateStat.text += "Shield Durability: " + str(pirate._get_shield()._get_stat("durability")) + "\n";
 		pirateStat.text += "AtkBonus: " + str(pirate._get_stat("atkBonus")) + "\n";
 		pirateStat.text += "DefBonus: " + str(pirate._get_stat("defBonus")) + "\n";	
+		pirateStat.rect_position = canvasSlots[extra_arg_0].rect_position;
 	pirateStat.show();	
 	pass;
 	
