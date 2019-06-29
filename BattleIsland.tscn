@@ -3,7 +3,7 @@
 [ext_resource path="res://BattleIsland.gd" type="Script" id=1]
 [ext_resource path="res://PopupMenu.gd" type="Script" id=2]
 [ext_resource path="res://Sprite/text_background.png" type="Texture" id=3]
-[ext_resource path="res://Sprite/entities/player/pirate.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/rpg-battle-system/char/bowman/faceset.png" type="Texture" id=4]
 [ext_resource path="res://Button2.gd" type="Script" id=5]
 [ext_resource path="res://RewardMenu.gd" type="Script" id=6]
 
@@ -11,6 +11,7 @@
 radius = 40.9284
 
 [node name="Island" type="Node2D"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Button" type="Button" parent="."]
@@ -19,7 +20,6 @@ margin_bottom = 20.0
 text = "Open"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
@@ -70,11 +70,13 @@ margin_right = 124.0
 margin_bottom = 84.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox2"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Area2D2" type="Area2D" parent="PopupMenu/CheckBox2/Sprite"]
+editor/display_folded = true
 position = Vector2( -0.122238, 0.681122 )
 __meta__ = {
 "_edit_group_": true
@@ -115,6 +117,7 @@ margin_right = 244.0
 margin_bottom = 84.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox4"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
@@ -137,6 +140,7 @@ margin_right = 304.0
 margin_bottom = 84.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox5"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
@@ -159,6 +163,7 @@ margin_right = 64.0
 margin_bottom = 173.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox6"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
@@ -181,6 +186,7 @@ margin_right = 124.0
 margin_bottom = 173.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox7"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
@@ -203,6 +209,7 @@ margin_right = 184.0
 margin_bottom = 173.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox8"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
@@ -225,6 +232,7 @@ margin_right = 244.0
 margin_bottom = 173.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox9"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
@@ -250,11 +258,13 @@ margin_right = 304.0
 margin_bottom = 173.0
 
 [node name="Sprite" type="Sprite" parent="PopupMenu/CheckBox10"]
+editor/display_folded = true
 position = Vector2( 12.4383, -21.8937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Area2D10" type="Area2D" parent="PopupMenu/CheckBox10/Sprite"]
+editor/display_folded = true
 position = Vector2( -0.489014, -0.0564575 )
 __meta__ = {
 "_edit_group_": true
@@ -282,7 +292,7 @@ visible = false
 margin_left = 54.0
 margin_top = 39.0
 margin_right = 168.0
-margin_bottom = 116.0
+margin_bottom = 158.0
 mouse_filter = 2
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 readonly = true
@@ -297,6 +307,7 @@ text = "Collect"
 script = ExtResource( 5 )
 
 [node name="RewardMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
 margin_left = 68.0
 margin_right = 306.0
 margin_bottom = 133.0
