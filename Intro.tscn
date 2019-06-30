@@ -1,21 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Intro.gd" type="Script" id=1]
-[ext_resource path="res://Menu/MenuInicial.png" type="Texture" id=2]
-[ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://CraftButtons.tres" type="Theme" id=4]
+[ext_resource path="res://Menu/intro.png" type="Texture" id=2]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=3]
+[ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
-font_data = ExtResource( 3 )
+size = 40
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -27,39 +23,25 @@ margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 370.0
-margin_top = 140.0
-margin_right = 1070.0
-margin_bottom = 675.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "Viaje em seu navio através de regiões ainda desconhecidas em busca dos fragmentos perdidos do mapa que o levará até o artefato que lhe dará o poder de controlar os sete mares. Explore as ilhas em busca de recursos e novos marujos para sua tripulação. Melhore seu navio, fortaleça suas armas e aprenda a gerenciar suas tropas para enfrentar poderosos piratas e garantir novas conquistas. Cada região apresentará um bioma diferente, portanto planeje bem antes de agir. Além de enfrentar a natureza você poderá encontrar inimigos poderosos, portanto esteja atento e conquiste novos territórios para garantir seu direito aos recursos exclusivos. Utilize os marujos para proteção do capitão, cuidado, se ele for derrotado você perderá seu navio. Nesse incrível jogo de estratégia e exploração no estilo topview você precisará de muita estratégia para evoluir. Siga nessa jornada para se tornar o rei dos piratas! Mecânica de batalha em turnos baseada em escolher os piratas ideais para cada duelo. Faça upgrades nas armas para dar mais danos ou se aproveitar de suas utilidades. Utilize os recursos coletados para criar novos itens e armas cada vez mais poderosas."
-align = 1
-autowrap = true
-
 [node name="Button" type="Button" parent="."]
-margin_left = 640.0
-margin_top = 800.0
-margin_right = 810.0
-margin_bottom = 848.0
-theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 2 )
+margin_left = 50.0
+margin_top = 840.0
+margin_right = 220.0
+margin_bottom = 888.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Voltar"
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 630.0
-margin_top = 710.0
-margin_right = 828.0
-margin_bottom = 760.0
-theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 3 )
+margin_left = 1190.0
+margin_top = 840.0
+margin_right = 1388.0
+margin_bottom = 890.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Começar"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
