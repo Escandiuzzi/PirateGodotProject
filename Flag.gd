@@ -1,5 +1,7 @@
 extends Node2D
 
+export(int) var island_id;
+
 signal current_menu_opened(menu);
 
 export(Vector2) var path;
@@ -17,6 +19,10 @@ var player_inside;
 func _ready():
 	player_inside = false;
 	islandMenu = get_node("IslandMenu/IslandMenu");
+	
+	if !global._get_island_state(island_id):
+		menuButton.visible = false;
+		menuButton.disabled = true;
 	pass
 
 func _process(delta):
@@ -43,7 +49,8 @@ func _on_Area2D_area_entered(area):
 func _on_Area2D_area_exited(area):
 	if area.name == "PlayerArea2D":
 		player_inside = false;
-		menuButton.visible = true;
+		if global._get_island_state(island_id):
+			menuButton.visible = true;
 	pass
 
 func _on_InventoryButton_pressed():
@@ -58,6 +65,14 @@ func _on_CloseInventoryButton_pressed():
 	player._set_move(true);
 	pass
 
-
 func _on_StartButton_pressed():
 	 _on_InventoryButton_pressed();
+
+func _change_state():
+	global._set_island_state(island_id, false);
+	menuButton.visible = false;
+	pass;
+
+func _get_island_id():
+	return island_id;
+	pass;

@@ -331,13 +331,10 @@ margin_bottom = -390.42
 visible = true
 
 [node name="Regions" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Tutorial" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Tutorial" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 713.879, 423.456 )
 path = Vector2( 470, 447 )
 
@@ -349,6 +346,9 @@ margin_top = -165.0
 margin_right = 1097.0
 margin_bottom = 1107.0
 icon = null
+
+[node name="Area2D" parent="Regions/Tutorial/ResourcesIsland1" index="1"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" parent="Regions/Tutorial/ResourcesIsland1/Area2D" index="0"]
 position = Vector2( -11.116, 26.8675 )
@@ -387,8 +387,10 @@ margin_right = 48.0
 margin_bottom = 119.0
 
 [node name="PopupMenu" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island" index="3"]
-editor/display_folded = false
 islandType = "Resource"
+
+[node name="CheckBox" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
+editor/display_folded = true
 
 [node name="Sprite" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu/CheckBox" index="0"]
 editor/display_folded = false
@@ -412,6 +414,7 @@ texture = ExtResource( 11 )
 
 [node name="BossIsland" parent="Regions/Tutorial" instance=ExtResource( 9 )]
 scale = Vector2( 0.7, 0.7 )
+island_id = 1
 path = Vector2( 0, 226 )
 
 [node name="Button" parent="Regions/Tutorial/BossIsland" index="0"]
@@ -420,23 +423,33 @@ margin_top = -214.0
 margin_right = 1146.0
 margin_bottom = 1166.0
 
+[node name="Area2D" parent="Regions/Tutorial/BossIsland" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Regions/Tutorial/BossIsland/Area2D" index="0"]
 shape = SubResource( 2 )
 
 [node name="IslandMenu" parent="Regions/Tutorial/BossIsland" instance=ExtResource( 14 )]
+editor/display_folded = true
 
 [node name="Island" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
 islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
-difficulty = 1.5
+difficulty = 0.25
 enemies = 3
 islandSize = 3
 commonSize = 2
 uncommonSize = 1
 rareSize = 1
 maxRewards = 1
+
+[node name="PopupMenu" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu/Island" index="1"]
+editor/display_folded = true
+
+[node name="CheckBox" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
+editor/display_folded = true
 
 [node name="Sprite" parent="Regions/Tutorial/BossIsland/IslandMenu" index="1"]
 position = Vector2( 0, -3.41143 )
@@ -446,6 +459,7 @@ texture = ExtResource( 15 )
 [node name="RenewableIsland" parent="Regions/Tutorial" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -770.167, 480 )
+island_id = 2
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Tutorial/RenewableIsland" index="0"]
@@ -494,7 +508,9 @@ scale = Vector2( 0.412657, 0.437253 )
 texture = ExtResource( 16 )
 
 [node name="ResourcesIsland2" parent="Regions/Tutorial" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( -797.636, -222.528 )
+island_id = 3
 path = Vector2( -600, -120 )
 
 [node name="Button" parent="Regions/Tutorial/ResourcesIsland2" index="0"]
@@ -503,10 +519,14 @@ margin_top = -161.0
 margin_right = 904.0
 margin_bottom = 902.0
 
+[node name="Area2D" parent="Regions/Tutorial/ResourcesIsland2" index="1"]
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="Regions/Tutorial/ResourcesIsland2/Area2D" index="0"]
 shape = SubResource( 4 )
 
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland2" instance=ExtResource( 10 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland2/IslandMenu" index="0"]
 island_states = [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ]
@@ -533,6 +553,7 @@ texture = ExtResource( 11 )
 [node name="PortIsland1" parent="Regions/Tutorial" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -192.025, -670 )
+island_id = 4
 path = Vector2( -190, -670 )
 
 [node name="Button" parent="Regions/Tutorial/PortIsland1" index="0"]
@@ -563,11 +584,13 @@ editor/display_folded = true
 editor/display_folded = false
 
 [node name="Sul" type="Node" parent="Regions"]
+editor/display_folded = true
 
 [node name="RenewableIsland1" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -692.469, 2520 )
 rotation = -1.57079
+island_id = 5
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Sul/RenewableIsland1" index="0"]
@@ -616,6 +639,7 @@ texture = ExtResource( 24 )
 editor/display_folded = true
 position = Vector2( 147.701, 2300 )
 rotation = 1.57079
+island_id = 6
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Sul/ResourcesIsland" index="0"]
@@ -651,6 +675,7 @@ texture = ExtResource( 25 )
 [node name="PortIsland" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -39.5163, 1230 )
+island_id = 7
 path = Vector2( -190, -670 )
 
 [node name="Area2D" parent="Regions/Sul/PortIsland" index="1"]
@@ -678,6 +703,7 @@ editor/display_folded = true
 [node name="RenewableIsland2" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 772.763, 1650 )
+island_id = 8
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Sul/RenewableIsland2" index="0"]
@@ -726,6 +752,7 @@ texture = ExtResource( 24 )
 [node name="ResourcesIsland2" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -795.32, 1586.43 )
+island_id = 9
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Sul/ResourcesIsland2" index="0"]
@@ -762,6 +789,7 @@ texture = ExtResource( 25 )
 editor/display_folded = true
 position = Vector2( 830, 2783.05 )
 scale = Vector2( 0.7, 0.7 )
+island_id = 10
 path = Vector2( 0, 226 )
 
 [node name="Button" parent="Regions/Sul/BossIsland" index="0"]
@@ -777,7 +805,6 @@ editor/display_folded = true
 shape = SubResource( 11 )
 
 [node name="IslandMenu" parent="Regions/Sul/BossIsland" instance=ExtResource( 14 )]
-editor/display_folded = true
 
 [node name="Island" parent="Regions/Sul/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
@@ -792,6 +819,9 @@ uncommonSize = 1
 rareSize = 2
 maxRewards = 8
 
+[node name="CheckBox" parent="Regions/Sul/BossIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
+editor/display_folded = true
+
 [node name="Sprite" parent="Regions/Sul/BossIsland/IslandMenu" index="1"]
 position = Vector2( 4.11299, -5.99988 )
 scale = Vector2( 0.767406, 0.767406 )
@@ -803,6 +833,7 @@ editor/display_folded = true
 [node name="Portisland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -10, 4580 )
+island_id = 11
 path = Vector2( -190, -670 )
 
 [node name="Button" parent="Regions/Sudeste/Portisland" index="0"]
@@ -832,6 +863,7 @@ editor/display_folded = true
 [node name="ResourcesIsland1" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -690, 3740 )
+island_id = 12
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Sudeste/ResourcesIsland1" index="0"]
@@ -868,6 +900,7 @@ texture = ExtResource( 19 )
 editor/display_folded = true
 position = Vector2( 970, 5080.32 )
 rotation = 1.57079
+island_id = 13
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Sudeste/Resourcesisland2" index="0"]
@@ -904,6 +937,7 @@ texture = ExtResource( 19 )
 [node name="RenewableIsland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 450, 3816.32 )
+island_id = 14
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Sudeste/RenewableIsland" index="0"]
@@ -940,6 +974,7 @@ texture = ExtResource( 31 )
 [node name="ResourcesIsland3" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -840.167, 4980 )
+island_id = 15
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Sudeste/ResourcesIsland3" index="0"]
@@ -973,8 +1008,10 @@ scale = Vector2( 0.418945, 0.418945 )
 texture = ExtResource( 19 )
 
 [node name="BossIsland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 1.96143, 5690 )
 scale = Vector2( 0.7, 0.7 )
+island_id = 16
 path = Vector2( 0, 226 )
 
 [node name="Button" parent="Regions/Sudeste/BossIsland" index="0"]
@@ -1009,6 +1046,7 @@ editor/display_folded = true
 [node name="PortIsland" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 137.064, 6890.65 )
+island_id = 17
 path = Vector2( -190, -670 )
 
 [node name="Button" parent="Regions/Nordeste/PortIsland" index="0"]
@@ -1043,6 +1081,7 @@ editor/display_folded = true
 editor/display_folded = true
 position = Vector2( 1120, 7110 )
 rotation = 1.57079
+island_id = 18
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Nordeste/ResourcesIsland1" index="0"]
@@ -1083,6 +1122,7 @@ texture = ExtResource( 36 )
 [node name="RenewableIsland" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -706.167, 6800.32 )
+island_id = 19
 path = Vector2( -580, 500 )
 
 [node name="CollisionShape2D" parent="Regions/Nordeste/RenewableIsland/Area2D" index="0"]
@@ -1114,6 +1154,7 @@ texture = ExtResource( 39 )
 [node name="ResourcesIsland3" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -60, 7832.28 )
+island_id = 20
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Nordeste/ResourcesIsland3" index="0"]
@@ -1153,6 +1194,7 @@ texture = ExtResource( 36 )
 editor/display_folded = true
 position = Vector2( 1021, 8740 )
 rotation = 3.14159
+island_id = 21
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Nordeste/ResourcesIsland4" index="0"]
@@ -1192,6 +1234,7 @@ texture = ExtResource( 36 )
 editor/display_folded = true
 position = Vector2( -1031.64, 8290 )
 scale = Vector2( 0.7, 0.7 )
+island_id = 22
 path = Vector2( 0, 226 )
 
 [node name="Button" parent="Regions/Nordeste/BossIsland" index="0"]
@@ -1227,6 +1270,7 @@ editor/display_folded = true
 [node name="PortIsland" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 1480, 11002.3 )
+island_id = 23
 path = Vector2( -190, -670 )
 
 [node name="Button" parent="Regions/Norte/PortIsland" index="0"]
@@ -1252,6 +1296,7 @@ position = Vector2( -13.9726, -6.4999 )
 [node name="RenewableIsland2" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -440, 9815.22 )
+island_id = 24
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Norte/RenewableIsland2" index="0"]
@@ -1290,6 +1335,7 @@ texture = ExtResource( 44 )
 [node name="RenewableIsland1" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 660, 10180 )
+island_id = 25
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Norte/RenewableIsland1" index="0"]
@@ -1327,6 +1373,7 @@ texture = ExtResource( 44 )
 [node name="RenewableIsland3" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( -1270, 10750 )
+island_id = 26
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Norte/RenewableIsland3" index="0"]
@@ -1366,6 +1413,7 @@ texture = ExtResource( 44 )
 [node name="RenewableIsland4" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 542.285, 12310 )
+island_id = 27
 path = Vector2( -580, 500 )
 
 [node name="Button" parent="Regions/Norte/RenewableIsland4" index="0"]
@@ -1405,6 +1453,7 @@ texture = ExtResource( 44 )
 editor/display_folded = true
 position = Vector2( -1117.95, 12126.4 )
 rotation = 3.14159
+island_id = 28
 path = Vector2( 470, 447 )
 
 [node name="CollisionShape2D" parent="Regions/Norte/ResourcesIsland1/Area2D" index="0"]
@@ -1436,6 +1485,7 @@ texture = ExtResource( 47 )
 editor/display_folded = true
 position = Vector2( -1293, 9873.33 )
 rotation = 3.14159
+island_id = 29
 path = Vector2( 470, 447 )
 
 [node name="Button" parent="Regions/Norte/ResourcesIsland2" index="0"]
@@ -1470,8 +1520,10 @@ scale = Vector2( 0.359418, 0.36129 )
 texture = ExtResource( 47 )
 
 [node name="BossIsland" parent="Regions/Norte" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( -223.489, 11350 )
 scale = Vector2( 0.7, 0.7 )
+island_id = 30
 path = Vector2( 0, 226 )
 
 [node name="Button" parent="Regions/Norte/BossIsland" index="0"]

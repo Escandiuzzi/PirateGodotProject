@@ -18,8 +18,9 @@ onready var global = get_node("/root/Global");
 func _process(delta):
 	if button != null:
 		if visible == false and button.visible == false:
-			button.visible = true;
-			camera.return_to_player();
+			if global._get_island_state(get_parent().get_parent()._get_island_id()):
+				button.visible = true;
+				camera.return_to_player();
 	pass;
 	
 	

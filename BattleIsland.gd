@@ -39,7 +39,7 @@ onready var text = get_parent().get_node("RichTextLabel");
 onready var player_data = get_tree().get_root().get_node("/root/PlayerData");
 onready var battle_manager = get_tree().get_root().get_node("/root/BattleManager");
 onready var global = get_tree().get_root().get_node("/root/Global");
-
+onready var island_container = get_parent().get_parent().get_parent();
 
 onready var canvasSlots = [
 get_node("PopupMenu/CheckBox"),
@@ -91,14 +91,15 @@ func _insertPirates():
 		pirates[i]._set_busy(true);
 	pass
 
-func _on_StartButton_pressed():
 	global.playButtonSound();
+
+func _on_StartButton_pressed():
 	popupMenu.hide();
 	global._set_player_coordinates(player.position);
 	if selectedPirates > -1:
 			get_tree().change_scene("res://BattleScene.tscn");
 			player_data._selected_pirates(pirateId);
-			battle_manager._island_data(difficulty, enemies, regionName, indexType, commonSize, uncommonSize, rareSize, maxRewards, islandType, scenePath, is_bossIsland);
+			battle_manager._island_data(difficulty, enemies, regionName, indexType, commonSize, uncommonSize, rareSize, maxRewards, islandType, scenePath, is_bossIsland, island_container._get_island_id());
 			button.hide();
 	pass;
 

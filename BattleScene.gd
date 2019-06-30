@@ -63,6 +63,7 @@ var item_selected;
 var turn = 0;
 var equipament_loss = 1;
 var is_bossIsland;
+var island_id;
 
 var animating;
 var ia_action;
@@ -82,6 +83,7 @@ onready var turnText = get_node("ViewportContainer/Viewport/TurnText");
 onready var fragment_panel = get_node("ViewportContainer/Viewport/FragmentMapContainer");
 onready var fragment_text = get_node("ViewportContainer/Viewport/FragmentMapContainer/RichTextLabel");
 onready var background = get_node("ViewportContainer/Viewport/Manager/UI/Background");
+onready var global = get_tree().get_root().get_node("/root/Global");
 
 export(Array) var player_pos;
 export(Array) var ia_pos;
@@ -112,6 +114,7 @@ func _initializeEnemies():
 	island_type = island_data[8];
 	scenePath = island_data[9];
 	is_bossIsland = island_data[10];
+	island_id = island_data[11];
 	
 	enemiesCount = nEnemies;
 	
@@ -164,6 +167,8 @@ func _process(delta):
 			battle = false;
 			
 			ui_handler._layers_visible(false);
+			
+			global._set_island_state(island_id, false);
 			
 			if playerPirates.size() > 0:
 				_get_player_rewards();

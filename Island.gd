@@ -160,7 +160,11 @@ func _on_CollectButton_pressed():
 	var thold = randi() % 100;
 		
 	if thold >= recruit_seed:
-		recruit.visible = true;
+		recruit.visible = true;1
+	
+	if !renewable:
+		get_parent().get_parent().get_parent()._change_state();
+	
 	pass 
 
 func _getRewards():	

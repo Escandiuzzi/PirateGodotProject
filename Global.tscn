@@ -8,8 +8,9 @@
 [ext_resource path="res://Music/Metal Debris Falling-SoundBible.com-238218965.wav" type="AudioStream" id=6]
 [ext_resource path="res://Music/Wind-Mark_DiAngelo-1940285615.wav" type="AudioStream" id=7]
 
-[node name="Node" type="Node"]
+[node name="Global" type="Node"]
 script = ExtResource( 1 )
+islands_count = 31
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
