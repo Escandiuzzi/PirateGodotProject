@@ -39,9 +39,9 @@ func _on_Close_pressed():
 	
 	
 func _on_timer_change(time):
-	if time >= 0 and time < 1:
+	if time == 0 or time <= 25:
 		sprite.texture = island_states[0];
-	elif time > 0 and time < 100:
+	elif time > 25 and time < 100:
 		sprite.texture = island_states[1];
 	else:
 		sprite.texture = island_states[2];
@@ -56,4 +56,8 @@ func _on_CraftingButton_pressed():
 	global._set_player_coordinates(player.position);
 	get_tree().change_scene("res://CraftingStation.tscn");
 	pass
+
+func _set_defeated_state():
+	sprite.texture = island_states[2];
+	pass;
 

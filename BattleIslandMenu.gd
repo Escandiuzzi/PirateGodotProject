@@ -5,6 +5,8 @@ onready var reward_menu = get_node("Island/RewardMenu");
 
 export(Array) var island_states;
 
+export(Texture) var defeated_texture;
+
 onready var sprite = get_parent().get_node("Sprite");
 onready var button = get_parent().get_parent().get_node("Button");
 
@@ -29,4 +31,8 @@ func _on_Close_pressed():
 	global.playButtonSound();
 	self.hide();
 	camera.return_to_player();
-	pass 
+	pass;
+
+func _set_defeated_state():
+	sprite.texture = defeated_texture;
+	pass;

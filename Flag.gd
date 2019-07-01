@@ -23,7 +23,8 @@ func _ready():
 	if !global._get_island_state(island_id):
 		menuButton.visible = false;
 		menuButton.disabled = true;
-	pass
+		get_node("IslandMenu/IslandMenu")._set_defeated_state();
+	pass;
 
 func _process(delta):
 	pass

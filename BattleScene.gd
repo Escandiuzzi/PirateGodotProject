@@ -177,6 +177,7 @@ func _process(delta):
 					if characters[i]._get_hp() > 0 and characters[i]._get_tag() == "Player":
 						playerPirates[i]._set_post_battle_bonus(12);
 						playerPirates[i]._set_busy(false);
+						playerPirates[i].get_node("Sprite").visible = false;
 				
 				_remove_dead_pirates();
 				
