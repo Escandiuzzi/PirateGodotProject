@@ -18,7 +18,7 @@ onready var layer_1 = get_node("Layer 1");
 onready var layer_2 = get_node("Layer 2");
 onready var layer_3 = get_node("Layer 3");
 onready var inventory_screen = get_tree().get_root().get_node("BattleScene/ViewportContainer/InventoryScreen");
-
+onready var global = get_node("/root/Global");
 onready var enemy_buttons = [
 	get_node("Layer 2/FirstEnemyButton"),
 	get_node("Layer 2/SecondEnemyButton"),
@@ -33,6 +33,7 @@ onready var special_buttons = [
 ];
 
 func _on_UIButton_pressed(extra_arg_0):
+	global.playButtonSound();
 	action = extra_arg_0;
 	
 	if action == "Attack":
@@ -50,6 +51,7 @@ func _on_UIButton_pressed(extra_arg_0):
 	pass;
 
 func _on_EnemyButton_pressed(extra_arg_0):
+	global.playButtonSound();
 	battleScene._player_button_action(action, extra_arg_0, special_id, null);
 	layer_1.visible = true;
 	layer_2.visible = false;
@@ -84,6 +86,7 @@ func _special_buttons():
 	pass;
 
 func _on_SpecialButton_pressed(extra_arg_0):
+	global.playButtonSound();
 	special_id = extra_arg_0;
 	
 	if (special_id == 1 and int(current_character._get_special_attack(extra_arg_0)._get_stat("damage")) == 0):
@@ -117,6 +120,7 @@ func _on_SpecialButton_mouse_exited():
 	pass;
 	
 func _on_ReturnButton_pressed():
+	global.playButtonSound();
 	layer_1.visible = true;
 	layer_2.visible = false;
 	layer_3.visible = false;
@@ -134,11 +138,13 @@ func _check_player_energy():
 	pass;
 
 func _on_Button_pressed():
+	global.playButtonSound();
 	panel.visible = false;
 	recruit_panel.visible = true;
 	pass;
 
 func _on_CloseInventoryButton_pressed():
+	global.playButtonSound();
 	inventory_screen.visible = false;
 	pass;
 
@@ -148,5 +154,6 @@ func _on_UIInputHandler_on_item_selected(item):
 	pass;
 
 func _on_CloseRecruitButton_pressed():
-		get_tree().change_scene(battleScene._get_path());
+	global.playButtonSound();
+	get_tree().change_scene(battleScene._get_path());
 

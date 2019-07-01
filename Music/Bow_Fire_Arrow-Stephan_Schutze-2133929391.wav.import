@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bow_Fire_Arrow-Stephan_Schutze-2133929391.wav-6c171dcb4f51d57c0fdc93f0a76ccdfd.sample"
+
+[deps]
+
+source_file="res://Music/Bow_Fire_Arrow-Stephan_Schutze-2133929391.wav"
+dest_files=[ "res://.import/Bow_Fire_Arrow-Stephan_Schutze-2133929391.wav-6c171dcb4f51d57c0fdc93f0a76ccdfd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -74,6 +74,21 @@ func playWind():
 	if($Wind.playing == false):
 		$Wind.play();
 
+func playNormalAt():
+	yield(get_tree().create_timer(0.3),"timeout");
+	$AtNormal.play();
+
+func playSpecialAt():
+	$AtSpecial.play();
+	yield(get_tree().create_timer(1.3),"timeout");
+	$AtSpecial.play();
+
+func playHeal():
+	$Heal.play();
+
+func playHit():
+	$Hit.play();
+
 func _set_island_state(index, state):
 	island_states[index] = state;
 	_save_data();

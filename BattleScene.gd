@@ -213,6 +213,7 @@ func _player_action():
 		var __target = [enemy];
 		#(current, target, type, damage, array, target_check, count):
 		var target_id = [target_enemy];
+		#global.playNormalAt();
 		_wait_animation_player(current_character, __target, "Attack", damage, enemies, target_id, enemiesCount);
 	
 	elif player_action == "Special":
@@ -228,6 +229,7 @@ func _player_action():
 		if heal > 0 and attack_range == 1:
 			current_character._set_hp(heal + current_character._get_hp());
 			current_character._play_fx_animation("heal_fx");
+			global.playHeal();
 			_next_turn();
 		
 		elif heal > 0 and int(attack_range) > 1:
@@ -443,6 +445,7 @@ func _attack_one_character(damage, array, target, count):
 		enemy._set_shield_durability(equipament_loss);
 	
 	if current_character._get_tag() == "Player":
+		global.playSpecialAt();
 		_wait_animation_player(current_character, __target, "Special", damage, array, target_id, count);
 	
 	if current_character._get_tag() == "IA":
@@ -483,6 +486,7 @@ func _attack_two_characters(damage, array, target, count):
 	var target_id = [target, second_target];
 	
 	if current_character._get_tag() == "Player":
+		global.playSpecialAt();
 		_wait_animation_player(current_character, __target, "Special", damage, array, target_id, count);
 	
 	if current_character._get_tag() == "IA":
@@ -541,6 +545,7 @@ func _attack_three_characters(damage, array, target, count):
 	
 	
 	if current_character._get_tag() == "Player":
+		global.playSpecialAt();
 		_wait_animation_player(current_character, __target, "Special", damage, array, target_id, count);
 	
 	if current_character._get_tag() == "IA":
@@ -596,6 +601,7 @@ func _heal_crew(array, heal_range, heal):
 			array[i]._set_hp(int(heal)/2 + current_character._get_hp());
 		
 		array[i]._play_fx_animation("heal_fx");
+		global.playHeal();
 	pass;
 
 func _heal_two_characters(array, heal_range, heal):
@@ -614,6 +620,7 @@ func _heal_two_characters(array, heal_range, heal):
 		if count == 2:
 			break;
 		array[i]._play_fx_animation("heal_fx");
+		global.playHeal();
 	pass;
 
 func _check_enemy_life(enemy, count, array, target):
@@ -681,6 +688,7 @@ func _remove_dead_pirates():
 	pass;
 
 func _on_RecruitButton_pressed():
+	global.playButtonSound();
 	player_data._recruitPirate(1);
 	self.visible = false;
 	player_data._saveData();
@@ -695,6 +703,7 @@ func _wait_animation_player(current, target, type, damage, array, target_check, 
 	
 	if type == "Attack":
 		current._play_animation("player_attack");
+		global.playNormalAt();
 	elif type == "Special":
 		current._play_animation("player_special");
 	yield(current._get_animated_sprite(), "animation_finished");
@@ -703,6 +712,7 @@ func _wait_animation_player(current, target, type, damage, array, target_check, 
 	
 	for i in range(target.size()):
 		target[i]._play_animation("enemy_hit");
+		global.playHit();
 	
 	yield(target[0]._get_animated_sprite(), "animation_finished");
 	
@@ -731,6 +741,7 @@ func _wait_animation_ia(current, target, type, damage, array, target_check, coun
 	
 	for i in range(target.size()):
 		target[i]._play_animation("player_hit");
+		global.playHit();
 	
 	yield(target[0]._get_animated_sprite(), "animation_finished");
 	
