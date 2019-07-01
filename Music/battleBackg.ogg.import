@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/battleBackg.ogg-6290595bfea517daf62a76ccb2d40cf7.oggstr"
+
+[deps]
+
+source_file="res://Music/battleBackg.ogg"
+dest_files=[ "res://.import/battleBackg.ogg-6290595bfea517daf62a76ccb2d40cf7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

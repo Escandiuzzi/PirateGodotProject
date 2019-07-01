@@ -193,6 +193,7 @@ func _process(delta):
 				
 			else:
 				_remove_dead_pirates();
+				global.stopBattleB();
 				get_tree().change_scene(scenePath);
 	pass;
 
@@ -692,6 +693,7 @@ func _on_RecruitButton_pressed():
 	player_data._recruitPirate(1);
 	self.visible = false;
 	player_data._saveData();
+	global.stopBattleB();
 	get_tree().change_scene(scenePath);
 	pass
 func _get_path():

@@ -52,6 +52,14 @@ func playBackground1():
 		$Background1.set_stream(audiostream);
 		$Background1.play();
 
+func playBattleB():
+	$Background1.stop();
+	$Wind.stop();
+	$BattleMusic.play();
+
+func stopBattleB():
+	$BattleMusic.stop();
+
 func playButtonSound():
 	$Button.play();
 
@@ -75,7 +83,7 @@ func playWind():
 		$Wind.play();
 
 func playNormalAt():
-	yield(get_tree().create_timer(0.3),"timeout");
+	yield(get_tree().create_timer(0.5),"timeout");
 	$AtNormal.play();
 
 func playSpecialAt():

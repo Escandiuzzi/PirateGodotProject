@@ -97,6 +97,7 @@ func _on_StartButton_pressed():
 	popupMenu.hide();
 	global._set_player_coordinates(player.position);
 	if selectedPirates > -1:
+			global.playBattleB();
 			get_tree().change_scene("res://BattleScene.tscn");
 			player_data._selected_pirates(pirateId);
 			battle_manager._island_data(difficulty, enemies, regionName, indexType, commonSize, uncommonSize, rareSize, maxRewards, islandType, scenePath, is_bossIsland, island_container._get_island_id());
