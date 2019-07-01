@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/island1state2.png-176d7a4b1cb1bf4895d489283d13f9ba.stex"
+path="res://.import/island1State2.png-0e0a86ffbaafd513ad76ed975843d460.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites MagicaVoxel/Island/island1state2.png"
-dest_files=[ "res://.import/island1state2.png-176d7a4b1cb1bf4895d489283d13f9ba.stex" ]
+source_file="res://Sprites MagicaVoxel/Island/island1State2.png"
+dest_files=[ "res://.import/island1State2.png-0e0a86ffbaafd513ad76ed975843d460.stex" ]
 
 [params]
 
