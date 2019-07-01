@@ -155,5 +155,6 @@ func _on_UIInputHandler_on_item_selected(item):
 
 func _on_CloseRecruitButton_pressed():
 	global.playButtonSound();
+	global.stopBattleB();
 	get_tree().change_scene(battleScene._get_path());
 
