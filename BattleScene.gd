@@ -68,6 +68,8 @@ var island_id;
 var animating;
 var ia_action;
 
+var erase_pile = [];
+
 onready var recruitPanel = get_node("RecruitPirate");
 onready var ui_handler = get_node("ViewportContainer/Viewport/Manager/UI/UIButtonHandler");
 onready var manager = get_node("ViewportContainer/Viewport/Manager");
@@ -634,7 +636,8 @@ func _check_enemy_life(enemy, count, array, target):
 			
 		count -= 1;
 		enemy.visible = false;
-		array.erase(enemy);
+		
+		erase_pile.append(enemy);
 	pass;
 
 func _get_player_rewards():
@@ -725,6 +728,9 @@ func _wait_animation_player(current, target, type, damage, array, target_check, 
 		target[i]._set_hp(target[i]._get_hp() - damage);
 		_check_enemy_life(target[i], count, array, target_check[i]);
 	
+	if(erase_pile.size() > 0):
+		_clear_erase_pile(array);
+	
 	animating = false;
 	_next_turn();
 	pass;
@@ -752,6 +758,15 @@ func _wait_animation_ia(current, target, type, damage, array, target_check, coun
 		target[i]._set_hp(target[i]._get_hp() - damage);
 		_check_enemy_life(target[i], count, array, target_check[i]);
 	
+	if(erase_pile.size() > 0):
+		_clear_erase_pile(array);
+	
 	animating = false;
 	_next_turn();
+	pass;
+
+func _clear_erase_pile(array):
+	for i in range(erase_pile.size()):
+		array.erase(erase_pile[i]);
+	erase_pile = [];
 	pass;

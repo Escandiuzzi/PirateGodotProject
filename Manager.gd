@@ -61,13 +61,15 @@ func _update_healthbar():
 
 func _remove_healthbar(id, index):
 	if id == 0:
-		if p_healthbars.size() > 0 and p_healthbars.size() > id:
+		if p_healthbars.size() > 0:
 			var hb = p_healthbars[index];
-			p_healthbars.erase(hb);
-			hb.queue_free();
+			hb.visible = false;
+			#p_healthbars.erase(hb);
+			#hb.queue_free();
 	else:
-		if ia_healthbars.size() > 0 and ia_healthbars.size() > id:
+		if ia_healthbars.size() > 0:
 			var hb = ia_healthbars[index];
-			ia_healthbars.erase(hb);
-			hb.queue_free();
+			hb.visible = false;
+			#ia_healthbars.erase(hb);
+			#hb.queue_free();
 	pass;
