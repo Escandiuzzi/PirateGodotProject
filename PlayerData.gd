@@ -6,6 +6,7 @@ var ids = [];
 
 var map_fragments = 0;
 
+onready var global = get_tree().get_root().get_node("/root/Global");
 onready var hudObj = get_node("HUD");
 onready var inventory = $Inventory;
 onready var pirateObj = preload("res://Pirate.tscn");
@@ -60,6 +61,7 @@ func _saveData():
 	save_game.close();
 	print("saved");
 	_save_inventory_data();
+	global._save_data();
 	pass;
 
 func _readData(id):
