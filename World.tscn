@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Sprites MagicaVoxel/Island/Island2State2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites MagicaVoxel/Island/Island2State3.png" type="Texture" id=13]
 [ext_resource path="res://BattleIslandMenu.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island_defeated.png" type="Texture" id=15]
+[ext_resource path="res://Sprites MagicaVoxel/Island/bossIslandBeated.png" type="Texture" id=15]
 [ext_resource path="res://Sprites MagicaVoxel/Island/bossIsland.png" type="Texture" id=16]
 [ext_resource path="res://Sprites MagicaVoxel/Island/Island1State1.png" type="Texture" id=17]
 [ext_resource path="res://Sprites MagicaVoxel/Island/island1state2.png" type="Texture" id=18]
@@ -29,36 +29,40 @@
 [ext_resource path="res://Sprites MagicaVoxel/Island/Sul/islandSul2State2.png" type="Texture" id=27]
 [ext_resource path="res://Sprites MagicaVoxel/Island/Sul/islandSul2State3.png" type="Texture" id=28]
 [ext_resource path="res://Sprites MagicaVoxel/Island/Sul/islandSulPort.png" type="Texture" id=29]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Sul/bossIslandSul.png" type="Texture" id=30]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudestePort.png" type="Texture" id=31]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudeste2state1.png" type="Texture" id=32]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudeste2state2.png" type="Texture" id=33]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudeste2state3.png" type="Texture" id=34]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1State1.png" type="Texture" id=35]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1State2.png" type="Texture" id=36]
-[ext_resource path="res://Sprites MagicaVoxel/Island/island1State3.png" type="Texture" id=37]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/bossIslandSudeste.png" type="Texture" id=38]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordestePort.png" type="Texture" id=39]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste2State1.png" type="Texture" id=40]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste2State2.png" type="Texture" id=41]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste2State3.png" type="Texture" id=42]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste1State1.png" type="Texture" id=43]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste1State2.png" type="Texture" id=44]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste1State3.png" type="Texture" id=45]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/bossIslandNordeste.png" type="Texture" id=46]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNortePort.png" type="Texture" id=47]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte1State1.png" type="Texture" id=48]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte1State2.png" type="Texture" id=49]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte1State3.png" type="Texture" id=50]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte2State1.png" type="Texture" id=51]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte2State2.png" type="Texture" id=52]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte2State3.png" type="Texture" id=53]
-[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/bossIslandNorte.png" type="Texture" id=54]
-[ext_resource path="res://AutoTiles/DirtAutoTile.tres" type="TileSet" id=55]
-[ext_resource path="res://AutoTiles/sulAutoTile.tres" type="TileSet" id=56]
-[ext_resource path="res://AutoTiles/nordesteAutoTile.tres" type="TileSet" id=57]
-[ext_resource path="res://AutoTiles/norteAutoTile.tres" type="TileSet" id=58]
-[ext_resource path="res://icon.png" type="Texture" id=59]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sul/bossIslandSulBeated.png" type="Texture" id=30]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sul/bossIslandSul.png" type="Texture" id=31]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudestePort.png" type="Texture" id=32]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudeste2state1.png" type="Texture" id=33]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudeste2state2.png" type="Texture" id=34]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/islandSudeste2state3.png" type="Texture" id=35]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1State1.png" type="Texture" id=36]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1State2.png" type="Texture" id=37]
+[ext_resource path="res://Sprites MagicaVoxel/Island/island1State3.png" type="Texture" id=38]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/bossIslandSudesteBeated.png" type="Texture" id=39]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Sudeste (usar as padroes provisoriamente)/bossIslandSudeste.png" type="Texture" id=40]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordestePort.png" type="Texture" id=41]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste2State1.png" type="Texture" id=42]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste2State2.png" type="Texture" id=43]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste2State3.png" type="Texture" id=44]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste1State1.png" type="Texture" id=45]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste1State2.png" type="Texture" id=46]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/islandNordeste1State3.png" type="Texture" id=47]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/bossIslandNordesteBeated.png" type="Texture" id=48]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Nordeste/bossIslandNordeste.png" type="Texture" id=49]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNortePort.png" type="Texture" id=50]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte1State1.png" type="Texture" id=51]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte1State2.png" type="Texture" id=52]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte1State3.png" type="Texture" id=53]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte2State1.png" type="Texture" id=54]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte2State2.png" type="Texture" id=55]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/islandNorte2State3.png" type="Texture" id=56]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/bossIslandNorteBeated.png" type="Texture" id=57]
+[ext_resource path="res://Sprites MagicaVoxel/Island/Norte/bossIslandNorte.png" type="Texture" id=58]
+[ext_resource path="res://AutoTiles/DirtAutoTile.tres" type="TileSet" id=59]
+[ext_resource path="res://AutoTiles/sulAutoTile.tres" type="TileSet" id=60]
+[ext_resource path="res://AutoTiles/nordesteAutoTile.tres" type="TileSet" id=61]
+[ext_resource path="res://AutoTiles/norteAutoTile.tres" type="TileSet" id=62]
+[ext_resource path="res://icon.png" type="Texture" id=63]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 257.237, 240.324 )
@@ -336,10 +340,8 @@ margin_bottom = -390.42
 visible = true
 
 [node name="Regions" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Tutorial" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Tutorial" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -421,7 +423,6 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 11 )
 
 [node name="BossIsland" parent="Regions/Tutorial" instance=ExtResource( 9 )]
-editor/display_folded = true
 scale = Vector2( 0.7, 0.7 )
 island_id = 1
 path = Vector2( 0, 226 )
@@ -595,7 +596,6 @@ editor/display_folded = true
 editor/display_folded = false
 
 [node name="Sul" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="RenewableIsland1" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -797,7 +797,6 @@ scale = Vector2( 0.428997, 0.428997 )
 texture = ExtResource( 26 )
 
 [node name="BossIsland" parent="Regions/Sul" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 830, 2783.05 )
 scale = Vector2( 0.7, 0.7 )
 island_id = 10
@@ -818,7 +817,7 @@ shape = SubResource( 11 )
 [node name="IslandMenu" parent="Regions/Sul/BossIsland" instance=ExtResource( 14 )]
 
 [node name="IslandMenu" parent="Regions/Sul/BossIsland/IslandMenu" index="0"]
-defeated_texture = ExtResource( 15 )
+defeated_texture = ExtResource( 30 )
 
 [node name="Island" parent="Regions/Sul/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
@@ -839,10 +838,9 @@ editor/display_folded = true
 [node name="Sprite" parent="Regions/Sul/BossIsland/IslandMenu" index="1"]
 position = Vector2( 4.11299, -5.99988 )
 scale = Vector2( 0.767406, 0.767406 )
-texture = ExtResource( 30 )
+texture = ExtResource( 31 )
 
 [node name="Sudeste" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="Portisland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -862,7 +860,7 @@ shape = SubResource( 12 )
 [node name="Sprite" type="Sprite" parent="Regions/Sudeste/Portisland"]
 position = Vector2( 0.398064, 0 )
 scale = Vector2( 0.453509, 0.453509 )
-texture = ExtResource( 31 )
+texture = ExtResource( 32 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/Portisland" instance=ExtResource( 24 )]
 editor/display_folded = true
@@ -892,7 +890,7 @@ shape = SubResource( 13 )
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland1/IslandMenu" index="0"]
-island_states = [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ]
+island_states = [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ]
 
 [node name="Island" parent="Regions/Sudeste/ResourcesIsland1/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -908,7 +906,7 @@ recruit_seed = 85
 [node name="Sprite" parent="Regions/Sudeste/ResourcesIsland1/IslandMenu" index="1"]
 position = Vector2( 2.80542, 0.000244141 )
 scale = Vector2( 0.48262, 0.48262 )
-texture = ExtResource( 32 )
+texture = ExtResource( 33 )
 
 [node name="Resourcesisland2" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -930,7 +928,7 @@ shape = SubResource( 14 )
 [node name="IslandMenu" parent="Regions/Sudeste/Resourcesisland2" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/Resourcesisland2/IslandMenu" index="0"]
-island_states = [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ]
+island_states = [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ]
 
 [node name="Island" parent="Regions/Sudeste/Resourcesisland2/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -946,7 +944,7 @@ recruit_seed = 88
 [node name="Sprite" parent="Regions/Sudeste/Resourcesisland2/IslandMenu" index="1"]
 position = Vector2( -0.319824, 2.82031 )
 scale = Vector2( 0.408947, 0.408947 )
-texture = ExtResource( 32 )
+texture = ExtResource( 33 )
 
 [node name="RenewableIsland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -966,7 +964,7 @@ shape = SubResource( 15 )
 [node name="IslandMenu" parent="Regions/Sudeste/RenewableIsland" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/RenewableIsland/IslandMenu" index="0"]
-island_states = [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ]
+island_states = [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ]
 
 [node name="Island" parent="Regions/Sudeste/RenewableIsland/IslandMenu/IslandMenu" index="5"]
 renewable = true
@@ -983,7 +981,7 @@ recruit_seed = 95
 [node name="Sprite" parent="Regions/Sudeste/RenewableIsland/IslandMenu" index="1"]
 position = Vector2( -6.10352e-005, -6.64331 )
 scale = Vector2( 0.524835, 0.524835 )
-texture = ExtResource( 35 )
+texture = ExtResource( 36 )
 
 [node name="ResourcesIsland3" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1003,7 +1001,7 @@ shape = SubResource( 16 )
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland3" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/ResourcesIsland3/IslandMenu" index="0"]
-island_states = [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ]
+island_states = [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ]
 
 [node name="Island" parent="Regions/Sudeste/ResourcesIsland3/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -1019,10 +1017,9 @@ recruit_seed = 88
 [node name="Sprite" parent="Regions/Sudeste/ResourcesIsland3/IslandMenu" index="1"]
 position = Vector2( -1.15308, -6 )
 scale = Vector2( 0.418945, 0.418945 )
-texture = ExtResource( 32 )
+texture = ExtResource( 33 )
 
 [node name="BossIsland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 1.96143, 5690 )
 scale = Vector2( 0.7, 0.7 )
 island_id = 16
@@ -1043,7 +1040,7 @@ shape = SubResource( 17 )
 [node name="IslandMenu" parent="Regions/Sudeste/BossIsland" instance=ExtResource( 14 )]
 
 [node name="IslandMenu" parent="Regions/Sudeste/BossIsland/IslandMenu" index="0"]
-defeated_texture = ExtResource( 15 )
+defeated_texture = ExtResource( 39 )
 
 [node name="Island" parent="Regions/Sudeste/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
@@ -1058,10 +1055,9 @@ rareSize = 1
 maxRewards = 6
 
 [node name="Sprite" parent="Regions/Sudeste/BossIsland/IslandMenu" index="1"]
-texture = ExtResource( 38 )
+texture = ExtResource( 40 )
 
 [node name="Nordeste" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="PortIsland" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1085,7 +1081,7 @@ shape = SubResource( 18 )
 [node name="Sprite" type="Sprite" parent="Regions/Nordeste/PortIsland"]
 position = Vector2( 79.5163, -30 )
 scale = Vector2( 0.453509, 0.453509 )
-texture = ExtResource( 39 )
+texture = ExtResource( 41 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/PortIsland" instance=ExtResource( 24 )]
 editor/display_folded = true
@@ -1120,7 +1116,7 @@ shape = SubResource( 19 )
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland1/IslandMenu" index="0"]
-island_states = [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ]
+island_states = [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ]
 
 [node name="Island" parent="Regions/Nordeste/ResourcesIsland1/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -1137,7 +1133,7 @@ recruit_seed = 83
 [node name="Sprite" parent="Regions/Nordeste/ResourcesIsland1/IslandMenu" index="1"]
 position = Vector2( 10, 9.67657 )
 scale = Vector2( 0.431559, 0.431559 )
-texture = ExtResource( 40 )
+texture = ExtResource( 42 )
 
 [node name="RenewableIsland" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1151,7 +1147,7 @@ shape = SubResource( 20 )
 [node name="IslandMenu" parent="Regions/Nordeste/RenewableIsland" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Nordeste/RenewableIsland/IslandMenu" index="0"]
-island_states = [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ]
+island_states = [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ]
 
 [node name="Island" parent="Regions/Nordeste/RenewableIsland/IslandMenu/IslandMenu" index="5"]
 renewable = true
@@ -1169,7 +1165,7 @@ recruit_seed = 89
 [node name="Sprite" parent="Regions/Nordeste/RenewableIsland/IslandMenu" index="1"]
 position = Vector2( 2, -6 )
 scale = Vector2( 0.559702, 0.559702 )
-texture = ExtResource( 43 )
+texture = ExtResource( 45 )
 
 [node name="ResourcesIsland3" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1191,7 +1187,7 @@ shape = SubResource( 21 )
 position = Vector2( 6.51112, 0.323532 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland3/IslandMenu" index="0"]
-island_states = [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ]
+island_states = [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ]
 
 [node name="Island" parent="Regions/Nordeste/ResourcesIsland3/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -1208,7 +1204,7 @@ recruit_seed = 83
 [node name="Sprite" parent="Regions/Nordeste/ResourcesIsland3/IslandMenu" index="1"]
 position = Vector2( 3.48888, -6.00098 )
 scale = Vector2( 0.485877, 0.485877 )
-texture = ExtResource( 40 )
+texture = ExtResource( 42 )
 
 [node name="ResourcesIsland4" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1231,7 +1227,7 @@ shape = SubResource( 22 )
 editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Nordeste/ResourcesIsland4/IslandMenu" index="0"]
-island_states = [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ]
+island_states = [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ]
 
 [node name="Island" parent="Regions/Nordeste/ResourcesIsland4/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -1248,10 +1244,9 @@ recruit_seed = 83
 [node name="Sprite" parent="Regions/Nordeste/ResourcesIsland4/IslandMenu" index="1"]
 position = Vector2( 1.00012, 9.67676 )
 scale = Vector2( 0.455524, 0.455524 )
-texture = ExtResource( 40 )
+texture = ExtResource( 42 )
 
 [node name="BossIsland" parent="Regions/Nordeste" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( -1031.64, 8290 )
 scale = Vector2( 0.7, 0.7 )
 island_id = 22
@@ -1267,10 +1262,9 @@ margin_bottom = 2023.0
 shape = SubResource( 23 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/BossIsland" instance=ExtResource( 14 )]
-editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Nordeste/BossIsland/IslandMenu" index="0"]
-defeated_texture = ExtResource( 15 )
+defeated_texture = ExtResource( 48 )
 
 [node name="Island" parent="Regions/Nordeste/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
@@ -1285,10 +1279,9 @@ rareSize = 1
 maxRewards = 8
 
 [node name="Sprite" parent="Regions/Nordeste/BossIsland/IslandMenu" index="1"]
-texture = ExtResource( 46 )
+texture = ExtResource( 49 )
 
 [node name="Norte" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="PortIsland" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1311,7 +1304,7 @@ shape = SubResource( 24 )
 [node name="Sprite" type="Sprite" parent="Regions/Norte/PortIsland"]
 position = Vector2( 0.0137939, 3.5 )
 scale = Vector2( 0.453509, 0.453509 )
-texture = ExtResource( 47 )
+texture = ExtResource( 50 )
 
 [node name="IslandMenu" parent="Regions/Norte/PortIsland" instance=ExtResource( 24 )]
 position = Vector2( -13.9726, -6.4999 )
@@ -1334,7 +1327,7 @@ shape = SubResource( 25 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland2" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland2/IslandMenu" index="0"]
-island_states = [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ]
+island_states = [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland2/IslandMenu/IslandMenu" index="5"]
 renewable = true
@@ -1353,7 +1346,7 @@ recruit_seed = 95
 position = Vector2( 18.9258, 20.9766 )
 rotation = 1.57079
 scale = Vector2( 0.606717, 0.606717 )
-texture = ExtResource( 48 )
+texture = ExtResource( 51 )
 
 [node name="RenewableIsland1" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1373,7 +1366,7 @@ shape = SubResource( 26 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland1/IslandMenu" index="0"]
-island_states = [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ]
+island_states = [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland1/IslandMenu/IslandMenu" index="5"]
 renewable = true
@@ -1391,7 +1384,7 @@ recruit_seed = 95
 [node name="Sprite" parent="Regions/Norte/RenewableIsland1/IslandMenu" index="1"]
 position = Vector2( -2, -0.32373 )
 scale = Vector2( 0.670738, 0.670738 )
-texture = ExtResource( 48 )
+texture = ExtResource( 51 )
 
 [node name="RenewableIsland3" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1412,7 +1405,7 @@ shape = SubResource( 27 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland3" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland3/IslandMenu" index="0"]
-island_states = [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ]
+island_states = [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland3/IslandMenu/IslandMenu" index="5"]
 renewable = true
@@ -1431,7 +1424,7 @@ recruit_seed = 95
 position = Vector2( 10, -16.647 )
 rotation = -1.57079
 scale = Vector2( 0.649439, 0.649439 )
-texture = ExtResource( 48 )
+texture = ExtResource( 51 )
 
 [node name="RenewableIsland4" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1451,7 +1444,7 @@ shape = SubResource( 28 )
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland4" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/RenewableIsland4/IslandMenu" index="0"]
-island_states = [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ]
+island_states = [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ]
 
 [node name="Island" parent="Regions/Norte/RenewableIsland4/IslandMenu/IslandMenu" index="5"]
 renewable = true
@@ -1470,7 +1463,7 @@ recruit_seed = 95
 position = Vector2( 7.71497, -0.323242 )
 rotation = 3.14159
 scale = Vector2( 0.589457, 0.589457 )
-texture = ExtResource( 48 )
+texture = ExtResource( 51 )
 
 [node name="ResourcesIsland1" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1485,7 +1478,7 @@ shape = SubResource( 29 )
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland1" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland1/IslandMenu" index="0"]
-island_states = [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ]
+island_states = [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ) ]
 
 [node name="Island" parent="Regions/Norte/ResourcesIsland1/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -1502,7 +1495,7 @@ recruit_seed = 83
 [node name="Sprite" parent="Regions/Norte/ResourcesIsland1/IslandMenu" index="1"]
 position = Vector2( 2.05017, 6.07715 )
 scale = Vector2( 0.506567, 0.506567 )
-texture = ExtResource( 51 )
+texture = ExtResource( 54 )
 
 [node name="ResourcesIsland2" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1523,7 +1516,7 @@ shape = SubResource( 30 )
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland2" instance=ExtResource( 10 )]
 
 [node name="IslandMenu" parent="Regions/Norte/ResourcesIsland2/IslandMenu" index="0"]
-island_states = [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ]
+island_states = [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ) ]
 
 [node name="Island" parent="Regions/Norte/ResourcesIsland2/IslandMenu/IslandMenu" index="5"]
 islandType = "Material"
@@ -1540,10 +1533,9 @@ recruit_seed = 83
 [node name="Sprite" parent="Regions/Norte/ResourcesIsland2/IslandMenu" index="1"]
 position = Vector2( -0.000244141, -0.316406 )
 scale = Vector2( 0.359418, 0.36129 )
-texture = ExtResource( 51 )
+texture = ExtResource( 54 )
 
 [node name="BossIsland" parent="Regions/Norte" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( -223.489, 11350 )
 scale = Vector2( 0.7, 0.7 )
 island_id = 30
@@ -1563,7 +1555,7 @@ shape = SubResource( 31 )
 position = Vector2( 196, -21.001 )
 
 [node name="IslandMenu" parent="Regions/Norte/BossIsland/IslandMenu" index="0"]
-defeated_texture = ExtResource( 15 )
+defeated_texture = ExtResource( 57 )
 
 [node name="Island" parent="Regions/Norte/BossIsland/IslandMenu/IslandMenu" index="4"]
 is_bossIsland = true
@@ -1580,35 +1572,35 @@ maxRewards = 10
 [node name="Sprite" parent="Regions/Norte/BossIsland/IslandMenu" index="1"]
 position = Vector2( 114.053, -93.2842 )
 scale = Vector2( 1.16602, 1.16602 )
-texture = ExtResource( 54 )
+texture = ExtResource( 58 )
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
-tile_set = ExtResource( 55 )
+tile_set = ExtResource( 59 )
 format = 1
 tile_data = PoolIntArray( -327689, 0, 1, -327688, 0, 65536, -327687, 0, 2, -393215, 0, 196608, -393214, 0, 196609, -393213, 0, 196609, -393212, 0, 196610, -393208, 0, 6, -393207, 0, 196609, -393206, 0, 196609, -393205, 0, 131076, -393204, 0, 196609, -393203, 0, 196609, -393202, 0, 7, -262153, 0, 131073, -262152, 0, 196619, -262151, 0, 131074, -327672, 0, 65541, -327669, 0, 65541, -327666, 0, 65541, -196617, 0, 65537, -196616, 0, 131072, -196615, 0, 65538, -262136, 0, 65541, -262133, 0, 65541, -262130, 0, 65541, -196600, 0, 8, -196599, 0, 9, -196598, 0, 196609, -196597, 0, 131083, -196596, 0, 196609, -196595, 0, 10, -196594, 0, 11, -131064, 0, 65537, -131063, 0, 65545, -131061, 0, 65541, -131059, 0, 65546, -131058, 0, 65538, -65527, 0, 131077, -65525, 0, 131077, -65523, 0, 131077, 65523, 0, 1, 65524, 0, 2, 131059, 0, 131073, 131060, 0, 131074, 65547, 0, 196608, 65548, 0, 196609, 65549, 0, 196609, 65550, 0, 7, 196595, 0, 65537, 196596, 0, 65538, 131078, 0, 5, 131086, 0, 65542, 131087, 0, 196609, 131088, 0, 196609, 131089, 0, 196610, 196614, 0, 131077, 393211, 0, 5, 458747, 0, 65541, 393218, 0, 1, 393219, 0, 65536, 393220, 0, 2, 524283, 0, 65541, 458754, 0, 65537, 458755, 0, 131072, 458756, 0, 65538, 589819, 0, 131077, 720888, 0, 196608, 720889, 0, 7, 655363, 0, 196608, 655364, 0, 196610, 786425, 0, 65542, 786426, 0, 196610, 720902, 0, 196608, 720903, 0, 196609, 720904, 0, 196610, 3342325, 0, 196608, 3342326, 0, 196609, 3342327, 0, 196609, 3342328, 0, 7, 3407864, 0, 65542, 3407865, 0, 196610, 3342339, 0, 196608, 3342340, 0, 196609, 3342341, 0, 7, 3473391, 0, 6, 3473392, 0, 196609, 3473393, 0, 196610, 3407877, 0, 65542, 3407878, 0, 196610, 3538925, 0, 6, 3538926, 0, 196609, 3538927, 0, 65543, 3473415, 0, 196608, 3473416, 0, 196610, 3604460, 0, 6, 3604461, 0, 65543, 3604478, 0, 196613, 3669995, 0, 6, 3669996, 0, 65543, 3670013, 0, 5, 3604496, 0, 5, 3735531, 0, 131077, 3735549, 0, 131077, 3670032, 0, 65542, 3670033, 0, 7, 3801084, 0, 5, 3735569, 0, 65542, 3735570, 0, 196609, 3735571, 0, 196610, 3866620, 0, 65541, 3801108, 0, 196613, 3932156, 0, 65541, 3997692, 0, 65541, 4063228, 0, 65541, 3997711, 0, 6, 3997712, 0, 196610, 4128745, 0, 5, 4128764, 0, 131077, 4063247, 0, 65541, 4194281, 0, 131077, 4128782, 0, 6, 4128783, 0, 65543, 4259816, 0, 5, 4194317, 0, 6, 4194318, 0, 65543, 4325352, 0, 131077, 4325364, 0, 6, 4325365, 0, 196610, 4259852, 0, 6, 4259853, 0, 65543, 4390887, 0, 5, 4390897, 0, 196608, 4390898, 0, 196609, 4390899, 0, 196609, 4390900, 0, 65543, 4325381, 0, 196608, 4325382, 0, 7, 4325388, 0, 131077, 4456423, 0, 65541, 4456431, 0, 6, 4456432, 0, 196610, 4390918, 0, 65542, 4390919, 0, 7, 4521959, 0, 131077, 4521966, 0, 6, 4521967, 0, 65543, 4456455, 0, 65542, 4456456, 0, 196610, 4456467, 0, 196613, 4587502, 0, 65541, 4587509, 0, 196608, 4587510, 0, 196609, 4587511, 0, 7, 4522004, 0, 196608, 4522005, 0, 7, 4653038, 0, 131077, 4653047, 0, 65542, 4653048, 0, 7, 4587541, 0, 65542, 4587542, 0, 196609, 4587543, 0, 7, 4718569, 0, 5, 4718584, 0, 65542, 4718585, 0, 7, 4653079, 0, 131077, 4784104, 0, 6, 4784105, 0, 65543, 4784121, 0, 131077, 4718606, 0, 5, 4849639, 0, 196608, 4849640, 0, 65543, 4784139, 0, 196608, 4784140, 0, 196609, 4784141, 0, 196609, 4784142, 0, 196611, 4784143, 0, 196609, 4784144, 0, 196609, 4784145, 0, 196610, 5111802, 0, 196608, 5111803, 0, 196609, 5111804, 0, 196609, 5111805, 0, 7, 5177322, 0, 5, 5177341, 0, 65542, 5177342, 0, 196609, 5177343, 0, 196610, 5242858, 0, 131077, 5177364, 0, 5, 5308395, 0, 196613, 5308409, 0, 5, 5242883, 0, 196608, 5242884, 0, 196610, 5242899, 0, 6, 5242900, 0, 65543, 5373932, 0, 5, 5373945, 0, 65541, 5308421, 0, 196613, 5308435, 0, 65541, 5439468, 0, 65541, 5439480, 0, 6, 5439481, 0, 65543, 5373958, 0, 196613, 5373971, 0, 65541, 5505004, 0, 65541, 5505016, 0, 65541, 5439495, 0, 196608, 5439496, 0, 196610, 5439507, 0, 65541, 5570540, 0, 65541, 5570552, 0, 131077, 5505033, 0, 196608, 5505034, 0, 7, 5505043, 0, 65541, 5636076, 0, 65541, 5636087, 0, 196613, 5570570, 0, 65541, 5570579, 0, 131077, 5701612, 0, 65542, 5701613, 0, 7, 5701622, 0, 196613, 5636106, 0, 65541, 5767149, 0, 65542, 5767150, 0, 196610, 5767157, 0, 196613, 5701642, 0, 65542, 5701643, 0, 196610, 5898255, 0, 196608, 5898256, 0, 7, 5963792, 0, 131077, 6029318, 0, 6, 6029319, 0, 196610, 6029329, 0, 5, 6160369, 0, 5, 6094854, 0, 65541, 6094865, 0, 65542, 6094866, 0, 7, 6225905, 0, 65542, 6225906, 0, 196610, 6160389, 0, 6, 6160390, 0, 65543, 6160402, 0, 65542, 6160403, 0, 196610, 6291443, 0, 196608, 6291444, 0, 7, 6225920, 0, 196608, 6225921, 0, 196609, 6225922, 0, 196609, 6225923, 0, 196609, 6225924, 0, 196609, 6225925, 0, 65543, 6356980, 0, 65542, 6356981, 0, 196610 )
 
 [node name="TileMapSul" type="TileMap" parent="."]
 z_index = -1
-tile_set = ExtResource( 56 )
+tile_set = ExtResource( 60 )
 format = 1
 tile_data = PoolIntArray( 917499, 0, 196608, 917500, 0, 196609, 917501, 0, 7, 983033, 0, 196608, 983034, 0, 196610, 983037, 0, 65542, 983038, 0, 196610, 1114098, 0, 6, 1114099, 0, 196609, 1114100, 0, 196610, 1048582, 0, 196608, 1048583, 0, 196609, 1048584, 0, 196609, 1048585, 0, 196610, 1179631, 0, 6, 1179632, 0, 196609, 1179633, 0, 196609, 1179634, 0, 65543, 1114122, 0, 196608, 1114123, 0, 196610, 1245166, 0, 196608, 1245167, 0, 65543, 1310713, 0, 5, 1245199, 0, 196613, 1376249, 0, 65541, 1310727, 0, 196613, 1310736, 0, 196608, 1310737, 0, 196610, 1441785, 0, 65542, 1441786, 0, 7, 1376261, 0, 6, 1376262, 0, 196610, 1376274, 0, 5, 1507307, 0, 5, 1507322, 0, 131077, 1441797, 0, 65541, 1441810, 0, 65542, 1441811, 0, 196610, 1572843, 0, 65541, 1507333, 0, 131077, 1507348, 0, 196613, 1638379, 0, 65541, 1703915, 0, 65541, 1769451, 0, 131077, 1769468, 0, 196608, 1769469, 0, 196609, 1769470, 0, 196610, 1835007, 0, 196608, 1769472, 0, 196610, 1769474, 0, 5, 1835010, 0, 65542, 1835011, 0, 7, 1900547, 0, 65542, 1900548, 0, 7, 2031609, 0, 5, 1966084, 0, 65541, 2097137, 0, 5, 2097145, 0, 65541, 2031620, 0, 131077, 2162671, 0, 6, 2162672, 0, 196609, 2162673, 0, 65543, 2162681, 0, 65542, 2162682, 0, 7, 2097162, 0, 1, 2097163, 0, 65536, 2097164, 0, 65536, 2097165, 0, 65536, 2097166, 0, 2, 2228205, 0, 6, 2228206, 0, 196609, 2228207, 0, 65543, 2228218, 0, 131077, 2162698, 0, 131073, 2162699, 0, 196619, 2162700, 0, 196619, 2162701, 0, 196619, 2162702, 0, 131074, 2293741, 0, 131077, 2228234, 0, 65537, 2228235, 0, 4, 2228236, 0, 196619, 2228237, 0, 196619, 2228238, 0, 65539, 2228239, 0, 2, 2293771, 0, 65537, 2293772, 0, 131072, 2293773, 0, 131072, 2293774, 0, 131072, 2293775, 0, 65547, 2293776, 0, 196610, 2490348, 0, 5, 2555884, 0, 65541, 2621420, 0, 65541, 2686956, 0, 131077, 2621459, 0, 5, 2686976, 0, 196608, 2686977, 0, 7, 2686995, 0, 65542, 2686996, 0, 7, 2752513, 0, 65542, 2752514, 0, 196609, 2752515, 0, 196609, 2752516, 0, 196609, 2752517, 0, 196610, 2752532, 0, 131077, 2883568, 0, 5, 2949104, 0, 65542, 2949105, 0, 7, 2949115, 0, 6, 2949116, 0, 196609, 2949117, 0, 196609, 2949118, 0, 196610, 3014641, 0, 65542, 3014642, 0, 196609, 3014643, 0, 7, 3014651, 0, 65541, 3014655, 0, 196608, 2949120, 0, 196609, 2949121, 0, 7, 2949139, 0, 5, 3080179, 0, 65542, 3080180, 0, 196609, 3080181, 0, 196610, 3080187, 0, 131077, 3014657, 0, 65542, 3014658, 0, 196609, 3014659, 0, 196610, 3014675, 0, 65541, 3080211, 0, 65541, 3145747, 0, 65541, 3211283, 0, 131077, 3276816, 0, 196608, 3276817, 0, 196610, 3342349, 0, 196608, 3342350, 0, 196609, 3342351, 0, 196610 )
 
 [node name="TileMapNordeste" type="TileMap" parent="."]
 z_index = -1
-tile_set = ExtResource( 57 )
+tile_set = ExtResource( 61 )
 format = 1
 tile_data = PoolIntArray( 6488055, 0, 196608, 6488056, 0, 196609, 6488057, 0, 196609, 6488058, 0, 196609, 6488059, 0, 196609, 6488060, 0, 196609, 6488061, 0, 196610, 6553586, 0, 5, 6488078, 0, 5, 6619118, 0, 6, 6619119, 0, 196609, 6619120, 0, 196609, 6619121, 0, 196609, 6619122, 0, 65543, 6553606, 0, 196608, 6553607, 0, 196610, 6553614, 0, 65542, 6553615, 0, 196609, 6553616, 0, 7, 6684653, 0, 6, 6684654, 0, 65543, 6619144, 0, 196608, 6619145, 0, 7, 6619152, 0, 65542, 6619153, 0, 7, 6750189, 0, 65541, 6750203, 0, 5, 6684681, 0, 65542, 6684682, 0, 196609, 6684683, 0, 196610, 6684689, 0, 65542, 6684690, 0, 196610, 6815725, 0, 131077, 6815739, 0, 65541, 6881275, 0, 65541, 6946811, 0, 65541, 6881299, 0, 196608, 6881300, 0, 196610, 7012347, 0, 65542, 7012348, 0, 7, 6946837, 0, 196608, 6946838, 0, 7, 7077884, 0, 65542, 7077885, 0, 7, 7012362, 0, 5, 7012374, 0, 65541, 7143421, 0, 131077, 7077898, 0, 131077, 7077910, 0, 131077, 7208940, 0, 5, 7143433, 0, 5, 7143447, 0, 196613, 7274476, 0, 65541, 7208969, 0, 65541, 7340012, 0, 65541, 7274505, 0, 65541, 7405547, 0, 6, 7405548, 0, 65543, 7340041, 0, 131077, 7471083, 0, 65541, 7471096, 0, 5, 7536619, 0, 65541, 7536628, 0, 196608, 7536629, 0, 196609, 7536630, 0, 196609, 7536631, 0, 196609, 7536632, 0, 65543, 7536639, 0, 196613, 7602155, 0, 65541, 7602162, 0, 6, 7602163, 0, 196610, 7536640, 0, 196608, 7536641, 0, 7, 7667691, 0, 65541, 7667697, 0, 196608, 7667698, 0, 65543, 7602177, 0, 65542, 7602178, 0, 196609, 7602179, 0, 196610, 7733227, 0, 131077, 7733258, 0, 5, 7733270, 0, 196608, 7733271, 0, 196610, 7864302, 0, 5, 7798794, 0, 65541, 7798805, 0, 5, 7929834, 0, 196608, 7929835, 0, 196609, 7929836, 0, 196609, 7929837, 0, 196609, 7929838, 0, 65543, 7864329, 0, 6, 7864330, 0, 65543, 7864341, 0, 131077, 7995367, 0, 196608, 7995368, 0, 196609, 7995369, 0, 196610, 7929865, 0, 65541, 7929876, 0, 196613, 8060917, 0, 5, 7995401, 0, 65541, 8126453, 0, 65542, 8126454, 0, 7, 8060937, 0, 65542, 8060938, 0, 7, 8191990, 0, 131077, 8126468, 0, 5, 8126474, 0, 131077, 8257527, 0, 5, 8192004, 0, 65541, 8192011, 0, 5, 8192015, 0, 196608, 8192016, 0, 7, 8323063, 0, 65541, 8257540, 0, 65542, 8257541, 0, 7, 8257546, 0, 6, 8257547, 0, 65543, 8257552, 0, 65541, 8388599, 0, 65541, 8323077, 0, 65541, 8323082, 0, 131077, 8323088, 0, 8, 8323089, 0, 2, 8454117, 0, 5, 8454135, 0, 65542, 8454136, 0, 196610, 8388613, 0, 65541, 8388624, 0, 65537, 8388625, 0, 65545, 8519653, 0, 131077, 8454149, 0, 65541, 8454161, 0, 65542, 8454162, 0, 7, 8585190, 0, 5, 8585213, 0, 1, 8585214, 0, 2, 8519684, 0, 196608, 8519685, 0, 196612, 8519698, 0, 131077, 8650726, 0, 65541, 8650748, 0, 6, 8650749, 0, 65544, 8650750, 0, 65547, 8650751, 0, 7, 8585221, 0, 65542, 8585222, 0, 196610, 8716262, 0, 65542, 8716263, 0, 7, 8716284, 0, 65541, 8716287, 0, 65541, 8650774, 0, 5, 8781799, 0, 65542, 8781800, 0, 196610, 8781820, 0, 131077, 8781823, 0, 65541, 8716310, 0, 131077, 8847337, 0, 5, 8847357, 0, 196608, 8847358, 0, 10, 8847359, 0, 11, 8781845, 0, 5, 8912873, 0, 65542, 8912874, 0, 7, 8912885, 0, 5, 8912894, 0, 65537, 8912895, 0, 65538, 8847381, 0, 131077, 8978410, 0, 65542, 8978411, 0, 196610, 8978419, 0, 6, 8978420, 0, 196609, 8978421, 0, 65543, 8912918, 0, 5, 9043948, 0, 196608, 9043949, 0, 196610, 9043955, 0, 131077, 8978438, 0, 5, 8978454, 0, 65541, 9109490, 0, 5, 9109497, 0, 196608, 9109498, 0, 196609, 9109499, 0, 196609, 9109500, 0, 196609, 9109501, 0, 196609, 9109502, 0, 196610, 9043974, 0, 65541, 9043990, 0, 131077, 9175026, 0, 131077, 9175032, 0, 196613, 9109510, 0, 65541, 9240561, 0, 5, 9240566, 0, 196608, 9240567, 0, 196610, 9175046, 0, 65541, 9306097, 0, 131077, 9240578, 0, 5, 9240582, 0, 65542, 9240583, 0, 7, 9306112, 0, 6, 9306113, 0, 196609, 9306114, 0, 65543, 9306119, 0, 131077, 9437183, 0, 6, 9371648, 0, 65543, 9371656, 0, 5, 9371665, 0, 6, 9371666, 0, 196609, 9371667, 0, 196609, 9371668, 0, 196609, 9371669, 0, 196610, 9502719, 0, 131077, 9437192, 0, 131077, 9437201, 0, 131077 )
 
 [node name="TileMapNorte" type="TileMap" parent="."]
 z_index = -1
-tile_set = ExtResource( 58 )
+tile_set = ExtResource( 62 )
 format = 1
 tile_data = PoolIntArray( 9568231, 0, 196608, 9568232, 0, 196610, 9633764, 0, 196608, 9633765, 0, 196609, 9633766, 0, 196610, 9633785, 0, 5, 9699299, 0, 196613, 9699319, 0, 196608, 9699320, 0, 196609, 9699321, 0, 65543, 9764834, 0, 196613, 9764841, 0, 196608, 9764842, 0, 196610, 9764852, 0, 6, 9764853, 0, 196609, 9764854, 0, 196610, 9830371, 0, 196613, 9830375, 0, 196608, 9830376, 0, 196610, 9830387, 0, 6, 9830388, 0, 65543, 9895908, 0, 196613, 9895910, 0, 5, 9895922, 0, 196608, 9895923, 0, 65543, 9830408, 0, 196608, 9830409, 0, 196610, 9830415, 0, 5, 9961445, 0, 196608, 9961446, 0, 65543, 9961457, 0, 196613, 9895941, 0, 196608, 9895942, 0, 196609, 9895943, 0, 196610, 9895951, 0, 65542, 9895952, 0, 7, 10026992, 0, 5, 9961475, 0, 196608, 9961476, 0, 196610, 9961488, 0, 65542, 9961489, 0, 196609, 9961490, 0, 196610, 10092528, 0, 65541, 10027010, 0, 196613, 10027027, 0, 196608, 10027028, 0, 196609, 10027029, 0, 196609, 10027030, 0, 196610, 10158064, 0, 131077, 10092545, 0, 5, 10092567, 0, 196608, 10092568, 0, 7, 10092574, 0, 5, 10223601, 0, 5, 10158081, 0, 131077, 10158104, 0, 131077, 10158110, 0, 131077, 10289137, 0, 65542, 10289138, 0, 196610, 10223616, 0, 5, 10223645, 0, 5, 10354663, 0, 5, 10289152, 0, 131077, 10289181, 0, 65541, 10420199, 0, 131077, 10420205, 0, 5, 10420223, 0, 196613, 10354717, 0, 65541, 10485733, 0, 6, 10485734, 0, 196610, 10485741, 0, 65541, 10485758, 0, 196613, 10420244, 0, 196613, 10420253, 0, 65541, 10551268, 0, 6, 10551269, 0, 65543, 10551277, 0, 65542, 10551278, 0, 7, 10485779, 0, 196613, 10485789, 0, 131077, 10616803, 0, 6, 10616804, 0, 65543, 10616814, 0, 65542, 10616815, 0, 196609, 10616816, 0, 196609, 10616817, 0, 7, 10616823, 0, 5, 10551313, 0, 6, 10551314, 0, 196610, 10551320, 0, 196613, 10682339, 0, 65541, 10682353, 0, 65542, 10682354, 0, 7, 10682359, 0, 65541, 10616849, 0, 65541, 10616857, 0, 196613, 10747875, 0, 65541, 10747890, 0, 131077, 10747895, 0, 65541, 10682385, 0, 65541, 10682394, 0, 196613, 10813411, 0, 65541, 10813431, 0, 65541, 10813437, 0, 196608, 10813438, 0, 196610, 10747920, 0, 6, 10747921, 0, 65543, 10747931, 0, 196608, 10747932, 0, 196610, 10878947, 0, 65541, 10878967, 0, 131077, 10878975, 0, 196608, 10813440, 0, 196610, 10813456, 0, 65541, 10813469, 0, 196608, 10813470, 0, 7, 10944483, 0, 131077, 10878977, 0, 196608, 10878978, 0, 196609, 10878979, 0, 196609, 10878980, 0, 196609, 10878981, 0, 7, 10878991, 0, 6, 10878992, 0, 65543, 10879006, 0, 65541, 11010020, 0, 5, 10944517, 0, 65542, 10944518, 0, 196610, 10944527, 0, 65541, 10944542, 0, 65542, 10944543, 0, 7, 11075556, 0, 65541, 11010063, 0, 65541, 11010079, 0, 131077, 11141092, 0, 65541, 11141108, 0, 196613, 11075599, 0, 65541, 11075616, 0, 196613, 11206628, 0, 65541, 11206645, 0, 5, 11141135, 0, 131077, 11141153, 0, 196613, 11272164, 0, 65541, 11272181, 0, 65541, 11206672, 0, 5, 11337700, 0, 131077, 11337717, 0, 131077, 11272204, 0, 5, 11272208, 0, 65541, 11403235, 0, 5, 11403252, 0, 5, 11337740, 0, 131077, 11337744, 0, 65542, 11337745, 0, 196610, 11468771, 0, 65541, 11468788, 0, 65541, 11403275, 0, 5, 11534307, 0, 131077, 11534324, 0, 65541, 11468811, 0, 65541, 11599854, 0, 5, 11599860, 0, 65541, 11534347, 0, 65541, 11534365, 0, 5, 11665390, 0, 65541, 11665396, 0, 65541, 11599883, 0, 65542, 11599884, 0, 7, 11599901, 0, 131077, 11730915, 0, 5, 11730923, 0, 6, 11730924, 0, 196609, 11730925, 0, 196609, 11730926, 0, 65543, 11730932, 0, 65542, 11730933, 0, 7, 11665420, 0, 8, 11665421, 0, 2, 11665436, 0, 5, 11796451, 0, 131077, 11796457, 0, 196608, 11796458, 0, 196609, 11796459, 0, 65543, 11796469, 0, 131077, 11730956, 0, 65546, 11730957, 0, 65538, 11730967, 0, 6, 11730968, 0, 196610, 11730971, 0, 196608, 11730972, 0, 65543, 11861986, 0, 5, 11861992, 0, 196613, 11796492, 0, 65541, 11796503, 0, 65541, 11927522, 0, 65541, 11927527, 0, 5, 11927535, 0, 196608, 11927536, 0, 196610, 11862028, 0, 131077, 11862035, 0, 6, 11862036, 0, 196610, 11862038, 0, 6, 11862039, 0, 65543, 11993058, 0, 131077, 11993063, 0, 65541, 11993073, 0, 5, 11927571, 0, 131077, 11927573, 0, 196608, 11927574, 0, 65543, 11927579, 0, 5, 12058593, 0, 5, 12058599, 0, 65541, 12058609, 0, 65542, 12058610, 0, 196609, 12058611, 0, 196610, 12058623, 0, 5, 11993106, 0, 5, 11993114, 0, 196608, 11993115, 0, 65543, 12124129, 0, 131077, 12124135, 0, 131077, 12124153, 0, 196608, 12124154, 0, 196609, 12124155, 0, 196609, 12124156, 0, 196609, 12124157, 0, 196609, 12124158, 0, 131076, 12124159, 0, 65543, 12058642, 0, 131077, 12058649, 0, 196613, 12189688, 0, 5, 12189694, 0, 131077, 12124170, 0, 196608, 12124171, 0, 196609, 12124172, 0, 196610, 12124184, 0, 5, 12255224, 0, 131077, 12189698, 0, 196608, 12189699, 0, 196609, 12189700, 0, 196609, 12189701, 0, 196610, 12189709, 0, 5, 12189720, 0, 131077, 12255232, 0, 6, 12255233, 0, 196610, 12255245, 0, 65542, 12255246, 0, 196609, 12255247, 0, 196609, 12255248, 0, 7, 12386303, 0, 6, 12320768, 0, 65543, 12320784, 0, 65542, 12320785, 0, 7, 12451811, 0, 5, 12451839, 0, 65541, 12386321, 0, 131077, 12386326, 0, 5, 12517347, 0, 65542, 12517348, 0, 7, 12517370, 0, 5, 12517375, 0, 65541, 12451862, 0, 65541, 12582884, 0, 65542, 12582885, 0, 196610, 12582906, 0, 131077, 12582911, 0, 131075, 12517376, 0, 196610, 12517397, 0, 6, 12517398, 0, 65543, 12648422, 0, 196608, 12648423, 0, 7, 12648443, 0, 5, 12648447, 0, 131077, 12582930, 0, 196608, 12582931, 0, 196609, 12582932, 0, 196609, 12582933, 0, 65543, 12713959, 0, 65542, 12713960, 0, 196610, 12713971, 0, 6, 12713972, 0, 196609, 12713973, 0, 196609, 12713974, 0, 196609, 12713975, 0, 7, 12713979, 0, 65541, 12648464, 0, 6, 12648465, 0, 196610, 12779497, 0, 196608, 12779498, 0, 7, 12779507, 0, 131077, 12779511, 0, 65541, 12779515, 0, 131077, 12713999, 0, 6, 12714000, 0, 65543, 12845034, 0, 131077, 12845047, 0, 65541, 12779535, 0, 131077, 12910583, 0, 131077, 12845072, 0, 196613, 12976129, 0, 5, 13041665, 0, 131077, 13107202, 0, 196608, 13107203, 0, 196609, 13107204, 0, 196609, 13107205, 0, 196610, 13172742, 0, 196608, 13172743, 0, 196609, 13172744, 0, 196609, 13172745, 0, 196609, 13172746, 0, 196609, 13172747, 0, 196609, 13172748, 0, 196610 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -174.9, 12960 )
-texture = ExtResource( 59 )
+texture = ExtResource( 63 )
 
 [connection signal="on_item_selected" from="InventoryCamera/InventoryScreen/UIInputHandler" to="Player" method="_on_UIInputHandler_on_item_selected"]
 [connection signal="pressed" from="InventoryCamera/InventoryScreen/CloseButton" to="Regions/Tutorial/PortIsland1" method="_on_CloseInventoryButton_pressed"]
