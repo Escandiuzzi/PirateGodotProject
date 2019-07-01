@@ -86,9 +86,12 @@ onready var fragment_panel = get_node("ViewportContainer/Viewport/FragmentMapCon
 onready var fragment_text = get_node("ViewportContainer/Viewport/FragmentMapContainer/RichTextLabel");
 onready var background = get_node("ViewportContainer/Viewport/Manager/UI/Background");
 onready var global = get_tree().get_root().get_node("/root/Global");
+onready var current_marker = get_node("ViewportContainer/Current");
+
 
 export(Array) var player_pos;
 export(Array) var ia_pos;
+export(Array) var current_pos;
 
 var player_texture = load("res://Sprite/characters/idle_warrior.png");
 var enemy_texture = load("res://Sprite/characters/idle_mimic.png");
@@ -100,6 +103,7 @@ func _ready():
 	
 	pos = 0;
 	player_data._request_player_pirates();
+	current_marker.position = current_pos[turn];
 	pass;
 
 func _initializeEnemies():
@@ -170,10 +174,10 @@ func _process(delta):
 			
 			ui_handler._layers_visible(false);
 			
-			global._set_island_state(island_id, false);
-			
 			if playerPirates.size() > 0:
+				
 				_get_player_rewards();
+				global._set_island_state(island_id, false);
 				
 				for i in range(characters.size()):
 					if characters[i]._get_hp() > 0 and characters[i]._get_tag() == "Player":
@@ -429,6 +433,10 @@ func _next_turn():
 		print("current energy" + str(characters[turn]._get_energy()));
 		characters[turn]._set_energy(characters[turn]._get_energy() + energy_turn);
 		print("updated energy" + str(characters[turn]._get_energy()));
+		
+		current_marker.position = current_pos[turn];
+		
+		
 	pass;
 
 func _attack_one_character(damage, array, target, count):
@@ -627,17 +635,19 @@ func _heal_two_characters(array, heal_range, heal):
 	pass;
 
 func _check_enemy_life(enemy, count, array, target):
+	
 	if enemy._get_hp() <= 0:
 		if enemy._get_tag() == "IA":
 			ui_handler._ia_defeated();
-			manager._remove_healthbar(1, target);
+			manager._remove_healthbar(1, enemy._get_battle_id());
 		else:
-			manager._remove_healthbar(0, target);
+			manager._remove_healthbar(0, enemy._get_battle_id());
 			
 		count -= 1;
 		enemy.visible = false;
 		
 		erase_pile.append(enemy);
+	
 	pass;
 
 func _get_player_rewards():

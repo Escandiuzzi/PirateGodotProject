@@ -28,48 +28,59 @@ func _process(delta):
 	pass;
 
 func _set_characters():
-	p_characters = battleScene._get_p_characters();	
+	p_characters = battleScene._get_p_characters();
 	ia_characters = battleScene._get_ia_characters();
+	
+	for x in range(p_characters.size()):
+		p_healthbars[x]._set_parent_id(p_characters[x]._get_battle_id());
+	
+	for y in range(ia_characters.size()):
+		ia_healthbars[y]._set_parent_id(ia_characters[y]._get_battle_id());
+	
 	_update_healthbar();
 	pass;
 
 func _update_healthbar():
+	
 	for i in range(p_healthbars.size()):
-		if p_characters.size() > i :
-			if p_characters.size() > 0 and p_characters[i]._get_hp() <= 0:
-				p_healthbars[i].visible = false;
-			else:
-				p_healthbars[i].visible = true;
-				var hp = p_characters[i]._get_hp();
-				var max_hp = p_characters[i]._get_max_hp();
-				var percentage = (100 * hp) / max_hp;	
-				p_healthbars[i].set_value(percentage);
+		if p_characters.size() > i:
+			p_healthbars[i].visible = true;
+			var hp = p_characters[i]._get_hp();
+			var max_hp = p_characters[i]._get_max_hp();
+			var percentage = (100 * hp) / max_hp;	
+			p_healthbars[i].set_value(percentage);
 		else:
 			p_healthbars[i].visible = false;
-
+	
 	for i in range(ia_healthbars.size()):
-		if ia_characters.size() > i :
-			if ia_characters.size() > 0 and ia_characters[i]._get_hp() <= 0:
-				ia_healthbars[i].visible = false;
-			else:
-				ia_healthbars[i].visible = true;
-				var hp = ia_characters[i]._get_hp();
-				var max_hp = ia_characters[i]._get_max_hp();
-				var percentage = (100 * hp) / max_hp;	
-				ia_healthbars[i].set_value(percentage);
+		if ia_characters.size() > i:
+			ia_healthbars[i].visible = true;
+			var hp = ia_characters[i]._get_hp();
+			var max_hp = ia_characters[i]._get_max_hp();
+			var percentage = (100 * hp) / max_hp;
+			ia_healthbars[i].set_value(percentage);
+		else:
+			ia_healthbars[i].visible = false;
 	pass;
 
 func _remove_healthbar(id, index):
 	if id == 0:
 		if p_healthbars.size() > 0:
-			var hb = p_healthbars[index];
-			hb.visible = false;
-			#p_healthbars.erase(hb);
-			#hb.queue_free();
+			for i in range(p_healthbars.size()):
+				var hb = p_healthbars[i];
+				
+				if hb._get_parent_id() == index:
+					p_healthbars.erase(hb);
+					hb.queue_free();
+					break;
 	else:
 		if ia_healthbars.size() > 0:
-			var hb = ia_healthbars[index];
-			hb.visible = false;
-			#ia_healthbars.erase(hb);
-			#hb.queue_free();
+			for i in range(ia_healthbars.size()):
+				var hb = ia_healthbars[i];
+				
+				if hb._get_parent_id() == index:
+					hb.visible = false;
+					ia_healthbars.erase(hb);
+					hb.queue_free();
+					break;
 	pass;

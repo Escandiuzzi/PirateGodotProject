@@ -1,25 +1,27 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://BattleScene.gd" type="Script" id=1]
 [ext_resource path="res://InventoryScreen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Manager.gd" type="Script" id=3]
-[ext_resource path="res://Sprite/BattleBackgrouds/6.png" type="Texture" id=4]
-[ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=5]
-[ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=6]
-[ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=7]
-[ext_resource path="res://UIButtonHandler.gd" type="Script" id=8]
-[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=10]
-[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=11]
-[ext_resource path="res://Sprite/HUD/buttons/return_icon.png" type="Texture" id=12]
-[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=13]
-[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=14]
-[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=15]
-[ext_resource path="res://CraftButtons.tres" type="Theme" id=16]
-[ext_resource path="res://Menu/fundo2.png" type="Texture" id=17]
-[ext_resource path="res://Tema.tres" type="Theme" id=18]
-[ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Menu/Borda.png" type="Texture" id=20]
+[ext_resource path="res://Sprite/HUD/arrow-down.png" type="Texture" id=3]
+[ext_resource path="res://Manager.gd" type="Script" id=4]
+[ext_resource path="res://Sprite/BattleBackgrouds/6.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/HUD/black-strip.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/HUD/bar/background.png" type="Texture" id=7]
+[ext_resource path="res://Sprite/HUD/bar/red.png" type="Texture" id=8]
+[ext_resource path="res://HealthBar.gd" type="Script" id=9]
+[ext_resource path="res://UIButtonHandler.gd" type="Script" id=10]
+[ext_resource path="res://Sprite/HUD/buttons/attack_icon.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/HUD/buttons/special_icon.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/HUD/buttons/item_icon.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/HUD/buttons/return_icon.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/HUD/buttons/1_button.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/HUD/buttons/2_button.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/HUD/buttons/3_button.png" type="Texture" id=17]
+[ext_resource path="res://CraftButtons.tres" type="Theme" id=18]
+[ext_resource path="res://Menu/fundo2.png" type="Texture" id=19]
+[ext_resource path="res://Tema.tres" type="Theme" id=20]
+[ext_resource path="res://RecruitPirate.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Menu/Borda.png" type="Texture" id=22]
 
 [node name="BattleScene" type="Control"]
 anchor_right = 1.0
@@ -28,6 +30,7 @@ mouse_filter = 2
 script = ExtResource( 1 )
 player_pos = [ Vector2( 162, 509 ), Vector2( 361, 399 ), Vector2( 491, 549 ) ]
 ia_pos = [ Vector2( 982, 540 ), Vector2( 1136, 417 ), Vector2( 1330, 487 ) ]
+current_pos = [ Vector2( 156, 460 ), Vector2( 350, 340 ), Vector2( 480, 500 ), Vector2( 1001, 500 ), Vector2( 1160, 370 ), Vector2( 1353, 443 ) ]
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
@@ -36,11 +39,17 @@ mouse_filter = 2
 stretch = true
 
 [node name="InventoryScreen" parent="ViewportContainer" instance=ExtResource( 2 )]
+editor/display_folded = true
 visible = false
 z_index = 5
 
 [node name="CharactersContainer" type="Control" parent="ViewportContainer"]
 mouse_filter = 2
+
+[node name="Current" type="Sprite" parent="ViewportContainer"]
+position = Vector2( 730, 80 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 1440, 900 )
@@ -48,7 +57,7 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Manager" type="Node2D" parent="ViewportContainer/Viewport"]
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="UI" type="Control" parent="ViewportContainer/Viewport/Manager"]
 anchor_right = 1.0
@@ -61,7 +70,7 @@ mouse_filter = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 
@@ -69,7 +78,7 @@ stretch_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 1
 
@@ -81,52 +90,58 @@ margin_left = 65.0
 margin_top = 335.0
 margin_right = 175.0
 margin_bottom = 375.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="character2_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
 margin_left = 215.0
 margin_top = 242.0
 margin_right = 325.0
 margin_bottom = 282.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="character3_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
 margin_left = 315.605
 margin_top = 361.538
 margin_right = 425.605
 margin_bottom = 401.538
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="enemy1_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 700.0
-margin_top = 340.0
-margin_right = 810.0
-margin_bottom = 380.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+margin_left = 716.0
+margin_top = 363.0
+margin_right = 826.0
+margin_bottom = 403.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="enemy2_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 820.0
-margin_top = 249.0
-margin_right = 930.0
-margin_bottom = 289.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+margin_left = 835.0
+margin_top = 265.0
+margin_right = 945.0
+margin_bottom = 305.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="enemy3_HealthBar" type="TextureProgress" parent="ViewportContainer/Viewport/Manager/UI/HealthBars"]
-margin_left = 970.0
-margin_top = 305.0
-margin_right = 1080.0
-margin_bottom = 345.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+margin_left = 985.0
+margin_top = 320.0
+margin_right = 1095.0
+margin_bottom = 360.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="UIButtonHandler" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI"]
 editor/display_folded = true
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 
 [node name="Layer 1" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
 editor/display_folded = true
@@ -141,7 +156,7 @@ margin_top = 480.0
 margin_right = 211.176
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 9 )
+icon = ExtResource( 11 )
 flat = true
 
 [node name="SpecialButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 1"]
@@ -154,7 +169,7 @@ margin_top = 480.0
 margin_right = 521.882
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 10 )
+icon = ExtResource( 12 )
 flat = true
 
 [node name="InventoryButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 1"]
@@ -167,7 +182,7 @@ margin_top = 480.0
 margin_right = 817.294
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 11 )
+icon = ExtResource( 13 )
 flat = true
 
 [node name="Layer 2" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
@@ -182,7 +197,7 @@ margin_top = 425.81
 margin_right = 161.197
 margin_bottom = 471.81
 rect_scale = Vector2( 0.7, 0.7 )
-icon = ExtResource( 12 )
+icon = ExtResource( 14 )
 
 [node name="FirstEnemyButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 2"]
 margin_left = 158.588
@@ -190,7 +205,7 @@ margin_top = 480.0
 margin_right = 210.588
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 13 )
+icon = ExtResource( 15 )
 flat = true
 
 [node name="SecondEnemyButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 2"]
@@ -199,7 +214,7 @@ margin_top = 480.0
 margin_right = 521.882
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 14 )
+icon = ExtResource( 16 )
 flat = true
 
 [node name="ThirdEnemyButton" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 2"]
@@ -208,7 +223,7 @@ margin_top = 480.0
 margin_right = 816.941
 margin_bottom = 526.0
 rect_scale = Vector2( 2, 2 )
-icon = ExtResource( 15 )
+icon = ExtResource( 17 )
 flat = true
 
 [node name="Layer 3" type="Node2D" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler"]
@@ -224,7 +239,7 @@ margin_top = 411.025
 margin_right = 78.5727
 margin_bottom = 457.025
 rect_scale = Vector2( 0.8, 0.8 )
-icon = ExtResource( 12 )
+icon = ExtResource( 14 )
 
 [node name="SpecialButton1" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 15.0
@@ -232,7 +247,7 @@ margin_top = 499.36
 margin_right = 345.0
 margin_bottom = 583.36
 rect_scale = Vector2( 0.7, 0.7 )
-theme = ExtResource( 16 )
+theme = ExtResource( 18 )
 
 [node name="SpecialButton2" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 271.25
@@ -240,7 +255,7 @@ margin_top = 498.0
 margin_right = 601.25
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
-theme = ExtResource( 16 )
+theme = ExtResource( 18 )
 
 [node name="SpecialButton3" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 529.159
@@ -248,7 +263,7 @@ margin_top = 498.0
 margin_right = 859.159
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
-theme = ExtResource( 16 )
+theme = ExtResource( 18 )
 
 [node name="SpecialButton4" type="Button" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 margin_left = 778.508
@@ -256,13 +271,13 @@ margin_top = 498.0
 margin_right = 1108.51
 margin_bottom = 582.0
 rect_scale = Vector2( 0.7, 0.7 )
-theme = ExtResource( 16 )
+theme = ExtResource( 18 )
 
 [node name="Background" type="Sprite" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 visible = false
 position = Vector2( 530, 380.525 )
 scale = Vector2( 0.3, 0.2 )
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 
 [node name="Text" type="RichTextLabel" parent="ViewportContainer/Viewport/Manager/UI/UIButtonHandler/Layer 3"]
 visible = false
@@ -284,7 +299,7 @@ text = "Turn: 0"
 visible = false
 position = Vector2( 738, 345 )
 scale = Vector2( 0.3, 0.8 )
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 
 [node name="BattleLog" type="RichTextLabel" parent="ViewportContainer/Viewport"]
 visible = false
@@ -305,7 +320,7 @@ margin_top = 230.0
 margin_right = 846.0
 margin_bottom = 420.0
 mouse_filter = 2
-theme = ExtResource( 18 )
+theme = ExtResource( 20 )
 
 [node name="Title" type="RichTextLabel" parent="ViewportContainer/Viewport/RewardsPanel"]
 margin_left = 68.0
@@ -327,7 +342,7 @@ margin_right = 211.0
 margin_bottom = 191.0
 text = "Close"
 
-[node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 19 )]
+[node name="RecruitPirate" parent="ViewportContainer/Viewport" instance=ExtResource( 21 )]
 visible = false
 margin_left = 525.0
 margin_top = 250.0
@@ -335,7 +350,7 @@ margin_right = 955.0
 margin_bottom = 440.0
 
 [node name="Panel" parent="ViewportContainer/Viewport/RecruitPirate" index="1"]
-theme = ExtResource( 18 )
+theme = ExtResource( 20 )
 
 [node name="Text" parent="ViewportContainer/Viewport/RecruitPirate/Panel" index="0"]
 margin_top = 50.0
@@ -359,12 +374,12 @@ z_index = 20
 [node name="Paper" type="Sprite" parent="ViewportContainer/Viewport/FragmentMapContainer"]
 position = Vector2( 220, 250 )
 scale = Vector2( 0.45, 0.3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 
 [node name="Border" type="Sprite" parent="ViewportContainer/Viewport/FragmentMapContainer"]
 position = Vector2( 220, 250 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ViewportContainer/Viewport/FragmentMapContainer"]
 margin_left = 70.0
@@ -372,7 +387,7 @@ margin_top = 180.0
 margin_right = 300.0
 margin_bottom = 288.0
 rect_scale = Vector2( 1.3, 1.3 )
-theme = ExtResource( 18 )
+theme = ExtResource( 20 )
 text = "Novo fragmento de mapa encontrado!
 
 Numero de  Fragmentos x de 4"
