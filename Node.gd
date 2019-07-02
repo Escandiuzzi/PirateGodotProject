@@ -21,6 +21,10 @@ func _ready():
 	
 	pass
 
+func endGame():
+	#avengers -_-
+	get_tree().change_scene('res://EndGame.tscn');
+
 func setLoadGame():
 	newGame = false;
 
@@ -51,6 +55,8 @@ func playBackground1():
 		var audiostream = load('res://Music/'+ backgrounds[r] + '.wav');
 		$Background1.set_stream(audiostream);
 		$Background1.play();
+func stopBack():
+	$Background1.stop();
 
 func playBattleB():
 	$Background1.stop();
@@ -81,6 +87,13 @@ func _on_Background1_finished():
 func playWind():
 	if($Wind.playing == false):
 		$Wind.play();
+
+func playThunder():
+	$Thunder.play();
+	#yield(get_tree().create_timer(5.0),"timeout");
+	#$Thunder.stop();
+func stopThunder():
+	$Thunder.stop();
 
 func playNormalAt():
 	yield(get_tree().create_timer(0.5),"timeout");

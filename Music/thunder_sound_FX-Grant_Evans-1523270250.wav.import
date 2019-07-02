@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/thunder_sound_FX-Grant_Evans-1523270250.wav-b50c6439d91670ae9abf6798cd67a86a.sample"
+
+[deps]
+
+source_file="res://Music/thunder_sound_FX-Grant_Evans-1523270250.wav"
+dest_files=[ "res://.import/thunder_sound_FX-Grant_Evans-1523270250.wav-b50c6439d91670ae9abf6798cd67a86a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

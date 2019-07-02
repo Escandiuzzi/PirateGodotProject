@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Tema.tres" type="Theme" id=1]
+[ext_resource path="res://EndGame.gd" type="Script" id=2]
+[ext_resource path="res://Menu/End/PAG1.png" type="Texture" id=3]
+[ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Menu/End/PAG2.png" type="Texture" id=5]
+[ext_resource path="res://Menu/End/PAG3.png" type="Texture" id=6]
+[ext_resource path="res://Menu/Blacks.png" type="Texture" id=7]
+[ext_resource path="res://Menu/Fade/FadeIn.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 4 )
+
+[node name="EndGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Pag1" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Fundo" type="TextureRect" parent="Pag1"]
+margin_right = 1440.0
+margin_bottom = 900.0
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="Pag1"]
+margin_left = 1200.0
+margin_top = 840.0
+margin_right = 1370.0
+margin_bottom = 888.0
+custom_fonts/font = SubResource( 1 )
+text = "Próximo"
+
+[node name="Pag2" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Fundo" type="TextureRect" parent="Pag2"]
+margin_right = 1440.0
+margin_bottom = 900.0
+texture = ExtResource( 5 )
+
+[node name="Button" type="Button" parent="Pag2"]
+margin_left = 1200.0
+margin_top = 840.0
+margin_right = 1370.0
+margin_bottom = 888.0
+custom_fonts/font = SubResource( 1 )
+text = "Próximo"
+
+[node name="Pag3" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Fundo" type="TextureRect" parent="Pag3"]
+margin_right = 1440.0
+margin_bottom = 900.0
+texture = ExtResource( 6 )
+
+[node name="Button" type="Button" parent="Pag3"]
+margin_left = 1200.0
+margin_top = 840.0
+margin_right = 1370.0
+margin_bottom = 888.0
+custom_fonts/font = SubResource( 1 )
+text = "Próximo"
+
+[node name="Fim" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Fim"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="Fim"]
+visible = false
+margin_left = 584.0
+margin_top = 410.0
+margin_right = 857.0
+margin_bottom = 493.0
+custom_fonts/font = SubResource( 2 )
+text = "Continua"
+
+[node name="Button2" type="Button" parent="Fim"]
+visible = false
+margin_left = 1200.0
+margin_top = 840.0
+margin_right = 1370.0
+margin_bottom = 888.0
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
+
+[node name="FadeIn" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[connection signal="pressed" from="Pag1/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Pag2/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Pag3/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Fim/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

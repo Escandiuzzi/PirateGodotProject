@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Node.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MenuBackground.wav" type="AudioStream" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Music/shooting_star-Mike_Koenig-1132888100.wav" type="AudioStream" id=10]
 [ext_resource path="res://Music/hit.wav" type="AudioStream" id=11]
 [ext_resource path="res://Music/battleBackg.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Music/thunder_sound_FX-Grant_Evans-1523270250.wav" type="AudioStream" id=13]
 
 [node name="Global" type="Node"]
 script = ExtResource( 1 )
@@ -50,5 +51,8 @@ stream = ExtResource( 11 )
 
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+
+[node name="Thunder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 
 [connection signal="finished" from="Background1" to="." method="_on_Background1_finished"]

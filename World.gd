@@ -68,3 +68,10 @@ func _update_camera_limit(fragments):
 	camera = get_node("MainCamera");
 	camera.limit_bottom = camera_positions[fragments][3];
 	pass;
+
+func fadeZ():
+	$FadeIn.show();
+	$FadeIn.fade_in();
+
+func _on_FadeIn_fade_finished():
+	global.endGame();

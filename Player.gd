@@ -30,8 +30,7 @@ onready var data = get_tree().get_root().get_node("/root/PlayerData");
 onready var sprite = $"Player Sprite";
 onready var global = get_node("/root/Global");
 onready var camera = $Camera2D;
-
-
+onready var wwo = get_node("/root/World");
 var move;
 var current_pirate = null;
 
@@ -61,11 +60,21 @@ func _input(event):
 			hudObj.visible = true;
 	if event.is_action_pressed("key_b"):
 		get_tree().change_scene("res://CraftingStation.tscn")
+	if event.is_action_pressed("key_t"):
+		print('testedata');
+		data._add_map_fragment();
+		data._add_map_fragment();
+		data._add_map_fragment();
+		data._add_map_fragment();
+		
 	pass;
 
 # Performed on each step
 func _process(delta):
-	
+	if(data._get_map_fragment() == 4):
+		get_tree().get_root().get_node("World").fadeZ();
+		#get_node("../../").fadeZ();
+		#wwo.fadeZ();
 	# Only do stuff if we have a current path
 	if path and move:
 
