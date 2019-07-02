@@ -518,7 +518,6 @@ margin_bottom = -390.42
 visible = true
 
 [node name="Regions" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Tutorial" type="Node" parent="Regions"]
 editor/display_folded = true
@@ -545,7 +544,6 @@ position = Vector2( -11.116, 26.8675 )
 shape = SubResource( 1 )
 
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland1" instance=ExtResource( 10 )]
-editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu" index="0"]
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
@@ -603,7 +601,6 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 11 )
 
 [node name="BossIsland" parent="Regions/Tutorial" instance=ExtResource( 9 )]
-editor/display_folded = true
 scale = Vector2( 0.7, 0.7 )
 island_id = 1
 path = Vector2( 0, 226 )
@@ -630,7 +627,7 @@ is_bossIsland = true
 islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
-difficulty = 0.25
+difficulty = 1.15
 enemies = 3
 islandSize = 3
 commonSize = 2
@@ -777,7 +774,6 @@ editor/display_folded = true
 editor/display_folded = false
 
 [node name="Sul" type="Node" parent="Regions"]
-editor/display_folded = true
 
 [node name="RenewableIsland1" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -830,7 +826,6 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 25 )
 
 [node name="ResourcesIsland" parent="Regions/Sul" instance=ExtResource( 9 )]
-editor/display_folded = true
 position = Vector2( 147.701, 2300 )
 rotation = 1.57079
 island_id = 6
@@ -851,6 +846,7 @@ shape = SubResource( 7 )
 island_states = [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ]
 
 [node name="Island" parent="Regions/Sul/ResourcesIsland/IslandMenu/IslandMenu" index="5"]
+editor/display_folded = false
 islandType = "Material"
 regionName = "Sul"
 miningTime = 80
@@ -946,6 +942,7 @@ scale = Vector2( 0.380859, 0.375 )
 texture = ExtResource( 25 )
 
 [node name="ResourcesIsland2" parent="Regions/Sul" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( -795.32, 1586.43 )
 island_id = 9
 path = Vector2( -580, 500 )
@@ -1893,6 +1890,8 @@ margin_bottom = 12100.0
 [editable path="Regions/Sul/ResourcesIsland"]
 
 [editable path="Regions/Sul/ResourcesIsland/IslandMenu"]
+
+[editable path="Regions/Sul/ResourcesIsland/IslandMenu/IslandMenu/Island"]
 
 [editable path="Regions/Sul/PortIsland"]
 
