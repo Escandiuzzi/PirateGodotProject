@@ -451,7 +451,7 @@ is_bossIsland = true
 islandType = "Item"
 regionName = "Sul"
 scenePath = "res://World.tscn"
-difficulty = 1.15
+difficulty = 0.25
 enemies = 3
 islandSize = 3
 commonSize = 2
@@ -598,6 +598,7 @@ editor/display_folded = true
 editor/display_folded = false
 
 [node name="Sul" type="Node" parent="Regions"]
+editor/display_folded = true
 
 [node name="RenewableIsland1" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -618,6 +619,7 @@ position = Vector2( 0.000244141, 19.3428 )
 shape = SubResource( 6 )
 
 [node name="IslandMenu" parent="Regions/Sul/RenewableIsland1" instance=ExtResource( 10 )]
+editor/display_folded = true
 
 [node name="IslandMenu" parent="Regions/Sul/RenewableIsland1/IslandMenu" index="0"]
 island_states = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
@@ -691,9 +693,6 @@ position = Vector2( -39.5163, 1230 )
 island_id = 7
 path = Vector2( -190, -670 )
 
-[node name="Area2D" parent="Regions/Sul/PortIsland" index="1"]
-editor/display_folded = true
-
 [node name="CollisionShape2D" parent="Regions/Sul/PortIsland/Area2D" index="0"]
 position = Vector2( 72.5807, -30 )
 shape = SubResource( 8 )
@@ -704,7 +703,6 @@ scale = Vector2( 0.453509, 0.453509 )
 texture = ExtResource( 29 )
 
 [node name="IslandMenu" parent="Regions/Sul/PortIsland" instance=ExtResource( 24 )]
-editor/display_folded = true
 position = Vector2( 89.5163, -19.9999 )
 
 [node name="IslandMenu" parent="Regions/Sul/PortIsland/IslandMenu" index="0"]
@@ -799,6 +797,7 @@ scale = Vector2( 0.428997, 0.428997 )
 texture = ExtResource( 26 )
 
 [node name="BossIsland" parent="Regions/Sul" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 830, 2783.05 )
 scale = Vector2( 0.7, 0.7 )
 island_id = 10
@@ -843,6 +842,7 @@ scale = Vector2( 0.767406, 0.767406 )
 texture = ExtResource( 31 )
 
 [node name="Sudeste" type="Node" parent="Regions"]
+editor/display_folded = true
 
 [node name="Portisland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1022,6 +1022,7 @@ scale = Vector2( 0.418945, 0.418945 )
 texture = ExtResource( 33 )
 
 [node name="BossIsland" parent="Regions/Sudeste" instance=ExtResource( 9 )]
+editor/display_folded = true
 position = Vector2( 1.96143, 5690 )
 scale = Vector2( 0.7, 0.7 )
 island_id = 16
@@ -1060,6 +1061,7 @@ maxRewards = 6
 texture = ExtResource( 40 )
 
 [node name="Nordeste" type="Node" parent="Regions"]
+editor/display_folded = true
 
 [node name="PortIsland" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1284,6 +1286,7 @@ maxRewards = 8
 texture = ExtResource( 49 )
 
 [node name="Norte" type="Node" parent="Regions"]
+editor/display_folded = true
 
 [node name="PortIsland" parent="Regions/Norte" instance=ExtResource( 9 )]
 editor/display_folded = true
