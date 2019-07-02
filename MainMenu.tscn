@@ -48,7 +48,6 @@ margin_right = 1440.0
 margin_bottom = 900.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-text = "Beta Version"
 
 [node name="Centro" type="Control" parent="."]
 editor/display_folded = true

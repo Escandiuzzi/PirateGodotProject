@@ -81,6 +81,8 @@ func _startMining():
 	
 	miningPoints = miningPoints * 60;
 	
+	miningPoints = 15;
+	
 	print("Started mining");
 	print("expected to end in ");
 	print(miningPoints);
