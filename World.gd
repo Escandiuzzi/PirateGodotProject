@@ -22,6 +22,10 @@ var ids = [];
 #onready var menu = get_node("/root/MainMenu");
 var MenuOption = "Start";
 
+func _ready():
+	_update_camera_limit(data._get_map_fragment());
+	pass;
+
 func _unhandled_input(event):
 	if Input.is_action_pressed("right_click"):
 		_calculate_new_path();

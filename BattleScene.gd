@@ -168,7 +168,7 @@ func _process(delta):
 			
 			elif current_character._get_tag() == "IA" and !animating:
 				_ia_action();
-			
+				
 		else:
 			battle = false;
 			
@@ -195,8 +195,8 @@ func _process(delta):
 							fragment_text.text = "Novo fragmento de mapa encontrado! \n \n \n";
 							fragment_text.text += "Numero de Fragmentos encontrados " + str(player_data._get_map_fragment()) + " de 4";
 						else:
-							fragment_text.text = "Arghhh!!! Encontramos todos os pedaços! \n \n \n";
-				
+							fragment_text.text = "Yarrrr!!! Encontramos todos os pedaços! \n \n \n";
+					player_data._saveData();
 			else:
 				_remove_dead_pirates();
 				global.stopBattleB();

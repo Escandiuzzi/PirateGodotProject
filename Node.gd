@@ -3,6 +3,8 @@ extends Node
 
 export(int) var islands_count;
 
+
+
 var newGame = true;
 var started = false;
 
