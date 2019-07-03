@@ -1,18 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menu/ReturnButton.gd" type="Script" id=1]
-[ext_resource path="res://Menu/ConfigMenu.png" type="Texture" id=2]
+[ext_resource path="res://Menu/ConfigMenu2.png" type="Texture" id=2]
 [ext_resource path="res://Tema.tres" type="Theme" id=3]
 [ext_resource path="res://Menu/The Foregen Regular.otf" type="DynamicFontData" id=4]
-[ext_resource path="res://Menu/The Foregen Rough One.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://Menu/VolumeS.gd" type="Script" id=5]
+[ext_resource path="res://Menu/The Foregen Rough One.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 65
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 60
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -33,6 +38,27 @@ theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 text = "Voltar"
 
+[node name="Vol" type="Label" parent="."]
+margin_left = 613.0
+margin_top = 250.0
+margin_right = 827.0
+margin_bottom = 333.0
+custom_fonts/font = SubResource( 2 )
+text = "Volume"
+align = 1
+
+[node name="VolumeS" type="HSlider" parent="."]
+margin_left = 470.0
+margin_top = 350.0
+margin_right = 968.0
+margin_bottom = 387.0
+theme = ExtResource( 3 )
+min_value = -65.0
+max_value = 0.0
+rounded = true
+ticks_on_borders = false
+script = ExtResource( 5 )
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 editor/display_folded = true
 visible = false
@@ -51,7 +77,7 @@ margin_bottom = 450.0
 visible = false
 margin_right = 154.0
 margin_bottom = 62.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.898039, 0.772549, 0.286275, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
@@ -59,3 +85,4 @@ custom_constants/shadow_offset_y = 5
 text = "Opções"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="value_changed" from="VolumeS" to="VolumeS" method="_on_VolumeS_value_changed"]
