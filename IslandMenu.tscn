@@ -27,11 +27,11 @@ scale = Vector2( 0.133777, 0.205668 )
 texture = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="IslandMenu"]
-margin_left = 87.0
-margin_top = 18.501
-margin_right = 167.0
-margin_bottom = 41.501
-text = "Island"
+margin_left = 60.0
+margin_top = 19.0
+margin_right = 218.0
+margin_bottom = 173.0
+text = "Ilha de Coleta"
 
 [node name="Close" type="Button" parent="IslandMenu"]
 margin_left = 80.0
@@ -39,7 +39,7 @@ margin_top = 143.0
 margin_right = 141.0
 margin_bottom = 170.0
 rect_pivot_offset = Vector2( 30.5, 10 )
-text = "Close"
+text = "Fechar"
 
 [node name="MineProgress" type="TextureProgress" parent="IslandMenu"]
 margin_left = 9.99999
@@ -65,6 +65,7 @@ margin_bottom = 120.0
 theme = ExtResource( 1 )
 
 [node name="PopupMenu" parent="IslandMenu/Island" index="3"]
+editor/display_folded = true
 margin_left = -149.093
 margin_right = 198.907
 theme = ExtResource( 1 )
@@ -75,13 +76,11 @@ scale = Vector2( 0.205993, 0.297288 )
 texture = ExtResource( 3 )
 
 [node name="RichTextLabel" parent="IslandMenu/Island/PopupMenu" index="3"]
+margin_left = 106.021
+margin_top = -34.676
+margin_right = 309.021
+margin_bottom = 97.324
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-
-[node name="CheckBox" parent="IslandMenu/Island/PopupMenu" index="4"]
-editor/display_folded = false
-
-[node name="Sprite" parent="IslandMenu/Island/PopupMenu/CheckBox" index="0"]
-editor/display_folded = true
 
 [node name="Area2D" parent="IslandMenu/Island/PopupMenu/CheckBox/Sprite" index="0"]
 editor/display_folded = true
@@ -91,12 +90,14 @@ margin_left = 136.0
 margin_top = 166.0
 margin_right = 209.0
 margin_bottom = 198.0
+text = "Iniciar"
 
 [node name="CloseButton2" parent="IslandMenu/Island/PopupMenu" index="15"]
 margin_left = 289.0
 margin_top = -31.0
 margin_right = 336.0
 margin_bottom = -3.0
+text = "Fechar"
 
 [node name="Button2" parent="IslandMenu/Island" index="4"]
 margin_left = 66.0739
@@ -106,6 +107,7 @@ margin_bottom = 48.028
 rect_scale = Vector2( 0.6, 0.6 )
 
 [node name="RewardMenu" parent="IslandMenu/Island" index="5"]
+editor/display_folded = true
 mouse_filter = 2
 theme = ExtResource( 1 )
 

@@ -108,10 +108,10 @@ func _on_SpecialButton_mouse_entered(extra_arg_0):
 	background.visible = true;
 	text.visible = true;
 	
-	text.text = "Damage: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("damage")) + "\n";
-	text.text += "Heal: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("heal")) + "\n";
-	text.text += "Range: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("range")) + "\n";
-	text.text += "Energy: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("energy")) + "\n";
+	text.text = "Dano: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("damage")) + "\n";
+	text.text += "Cura: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("heal")) + "\n";
+	text.text += "Raio de ação: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("range")) + "\n";
+	text.text += "Energia: " + str(current_character._get_special_attack(extra_arg_0)._get_stat("energy")) + "\n";
 	pass;
 
 func _on_SpecialButton_mouse_exited():

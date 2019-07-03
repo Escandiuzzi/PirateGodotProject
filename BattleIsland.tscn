@@ -16,9 +16,10 @@ script = ExtResource( 1 )
 [node name="Button" type="Button" parent="."]
 margin_right = 45.0
 margin_bottom = 20.0
-text = "Open"
+text = "Abrir"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
@@ -33,14 +34,15 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PopupMenu"]
-margin_left = 111.073
-margin_top = -38.0
-margin_right = 236.073
-margin_bottom = 6.0
-text = "      Pirates Slots
-Island Capacity : 3"
+margin_left = 104.91
+margin_top = -36.7456
+margin_right = 356.91
+margin_bottom = 45.2544
+text = "      Sua Equipe
+Capacidade da ilha : 3"
 
 [node name="CheckBox" type="CheckBox" parent="PopupMenu"]
+editor/display_folded = true
 visible = false
 margin_left = 40.0
 margin_top = 60.0
@@ -275,14 +277,14 @@ margin_left = 135.744
 margin_top = 177.903
 margin_right = 208.744
 margin_bottom = 197.903
-text = "Start"
+text = "Iniciar"
 
 [node name="CloseButton2" type="Button" parent="PopupMenu"]
 margin_left = 288.734
 margin_top = -22.5031
 margin_right = 335.734
 margin_bottom = -2.5031
-text = "Close"
+text = "Fechar"
 
 [node name="PirateStat" type="TextEdit" parent="PopupMenu"]
 visible = false

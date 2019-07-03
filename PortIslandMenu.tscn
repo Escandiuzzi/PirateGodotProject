@@ -6,9 +6,11 @@
 [ext_resource path="res://PortIsland.tscn" type="PackedScene" id=4]
 
 [node name="IslandMenu" type="Node2D"]
+editor/display_folded = true
 position = Vector2( 0, 0.323532 )
 
 [node name="IslandMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
 margin_left = -110.0
 margin_top = -89.5367
 margin_right = 110.0
@@ -36,7 +38,7 @@ margin_top = 143.717
 margin_right = 67.5111
 margin_bottom = 170.717
 rect_pivot_offset = Vector2( 30.5, 10 )
-text = "Close"
+text = "Fechar"
 
 [node name="Save" type="Button" parent="IslandMenu"]
 margin_left = 151.338
@@ -44,7 +46,7 @@ margin_top = 143.717
 margin_right = 212.338
 margin_bottom = 170.717
 rect_pivot_offset = Vector2( 30.5, 10 )
-text = "Save"
+text = "Salvar"
 
 [node name="Island" parent="IslandMenu" instance=ExtResource( 4 )]
 islandSize = 1
@@ -54,9 +56,6 @@ margin_left = 54.0
 margin_top = 50.8304
 margin_right = 166.0
 margin_bottom = 81.8304
-
-[node name="PopupMenu" parent="IslandMenu/Island" index="3"]
-editor/display_folded = true
 
 [node name="CraftButton" type="Button" parent="IslandMenu"]
 margin_left = 72.0

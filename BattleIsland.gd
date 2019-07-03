@@ -61,8 +61,8 @@ func _ready():
 		pirateId.append(null);
 
 	text.text += "              " + islandType + "    \n";
-	text.text += "\n Difficulty: " + str(difficulty) + "\n";
-	text.text += "\n Number of enemies: " + str(enemies) + "\n";
+	text.text += "\n Dificuldade: " + str(difficulty) + "\n";
+	text.text += "\n Numero de inimigos: " + str(enemies) + "\n";
 	pass 
 
 func _clearIsland():

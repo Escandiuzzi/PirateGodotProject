@@ -52,23 +52,23 @@ func _on_Area2D_mouse_entered(extra_arg_0):
 	var pirate = player._get_pirate(extra_arg_0);
 	if islandType == "Resource":
 		pirateStat.text = "";
-		pirateStat.text += "Mining: " + str(pirate._get_stat("mining")) + "\n";
-		pirateStat.text += "Battle: " + str(pirate._get_stat("atk")) + "\n";	
-		pirateStat.text += "Cooking: " + str(pirate._get_stat("cooking")) +"\n";
+		pirateStat.text += "Coleta: " + str(pirate._get_stat("mining")) + "\n";
+		pirateStat.text += "Batalha: " + str(pirate._get_stat("atk")) + "\n";	
+		pirateStat.text += "Cozinha: " + str(pirate._get_stat("cooking")) +"\n";
 		pirateStat.rect_position = canvasSlots[extra_arg_0].rect_position;
 	elif islandType == "Battle":
 		pirateStat.text = "";
 		pirateStat.text += "HP: " + str(pirate._get_hp()) +  " / " + str(pirate._get_max_hp()) + "\n";	
-		pirateStat.text += "Attack: " + str(pirate._get_stat("atk")) +  " - " + str(pirate._get_stat("atk") + 2) + "\n";	
-		pirateStat.text += "Energy: " + str(pirate._get_energy()) +  " / " + str(pirate._get_max_energy()) + "\n";
+		pirateStat.text += "Ataque: " + str(pirate._get_stat("atk")) +  " - " + str(pirate._get_stat("atk") + 2) + "\n";	
+		pirateStat.text += "Energia: " + str(pirate._get_energy()) +  " / " + str(pirate._get_max_energy()) + "\n";
 		if pirate._get_weapon() != null:
-			pirateStat.text += "Weapon: " + pirate._get_weapon()._get_name() + "\n";
-			pirateStat.text += "Weapon Durability: " + str(pirate._get_weapon()._get_stat("durability")) + "\n";
+			pirateStat.text += "Arma: " + pirate._get_weapon()._get_name() + "\n";
+			pirateStat.text += "Durabilidade da arma: " + str(pirate._get_weapon()._get_stat("durability")) + "\n";
 		if  pirate._get_shield() != null:
-			pirateStat.text += "Shield: " + pirate._get_shield()._get_name() + "\n";
-			pirateStat.text += "Shield Durability: " + str(pirate._get_shield()._get_stat("durability")) + "\n";
-		pirateStat.text += "AtkBonus: " + str(pirate._get_stat("atkBonus")) + "\n";
-		pirateStat.text += "DefBonus: " + str(pirate._get_stat("defBonus")) + "\n";	
+			pirateStat.text += "Escudo: " + pirate._get_shield()._get_name() + "\n";
+			pirateStat.text += "Durabilidade do escudo: " + str(pirate._get_shield()._get_stat("durability")) + "\n";
+		pirateStat.text += "AtqBonus: " + str(pirate._get_stat("atkBonus")) + "\n";
+		pirateStat.text += "EscBonus: " + str(pirate._get_stat("defBonus")) + "\n";	
 		pirateStat.rect_position = canvasSlots[extra_arg_0].rect_position;
 	pirateStat.show();	
 	pass;

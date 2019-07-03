@@ -6,8 +6,10 @@
 [ext_resource path="res://BattleIsland.tscn" type="PackedScene" id=4]
 
 [node name="IslandMenu" type="Node2D"]
+editor/display_folded = true
 
 [node name="IslandMenu" type="PopupMenu" parent="."]
+editor/display_folded = true
 margin_left = -110.0
 margin_top = -90.0
 margin_right = 110.0
@@ -34,9 +36,10 @@ margin_top = 150.0
 margin_right = 140.0
 margin_bottom = 170.0
 rect_pivot_offset = Vector2( 30.5, 10 )
-text = "Close"
+text = "Fechar"
 
 [node name="Island" parent="IslandMenu" instance=ExtResource( 4 )]
+editor/display_folded = true
 
 [node name="Button" parent="IslandMenu/Island" index="0"]
 margin_left = 86.0

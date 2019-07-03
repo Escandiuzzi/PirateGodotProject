@@ -330,21 +330,21 @@ func _on_Area2D_mouse_entered():
 	if get_tree().get_current_scene().get_name() == "BattleScene":
 		pirateStat.text = "";
 		pirateStat.text += "HP: " + str(_get_hp()) +  " / " + str(max_hp) + "\n";	
-		pirateStat.text += "Attack: " + str(_get_stat("atk")) +  " - " + str(_get_stat("atk") + 2) + "\n";	
-		pirateStat.text += "Energy: " + str(energy) +  " / " + str(max_energy) + "\n";
+		pirateStat.text += "Ataque: " + str(_get_stat("atk")) +  " - " + str(_get_stat("atk") + 2) + "\n";	
+		pirateStat.text += "Energia: " + str(energy) +  " / " + str(max_energy) + "\n";
 		if weapon != null:
-			pirateStat.text += "Weapon: " + weapon._get_name() + "\n";
-			pirateStat.text += "Weapon Durability: " + str(weapon._get_stat("durability")) + "\n";
+			pirateStat.text += "Arma: " + weapon._get_name() + "\n";
+			pirateStat.text += "Durabilidade da arma: " + str(weapon._get_stat("durability")) + "\n";
 		if shield != null:
-			pirateStat.text += "Shield: " + shield._get_name() + "\n";
-			pirateStat.text += "Shield Durability: " + str(shield._get_stat("durability")) + "\n";
-		pirateStat.text += "AtkBonus: " + str(_get_stat("atkBonus")) + "\n";
-		pirateStat.text += "DefBonus: " + str(_get_stat("defBonus")) + "\n";
+			pirateStat.text += "Escudo: " + shield._get_name() + "\n";
+			pirateStat.text += "Durabilidade do escudo: " + str(shield._get_stat("durability")) + "\n";
+		pirateStat.text += "AtqBonus: " + str(_get_stat("atkBonus")) + "\n";
+		pirateStat.text += "EscBonus: " + str(_get_stat("defBonus")) + "\n";
 	else:
 		pirateStat.text = "";
-		pirateStat.text += "Mining: " + str(_get_stat("mining")) + "\n";
-		pirateStat.text += "Battle: " + str(_get_stat("atk")) + "\n";	
-		pirateStat.text += "Cooking: " + str(_get_stat("cooking")) +"\n";
+		pirateStat.text += "Coletor: " + str(_get_stat("mining")) + "\n";
+		pirateStat.text += "Batalha: " + str(_get_stat("atk")) + "\n";	
+		pirateStat.text += "Cozinha: " + str(_get_stat("cooking")) +"\n";
 		pirateStat.set_scale(Vector2(1.8, 1.8));
 		
 	

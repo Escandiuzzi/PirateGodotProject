@@ -24,10 +24,9 @@ one_shot = true
 [node name="Button" type="Button" parent="."]
 margin_right = 45.0
 margin_bottom = 20.0
-text = "Open"
+text = "Abrir"
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_left = -0.451874
 margin_right = 347.548
 margin_bottom = 206.0
@@ -46,8 +45,8 @@ margin_left = 111.073
 margin_top = -38.0
 margin_right = 236.073
 margin_bottom = 6.0
-text = "      Pirates Slots
-Island Capacity : 3"
+text = "      Sua Equipe
+Capacidade da ilha : 3"
 
 [node name="CheckBox" type="CheckBox" parent="PopupMenu"]
 editor/display_folded = true
@@ -296,11 +295,10 @@ margin_right = 168.15
 margin_bottom = 41.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 5 )
-text = "Collect"
+text = "Coletar"
 script = ExtResource( 6 )
 
 [node name="RewardMenu" type="PopupMenu" parent="."]
-editor/display_folded = true
 margin_left = 68.0
 margin_right = 306.0
 margin_bottom = 133.0
@@ -317,10 +315,9 @@ margin_left = 88.0
 margin_top = 103.472
 margin_right = 144.0
 margin_bottom = 123.472
-text = "Collect"
+text = "Coletar"
 
 [node name="RecruitPirate" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
 visible = false
 
 [connection signal="pressed" from="Button" to="PopupMenu" method="_on_Button_pressed"]
