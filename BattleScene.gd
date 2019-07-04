@@ -179,8 +179,8 @@ func _process(delta):
 				_get_player_rewards();
 				global._set_island_state(island_id, false);
 				
-				for i in range(characters.size()):
-					if characters[i]._get_hp() > 0 and characters[i]._get_tag() == "Player":
+				for i in range(playerPirates.size()):
+					if playerPirates[i]._get_hp() > 0:
 						playerPirates[i]._set_post_battle_bonus(12);
 						playerPirates[i]._set_busy(false);
 						playerPirates[i].get_node("Sprite").visible = false;
