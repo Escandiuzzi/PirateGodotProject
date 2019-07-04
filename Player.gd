@@ -51,27 +51,18 @@ func _ready():
 	
 
 func _input(event):
-	if event.is_action_pressed("key_k") and crewCount < 10:
-		data._recruitPirate(0);
+	
 	if event.is_action_pressed("key_v"):
 		if hudObj.visible == true:
 				hudObj.visible = false;
 		else:
 			hudObj.visible = true;
-	if event.is_action_pressed("key_b"):
-		get_tree().change_scene("res://CraftingStation.tscn")
-	if event.is_action_pressed("key_t"):
-		print('testedata');
-		data._add_map_fragment();
-		data._add_map_fragment();
-		data._add_map_fragment();
-		data._add_map_fragment();
-		
+			
 	pass;
 
 # Performed on each step
 func _process(delta):
-	if(data._get_map_fragment() == 4):
+	if(data._get_map_fragment() >= 4):
 		get_tree().get_root().get_node("World").fadeZ();
 		#get_node("../../").fadeZ();
 		#wwo.fadeZ();

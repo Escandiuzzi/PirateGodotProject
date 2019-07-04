@@ -22,7 +22,7 @@ var ids = [];
 #onready var menu = get_node("/root/MainMenu");
 var MenuOption = "Start";
 
-func _ready():
+func _process(delta):
 	_update_camera_limit(data._get_map_fragment());
 	pass;
 

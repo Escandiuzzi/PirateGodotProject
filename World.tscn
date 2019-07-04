@@ -518,6 +518,7 @@ margin_bottom = -390.42
 visible = true
 
 [node name="Regions" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Tutorial" type="Node" parent="Regions"]
 editor/display_folded = true
@@ -577,9 +578,6 @@ margin_bottom = 119.0
 [node name="PopupMenu" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island" index="3"]
 islandType = "Resource"
 
-[node name="CheckBox" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
-editor/display_folded = true
-
 [node name="Sprite" parent="Regions/Tutorial/ResourcesIsland1/IslandMenu/IslandMenu/Island/PopupMenu/CheckBox" index="0"]
 editor/display_folded = false
 
@@ -635,12 +633,6 @@ uncommonSize = 1
 rareSize = 1
 maxRewards = 1
 
-[node name="PopupMenu" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu/Island" index="1"]
-editor/display_folded = true
-
-[node name="CheckBox" parent="Regions/Tutorial/BossIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
-editor/display_folded = true
-
 [node name="Sprite" parent="Regions/Tutorial/BossIsland/IslandMenu" index="1"]
 position = Vector2( 0, -3.41143 )
 scale = Vector2( 0.582226, 0.582226 )
@@ -684,9 +676,6 @@ recruit_seed = 85
 
 [node name="PopupMenu" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island" index="3"]
 islandType = "Resource"
-
-[node name="CheckBox" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
-editor/display_folded = true
 
 [node name="PirateStat" parent="Regions/Tutorial/RenewableIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="16"]
 text = "asdasdasdasdasd"
@@ -765,13 +754,11 @@ texture = ExtResource( 23 )
 [node name="IslandMenu" parent="Regions/Tutorial/PortIsland1" instance=ExtResource( 24 )]
 position = Vector2( 0, 0.323547 )
 
-[node name="Island" parent="Regions/Tutorial/PortIsland1/IslandMenu/IslandMenu" index="5"]
-editor/display_folded = true
-
 [node name="PopupMenu" parent="Regions/Tutorial/PortIsland1/IslandMenu/IslandMenu/Island" index="3"]
 editor/display_folded = false
 
 [node name="Sul" type="Node" parent="Regions"]
+editor/display_folded = true
 
 [node name="RenewableIsland1" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -882,12 +869,6 @@ texture = ExtResource( 29 )
 
 [node name="IslandMenu" parent="Regions/Sul/PortIsland" instance=ExtResource( 24 )]
 position = Vector2( 89.5163, -19.9999 )
-
-[node name="IslandMenu" parent="Regions/Sul/PortIsland/IslandMenu" index="0"]
-editor/display_folded = true
-
-[node name="Island" parent="Regions/Sul/PortIsland/IslandMenu/IslandMenu" index="5"]
-editor/display_folded = true
 
 [node name="RenewableIsland2" parent="Regions/Sul" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -1009,9 +990,6 @@ uncommonSize = 1
 rareSize = 2
 maxRewards = 8
 
-[node name="CheckBox" parent="Regions/Sul/BossIsland/IslandMenu/IslandMenu/Island/PopupMenu" index="4"]
-editor/display_folded = true
-
 [node name="Sprite" parent="Regions/Sul/BossIsland/IslandMenu" index="1"]
 position = Vector2( 4.11299, -5.99988 )
 scale = Vector2( 0.767406, 0.767406 )
@@ -1041,14 +1019,7 @@ scale = Vector2( 0.453509, 0.453509 )
 texture = ExtResource( 32 )
 
 [node name="IslandMenu" parent="Regions/Sudeste/Portisland" instance=ExtResource( 24 )]
-editor/display_folded = true
 position = Vector2( 89.5163, -19.9999 )
-
-[node name="IslandMenu" parent="Regions/Sudeste/Portisland/IslandMenu" index="0"]
-editor/display_folded = true
-
-[node name="Island" parent="Regions/Sudeste/Portisland/IslandMenu/IslandMenu" index="5"]
-editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Sudeste" instance=ExtResource( 9 )]
 position = Vector2( -690, 3740 )
@@ -1269,14 +1240,7 @@ scale = Vector2( 0.453509, 0.453509 )
 texture = ExtResource( 41 )
 
 [node name="IslandMenu" parent="Regions/Nordeste/PortIsland" instance=ExtResource( 24 )]
-editor/display_folded = true
 position = Vector2( 89.5163, -19.9999 )
-
-[node name="IslandMenu" parent="Regions/Nordeste/PortIsland/IslandMenu" index="0"]
-editor/display_folded = true
-
-[node name="Island" parent="Regions/Nordeste/PortIsland/IslandMenu/IslandMenu" index="5"]
-editor/display_folded = true
 
 [node name="ResourcesIsland1" parent="Regions/Nordeste" instance=ExtResource( 9 )]
 editor/display_folded = true
